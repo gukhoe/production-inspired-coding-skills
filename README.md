@@ -1,6 +1,8 @@
-# Manufacturing AI Coding Skills
+# Production-Inspired Coding Skills
 
-Coding skills that apply manufacturing production, quality, and verification processes to AI software development. The goal is to improve how code is specified, produced, checked, and changed across software domains.
+Applying manufacturing production standards and quality-control methods to AI-assisted software development.
+
+These skills adapt production planning, standard work, mistake-proofing, and verification processes to how code is specified, written, checked, and changed across software domains.
 
 Current stage: **original baseline preserved, evidence reviewed, improvements prepared**. All 16 `SKILL.md` files retain the exact bytes supplied by the user. The proposed behavioral improvements have not yet been applied.
 
