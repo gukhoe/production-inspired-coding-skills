@@ -1,0 +1,13 @@
+{
+  "naive": {
+    "test_invocations": 5,
+    "wall_seconds": 4.1887,
+    "all_passed": true
+  },
+  "risk_based": {
+    "test_invocations": 1,
+    "wall_seconds": 0.9354,
+    "all_passed": true
+  },
+  "note": "Deterministic synthetic comparison: naive reruns unchanged tests five times; risk_based once. No LLM called. Not evidence of coding quality improvement."
+}

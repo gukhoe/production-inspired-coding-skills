@@ -1,0 +1,102 @@
+{
+  "A": {
+    "n": 30,
+    "core_pass": 30,
+    "structured_and_reusable": 30,
+    "assertion_evidence": 25,
+    "beyond_example_test": 25,
+    "no_assertion_evidence": 5,
+    "standalone_authored_docs": 0,
+    "explicit_raise": 12,
+    "finite_numeric_check": 4,
+    "stdlib_date_validation": 3,
+    "ordinal_label_counts": {
+      "S": {
+        "2": 30
+      },
+      "R": {
+        "2": 30
+      },
+      "E": {
+        "1": 16,
+        "0": 4,
+        "2": 10
+      },
+      "T": {
+        "2": 25,
+        "0": 5
+      },
+      "D": {
+        "2": 23,
+        "1": 7
+      }
+    }
+  },
+  "B": {
+    "n": 30,
+    "core_pass": 30,
+    "structured_and_reusable": 30,
+    "assertion_evidence": 27,
+    "beyond_example_test": 27,
+    "no_assertion_evidence": 3,
+    "standalone_authored_docs": 0,
+    "explicit_raise": 11,
+    "finite_numeric_check": 4,
+    "stdlib_date_validation": 3,
+    "ordinal_label_counts": {
+      "S": {
+        "2": 30
+      },
+      "R": {
+        "2": 30
+      },
+      "E": {
+        "1": 19,
+        "0": 3,
+        "2": 8
+      },
+      "T": {
+        "2": 27,
+        "0": 3
+      },
+      "D": {
+        "2": 23,
+        "1": 7
+      }
+    }
+  },
+  "C": {
+    "n": 30,
+    "core_pass": 30,
+    "structured_and_reusable": 30,
+    "assertion_evidence": 27,
+    "beyond_example_test": 26,
+    "no_assertion_evidence": 3,
+    "standalone_authored_docs": 18,
+    "explicit_raise": 6,
+    "finite_numeric_check": 2,
+    "stdlib_date_validation": 3,
+    "ordinal_label_counts": {
+      "S": {
+        "2": 30
+      },
+      "R": {
+        "2": 30
+      },
+      "E": {
+        "1": 15,
+        "0": 8,
+        "2": 7
+      },
+      "T": {
+        "2": 26,
+        "0": 3,
+        "1": 1
+      },
+      "D": {
+        "2": 28,
+        "1": 2
+      }
+    }
+  }
+}

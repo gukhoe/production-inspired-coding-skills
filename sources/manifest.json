@@ -1,0 +1,1058 @@
+{
+  "date": "2026-11-02",
+  "archives": [
+    {
+      "path": "sources/Manufacturing_AI_Process_Control_Skills_v1.zip",
+      "sha256": "144498e0129db7d4caa709284c5513d248291e72ab2e90d226b3d6866e66f010"
+    },
+    {
+      "path": "sources/Manufacturing_AI_Code_Completeness_Review (1).zip",
+      "sha256": "2e4d6d09e30f9d89a387a4f572f5e33af1a4ae3f6b3f7588953e4f2c4607852a"
+    },
+    {
+      "path": "sources/Manufacturing_ABC_Benchmark_v1.zip",
+      "sha256": "dd69f43268e5f8e5db91de7ee76898ad13ac3446c41d23d3d2249c0763dc4639"
+    }
+  ],
+  "files": [
+    {
+      "path": "skills/GITHUB_RESEARCH.md",
+      "archive": "Manufacturing_AI_Process_Control_Skills_v1.zip",
+      "entry": "Manufacturing_AI_Process_Control_Skills/GITHUB_RESEARCH.md",
+      "sha256": "b7ca9e7808d8148a179b17700be6da20817bfeb9e8c4b31b69bd0d1229cd03b7"
+    },
+    {
+      "path": "skills/README.md",
+      "archive": "Manufacturing_AI_Process_Control_Skills_v1.zip",
+      "entry": "Manufacturing_AI_Process_Control_Skills/README.md",
+      "sha256": "f25e6a52f409660cbefb6ee105429fa6ca2b51766dcdcdfe61e03eb281b632dc"
+    },
+    {
+      "path": "skills/BENCHMARK_RESULTS.json",
+      "archive": "Manufacturing_AI_Process_Control_Skills_v1.zip",
+      "entry": "Manufacturing_AI_Process_Control_Skills/BENCHMARK_RESULTS.json",
+      "sha256": "bffbad512be0b868c3eb7fa3a9bafb58b0ed8aedfb5cd3ed21c7ee7905c7bcdb"
+    },
+    {
+      "path": "skills/poka-yoke/SKILL.md",
+      "archive": "Manufacturing_AI_Process_Control_Skills_v1.zip",
+      "entry": "Manufacturing_AI_Process_Control_Skills/poka-yoke/SKILL.md",
+      "sha256": "ec71273f30675827562ee01081633e5633f7a18e54e73d6482e849df6ad2bd16"
+    },
+    {
+      "path": "skills/andon-jidoka/SKILL.md",
+      "archive": "Manufacturing_AI_Process_Control_Skills_v1.zip",
+      "entry": "Manufacturing_AI_Process_Control_Skills/andon-jidoka/SKILL.md",
+      "sha256": "af15484b3cb2800b6b8bfa5353f2c2954ffdbe91e1483c817ace9253bd767715"
+    },
+    {
+      "path": "skills/first-article/SKILL.md",
+      "archive": "Manufacturing_AI_Process_Control_Skills_v1.zip",
+      "entry": "Manufacturing_AI_Process_Control_Skills/first-article/SKILL.md",
+      "sha256": "b5b6417c01496106a066bc73f3b41408cb2d2dee4fd9bbde991954b392cdbe3c"
+    },
+    {
+      "path": "skills/ppap-release-evidence/SKILL.md",
+      "archive": "Manufacturing_AI_Process_Control_Skills_v1.zip",
+      "entry": "Manufacturing_AI_Process_Control_Skills/ppap-release-evidence/SKILL.md",
+      "sha256": "55973672b02f020d8c919952e5cabd2a732f3059233aebbc2f334c270fa4d011"
+    },
+    {
+      "path": "skills/msa-test-reliability/SKILL.md",
+      "archive": "Manufacturing_AI_Process_Control_Skills_v1.zip",
+      "entry": "Manufacturing_AI_Process_Control_Skills/msa-test-reliability/SKILL.md",
+      "sha256": "e553bce19481655133b4dc031e787cd657b2f854e3c06b3dbbf2f901caa71c92"
+    },
+    {
+      "path": "skills/control-plan/SKILL.md",
+      "archive": "Manufacturing_AI_Process_Control_Skills_v1.zip",
+      "entry": "Manufacturing_AI_Process_Control_Skills/control-plan/SKILL.md",
+      "sha256": "ed88afc54db6e8a1a010f2ab6196670ff80362602aa72d1b7f23d406381e93bc"
+    },
+    {
+      "path": "skills/eight-d-root-cause/SKILL.md",
+      "archive": "Manufacturing_AI_Process_Control_Skills_v1.zip",
+      "entry": "Manufacturing_AI_Process_Control_Skills/eight-d-root-cause/SKILL.md",
+      "sha256": "1543cdca76c8561af87eb9b4078c274b3e653fd34acc671cbc385b00b01adc69"
+    },
+    {
+      "path": "skills/containment/SKILL.md",
+      "archive": "Manufacturing_AI_Process_Control_Skills_v1.zip",
+      "entry": "Manufacturing_AI_Process_Control_Skills/containment/SKILL.md",
+      "sha256": "0300e8c86057c4b445f8243fb1d4d39e3ed2815fca424f88b24795149139ef09"
+    },
+    {
+      "path": "skills/sor-requirements/SKILL.md",
+      "archive": "Manufacturing_AI_Process_Control_Skills_v1.zip",
+      "entry": "Manufacturing_AI_Process_Control_Skills/sor-requirements/SKILL.md",
+      "sha256": "7c1d7b685359170f8735971f2db223e11fdf9b381ea257183b93ce1b3a91f6b3"
+    },
+    {
+      "path": "skills/line-balancing/SKILL.md",
+      "archive": "Manufacturing_AI_Process_Control_Skills_v1.zip",
+      "entry": "Manufacturing_AI_Process_Control_Skills/line-balancing/SKILL.md",
+      "sha256": "77b394a5c9edcb5e2452c529170e0b993120e72b406c63d0f851ce7843fa9ddd"
+    },
+    {
+      "path": "skills/pfmea-risk/SKILL.md",
+      "archive": "Manufacturing_AI_Process_Control_Skills_v1.zip",
+      "entry": "Manufacturing_AI_Process_Control_Skills/pfmea-risk/SKILL.md",
+      "sha256": "2385190ad30fdeb46b3f1d410013406ab26f6450bd9d50add617e3324a771781"
+    },
+    {
+      "path": "skills/benchmark/sample.py",
+      "archive": "Manufacturing_AI_Process_Control_Skills_v1.zip",
+      "entry": "Manufacturing_AI_Process_Control_Skills/benchmark/sample.py",
+      "sha256": "83dfaa0e75016a4cc050f429948a16f6749ffc2b2d8d197ded3bc6ef97049b13"
+    },
+    {
+      "path": "skills/benchmark/test_sample.py",
+      "archive": "Manufacturing_AI_Process_Control_Skills_v1.zip",
+      "entry": "Manufacturing_AI_Process_Control_Skills/benchmark/test_sample.py",
+      "sha256": "0f9f1f238dd4314769215ef61bcc2aa699e85a1be17ffe90e56c0f6f24850251"
+    },
+    {
+      "path": "skills/benchmark/benchmark.py",
+      "archive": "Manufacturing_AI_Process_Control_Skills_v1.zip",
+      "entry": "Manufacturing_AI_Process_Control_Skills/benchmark/benchmark.py",
+      "sha256": "1a9be01c4b133b260a47a10005d41300d4f7897553ef3454760c53f791956602"
+    },
+    {
+      "path": "skills/standard-work/SKILL.md",
+      "archive": "Manufacturing_AI_Process_Control_Skills_v1.zip",
+      "entry": "Manufacturing_AI_Process_Control_Skills/standard-work/SKILL.md",
+      "sha256": "c1893472abbf4541ae824f825f08bda0c20e33d62d59f766ab3f5ce9d4df22f5"
+    },
+    {
+      "path": "skills/spc-quality-trends/SKILL.md",
+      "archive": "Manufacturing_AI_Process_Control_Skills_v1.zip",
+      "entry": "Manufacturing_AI_Process_Control_Skills/spc-quality-trends/SKILL.md",
+      "sha256": "1e9922451deb52704d5079601d9d10d34051fc0f8aad9984de47112c9e535094"
+    },
+    {
+      "path": "skills/ecn-change-control/SKILL.md",
+      "archive": "Manufacturing_AI_Process_Control_Skills_v1.zip",
+      "entry": "Manufacturing_AI_Process_Control_Skills/ecn-change-control/SKILL.md",
+      "sha256": "f2bef64bca4fa6c44f5657be18388b3d4a70b3fb8eceb11dc2ac6b006bff4818"
+    },
+    {
+      "path": "skills/kanban-wip/SKILL.md",
+      "archive": "Manufacturing_AI_Process_Control_Skills_v1.zip",
+      "entry": "Manufacturing_AI_Process_Control_Skills/kanban-wip/SKILL.md",
+      "sha256": "b1b080e91c6ab444efe23f4381ca04c7e664b749f32f32c13bf7817365d02bc0"
+    },
+    {
+      "path": "skills/apqp-stage-gates/SKILL.md",
+      "archive": "Manufacturing_AI_Process_Control_Skills_v1.zip",
+      "entry": "Manufacturing_AI_Process_Control_Skills/apqp-stage-gates/SKILL.md",
+      "sha256": "7bde2937bffc6d2a5a65c6bddc7180a6880958c1e35212068ffd949519a903a5"
+    },
+    {
+      "path": "evidence/completeness-review/CODE_COMPLETENESS_REVIEW_KO.md",
+      "archive": "Manufacturing_AI_Code_Completeness_Review (1).zip",
+      "entry": "CODE_COMPLETENESS_REVIEW_KO.md",
+      "sha256": "e426b584fa4912bb8c993dd558a716c6cf213e79e4242c4d3e59b97ff26d7529"
+    },
+    {
+      "path": "evidence/completeness-review/COMPLETENESS_REVIEWS.csv",
+      "archive": "Manufacturing_AI_Code_Completeness_Review (1).zip",
+      "entry": "COMPLETENESS_REVIEWS.csv",
+      "sha256": "b75e9be5d917baad28c2e40acb6144c916496ae683f81234d3da433b6e1113f9"
+    },
+    {
+      "path": "evidence/completeness-review/COMPLETENESS_REVIEWS.json",
+      "archive": "Manufacturing_AI_Code_Completeness_Review (1).zip",
+      "entry": "COMPLETENESS_REVIEWS.json",
+      "sha256": "60781f6337d55f3fca1f2ff8fe0d1e0d4a18cba8f09d318d71231473d0429635"
+    },
+    {
+      "path": "evidence/completeness-review/COMPLETENESS_GROUP_SUMMARY.json",
+      "archive": "Manufacturing_AI_Code_Completeness_Review (1).zip",
+      "entry": "COMPLETENESS_GROUP_SUMMARY.json",
+      "sha256": "ff08124cb5be10046c58a055e23d9b3e8f4ccb90cdda46ea00d9c48acb03fab6"
+    },
+    {
+      "path": "evidence/completeness-review/RUBRIC_FROZEN_KO.md",
+      "archive": "Manufacturing_AI_Code_Completeness_Review (1).zip",
+      "entry": "RUBRIC_FROZEN_KO.md",
+      "sha256": "3a270b9c20922350aefc57d2beed0ba520451f7e5d7e9e26a2447a72ffa49bd4"
+    },
+    {
+      "path": "evidence/completeness-review/SOURCE_INTEGRITY.json",
+      "archive": "Manufacturing_AI_Code_Completeness_Review (1).zip",
+      "entry": "SOURCE_INTEGRITY.json",
+      "sha256": "1c1788dc4cb77898ce48a373af847742352537f71e1d7d06de4d9b2b2b92999a"
+    },
+    {
+      "path": "benchmarks/abc-v1/implementations/b_engineering.py",
+      "archive": "Manufacturing_ABC_Benchmark_v1.zip",
+      "entry": "Manufacturing_ABC_Benchmark/implementations/b_engineering.py",
+      "sha256": "25d33cf803f11b0d6fbbeabde1f7e59e23b477b8d4b8cad504419f2fd9786410"
+    },
+    {
+      "path": "benchmarks/abc-v1/implementations/c_manufacturing.py",
+      "archive": "Manufacturing_ABC_Benchmark_v1.zip",
+      "entry": "Manufacturing_ABC_Benchmark/implementations/c_manufacturing.py",
+      "sha256": "e689ca3f15bd38a085345ba441f7c3e84ad41dea713ff10ee32432f02a761400"
+    },
+    {
+      "path": "benchmarks/abc-v1/implementations/a_basic.py",
+      "archive": "Manufacturing_ABC_Benchmark_v1.zip",
+      "entry": "Manufacturing_ABC_Benchmark/implementations/a_basic.py",
+      "sha256": "3fa8917a10a3ecc8375b60977a2264532780ce3fddf5a5231be0f8e0f6f73176"
+    },
+    {
+      "path": "benchmarks/abc-v1/results/COMPARISON.md",
+      "archive": "Manufacturing_ABC_Benchmark_v1.zip",
+      "entry": "Manufacturing_ABC_Benchmark/results/COMPARISON.md",
+      "sha256": "3ab6dc8c7bda3240f233bdf78972b87707029b8fbd297839330a2ebfc9e76611"
+    },
+    {
+      "path": "benchmarks/abc-v1/results/results.json",
+      "archive": "Manufacturing_ABC_Benchmark_v1.zip",
+      "entry": "Manufacturing_ABC_Benchmark/results/results.json",
+      "sha256": "c882fbd154ed72dd5d55062dc598731a2cece1db958d9ea09efd5bd902d4720b"
+    },
+    {
+      "path": "benchmarks/abc-v1/run_benchmark.py",
+      "archive": "Manufacturing_ABC_Benchmark_v1.zip",
+      "entry": "Manufacturing_ABC_Benchmark/run_benchmark.py",
+      "sha256": "af812c8a32a9a2cfe68d6852204216fb1b9ad5cc59eba6707c884b32cec3950a"
+    },
+    {
+      "path": "benchmarks/abc-v1/README.md",
+      "archive": "Manufacturing_ABC_Benchmark_v1.zip",
+      "entry": "Manufacturing_ABC_Benchmark/README.md",
+      "sha256": "3dcf708e6191ea22d708b3b627914919df90fa297fb6aa1230983a8640157952"
+    },
+    {
+      "path": "benchmarks/abc-v1/tests/hidden_tests.py",
+      "archive": "Manufacturing_ABC_Benchmark_v1.zip",
+      "entry": "Manufacturing_ABC_Benchmark/tests/hidden_tests.py",
+      "sha256": "125a81e7e72c1e3cb1b74abf9de029a2f4ea03d4c7832bea6b5ddccf4d86c83d"
+    }
+  ],
+  "excluded_entries": [
+    {
+      "archive": "Manufacturing_AI_Process_Control_Skills_v1.zip",
+      "entry": "Manufacturing_AI_Process_Control_Skills/benchmark/__pycache__/test_sample.cpython-313.pyc",
+      "reason": "generated bytecode; preserved only inside original archive"
+    },
+    {
+      "archive": "Manufacturing_AI_Process_Control_Skills_v1.zip",
+      "entry": "Manufacturing_AI_Process_Control_Skills/benchmark/__pycache__/sample.cpython-313.pyc",
+      "reason": "generated bytecode; preserved only inside original archive"
+    }
+  ],
+  "related_study": {
+    "filename": "Manufacturing_AI_ABC_90_Run_Study.zip",
+    "sha256": "46e63c2911502f8bb7fcb658110cb6f68e5ef04d8450db8bb24897ad1f55cce9",
+    "uploaded_whole_archive": false
+  },
+  "study_skill_comparison": [
+    {
+      "skill": "andon-jidoka",
+      "matches_study_snapshot": true
+    },
+    {
+      "skill": "apqp-stage-gates",
+      "matches_study_snapshot": true
+    },
+    {
+      "skill": "containment",
+      "matches_study_snapshot": true
+    },
+    {
+      "skill": "control-plan",
+      "matches_study_snapshot": true
+    },
+    {
+      "skill": "ecn-change-control",
+      "matches_study_snapshot": true
+    },
+    {
+      "skill": "eight-d-root-cause",
+      "matches_study_snapshot": true
+    },
+    {
+      "skill": "first-article",
+      "matches_study_snapshot": true
+    },
+    {
+      "skill": "kanban-wip",
+      "matches_study_snapshot": true
+    },
+    {
+      "skill": "line-balancing",
+      "matches_study_snapshot": true
+    },
+    {
+      "skill": "msa-test-reliability",
+      "matches_study_snapshot": true
+    },
+    {
+      "skill": "pfmea-risk",
+      "matches_study_snapshot": true
+    },
+    {
+      "skill": "poka-yoke",
+      "matches_study_snapshot": true
+    },
+    {
+      "skill": "ppap-release-evidence",
+      "matches_study_snapshot": true
+    },
+    {
+      "skill": "sor-requirements",
+      "matches_study_snapshot": true
+    },
+    {
+      "skill": "spc-quality-trends",
+      "matches_study_snapshot": true
+    },
+    {
+      "skill": "standard-work",
+      "matches_study_snapshot": true
+    }
+  ],
+  "supplemental_files": [
+    {
+      "path": "evidence/study-reference/freeze_manifest.json",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "freeze_manifest.json",
+      "sha256": "823d1cef4d1d18ee227be9272d4a6431ff030e1f30314ad008d74b0cc13c6e54"
+    },
+    {
+      "path": "evidence/study-reference/PROTOCOL_FROZEN_KO.md",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "PROTOCOL_FROZEN_KO.md",
+      "sha256": "966f2a47dde17ce31bc33e90574d42637383e13fc7d0dbdebb0a64b1dc2b1b2a"
+    },
+    {
+      "path": "evidence/study-reference/README.md",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "README.md",
+      "sha256": "1028464b29e63c6441bdafec729658ea3ac2f8d2b27b8e96312e2d1710f09d0b"
+    },
+    {
+      "path": "evidence/study-reference/RUN_DETAILS_KO.md",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "RUN_DETAILS_KO.md",
+      "sha256": "d779fa37ff91f19864f40dcff81d82679c72311288f41bfd830d0de6f3867b2f"
+    },
+    {
+      "path": "evidence/study-reference/runs/r1_T01_A/supplier_cost.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r1_T01_A/supplier_cost.py",
+      "sha256": "512a0e3e87ac0e6a4cc0a518b4a57c2fde1d3163a4e16d13ed8d30689ba7a595"
+    },
+    {
+      "path": "evidence/study-reference/runs/r1_T01_B/purchase_cost.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r1_T01_B/purchase_cost.py",
+      "sha256": "1866edc15fd33818a2b8cf2694d9f5f4056eccdaa2245ba36560186e633d1faa"
+    },
+    {
+      "path": "evidence/study-reference/runs/r1_T01_C/supplier_costs.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r1_T01_C/supplier_costs.py",
+      "sha256": "1379f7abf6adae59b042a3f6146a258b107bc50f09d226ae355fde0fa073e33e"
+    },
+    {
+      "path": "evidence/study-reference/runs/r1_T02_A/inventory.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r1_T02_A/inventory.py",
+      "sha256": "46018636ef84c87c95c43c8975f5ab424da98fa09e1dd87fd99156eccbea6d4a"
+    },
+    {
+      "path": "evidence/study-reference/runs/r1_T02_B/inventory.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r1_T02_B/inventory.py",
+      "sha256": "78c1fc4240e799d6409d67e9e4aa4a17e090bd66dda47a81922bc7ce5e5cc79e"
+    },
+    {
+      "path": "evidence/study-reference/runs/r1_T02_C/inventory.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r1_T02_C/inventory.py",
+      "sha256": "b9ff46a0acc11ae2c3f97579e976c9c04177771e2a5e3d0c96f19b0de441d456"
+    },
+    {
+      "path": "evidence/study-reference/runs/r1_T03_A/production.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r1_T03_A/production.py",
+      "sha256": "44e392e8789557e0397522c4e3dff67107f4fa163da6eb086e1212099bffacf0"
+    },
+    {
+      "path": "evidence/study-reference/runs/r1_T03_B/production.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r1_T03_B/production.py",
+      "sha256": "73fabd4b3cd02effc011b722db1371b879b6890474228ca7ec4a6fb8be3e2797"
+    },
+    {
+      "path": "evidence/study-reference/runs/r1_T03_C/production.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r1_T03_C/production.py",
+      "sha256": "18537f5b3ff49089c49d47aa8accc9f3bd548daa9846725dd02ce3454705cae3"
+    },
+    {
+      "path": "evidence/study-reference/runs/r1_T03_C/README.md",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r1_T03_C/README.md",
+      "sha256": "21d071f2a4c0c1107039dfa7c52440aa0ffcd0772604b4b441537ff7199da34a"
+    },
+    {
+      "path": "evidence/study-reference/runs/r1_T04_A/manufacturing_cost.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r1_T04_A/manufacturing_cost.py",
+      "sha256": "59928da8c013914ec9aab74dd4d7cb09b7e1e682428ccb909427f5f69873ea7d"
+    },
+    {
+      "path": "evidence/study-reference/runs/r1_T04_B/manufacturing_cost.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r1_T04_B/manufacturing_cost.py",
+      "sha256": "0d335f95ead5276b557074297a533b2953f01c68031f2e7e89a3c0d67e4957ea"
+    },
+    {
+      "path": "evidence/study-reference/runs/r1_T04_C/manufacturing_cost.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r1_T04_C/manufacturing_cost.py",
+      "sha256": "07dd82d5f66f739cbf41374bf217c5bcaaeab3d1394e41b50630c6b5fec21614"
+    },
+    {
+      "path": "evidence/study-reference/runs/r1_T05_A/quality.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r1_T05_A/quality.py",
+      "sha256": "fc970c369a623fa2642617c7de5e87dc05b462b9ebc69f823730e0de8e3a2f2f"
+    },
+    {
+      "path": "evidence/study-reference/runs/r1_T05_B/defect_rate.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r1_T05_B/defect_rate.py",
+      "sha256": "ef8a00e4666c151c521f76e3200261726f85649c1fa179bb4e58b31f3ed1d97c"
+    },
+    {
+      "path": "evidence/study-reference/runs/r1_T05_C/quality.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r1_T05_C/quality.py",
+      "sha256": "3a8432777621d0802f241469050bcf58e9aac39a5b84bfdcdd22190d85d5fe61"
+    },
+    {
+      "path": "evidence/study-reference/runs/r1_T06_A/invoice_balance.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r1_T06_A/invoice_balance.py",
+      "sha256": "c7015c37ed3fd4992df093b031bad992fa9177f161edf1c26018e45348e0cff7"
+    },
+    {
+      "path": "evidence/study-reference/runs/r1_T06_B/invoice_balance.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r1_T06_B/invoice_balance.py",
+      "sha256": "7ad6bdb17c29fc9f06231de8180e168ea3124669f42b4aae2a27aa510076718a"
+    },
+    {
+      "path": "evidence/study-reference/runs/r1_T06_C/invoice_balance.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r1_T06_C/invoice_balance.py",
+      "sha256": "21c06316505ec1130cd8fc17d345a3234e897b32d5c91511e7e2d2b4ea76c32a"
+    },
+    {
+      "path": "evidence/study-reference/runs/r1_T07_A/schedule_delay.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r1_T07_A/schedule_delay.py",
+      "sha256": "65dc45ec6ad6ca2fc7d1cab0411e6ba9a59d5499f861c61abc51f5fd6751daa0"
+    },
+    {
+      "path": "evidence/study-reference/runs/r1_T07_B/schedule_delay.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r1_T07_B/schedule_delay.py",
+      "sha256": "51bf11a9c21661677e95a308bc138c58553d5cd560c8ed9b5c4941f15345fe14"
+    },
+    {
+      "path": "evidence/study-reference/runs/r1_T07_B/test_schedule_delay.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r1_T07_B/test_schedule_delay.py",
+      "sha256": "b43ed21f08114e5b711465b0ce7c6d1017aa5d9abbb3fed702c6038e66f63009"
+    },
+    {
+      "path": "evidence/study-reference/runs/r1_T07_C/schedule_delay.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r1_T07_C/schedule_delay.py",
+      "sha256": "3a05b2d20b6250b79b41f4a43be83a77176191fc04d329c9420fe7542c728a03"
+    },
+    {
+      "path": "evidence/study-reference/runs/r1_T08_A/supplier_ranking.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r1_T08_A/supplier_ranking.py",
+      "sha256": "60bcdda756e4162c2444d6b5acd68e8a213645bfb4e3d258392fa35e7c0534b6"
+    },
+    {
+      "path": "evidence/study-reference/runs/r1_T08_B/supplier_ranking.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r1_T08_B/supplier_ranking.py",
+      "sha256": "0c38e31f23ec56bb9dadfdfd2558ad39518342895855d608e343d2b4deaae925"
+    },
+    {
+      "path": "evidence/study-reference/runs/r1_T08_C/supplier_ranking.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r1_T08_C/supplier_ranking.py",
+      "sha256": "8e592cf2c72a9d61c510db95e766ca65a41a9f1809e18ec38976e582040d2ea3"
+    },
+    {
+      "path": "evidence/study-reference/runs/r1_T08_C/test_supplier_ranking.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r1_T08_C/test_supplier_ranking.py",
+      "sha256": "303342f50a2b4a19ebc28225229792a61894799096eb311cc4a66972bf1e69e1"
+    },
+    {
+      "path": "evidence/study-reference/runs/r1_T09_A/oee.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r1_T09_A/oee.py",
+      "sha256": "0eaa1d5b9afab67d39f3b5484fd8ca41101521b1a4c2320a6dbda9191e51e9c2"
+    },
+    {
+      "path": "evidence/study-reference/runs/r1_T09_B/oee.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r1_T09_B/oee.py",
+      "sha256": "31cf4159b54919edb04d3708ac10461f5b77aed411d11857ea7298c2e02b5802"
+    },
+    {
+      "path": "evidence/study-reference/runs/r1_T09_B/test_oee.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r1_T09_B/test_oee.py",
+      "sha256": "a513750cbb6be8feafba54ce514592f5e2597f5844be1b90c62f60087947598e"
+    },
+    {
+      "path": "evidence/study-reference/runs/r1_T09_C/oee.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r1_T09_C/oee.py",
+      "sha256": "1b35ace2c0b0959d65df555e8f7af17eec2b9d4c3fe42b31ab7d936d225530f9"
+    },
+    {
+      "path": "evidence/study-reference/runs/r1_T09_C/test_oee.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r1_T09_C/test_oee.py",
+      "sha256": "8e5140ded0b569d083a8128c7c2277f50901656406358f413ded7a88cdc0c0fa"
+    },
+    {
+      "path": "evidence/study-reference/runs/r1_T10_A/bom_cost.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r1_T10_A/bom_cost.py",
+      "sha256": "2a1d988067ae44ce13578b0da531d65c2e9e95c56b909cf3f7d94468ab82668e"
+    },
+    {
+      "path": "evidence/study-reference/runs/r1_T10_B/bom_cost.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r1_T10_B/bom_cost.py",
+      "sha256": "607fc98814dbf90fbb848533a3187762db2b9a32261d926e4d64074815983c63"
+    },
+    {
+      "path": "evidence/study-reference/runs/r1_T10_B/test_bom_cost.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r1_T10_B/test_bom_cost.py",
+      "sha256": "242ecb6da3547210a9cca2cfff069275d900abf4d254af751291973d4fcc49f7"
+    },
+    {
+      "path": "evidence/study-reference/runs/r1_T10_C/bom_cost.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r1_T10_C/bom_cost.py",
+      "sha256": "bbfb80cfb2aafad9f2506fc8267a1dd193f633e7c316feaccc699e69179119a9"
+    },
+    {
+      "path": "evidence/study-reference/runs/r2_T01_A/supplier_costs.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r2_T01_A/supplier_costs.py",
+      "sha256": "90764c6ab7ae26f3513ac0bdca4128fa7160361f21a8b774751a022362fe5a3d"
+    },
+    {
+      "path": "evidence/study-reference/runs/r2_T01_B/supplier_cost.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r2_T01_B/supplier_cost.py",
+      "sha256": "d48063f873f973d5a4aaf12af778893dfdf854350777bb9a2397b76211e15ebf"
+    },
+    {
+      "path": "evidence/study-reference/runs/r2_T01_C/supplier_cost.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r2_T01_C/supplier_cost.py",
+      "sha256": "5dc53d51d3f5a80974876b09aea6d57053669f43ba2197f24bbf71a1edf68d24"
+    },
+    {
+      "path": "evidence/study-reference/runs/r2_T02_A/inventory.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r2_T02_A/inventory.py",
+      "sha256": "442ea158346f8a2185124d13e33ec0031668d5f94321f16058676234e663e842"
+    },
+    {
+      "path": "evidence/study-reference/runs/r2_T02_B/inventory.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r2_T02_B/inventory.py",
+      "sha256": "49d59f70feda750f8fe094c84715cbc9bde7a3df08649a9bfd5772ec8f1c723f"
+    },
+    {
+      "path": "evidence/study-reference/runs/r2_T02_C/inventory.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r2_T02_C/inventory.py",
+      "sha256": "a8f55033c827760fd92a359564e0f249c4881c2ade26923b4c59e428fe882a77"
+    },
+    {
+      "path": "evidence/study-reference/runs/r2_T03_A/production.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r2_T03_A/production.py",
+      "sha256": "bfe7dc368295b593b8a92f90bb6f30a3b122fecdb789884e02c47cb1d60bf8a4"
+    },
+    {
+      "path": "evidence/study-reference/runs/r2_T03_B/production.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r2_T03_B/production.py",
+      "sha256": "62e0882d761d506c355bb05a7258c4c1a6432216811ab563c18a63c036c7b040"
+    },
+    {
+      "path": "evidence/study-reference/runs/r2_T03_C/production.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r2_T03_C/production.py",
+      "sha256": "a07eda8062f1ac1536b7eed60fc8eb587ce7de24f641631db86712d3a7b86df9"
+    },
+    {
+      "path": "evidence/study-reference/runs/r2_T04_A/manufacturing_cost.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r2_T04_A/manufacturing_cost.py",
+      "sha256": "7a83e618507a44ee95e4ff616504980301132c03667c7667e888d0a5a4c3ebb5"
+    },
+    {
+      "path": "evidence/study-reference/runs/r2_T04_A/test_manufacturing_cost.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r2_T04_A/test_manufacturing_cost.py",
+      "sha256": "72b90ab710299f2b924e7b5ad74fd1d1982977997a85fd9d0647a3694d23e4c0"
+    },
+    {
+      "path": "evidence/study-reference/runs/r2_T04_B/manufacturing_cost.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r2_T04_B/manufacturing_cost.py",
+      "sha256": "5805ca5819ee30c6a55835c652da645b8800cccdad82e766df0bda402231e053"
+    },
+    {
+      "path": "evidence/study-reference/runs/r2_T04_C/manufacturing_cost.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r2_T04_C/manufacturing_cost.py",
+      "sha256": "9f16e34d57906615d616d928a62788fa629bd2c5df73aa8fa9c96269580578bf"
+    },
+    {
+      "path": "evidence/study-reference/runs/r2_T05_A/defect_rate.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r2_T05_A/defect_rate.py",
+      "sha256": "7313c0dc46ec982ae4e6e1fb58aa5f3a2fab2d30941ee0db79ef1a55bbe35d92"
+    },
+    {
+      "path": "evidence/study-reference/runs/r2_T05_B/quality.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r2_T05_B/quality.py",
+      "sha256": "1ebb31a5b391b6b7a408e438f7b994cd0b1187ad02641c573369f7cec3c37587"
+    },
+    {
+      "path": "evidence/study-reference/runs/r2_T05_C/production_quality.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r2_T05_C/production_quality.py",
+      "sha256": "848d12f5ed98b1d56041978dfc199578b86ad70c7a23ff764b84a3ed22ada190"
+    },
+    {
+      "path": "evidence/study-reference/runs/r2_T06_A/invoice_balance.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r2_T06_A/invoice_balance.py",
+      "sha256": "ca8adb662e5782c2a57102e822e3748a6069938262e5ce2feab084bea7a5827a"
+    },
+    {
+      "path": "evidence/study-reference/runs/r2_T06_A/test_invoice_balance.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r2_T06_A/test_invoice_balance.py",
+      "sha256": "d510d85539bbff64e33aadd137e768dfde1a236870d8dae00a966b7890015935"
+    },
+    {
+      "path": "evidence/study-reference/runs/r2_T06_B/invoice_balance.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r2_T06_B/invoice_balance.py",
+      "sha256": "a0322fbeaa7ebf9145572ce5bdd39850f8e6931d81f1bf610597a45abd2a6d33"
+    },
+    {
+      "path": "evidence/study-reference/runs/r2_T06_B/test_invoice_balance.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r2_T06_B/test_invoice_balance.py",
+      "sha256": "98bbc19225def596f54a14a2c840dbd6c457ab024e3c5c22c7f1927919ad6457"
+    },
+    {
+      "path": "evidence/study-reference/runs/r2_T06_C/invoice_balance.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r2_T06_C/invoice_balance.py",
+      "sha256": "2b1c7e8fe4599421682c724f18d1bd67c734d9b0b5dae61b365af3475bf5b46d"
+    },
+    {
+      "path": "evidence/study-reference/runs/r2_T07_A/schedule_delay.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r2_T07_A/schedule_delay.py",
+      "sha256": "c29cf902eb7659e6dae04f0e6b93f5975b0590d56e6d6007c8696dc1934d80fa"
+    },
+    {
+      "path": "evidence/study-reference/runs/r2_T07_B/schedule_delay.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r2_T07_B/schedule_delay.py",
+      "sha256": "16e3fa4ea708d9d92ece36072d43ff6aee41b9d2e3b3af1b7de36d3761610f6a"
+    },
+    {
+      "path": "evidence/study-reference/runs/r2_T07_B/test_schedule_delay.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r2_T07_B/test_schedule_delay.py",
+      "sha256": "64ad5431175fa24902ce354a92da2bb413aea6fb9d71ff16e5c5ed37eafe6608"
+    },
+    {
+      "path": "evidence/study-reference/runs/r2_T07_C/schedule_delay.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r2_T07_C/schedule_delay.py",
+      "sha256": "6a676e424fd81bfabb0ac795aeea8a29affbbb8282080a1f5ebfbc37a006b77b"
+    },
+    {
+      "path": "evidence/study-reference/runs/r2_T08_A/supplier_ranking.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r2_T08_A/supplier_ranking.py",
+      "sha256": "6f9884fa309e2aac5f34670e3a654dcb0c8c1c0e011451da59d63bce27f729fd"
+    },
+    {
+      "path": "evidence/study-reference/runs/r2_T08_A/test_supplier_ranking.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r2_T08_A/test_supplier_ranking.py",
+      "sha256": "efd78c38d1212e5f5f66f56f5d193103040522a0cf00b929b1dc1b19e59e13c9"
+    },
+    {
+      "path": "evidence/study-reference/runs/r2_T08_B/supplier_ranking.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r2_T08_B/supplier_ranking.py",
+      "sha256": "71ba2f3b453fdaecdf320c2e816f4248606c60706c9d581093d33c203f4d15be"
+    },
+    {
+      "path": "evidence/study-reference/runs/r2_T08_C/supplier_ranking.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r2_T08_C/supplier_ranking.py",
+      "sha256": "af1b9bc2367739c9aba7c2c219f30bec9e73798b34c2fe992af551a4b5de5eb4"
+    },
+    {
+      "path": "evidence/study-reference/runs/r2_T09_A/oee.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r2_T09_A/oee.py",
+      "sha256": "0e871780ddee41f31037b89e81a6b9cf48cb5b3a117b7827b66c7fa055ff8eb9"
+    },
+    {
+      "path": "evidence/study-reference/runs/r2_T09_A/test_oee.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r2_T09_A/test_oee.py",
+      "sha256": "52e7228a7455852077d805e052a60f2b439df7af9db7248aeb64db67a0dca237"
+    },
+    {
+      "path": "evidence/study-reference/runs/r2_T09_B/oee.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r2_T09_B/oee.py",
+      "sha256": "6288c2d5b5815ea03c61bdecbc4225d8b95854e2d535c44c1d097f4b4b489206"
+    },
+    {
+      "path": "evidence/study-reference/runs/r2_T09_B/test_oee.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r2_T09_B/test_oee.py",
+      "sha256": "2b336a05ac3b27bc9e4a92bf4bb3b0ebba1dd82775427450c6c5e1d2e301b079"
+    },
+    {
+      "path": "evidence/study-reference/runs/r2_T09_C/oee.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r2_T09_C/oee.py",
+      "sha256": "c8d48a8e4d8ea0823aea7cba9288d08e70165ef3a7cb4f40de0075ec3c583483"
+    },
+    {
+      "path": "evidence/study-reference/runs/r2_T09_C/test_oee.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r2_T09_C/test_oee.py",
+      "sha256": "bd8c6f16e83183fcdc6c560f69c6d6264288b56feb01d79d52988c9bd960a2c4"
+    },
+    {
+      "path": "evidence/study-reference/runs/r2_T10_A/bom_cost.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r2_T10_A/bom_cost.py",
+      "sha256": "d5b86e307ed79ca0d82d6c510e4efc48ffd9ba3e22d5b60df76c731d96619c1e"
+    },
+    {
+      "path": "evidence/study-reference/runs/r2_T10_A/test_bom_cost.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r2_T10_A/test_bom_cost.py",
+      "sha256": "d1b092e63c0c4ada1f9064cc18b1437e6370be6f2cbacab1662c6dc0f9bec7eb"
+    },
+    {
+      "path": "evidence/study-reference/runs/r2_T10_B/bom_cost.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r2_T10_B/bom_cost.py",
+      "sha256": "fb392ab7d4b5dda2447d53183d586af2ede75a4d920863442b0c9d53b52c3fe6"
+    },
+    {
+      "path": "evidence/study-reference/runs/r2_T10_C/bom_cost.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r2_T10_C/bom_cost.py",
+      "sha256": "d659708fc76b2c5804250c0359a365eb418be4e0b032e66d3126d68800c42e73"
+    },
+    {
+      "path": "evidence/study-reference/runs/r3_T01_A/supplier_cost.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r3_T01_A/supplier_cost.py",
+      "sha256": "123c961ab9d8cbf36622c4550e9a76f23390ebf05557d6e8fff6a827bdc8f64f"
+    },
+    {
+      "path": "evidence/study-reference/runs/r3_T01_A/test_supplier_cost.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r3_T01_A/test_supplier_cost.py",
+      "sha256": "bc5333b2a324d7172ff7fc178f012ceb58840570209544fda7ff8e0835b481d3"
+    },
+    {
+      "path": "evidence/study-reference/runs/r3_T01_B/supplier_costs.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r3_T01_B/supplier_costs.py",
+      "sha256": "d66ee7057411ec08ef17c1667bd67f75b87f96f43df738473faae473183bf257"
+    },
+    {
+      "path": "evidence/study-reference/runs/r3_T01_B/test_supplier_costs.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r3_T01_B/test_supplier_costs.py",
+      "sha256": "a55e8fbb5287ef467d45495edf43edf3a4e44d3ca55e10ca602c2081a64af050"
+    },
+    {
+      "path": "evidence/study-reference/runs/r3_T01_C/supplier_cost.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r3_T01_C/supplier_cost.py",
+      "sha256": "5213253c09360470b870e7fe4385aef434bed2ee4a0a23e35655964fc06b58e3"
+    },
+    {
+      "path": "evidence/study-reference/runs/r3_T01_C/test_supplier_cost.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r3_T01_C/test_supplier_cost.py",
+      "sha256": "78cf6ab33fb80d924cfe8c004f756471e938aa18886d236ffc59b919120b65f4"
+    },
+    {
+      "path": "evidence/study-reference/runs/r3_T02_A/inventory.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r3_T02_A/inventory.py",
+      "sha256": "2f77301575c072abfabd008ab671c8875758cf2f194a9f3887b8b236f7efb95f"
+    },
+    {
+      "path": "evidence/study-reference/runs/r3_T02_B/inventory.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r3_T02_B/inventory.py",
+      "sha256": "ba11b620392c4a04ed53cfb6366feebeb567a6fd1ebf97f48332269861951334"
+    },
+    {
+      "path": "evidence/study-reference/runs/r3_T02_C/inventory.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r3_T02_C/inventory.py",
+      "sha256": "7920952890828bee1cdfc5c86a8bf7efe096e5bee0ca0e6f8c55f4feaf5ecdee"
+    },
+    {
+      "path": "evidence/study-reference/runs/r3_T03_A/production.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r3_T03_A/production.py",
+      "sha256": "63d92a627e9d525be8199556ae0d9d7e07b4a6f89386e7ea9f0278c1d476e7d4"
+    },
+    {
+      "path": "evidence/study-reference/runs/r3_T03_B/production.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r3_T03_B/production.py",
+      "sha256": "a402fb734be49b23f29b9da13fce7320f5e54e62b55ab1392657207617a1c6ed"
+    },
+    {
+      "path": "evidence/study-reference/runs/r3_T03_C/production.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r3_T03_C/production.py",
+      "sha256": "25c1b3c329c99b042b7f6dc015e0a4575323c9871c07f0990fc60c49c7eb7907"
+    },
+    {
+      "path": "evidence/study-reference/runs/r3_T03_C/test_production.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r3_T03_C/test_production.py",
+      "sha256": "dd63e7ae70f442d1007e15e14617672b45f2a8c9366051c708aa8685074a756f"
+    },
+    {
+      "path": "evidence/study-reference/runs/r3_T04_A/manufacturing_cost.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r3_T04_A/manufacturing_cost.py",
+      "sha256": "5f022babb4be59b96fd9007d28ad79c99e639c0881ca4eb4b60f8e057cc8026a"
+    },
+    {
+      "path": "evidence/study-reference/runs/r3_T04_B/manufacturing_cost.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r3_T04_B/manufacturing_cost.py",
+      "sha256": "f2f64aacdbc673bdeec088c3c5e3d27c9469e10364978bd3b03c21e14389977a"
+    },
+    {
+      "path": "evidence/study-reference/runs/r3_T04_B/test_manufacturing_cost.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r3_T04_B/test_manufacturing_cost.py",
+      "sha256": "4f3ceac956a37b069a23c1ee1654fcd704192f19d4d52ae328167a2ba4474e3f"
+    },
+    {
+      "path": "evidence/study-reference/runs/r3_T04_C/manufacturing_cost.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r3_T04_C/manufacturing_cost.py",
+      "sha256": "89fa43bed36a422e2ee82e350b20ddf8f7a922470ceb042fdb59dcaad1553248"
+    },
+    {
+      "path": "evidence/study-reference/runs/r3_T05_A/production_quality.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r3_T05_A/production_quality.py",
+      "sha256": "fb7b8d2635856db22ff4f49e383ee0e9752b19b770c2b2b7ecda7a050981b328"
+    },
+    {
+      "path": "evidence/study-reference/runs/r3_T05_B/quality.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r3_T05_B/quality.py",
+      "sha256": "29c73a171733cfe01f043c09adbc88a5a8873f2bc484fdb35ed321e67ec8cde2"
+    },
+    {
+      "path": "evidence/study-reference/runs/r3_T05_C/production_quality.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r3_T05_C/production_quality.py",
+      "sha256": "f3cf27216cbf33f66e8a9cacd7efa57502b608eaad4d38236171e6ed02b4aaab"
+    },
+    {
+      "path": "evidence/study-reference/runs/r3_T06_A/invoice_balance.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r3_T06_A/invoice_balance.py",
+      "sha256": "1a92c081382940d2b87390d597f42db30c58a3b1ee56bc7fbebfe976ce33f88d"
+    },
+    {
+      "path": "evidence/study-reference/runs/r3_T06_A/test_invoice_balance.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r3_T06_A/test_invoice_balance.py",
+      "sha256": "4dd80815c76a89e451653d90e8d3f2302a93c53d0f4da75ea507aff8607f87da"
+    },
+    {
+      "path": "evidence/study-reference/runs/r3_T06_B/invoice_balance.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r3_T06_B/invoice_balance.py",
+      "sha256": "f96d37f81de01644aa79bcf74b449be92b243dd71b208a023f53033c863d8b75"
+    },
+    {
+      "path": "evidence/study-reference/runs/r3_T06_C/invoice_balance.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r3_T06_C/invoice_balance.py",
+      "sha256": "01b5cbbcb376a3ac7409669760167770c6df4b071e0c0dab79870d031621968c"
+    },
+    {
+      "path": "evidence/study-reference/runs/r3_T06_C/test_invoice_balance.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r3_T06_C/test_invoice_balance.py",
+      "sha256": "d678ef76cc6603a7c2dd3937c95b1c944356ff778229645faf9549722563e4ac"
+    },
+    {
+      "path": "evidence/study-reference/runs/r3_T07_A/schedule_delay.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r3_T07_A/schedule_delay.py",
+      "sha256": "80f82e32c935917d660ea0e78c1bf621b7802de93fd50ceafda4d593182d6018"
+    },
+    {
+      "path": "evidence/study-reference/runs/r3_T07_A/test_schedule_delay.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r3_T07_A/test_schedule_delay.py",
+      "sha256": "003cdd05f156e139bc46bb1b745b0187d96c8f93d2e23f9458805ed0f6d79b11"
+    },
+    {
+      "path": "evidence/study-reference/runs/r3_T07_B/schedule_delay.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r3_T07_B/schedule_delay.py",
+      "sha256": "8edbd920627fa89472df1e0ff90c41432bc47a65c4c7b0ab225ede55da929aa9"
+    },
+    {
+      "path": "evidence/study-reference/runs/r3_T07_C/schedule_delay.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r3_T07_C/schedule_delay.py",
+      "sha256": "5165bae3521d529cc9d9ac7c7a1f19bbb2fd7149e0beac660126c0680a89f141"
+    },
+    {
+      "path": "evidence/study-reference/runs/r3_T08_A/supplier_ranking.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r3_T08_A/supplier_ranking.py",
+      "sha256": "5e77331ae45e3a765b52c03d0a95dd3c65232e8f9bc1660c9c31de15129bb047"
+    },
+    {
+      "path": "evidence/study-reference/runs/r3_T08_B/supplier_ranking.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r3_T08_B/supplier_ranking.py",
+      "sha256": "afd647034d64bfe88d2671eb10389be28f095558adf876c81663d0fed09c121d"
+    },
+    {
+      "path": "evidence/study-reference/runs/r3_T08_C/supplier_ranking.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r3_T08_C/supplier_ranking.py",
+      "sha256": "321aa70d5472bcb3781fb8506ac7df37a9e0c1c36670f8cf3ed5b84d42969d74"
+    },
+    {
+      "path": "evidence/study-reference/runs/r3_T09_A/oee.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r3_T09_A/oee.py",
+      "sha256": "6f54c7fe25a00437e6f2cd0980ad836213e84aca170e8ebcf14f1b462b71bd15"
+    },
+    {
+      "path": "evidence/study-reference/runs/r3_T09_A/test_oee.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r3_T09_A/test_oee.py",
+      "sha256": "eb2f5dc4907ec21774433dca5089858377ed3f46734b842c73495bd8c517397e"
+    },
+    {
+      "path": "evidence/study-reference/runs/r3_T09_B/oee.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r3_T09_B/oee.py",
+      "sha256": "f7731b28fccc62ba7d6ab85d7e2b68b91f627283a6793944ce5b7f969473a357"
+    },
+    {
+      "path": "evidence/study-reference/runs/r3_T09_B/test_oee.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r3_T09_B/test_oee.py",
+      "sha256": "39ac08b346bc18e4d1756b1deea2b87203127c380cf45cb959d685e982a10227"
+    },
+    {
+      "path": "evidence/study-reference/runs/r3_T09_C/oee.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r3_T09_C/oee.py",
+      "sha256": "c1eec0586bacad120d197755a3e232dbb0efc7c74f7a7c891cec4c0cd503f9fe"
+    },
+    {
+      "path": "evidence/study-reference/runs/r3_T10_A/bom_cost.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r3_T10_A/bom_cost.py",
+      "sha256": "ccd163c34e4e032ddf897fb74df54de25dad49a503d780b2c41219aea6467402"
+    },
+    {
+      "path": "evidence/study-reference/runs/r3_T10_B/bom_cost.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r3_T10_B/bom_cost.py",
+      "sha256": "adf540b0c795e9015f94c16e683fb0928fcb3555cc1965ba055580e4a82c4667"
+    },
+    {
+      "path": "evidence/study-reference/runs/r3_T10_B/test_bom_cost.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r3_T10_B/test_bom_cost.py",
+      "sha256": "44c3f7550ccffb51cebd83cff020fdd0173fa0cb5486bb69eb5375a078dec91b"
+    },
+    {
+      "path": "evidence/study-reference/runs/r3_T10_C/bom_cost.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r3_T10_C/bom_cost.py",
+      "sha256": "2ae643b29f576c67396f6fc1eff33338ff79d7b0407f637fd2c00fef5a955e6f"
+    },
+    {
+      "path": "evidence/study-reference/runs/r3_T10_C/test_bom_cost.py",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "runs/r3_T10_C/test_bom_cost.py",
+      "sha256": "452e648d5d58a4b4c2333adb82e0e5e07f1a2485e775b70764f690fcdabfd1e7"
+    },
+    {
+      "path": "evidence/study-reference/SUMMARY_KO.md",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "SUMMARY_KO.md",
+      "sha256": "778d38ef886fcb4fb06e7663307365ab1e042b3d8ec99e2f27b10b97f4ab2260"
+    },
+    {
+      "path": "evidence/study-reference/supplied_text_provenance.json",
+      "source_archive": "Manufacturing_AI_ABC_90_Run_Study.zip",
+      "entry": "supplied_text_provenance.json",
+      "sha256": "40a3ba4d6bebf62e345b22da3b7ddadb9ce3ac26656ebffb6ad4f4350f7d4b3a"
+    }
+  ]
+}

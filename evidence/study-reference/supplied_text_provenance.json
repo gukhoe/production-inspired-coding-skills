@@ -1,0 +1,29 @@
+{
+  "source": "Exact UTF-8 text supplied by parent after authorized original ZIP materialization; local ZIP bytes not available.",
+  "original_archive_sha256_parent_reported": {
+    "Dot_Manufacturing_AI_ABC_Study_Package(1).zip": "9c7a0cf1b8a8d0eabd74ea4408fae007d12dcfb9e1db322b798c11f679818365",
+    "Manufacturing_AI_Process_Control_Skills_v1(1).zip": "144498e0129db7d4caa709284c5513d248291e72ab2e90d226b3d6866e66f010"
+  },
+  "files": {
+    "DOT_REQUEST_KO.md": "a15e52121a03767e3765249a0231c95b222e73f96cb8773951ce7775094b97a4",
+    "RESULT_SCHEMA.csv": "023b5eeeaf5a9c7b8d5354f741bbdf195707f42d4b175acb617eeb01499966bc",
+    "SKILL_INDEX.md": "f25e6a52f409660cbefb6ee105429fa6ca2b51766dcdcdfe61e03eb281b632dc",
+    "TASKS.json": "5afafcedc010f52e50847fbdf253b0ce0ea7c7f4cd4c8e106d1802838d17f049",
+    "manufacturing-skills/andon-jidoka/SKILL.md": "af15484b3cb2800b6b8bfa5353f2c2954ffdbe91e1483c817ace9253bd767715",
+    "manufacturing-skills/apqp-stage-gates/SKILL.md": "7bde2937bffc6d2a5a65c6bddc7180a6880958c1e35212068ffd949519a903a5",
+    "manufacturing-skills/containment/SKILL.md": "0300e8c86057c4b445f8243fb1d4d39e3ed2815fca424f88b24795149139ef09",
+    "manufacturing-skills/control-plan/SKILL.md": "ed88afc54db6e8a1a010f2ab6196670ff80362602aa72d1b7f23d406381e93bc",
+    "manufacturing-skills/ecn-change-control/SKILL.md": "f2bef64bca4fa6c44f5657be18388b3d4a70b3fb8eceb11dc2ac6b006bff4818",
+    "manufacturing-skills/eight-d-root-cause/SKILL.md": "1543cdca76c8561af87eb9b4078c274b3e653fd34acc671cbc385b00b01adc69",
+    "manufacturing-skills/first-article/SKILL.md": "b5b6417c01496106a066bc73f3b41408cb2d2dee4fd9bbde991954b392cdbe3c",
+    "manufacturing-skills/kanban-wip/SKILL.md": "b1b080e91c6ab444efe23f4381ca04c7e664b749f32f32c13bf7817365d02bc0",
+    "manufacturing-skills/line-balancing/SKILL.md": "77b394a5c9edcb5e2452c529170e0b993120e72b406c63d0f851ce7843fa9ddd",
+    "manufacturing-skills/msa-test-reliability/SKILL.md": "e553bce19481655133b4dc031e787cd657b2f854e3c06b3dbbf2f901caa71c92",
+    "manufacturing-skills/pfmea-risk/SKILL.md": "2385190ad30fdeb46b3f1d410013406ab26f6450bd9d50add617e3324a771781",
+    "manufacturing-skills/poka-yoke/SKILL.md": "ec71273f30675827562ee01081633e5633f7a18e54e73d6482e849df6ad2bd16",
+    "manufacturing-skills/ppap-release-evidence/SKILL.md": "55973672b02f020d8c919952e5cabd2a732f3059233aebbc2f334c270fa4d011",
+    "manufacturing-skills/sor-requirements/SKILL.md": "7c1d7b685359170f8735971f2db223e11fdf9b381ea257183b93ce1b3a91f6b3",
+    "manufacturing-skills/spc-quality-trends/SKILL.md": "1e9922451deb52704d5079601d9d10d34051fc0f8aad9984de47112c9e535094",
+    "manufacturing-skills/standard-work/SKILL.md": "c1893472abbf4541ae824f825f08bda0c20e33d62d59f766ab3f5ce9d4df22f5"
+  }
+}

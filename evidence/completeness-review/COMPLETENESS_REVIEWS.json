@@ -1,0 +1,3164 @@
+{
+  "review_type": "posthoc_static_AI_review",
+  "reviewed_run_count": 90,
+  "rubric": "RUBRIC_FROZEN_KO.md",
+  "rubric_sha256": "3a270b9c20922350aefc57d2beed0ba520451f7e5d7e9e26a2447a72ffa49bd4",
+  "blinding": "Random P001-P090 labels; batch reviewers did not open group mapping; coordinator knew previous study outcomes. Code/docs may reveal treatment, so not fully blinded.",
+  "core_scope": "Original supplied-input requirements; static evidence combined with earlier independent execution audit.",
+  "score_caution": "S/R/E/T/D are ordinal qualitative review labels, not probabilities, production readiness, equal-interval measurements, or causal estimates. Do not sum into a leaderboard.",
+  "records": [
+    {
+      "blind_id": "P035",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "supplier_cost.py:9-19 computes annual quantity × price + freight + tooling and minimum supplier; :26-31 prints totals/winner.",
+        "S": "supplier_cost.py:7-19 separates comparison from main and explicitly returns all tied winners.",
+        "R": "supplier_cost.py:7-19 input-driven return; :34-35 guards main.",
+        "E": "supplier_cost.py:18 handles ties; :17 min() fails on empty suppliers without domain explanation.",
+        "T": "test_supplier_cost.py:10-29 verifies 52000/50500/50300, alternate costs and tied winners.",
+        "D": "supplier_cost.py:1,8,27 documents annual fixed costs, returned values and formula."
+      },
+      "findings": [
+        "supplier_cost.py:17: empty supplier list raises generic min() ValueError; optional robustness gap, not supplied-input failure."
+      ],
+      "run_id": "r1_T01_A",
+      "task_id": "T01",
+      "group": "A",
+      "repeat": 1,
+      "source_files": [
+        "runs/r1_T01_A/supplier_cost.py",
+        "runs/r1_T01_A/input.json"
+      ],
+      "source_root": "runs/r1_T01_A",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P082",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "supplier_costs.py:14-29 calculates annual quantity × unit price + freight + tooling and selects minimum; supplier_costs.py:32-43 prints 52000/50500/50300 and Gamma.",
+        "S": "supplier_costs.py:14-29 separates calculation from main :32-43; module documents one-time fee policy.",
+        "R": "supplier_costs.py:14-29 accepts data and returns totals/winners; :32-43 has import guard.",
+        "E": "supplier_costs.py:14-29 handles all minimum-cost ties and rejects empty list; no field/finite validation.",
+        "T": "test_supplier_costs.py:7-30 asserts all totals/winner, exact-decimal tie and empty-list rejection.",
+        "D": "supplier_costs.py:1,15 documents annual fee policy and return shape; :32-43 labeled example output."
+      },
+      "findings": [],
+      "run_id": "r2_T01_A",
+      "task_id": "T01",
+      "group": "A",
+      "repeat": 2,
+      "source_files": [
+        "runs/r2_T01_A/supplier_costs.py"
+      ],
+      "source_root": "runs/r2_T01_A",
+      "observable_features": {
+        "explicit_raise": true,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P088",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "supplier_cost.py:7-21 calculates annual quantity × unit price + freight + tooling and selects minimum; supplier_cost.py:24-34 prints 52000/50500/50300 and Gamma.",
+        "S": "supplier_cost.py:7-21 separates calculation from main :24-34; module documents one-time fee policy.",
+        "R": "supplier_cost.py:7-21 accepts data and returns totals/winners; :24-34 has import guard.",
+        "E": "supplier_cost.py:7-21 handles all minimum-cost ties and rejects empty list; no field/finite validation.",
+        "T": "test_supplier_cost.py:9-29 asserts totals/winner, decimal tie and zero quantity retaining fixed costs.",
+        "D": "supplier_cost.py:1 states annual-fee policy; :25 identifies input.json and :27-30 formula/output meaning."
+      },
+      "findings": [],
+      "run_id": "r3_T01_A",
+      "task_id": "T01",
+      "group": "A",
+      "repeat": 3,
+      "source_files": [
+        "runs/r3_T01_A/supplier_cost.py",
+        "runs/r3_T01_A/input.json",
+        "runs/r3_T01_A/test_supplier_cost.py"
+      ],
+      "source_root": "runs/r3_T01_A",
+      "observable_features": {
+        "explicit_raise": true,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P019",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "purchase_cost.py:8-21; purchase_cost.py:24-36: supplied-input arithmetic and labeled requested outputs, not answer constants (static review; no execution claim).",
+        "S": "purchase_cost.py:8-21,24-36: named calculation separated from example/output.",
+        "R": "purchase_cost.py:8-21,24-36: arguments in, results returned; example under main guard.",
+        "E": "purchase_cost.py:17-20 explicitly rejects empty suppliers and returns all tied winners; missing/invalid numeric fields not validated at 10-15.",
+        "T": "test_purchase_cost.py:9-31 independent provided totals, changed winner and exact tie assertions.",
+        "D": "purchase_cost.py:9,25,28 defines once-only fixed costs and formula; input.json:1 supplies schema/example."
+      },
+      "findings": [],
+      "run_id": "r1_T01_B",
+      "task_id": "T01",
+      "group": "B",
+      "repeat": 1,
+      "source_files": [
+        "runs/r1_T01_B/purchase_cost.py",
+        "runs/r1_T01_B/input.json"
+      ],
+      "source_root": "runs/r1_T01_B",
+      "observable_features": {
+        "explicit_raise": true,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P076",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "supplier_cost.py:16-31 calculates annual quantity × unit price + freight + tooling and selects minimum; supplier_cost.py:34-43 prints 52000/50500/50300 and Gamma.",
+        "S": "supplier_cost.py:16-31 separates calculation from main :34-43; module documents one-time fee policy.",
+        "R": "supplier_cost.py:16-31 accepts data and returns totals/winners; :34-43 has import guard.",
+        "E": "supplier_cost.py:16-31 handles all minimum-cost ties and rejects empty list; no field/finite validation.",
+        "T": "test_supplier_cost.py:8-32 asserts supplied totals/winner, exact-decimal tie and empty-list error.",
+        "D": "supplier_cost.py:1,17 documents annual fee policy and return shape; :34-43 labeled example output."
+      },
+      "findings": [],
+      "run_id": "r2_T01_B",
+      "task_id": "T01",
+      "group": "B",
+      "repeat": 2,
+      "source_files": [
+        "runs/r2_T01_B/supplier_cost.py"
+      ],
+      "source_root": "runs/r2_T01_B",
+      "observable_features": {
+        "explicit_raise": true,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P065",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "supplier_costs.py:17-31 computes each annual total and minimum; :35-39 prints Alpha 52000, Beta 50500, Gamma 50300 and Gamma.",
+        "S": "supplier_costs.py:15-31 calculation separate from :34-43 output, with fee policy :16.",
+        "R": "supplier_costs.py:15-31 parameters/return; :42-43 guards main.",
+        "E": "supplier_costs.py:27-30 handles empty suppliers and ties; :17-23 lacks field/finite validation.",
+        "T": "test_supplier_costs.py:7-32 asserts totals, changed winner, decimal tie and empty-list rejection.",
+        "D": "supplier_costs.py:16,36 documents annual one-time fees and formula."
+      },
+      "findings": [],
+      "run_id": "r3_T01_B",
+      "task_id": "T01",
+      "group": "B",
+      "repeat": 3,
+      "source_files": [
+        "runs/r3_T01_B/supplier_costs.py",
+        "runs/r3_T01_B/test_supplier_costs.py"
+      ],
+      "source_root": "runs/r3_T01_B",
+      "observable_features": {
+        "explicit_raise": true,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P090",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "supplier_costs.py:14-27 calculates annual quantity × unit price + freight + tooling and selects minimum; supplier_costs.py:30-39 prints 52000/50500/50300 and Gamma.",
+        "S": "supplier_costs.py:14-27 separates calculation from main :30-39; module documents one-time fee policy.",
+        "R": "supplier_costs.py:14-27 accepts data and returns totals/winners; :30-39 has import guard.",
+        "E": "supplier_costs.py:14-27 handles all minimum-cost ties; empty list reaches bare min() without domain explanation and no field/finite validation.",
+        "T": "test_supplier_costs.py:7-14 asserts supplied totals/Gamma; :16-19 changes annual quantity from 10000 to 1000 and independently expects Beta total 5500 and winner Beta, exercising selection sensitivity to fixed-versus-variable costs across the winner transition.",
+        "D": "requirements.md:1-7 documents inputs, output, formula, one-time fees and excluded policies."
+      },
+      "findings": [],
+      "run_id": "r1_T01_C",
+      "task_id": "T01",
+      "group": "C",
+      "repeat": 1,
+      "source_files": [
+        "runs/r1_T01_C/supplier_costs.py"
+      ],
+      "source_root": "runs/r1_T01_C",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [
+          "requirements.md"
+        ],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P030",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 0,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "supplier_cost.py:14-24; supplier_cost.py:27-36: supplied-input arithmetic and labeled requested outputs, not answer constants (static review; no execution claim).",
+        "S": "supplier_cost.py:14-24,27-36: named calculation separated from example/output.",
+        "R": "supplier_cost.py:14-24,27-36: arguments in, results returned; example under main guard.",
+        "E": "supplier_cost.py:16-24 has no field/numeric validation; empty suppliers reaches min([]) without domain explanation.",
+        "T": "test_supplier_cost.py:7-29 independently checks totals, changed winner and single-supplier decimal exactness.",
+        "D": "requirements.md:1-6 defines fields, formula, fixed-cost frequency, outputs and scope."
+      },
+      "findings": [
+        "supplier_cost.py:24 fails on empty suppliers with generic min error; optional robustness gap."
+      ],
+      "run_id": "r2_T01_C",
+      "task_id": "T01",
+      "group": "C",
+      "repeat": 2,
+      "source_files": [
+        "runs/r2_T01_C/supplier_cost.py"
+      ],
+      "source_root": "runs/r2_T01_C",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [
+          "requirements.md"
+        ],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P077",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "supplier_cost.py:16-32 calculates annual quantity × unit price + freight + tooling and selects minimum; supplier_cost.py:35-44 prints 52000/50500/50300 and Gamma.",
+        "S": "supplier_cost.py:16-32 separates calculation from main :35-44; module documents one-time fee policy.",
+        "R": "supplier_cost.py:16-32 accepts data and returns totals/winners; :35-44 has import guard.",
+        "E": "supplier_cost.py:16-32 handles all minimum-cost ties and rejects empty list; no field/finite validation.",
+        "T": "test_supplier_cost.py:8-36 asserts supplied totals, fee-driven winner reversal and decimal tie.",
+        "D": "supplier_cost.py:1,17 documents annual fee policy and return shape; :35-44 labeled example output."
+      },
+      "findings": [],
+      "run_id": "r3_T01_C",
+      "task_id": "T01",
+      "group": "C",
+      "repeat": 3,
+      "source_files": [
+        "runs/r3_T01_C/supplier_cost.py",
+        "runs/r3_T01_C/test_supplier_cost.py"
+      ],
+      "source_root": "runs/r3_T01_C",
+      "observable_features": {
+        "explicit_raise": true,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P044",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 0,
+      "T": 0,
+      "D": 1,
+      "evidence": {
+        "core": "inventory.py:4-6 calculates inventory; :10-15 prints final quantity 100.",
+        "S": "inventory.py:4-6,9-15 separates calculation/display with clear names.",
+        "R": "inventory.py:4-6 input-driven function/return; :18-19 guards main.",
+        "E": "inventory.py:6 performs unchecked arithmetic; no explicit input validation/error policy.",
+        "T": "inventory.py:1-19 has no independent assertions; no test file supplied.",
+        "D": "inventory.py:5,10-15 shows basic formula and labeled runnable example, no further input contract."
+      },
+      "findings": [],
+      "run_id": "r1_T02_A",
+      "task_id": "T02",
+      "group": "A",
+      "repeat": 1,
+      "source_files": [
+        "runs/r1_T02_A/inventory.py"
+      ],
+      "source_root": "runs/r1_T02_A",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": false,
+        "beyond_example_test": false
+      }
+    },
+    {
+      "blind_id": "P075",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 0,
+      "T": 0,
+      "D": 1,
+      "evidence": {
+        "core": "inventory.py:4-6 computes opening + receipts - issues; inventory.py:9-12 prints calculated 100.",
+        "S": "inventory.py:4-6 separates clearly named calculation from guarded example.",
+        "R": "inventory.py:4-6 accepts inputs and returns result; inventory.py:9-12 guarded example.",
+        "E": "inventory.py:4-6 has no numeric/type/finite validation.",
+        "T": "inventory.py:1-12 contains no independent expected-value assertions; no test file supplied.",
+        "D": "inventory.py:5,9-12 formula docstring and labeled example establish basic use; no explicit invocation/argument contract."
+      },
+      "findings": [],
+      "run_id": "r2_T02_A",
+      "task_id": "T02",
+      "group": "A",
+      "repeat": 2,
+      "source_files": [
+        "runs/r2_T02_A/inventory.py"
+      ],
+      "source_root": "runs/r2_T02_A",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": false,
+        "beyond_example_test": false
+      }
+    },
+    {
+      "blind_id": "P061",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 0,
+      "T": 2,
+      "D": 1,
+      "evidence": {
+        "core": "inventory.py:4-6 computes opening + receipts - issues; inventory.py:9-12 prints calculated 100.",
+        "S": "inventory.py:4-6 separates clearly named calculation from guarded example.",
+        "R": "inventory.py:4-6 accepts inputs and returns result; inventory.py:9-12 guarded example.",
+        "E": "inventory.py:4-6 has no numeric/type/finite validation.",
+        "T": "test_inventory.py:7-14 normal expected 100 plus empty-movement/zero boundary assertions.",
+        "D": "inventory.py:5,9-12 formula docstring and labeled example establish basic use; no explicit invocation/argument contract."
+      },
+      "findings": [],
+      "run_id": "r3_T02_A",
+      "task_id": "T02",
+      "group": "A",
+      "repeat": 3,
+      "source_files": [
+        "runs/r3_T02_A/inventory.py"
+      ],
+      "source_root": "runs/r3_T02_A",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P025",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 1,
+      "evidence": {
+        "core": "inventory.py:4-6; inventory.py:9-16: supplied-input arithmetic and labeled requested outputs, not answer constants (static review; no execution claim).",
+        "S": "inventory.py:4-6,9-16: named calculation separated from example/output.",
+        "R": "inventory.py:4-6,9-16: arguments in, results returned; example under main guard.",
+        "E": "test_inventory.py:10-14 verifies empty movements and exhausted stock; inventory.py:6 lacks invalid-value validation.",
+        "T": "test_inventory.py:7-14 independently checks supplied 100, no movements 120 and exhausted stock 0.",
+        "D": "inventory.py:5,10-12 basic formula/example and output meaning; no explicit invocation/units guidance."
+      },
+      "findings": [],
+      "run_id": "r1_T02_B",
+      "task_id": "T02",
+      "group": "B",
+      "repeat": 1,
+      "source_files": [
+        "runs/r1_T02_B/inventory.py"
+      ],
+      "source_root": "runs/r1_T02_B",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P070",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 0,
+      "T": 0,
+      "D": 1,
+      "evidence": {
+        "core": "inventory.py:4-6 computes opening + receipts - issues; inventory.py:9-12 prints calculated 100.",
+        "S": "inventory.py:4-6 separates clearly named calculation from guarded example.",
+        "R": "inventory.py:4-6 accepts inputs and returns result; inventory.py:9-12 guarded example.",
+        "E": "inventory.py:4-6 has no numeric/type/finite validation.",
+        "T": "inventory.py:1-12 contains no independent expected-value assertions; no test file supplied.",
+        "D": "inventory.py:5,9-12 formula docstring and labeled example establish basic use; no explicit invocation/argument contract."
+      },
+      "findings": [],
+      "run_id": "r2_T02_B",
+      "task_id": "T02",
+      "group": "B",
+      "repeat": 2,
+      "source_files": [
+        "runs/r2_T02_B/inventory.py"
+      ],
+      "source_root": "runs/r2_T02_B",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": false,
+        "beyond_example_test": false
+      }
+    },
+    {
+      "blind_id": "P014",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 0,
+      "T": 0,
+      "D": 1,
+      "evidence": {
+        "core": "inventory.py:4-6; inventory.py:9-16: supplied-input arithmetic and labeled requested outputs, not answer constants (static review; no execution claim).",
+        "S": "inventory.py:4-6,9-16: named calculation separated from example/output.",
+        "R": "inventory.py:4-6,9-16: arguments in, results returned; example under main guard.",
+        "E": "inventory.py:6 contains no validation or explicit boundary policy.",
+        "T": "inventory.py:1-16 has no assertions; no authored test file.",
+        "D": "inventory.py:5,10-12 formula, editable example and output label; no explicit invocation/units guidance."
+      },
+      "findings": [],
+      "run_id": "r3_T02_B",
+      "task_id": "T02",
+      "group": "B",
+      "repeat": 3,
+      "source_files": [
+        "runs/r3_T02_B/inventory.py"
+      ],
+      "source_root": "runs/r3_T02_B",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": false,
+        "beyond_example_test": false
+      }
+    },
+    {
+      "blind_id": "P066",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 0,
+      "T": 2,
+      "D": 1,
+      "evidence": {
+        "core": "inventory.py:4-6 computes opening + receipts - issues; inventory.py:9-19 prints calculated 100.",
+        "S": "inventory.py:4-6 separates clearly named calculation from guarded example.",
+        "R": "inventory.py:4-6 accepts inputs and returns result; inventory.py:9-19 guarded example.",
+        "E": "inventory.py:4-6 has no numeric/type/finite validation.",
+        "T": "test_inventory.py:7-14 normal expected 100 plus empty-movement/zero boundary assertions.",
+        "D": "inventory.py:5,9-19 formula docstring and labeled example establish basic use; no explicit invocation/argument contract."
+      },
+      "findings": [],
+      "run_id": "r1_T02_C",
+      "task_id": "T02",
+      "group": "C",
+      "repeat": 1,
+      "source_files": [
+        "runs/r1_T02_C/inventory.py"
+      ],
+      "source_root": "runs/r1_T02_C",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P039",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 0,
+      "T": 0,
+      "D": 2,
+      "evidence": {
+        "core": "inventory.py:4-6 computes opening + receipts − issues; :10-15 prints final 100.",
+        "S": "inventory.py:4-6,9-15 separates simple calculation and display.",
+        "R": "inventory.py:4-6 accepts arguments/returns quantity; :18-19 guards main.",
+        "E": "inventory.py:6 uses arithmetic without type/finite validation or explicit error handling.",
+        "T": "inventory.py:1-19 has no independent assertions; no test file supplied.",
+        "D": "requirements.md:1-6 gives input fields, output, formula and scope."
+      },
+      "findings": [],
+      "run_id": "r2_T02_C",
+      "task_id": "T02",
+      "group": "C",
+      "repeat": 2,
+      "source_files": [
+        "runs/r2_T02_C/inventory.py"
+      ],
+      "source_root": "runs/r2_T02_C",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [
+          "requirements.md"
+        ],
+        "assertion_evidence": false,
+        "beyond_example_test": false
+      }
+    },
+    {
+      "blind_id": "P067",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 0,
+      "T": 0,
+      "D": 2,
+      "evidence": {
+        "core": "inventory.py:4-6 computes opening + receipts - issues; inventory.py:9-11 prints calculated 100.",
+        "S": "inventory.py:4-6 separates clearly named calculation from guarded example.",
+        "R": "inventory.py:4-6 accepts inputs and returns result; inventory.py:9-11 guarded example.",
+        "E": "inventory.py:4-6 has no numeric/type/finite validation.",
+        "T": "inventory.py:1-11 contains no independent expected-value assertions; no test file supplied.",
+        "D": "acceptance.md:1-4 identifies inputs, formula and excluded policies."
+      },
+      "findings": [],
+      "run_id": "r3_T02_C",
+      "task_id": "T02",
+      "group": "C",
+      "repeat": 3,
+      "source_files": [
+        "runs/r3_T02_C/inventory.py"
+      ],
+      "source_root": "runs/r3_T02_C",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [
+          "acceptance.md"
+        ],
+        "assertion_evidence": false,
+        "beyond_example_test": false
+      }
+    },
+    {
+      "blind_id": "P059",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "production.py:8-13 computes total and shortage/surplus; :18-28 prints 9000 total/200 shortage.",
+        "S": "production.py:4-13 separates calculation from conditional display.",
+        "R": "production.py:4-13 takes arguments/returns dictionary; :31-32 guards main.",
+        "E": "production.py:6-7 explains negative rejection; no type/finite checks (NaN bypasses comparison).",
+        "T": "test_production.py:6-25 asserts example, surplus, exact match, zero days and negative policy.",
+        "D": "production.py:5 documents result meanings; :19-22 labels units and time period."
+      },
+      "findings": [],
+      "run_id": "r1_T03_A",
+      "task_id": "T03",
+      "group": "A",
+      "repeat": 1,
+      "source_files": [
+        "runs/r1_T03_A/production.py"
+      ],
+      "source_root": "runs/r1_T03_A",
+      "observable_features": {
+        "explicit_raise": true,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P047",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 1,
+      "evidence": {
+        "core": "production.py:5-10 computes 9000 total, 200 shortage, 0 surplus; :15-19 prints them.",
+        "S": "production.py:4-10 and :13-19 cleanly separate calculation/display.",
+        "R": "production.py:4-10 returns dictionary from inputs; :22-23 guards main.",
+        "E": "production.py:8-9 clamps shortage/surplus to zero; logs/events.jsonl sequence2 verifies exact-demand boundary. No explicit type/finite validation (:5-9).",
+        "T": "logs/events.jsonl sequence2 (parent-provided trusted execution evidence): python3 -c independently asserts supplied shortage, alternate surplus and exact-demand dictionaries; exit 0. No saved test file.",
+        "D": "production.py:14-19 supplies example and labeled values but no explicit input/return contract."
+      },
+      "findings": [],
+      "run_id": "r2_T03_A",
+      "task_id": "T03",
+      "group": "A",
+      "repeat": 2,
+      "source_files": [
+        "runs/r2_T03_A/production.py"
+      ],
+      "source_root": "runs/r2_T03_A",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P060",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 2,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "production.py:14-19 calculates total and shortage/surplus; :24-34 prints 9000 and 200 shortage.",
+        "S": "production.py:4-19 separates documented input validation/calculation from display.",
+        "R": "production.py:4-19 accepts arguments/returns dictionary; :37-38 guards main.",
+        "E": "production.py:6-12 rejects noninteger/negative values with named message; zero capacity/days/demand remain valid.",
+        "T": "test_production.py:7-27 checks shortage/surplus/exact match/zero days plus types/negative policy.",
+        "D": "production.py:5 specifies nonnegative integer inputs and three returned quantities."
+      },
+      "findings": [
+        "production.py:5,11 imposes integer working_days; fractional-day schedules are outside this declared contract although original task does not specify a domain. No supplied-input failure."
+      ],
+      "run_id": "r3_T03_A",
+      "task_id": "T03",
+      "group": "A",
+      "repeat": 3,
+      "source_files": [
+        "runs/r3_T03_A/production.py"
+      ],
+      "source_root": "runs/r3_T03_A",
+      "observable_features": {
+        "explicit_raise": true,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P018",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 1,
+      "evidence": {
+        "core": "production.py:4-10; production.py:13-23: supplied-input arithmetic and labeled requested outputs, not answer constants (static review; no execution claim).",
+        "S": "production.py:4-10,13-23: named calculation separated from example/output.",
+        "R": "production.py:4-10,13-23: arguments in, results returned; example under main guard.",
+        "E": "test_production.py:19-28 checks equality/zero days; production.py:5-10 lacks invalid-value validation.",
+        "T": "test_production.py:7-28 independently asserts shortage/surplus and equality/zero days.",
+        "D": "production.py:1,14-19 basic example and labeled quantity outputs; no explicit invocation or argument/return documentation."
+      },
+      "findings": [],
+      "run_id": "r1_T03_B",
+      "task_id": "T03",
+      "group": "B",
+      "repeat": 1,
+      "source_files": [
+        "runs/r1_T03_B/production.py"
+      ],
+      "source_root": "runs/r1_T03_B",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P006",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "production.py:6-14; production.py:17-33: supplied-input arithmetic and labeled requested outputs, not answer constants (static review; no execution claim).",
+        "S": "production.py:6-14,17-33: named calculation separated from example/output.",
+        "R": "production.py:6-14,17-33: arguments in, results returned; example under main guard.",
+        "E": "test_production.py:18-24 checks exact demand and zero days; production.py:7-14 lacks invalid-input validation.",
+        "T": "test_production.py:6-24 asserts supplied, surplus and valid boundary values.",
+        "D": "production.py:18-23 gives JSON argument help and default input; 26-29 labels quantity units."
+      },
+      "findings": [],
+      "run_id": "r2_T03_B",
+      "task_id": "T03",
+      "group": "B",
+      "repeat": 2,
+      "source_files": [
+        "runs/r2_T03_B/production.py"
+      ],
+      "source_root": "runs/r2_T03_B",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P071",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 1,
+      "evidence": {
+        "core": "production.py:5-10 calculates 9000 total/200 shortage; :14-25 prints calculated outputs.",
+        "S": "production.py:4-10 calculation separated from :13-29 main.",
+        "R": "production.py:4-10 parameterized returned dict; :28-29 guard.",
+        "E": "production.py:8-9 handles shortage/surplus/equality with max; no numeric validation.",
+        "T": "test_production.py:7-25 asserts normal shortage, surplus, equality and zero-day boundary.",
+        "D": "production.py:1,14-25 provides input example and labeled quantity outputs; no explicit execution or fuller argument documentation."
+      },
+      "findings": [],
+      "run_id": "r3_T03_B",
+      "task_id": "T03",
+      "group": "B",
+      "repeat": 3,
+      "source_files": [
+        "runs/r3_T03_B/production.py"
+      ],
+      "source_root": "runs/r3_T03_B",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P063",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "production.py:6-12 calculates total and shortage/surplus; :16-27 prints total 9000 and shortage 200.",
+        "S": "production.py:4-12 calculation separate from main :15-31.",
+        "R": "production.py:4-12 inputs/returned dict; :30-31 guards main.",
+        "E": "production.py:7-11 clamps shortage/surplus to nonnegative and handles equality; no numeric validation.",
+        "T": "test_production.py:7-23 checks shortage, surplus and exact-match boundary.",
+        "D": "README.md:3-9 explains inputs, formula, invariant and scope; :11-20 supplies example/test invocation through common runlog wrapper."
+      },
+      "findings": [],
+      "run_id": "r1_T03_C",
+      "task_id": "T03",
+      "group": "C",
+      "repeat": 1,
+      "source_files": [
+        "runs/r1_T03_C/production.py"
+      ],
+      "source_root": "runs/r1_T03_C",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [
+          "README.md"
+        ],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P005",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "production.py:4-12; production.py:15-29: supplied-input arithmetic and labeled requested outputs, not answer constants (static review; no execution claim).",
+        "S": "production.py:4-12,15-29: named calculation separated from example/output.",
+        "R": "production.py:4-12,15-29: arguments in, results returned; example under main guard.",
+        "E": "production.py:5 documents nonnegative input; test_production.py:15-21 verifies equality and zero days; no type/nonfinite validation.",
+        "T": "test_production.py:7-21 independently checks shortage, surplus, equality and zero days.",
+        "D": "scope.md:1-6 defines input meanings, outputs, invariant and assumptions."
+      },
+      "findings": [],
+      "run_id": "r2_T03_C",
+      "task_id": "T03",
+      "group": "C",
+      "repeat": 2,
+      "source_files": [
+        "runs/r2_T03_C/production.py"
+      ],
+      "source_root": "runs/r2_T03_C",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [
+          "scope.md"
+        ],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P010",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "production.py:4-10; production.py:13-31: supplied-input arithmetic and labeled requested outputs, not answer constants (static review; no execution claim).",
+        "S": "production.py:4-10,13-31: named calculation separated from example/output.",
+        "R": "production.py:4-10,13-31: arguments in, results returned; example under main guard.",
+        "E": "test_production.py:19-28 verifies equality and zero workdays; production.py:5-10 lacks invalid-input validation.",
+        "T": "test_production.py:7-28 asserts shortage, surplus, equality and zero days.",
+        "D": "requirements.md:3-9 documents inputs, constant daily-capacity assumption, outputs and scope."
+      },
+      "findings": [],
+      "run_id": "r3_T03_C",
+      "task_id": "T03",
+      "group": "C",
+      "repeat": 3,
+      "source_files": [
+        "runs/r3_T03_C/production.py",
+        "runs/r3_T03_C/test_production.py",
+        "runs/r3_T03_C/requirements.md"
+      ],
+      "source_root": "runs/r3_T03_C",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [
+          "requirements.md"
+        ],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P002",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "manufacturing_cost.py:5-12; manufacturing_cost.py:15-29: supplied-input arithmetic and labeled requested outputs, not answer constants (static review; no execution claim).",
+        "S": "manufacturing_cost.py:5-12,15-29: named calculation separated from example/output.",
+        "R": "manufacturing_cost.py:5-12,15-29: arguments in, results returned; example under main guard.",
+        "E": "test_manufacturing_cost.py:11-17 demonstrates zero quantity and decimal exactness; manufacturing_cost.py:7-12 has no type/nonfinite validation.",
+        "T": "test_manufacturing_cost.py:7-17 independent supplied, zero and precision expectations.",
+        "D": "manufacturing_cost.py:6 documents tuple meaning and same-currency units."
+      },
+      "findings": [],
+      "run_id": "r1_T04_A",
+      "task_id": "T04",
+      "group": "A",
+      "repeat": 1,
+      "source_files": [
+        "runs/r1_T04_A/manufacturing_cost.py"
+      ],
+      "source_root": "runs/r1_T04_A",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P001",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 2,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "manufacturing_cost.py:5-14; manufacturing_cost.py:17-27: supplied-input arithmetic and labeled requested outputs, not answer constants (static review; no execution claim).",
+        "S": "manufacturing_cost.py:5-14,17-27: named calculation separated from example/output.",
+        "R": "manufacturing_cost.py:5-14,17-27: arguments in, results returned; example under main guard.",
+        "E": "manufacturing_cost.py:7-12 explains invalid quantity type/range and rejects nonfinite/negative costs; test_manufacturing_cost.py:15-27 verifies valid zero quantity and invalid quantity/cost policies. These cover the principal errors and a valid boundary; exhaustive wrapping of Decimal conversion is not required.",
+        "T": "test_manufacturing_cost.py:7-27 asserts supplied values, decimal exactness, zero quantity and invalid values.",
+        "D": "manufacturing_cost.py:6-12 describes return values and accepted quantity/cost policy."
+      },
+      "findings": [
+        "manufacturing_cost.py:9: nonnumeric cost conversion lacks contextual error; optional robustness only."
+      ],
+      "run_id": "r2_T04_A",
+      "task_id": "T04",
+      "group": "A",
+      "repeat": 2,
+      "source_files": [
+        "runs/r2_T04_A/manufacturing_cost.py",
+        "runs/r2_T04_A/test_manufacturing_cost.py"
+      ],
+      "source_root": "runs/r2_T04_A",
+      "observable_features": {
+        "explicit_raise": true,
+        "finite_numeric_check": true,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P022",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 0,
+      "T": 0,
+      "D": 1,
+      "evidence": {
+        "core": "manufacturing_cost.py:6-14; manufacturing_cost.py:17-31: supplied-input arithmetic and labeled requested outputs, not answer constants (static review; no execution claim).",
+        "S": "manufacturing_cost.py:6-14,17-31: named calculation separated from example/output.",
+        "R": "manufacturing_cost.py:6-14,17-31: arguments in, results returned; example under main guard.",
+        "E": "manufacturing_cost.py:8-14 converts/combines amounts without explicit validation or boundary evidence.",
+        "T": "manufacturing_cost.py:1-31 contains no assertions; no test file.",
+        "D": "manufacturing_cost.py:7,18-27 basic return description, example and labeled output; no explicit execution/units policy."
+      },
+      "findings": [],
+      "run_id": "r3_T04_A",
+      "task_id": "T04",
+      "group": "A",
+      "repeat": 3,
+      "source_files": [
+        "runs/r3_T04_A/manufacturing_cost.py"
+      ],
+      "source_root": "runs/r3_T04_A",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": false,
+        "beyond_example_test": false
+      }
+    },
+    {
+      "blind_id": "P051",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "manufacturing_cost.py:8-13 sums costs and multiplies quantity; :24-26 prints 20.00 and 20,000.00.",
+        "S": "manufacturing_cost.py:6-13,16-26 separates calculation/display.",
+        "R": "manufacturing_cost.py:6-13 takes inputs/returns tuple; :29-30 guards main.",
+        "E": "manufacturing_cost.py:13 handles zero quantity but lacks type/finite validation; float quantity produces Decimal/float TypeError.",
+        "T": "test_manufacturing_cost.py:8-24 asserts normal, exact decimals and zero-quantity/unit-cost invariant.",
+        "D": "manufacturing_cost.py:7 explicitly documents decimal arithmetic and ordered result tuple."
+      },
+      "findings": [],
+      "run_id": "r1_T04_B",
+      "task_id": "T04",
+      "group": "B",
+      "repeat": 1,
+      "source_files": [
+        "runs/r1_T04_B/manufacturing_cost.py"
+      ],
+      "source_root": "runs/r1_T04_B",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P052",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "manufacturing_cost.py:8-13 sums costs and multiplies quantity; :24-26 prints 20.00 and 20,000.00.",
+        "S": "manufacturing_cost.py:6-13,16-26 separates calculation/display.",
+        "R": "manufacturing_cost.py:6-13 returns input-derived tuple; :29-30 guards main.",
+        "E": "manufacturing_cost.py:13 supports zero quantity, but no type/finite checks; Decimal × float quantity fails.",
+        "T": "test_manufacturing_cost.py:8-18 verifies normal, zero-quantity invariant and decimal accuracy.",
+        "D": "manufacturing_cost.py:7 describes per-unit and total return values."
+      },
+      "findings": [],
+      "run_id": "r2_T04_B",
+      "task_id": "T04",
+      "group": "B",
+      "repeat": 2,
+      "source_files": [
+        "runs/r2_T04_B/manufacturing_cost.py"
+      ],
+      "source_root": "runs/r2_T04_B",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P085",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 0,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "manufacturing_cost.py:7-12 sums costs and scales quantity; :22-25 prints 20.00 and 20000.00.",
+        "S": "manufacturing_cost.py:5-12 clear calculation separate from :15-29 main.",
+        "R": "manufacturing_cost.py:5-12 parameters/return; :28-29 guard.",
+        "E": "manufacturing_cost.py:7-12 has no finite/type validation; quantity is multiplied directly rather than converted (float quantity raises TypeError).",
+        "T": "test_manufacturing_cost.py:7-23 asserts supplied cost, decimal precision and zero-quantity boundary.",
+        "D": "manufacturing_cost.py:5-6 describes per-unit arguments and Decimal per-unit/total return."
+      },
+      "findings": [],
+      "run_id": "r3_T04_B",
+      "task_id": "T04",
+      "group": "B",
+      "repeat": 3,
+      "source_files": [
+        "runs/r3_T04_B/manufacturing_cost.py",
+        "runs/r3_T04_B/test_manufacturing_cost.py"
+      ],
+      "source_root": "runs/r3_T04_B",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P028",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "manufacturing_cost.py:5-12; manufacturing_cost.py:15-29: supplied-input arithmetic and labeled requested outputs, not answer constants (static review; no execution claim).",
+        "S": "manufacturing_cost.py:5-12,15-29: named calculation separated from example/output.",
+        "R": "manufacturing_cost.py:5-12,15-29: arguments in, results returned; example under main guard.",
+        "E": "test_manufacturing_cost.py:13-22 verifies decimal precision and zero quantity; manufacturing_cost.py:7-12 lacks invalid-value validation.",
+        "T": "test_manufacturing_cost.py:7-22 independent supplied, exact decimal and zero-quantity expectations.",
+        "D": "README.md:3-14 documents units, formula, scope, explicit run and test commands."
+      },
+      "findings": [],
+      "run_id": "r1_T04_C",
+      "task_id": "T04",
+      "group": "C",
+      "repeat": 1,
+      "source_files": [
+        "runs/r1_T04_C/manufacturing_cost.py"
+      ],
+      "source_root": "runs/r1_T04_C",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [
+          "README.md"
+        ],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P069",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 0,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "manufacturing_cost.py:12-17 sums per-unit costs and scales quantity; :24-27 prints 20.0 and 20000.0.",
+        "S": "manufacturing_cost.py:10-17 separates arithmetic from main :20-31.",
+        "R": "manufacturing_cost.py:10-17 parameters/returned tuple; :30-31 guard.",
+        "E": "manufacturing_cost.py:12-17 performs conversion/arithmetic without finite/type validation.",
+        "T": "test_manufacturing_cost.py:7-18 asserts supplied result, decimal precision and zero quantity preserving unit cost.",
+        "D": "requirements.md:1-6 identifies inputs, outputs, formula and scope; manufacturing_cost.py:21-23 explains JSON argument."
+      },
+      "findings": [],
+      "run_id": "r2_T04_C",
+      "task_id": "T04",
+      "group": "C",
+      "repeat": 2,
+      "source_files": [
+        "runs/r2_T04_C/manufacturing_cost.py"
+      ],
+      "source_root": "runs/r2_T04_C",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [
+          "requirements.md"
+        ],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P033",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 0,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "manufacturing_cost.py:8-13 sums costs and multiplies quantity; :23-26 prints 20.00 and 20,000.00.",
+        "S": "manufacturing_cost.py:6-13,16-26 separates calculation from example.",
+        "R": "manufacturing_cost.py:6-13 has arguments and return; :29-30 guards main.",
+        "E": "manufacturing_cost.py:8-13 performs conversions without explicit type/finite checks or error policy.",
+        "T": "test_manufacturing_cost.py:10-20 checks normal totals, quantity independence, exact decimal arithmetic.",
+        "D": "requirements.md:1-6 states inputs, outputs, formula, invariant, scope."
+      },
+      "findings": [],
+      "run_id": "r3_T04_C",
+      "task_id": "T04",
+      "group": "C",
+      "repeat": 3,
+      "source_files": [
+        "runs/r3_T04_C/manufacturing_cost.py"
+      ],
+      "source_root": "runs/r3_T04_C",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [
+          "requirements.md"
+        ],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P050",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 2,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "quality.py:12 calculates defect percentage and good count; :17-21 prints 3.00%,2425.",
+        "S": "quality.py:4-12 separates validation/calculation from main.",
+        "R": "quality.py:4-12 accepts arguments/returns tuple; :24-25 guards main.",
+        "E": "quality.py:6-11 rejects nonintegers, zero denominator, impossible defects; inclusive bounds allow 0/all.",
+        "T": "test_quality.py:7-22 asserts normal, zero/all defects and type/range errors.",
+        "D": "quality.py:5 explicitly identifies returned percentage and good quantity."
+      },
+      "findings": [],
+      "run_id": "r1_T05_A",
+      "task_id": "T05",
+      "group": "A",
+      "repeat": 1,
+      "source_files": [
+        "runs/r1_T05_A/quality.py"
+      ],
+      "source_root": "runs/r1_T05_A",
+      "observable_features": {
+        "explicit_raise": true,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P042",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 2,
+      "T": 0,
+      "D": 1,
+      "evidence": {
+        "core": "defect_rate.py:11-13 calculates percentage/good count; :18-22 prints 3.00% and 2425.",
+        "S": "defect_rate.py:4-13 separates validation/calculation from guarded example.",
+        "R": "defect_rate.py:4-13 takes arguments and returns tuple; :16 guards main.",
+        "E": "defect_rate.py:5-10 validates exact integer types, positive denominator and bounded defects; zero/all defects allowed.",
+        "T": "defect_rate.py:1-22 contains no independent assertion tests; no test file supplied.",
+        "D": "defect_rate.py:17-22 gives labeled example/units; lacks explicit return tuple or invocation documentation."
+      },
+      "findings": [],
+      "run_id": "r2_T05_A",
+      "task_id": "T05",
+      "group": "A",
+      "repeat": 2,
+      "source_files": [
+        "runs/r2_T05_A/defect_rate.py"
+      ],
+      "source_root": "runs/r2_T05_A",
+      "observable_features": {
+        "explicit_raise": true,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": false,
+        "beyond_example_test": false
+      }
+    },
+    {
+      "blind_id": "P081",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 2,
+      "T": 0,
+      "D": 2,
+      "evidence": {
+        "core": "production_quality.py:12 computes rate and good units; :16-21 prints 3.00% and 2425.",
+        "S": "production_quality.py:4-12 separates calculation from main :15-25 with clear names.",
+        "R": "production_quality.py:4-12 parameters and return; :24-25 import guard.",
+        "E": "production_quality.py:6-11 explains noninteger, zero denominator and invalid defective-count errors, allows zero/all defects.",
+        "T": "production_quality.py:1-25 contains no independent assertions and no tests supplied.",
+        "D": "production_quality.py:4-11 identifies integer parameters, percentage return and valid-count contract."
+      },
+      "findings": [],
+      "run_id": "r3_T05_A",
+      "task_id": "T05",
+      "group": "A",
+      "repeat": 3,
+      "source_files": [
+        "runs/r3_T05_A/production_quality.py"
+      ],
+      "source_root": "runs/r3_T05_A",
+      "observable_features": {
+        "explicit_raise": true,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": false,
+        "beyond_example_test": false
+      }
+    },
+    {
+      "blind_id": "P086",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 2,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "defect_rate.py:12-14 computes rate and good quantity; :18-23 prints 3.00% and 2425.",
+        "S": "defect_rate.py:4-14 calculation separate from :17-27 main with clear names/policy.",
+        "R": "defect_rate.py:4-14 inputs/return; :26-27 import guard.",
+        "E": "defect_rate.py:5-11 explains integer, positive denominator and count-range rules; zero/all defects allowed.",
+        "T": "test_defect_rate.py:7-26 asserts supplied rate/good, no/all defects and invalid numeric/type cases.",
+        "D": "defect_rate.py:1,5 documents percent units and integer domain; :18-23 labeled example."
+      },
+      "findings": [],
+      "run_id": "r1_T05_B",
+      "task_id": "T05",
+      "group": "B",
+      "repeat": 1,
+      "source_files": [
+        "runs/r1_T05_B/defect_rate.py"
+      ],
+      "source_root": "runs/r1_T05_B",
+      "observable_features": {
+        "explicit_raise": true,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P027",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 2,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "quality.py:5-13; quality.py:16-32: supplied-input arithmetic and labeled requested outputs, not answer constants (static review; no execution claim).",
+        "S": "quality.py:5-13,16-32: named calculation separated from example/output.",
+        "R": "quality.py:5-13,16-32: arguments in, results returned; example under main guard.",
+        "E": "quality.py:6-13 validates integer types, positive denominator and feasible defective counts; 21-24 supplies CLI error handling.",
+        "T": "test_quality.py:7-27 asserts independent supplied/zero/all/fractional values and invalid-count policies.",
+        "D": "quality.py:1,6,18-19 documents percent/count meaning, accepted domain and CLI input names/defaults."
+      },
+      "findings": [],
+      "run_id": "r2_T05_B",
+      "task_id": "T05",
+      "group": "B",
+      "repeat": 2,
+      "source_files": [
+        "runs/r2_T05_B/quality.py"
+      ],
+      "source_root": "runs/r2_T05_B",
+      "observable_features": {
+        "explicit_raise": true,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P026",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 2,
+      "T": 0,
+      "D": 1,
+      "evidence": {
+        "core": "quality.py:4-11; quality.py:14-24: supplied-input arithmetic and labeled requested outputs, not answer constants (static review; no execution claim).",
+        "S": "quality.py:4-11,14-24: named calculation separated from example/output.",
+        "R": "quality.py:4-11,14-24: arguments in, results returned; example under main guard.",
+        "E": "quality.py:5-11 explains wrong-type, nonpositive denominator and impossible-count errors while allowing zero/all defects.",
+        "T": "quality.py:1-24 contains no assertions; no test file.",
+        "D": "quality.py:1,15-20 has basic example and labeled percent/count outputs; no explicit invocation or return docstring."
+      },
+      "findings": [],
+      "run_id": "r3_T05_B",
+      "task_id": "T05",
+      "group": "B",
+      "repeat": 3,
+      "source_files": [
+        "runs/r3_T05_B/quality.py"
+      ],
+      "source_root": "runs/r3_T05_B",
+      "observable_features": {
+        "explicit_raise": true,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": false,
+        "beyond_example_test": false
+      }
+    },
+    {
+      "blind_id": "P072",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 2,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "quality.py:12 calculates defective/produced*100 and good quantity; :16-21 prints 3.00% and 2425.",
+        "S": "quality.py:4-12 calculation separate from :15-25 main.",
+        "R": "quality.py:4-12 inputs/returned tuple; :24-25 guard.",
+        "E": "quality.py:6-11 explains noninteger, zero denominator and defective-range errors; endpoints allowed.",
+        "T": "test_quality.py:7-27 checks normal, zero/all defects, fractional rate and invalid type/range inputs.",
+        "D": "requirements.md:3-8 documents units, invariant and domain/error policy."
+      },
+      "findings": [],
+      "run_id": "r1_T05_C",
+      "task_id": "T05",
+      "group": "C",
+      "repeat": 1,
+      "source_files": [
+        "runs/r1_T05_C/quality.py"
+      ],
+      "source_root": "runs/r1_T05_C",
+      "observable_features": {
+        "explicit_raise": true,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [
+          "requirements.md"
+        ],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P009",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 2,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "production_quality.py:6-14; production_quality.py:17-31: supplied-input arithmetic and labeled requested outputs, not answer constants (static review; no execution claim).",
+        "S": "production_quality.py:6-14,17-31: named calculation separated from example/output.",
+        "R": "production_quality.py:6-14,17-31: arguments in, results returned; example under main guard.",
+        "E": "production_quality.py:7-14 explicitly rejects wrong types, zero denominator and impossible counts; accepts zero/all defects.",
+        "T": "test_production_quality.py:7-23 independent normal, boundary and invalid-input assertions.",
+        "D": "requirements.md:1-5 documents input domain, percentage formula and example CLI arguments."
+      },
+      "findings": [],
+      "run_id": "r2_T05_C",
+      "task_id": "T05",
+      "group": "C",
+      "repeat": 2,
+      "source_files": [
+        "runs/r2_T05_C/production_quality.py"
+      ],
+      "source_root": "runs/r2_T05_C",
+      "observable_features": {
+        "explicit_raise": true,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [
+          "requirements.md"
+        ],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P020",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "production_quality.py:9-13; production_quality.py:16-26: supplied-input arithmetic and labeled requested outputs, not answer constants (static review; no execution claim).",
+        "S": "production_quality.py:9-13,16-26: named calculation separated from example/output.",
+        "R": "production_quality.py:9-13,16-26: arguments in, results returned; example under main guard.",
+        "E": "production_quality.py:3 declares domain; test_production_quality.py:13-17 checks zero/all defects, but 11 divides without zero/type validation.",
+        "T": "test_production_quality.py:7-22 independently checks supplied result, conservation, zero/all defects and fractional rate.",
+        "D": "production_quality.py:1-5,10 documents domain, percent units, return meaning and example."
+      },
+      "findings": [
+        "production_quality.py:11-12 does not enforce stated domain: zero production divides by zero and defective > produced yields negative good count; optional robustness gap, provided input unaffected."
+      ],
+      "run_id": "r3_T05_C",
+      "task_id": "T05",
+      "group": "C",
+      "repeat": 3,
+      "source_files": [
+        "runs/r3_T05_C/production_quality.py"
+      ],
+      "source_root": "runs/r3_T05_C",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P029",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 1,
+      "evidence": {
+        "core": "invoice_balance.py:4-6; invoice_balance.py:9-18: supplied-input arithmetic and labeled requested outputs, not answer constants (static review; no execution claim).",
+        "S": "invoice_balance.py:4-6,9-18: named calculation separated from example/output.",
+        "R": "invoice_balance.py:4-6,9-18: arguments in, results returned; example under main guard.",
+        "E": "test_invoice_balance.py:10-14 verifies empty payments and full payment; invoice_balance.py:6 lacks invalid-value validation.",
+        "T": "test_invoice_balance.py:7-14 independently checks supplied, empty and fully-paid cases.",
+        "D": "invoice_balance.py:5,10-14 gives basic return description/example and labels; no explicit invocation/units policy."
+      },
+      "findings": [],
+      "run_id": "r1_T06_A",
+      "task_id": "T06",
+      "group": "A",
+      "repeat": 1,
+      "source_files": [
+        "runs/r1_T06_A/invoice_balance.py"
+      ],
+      "source_root": "runs/r1_T06_A",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P046",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "invoice_balance.py:8-10 subtracts summed payments; :14-16 prints 6000.",
+        "S": "invoice_balance.py:6-10 separates calculation and explains credit sign.",
+        "R": "invoice_balance.py:6-10 takes inputs/returns result; :13 guards example.",
+        "E": "invoice_balance.py:7,9 documents overpayment and handles empty payments; nonfinite/type validation absent.",
+        "T": "test_invoice_balance.py:8-21 verifies example, empty/full/overpayment and decimal settlement.",
+        "D": "invoice_balance.py:1,7 documents purpose, exact subtraction and negative-credit meaning."
+      },
+      "findings": [],
+      "run_id": "r2_T06_A",
+      "task_id": "T06",
+      "group": "A",
+      "repeat": 2,
+      "source_files": [
+        "runs/r2_T06_A/invoice_balance.py",
+        "runs/r2_T06_A/test_invoice_balance.py"
+      ],
+      "source_root": "runs/r2_T06_A",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P023",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "invoice_balance.py:6-10; invoice_balance.py:13-23: supplied-input arithmetic and labeled requested outputs, not answer constants (static review; no execution claim).",
+        "S": "invoice_balance.py:6-10,13-23: named calculation separated from example/output.",
+        "R": "invoice_balance.py:6-10,13-23: arguments in, results returned; example under main guard.",
+        "E": "invoice_balance.py:7 documents overpayment; test_invoice_balance.py:11-21 verifies empty/full/overpaid, but 8-10 lacks invalid-value validation.",
+        "T": "test_invoice_balance.py:8-21 asserts independent supplied, empty/full, precision and overpayment values.",
+        "D": "invoice_balance.py:7 documents decimal and overpayment policy."
+      },
+      "findings": [
+        "invoice_balance.py:17-19 rounds display to whole amounts; fractional inputs retain exact calculation but fractional balance display is lost."
+      ],
+      "run_id": "r3_T06_A",
+      "task_id": "T06",
+      "group": "A",
+      "repeat": 3,
+      "source_files": [
+        "runs/r3_T06_A/invoice_balance.py",
+        "runs/r3_T06_A/test_invoice_balance.py"
+      ],
+      "source_root": "runs/r3_T06_A",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P017",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "invoice_balance.py:6-10; invoice_balance.py:13-22: supplied-input arithmetic and labeled requested outputs, not answer constants (static review; no execution claim).",
+        "S": "invoice_balance.py:6-10,13-22: named calculation separated from example/output.",
+        "R": "invoice_balance.py:6-10,13-22: arguments in, results returned; example under main guard.",
+        "E": "invoice_balance.py:7 documents negative credit; test_invoice_balance.py:12-26 covers empty/full/overpaid; conversion not validated at 8-9.",
+        "T": "test_invoice_balance.py:8-26 independent normal, empty/full, precision and overpayment assertions.",
+        "D": "invoice_balance.py:7 documents two return values and negative-balance policy."
+      },
+      "findings": [],
+      "run_id": "r1_T06_B",
+      "task_id": "T06",
+      "group": "B",
+      "repeat": 1,
+      "source_files": [
+        "runs/r1_T06_B/invoice_balance.py"
+      ],
+      "source_root": "runs/r1_T06_B",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P040",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "invoice_balance.py:10-11 sums payments and subtracts; :17-21 prints paid 6500/balance 6000.",
+        "S": "invoice_balance.py:8-11 separates calculation with signed balance policy.",
+        "R": "invoice_balance.py:8-11 accepts arguments/returns tuple; :24-25 guards main.",
+        "E": "invoice_balance.py:9-10 documents overpayment and supports no payments; malformed/nonfinite values unvalidated.",
+        "T": "test_invoice_balance.py:8-19 checks normal, no-payment, exact settlement, overpayment.",
+        "D": "invoice_balance.py:9 describes return tuple and negative balance meaning."
+      },
+      "findings": [],
+      "run_id": "r2_T06_B",
+      "task_id": "T06",
+      "group": "B",
+      "repeat": 2,
+      "source_files": [
+        "runs/r2_T06_B/invoice_balance.py",
+        "runs/r2_T06_B/test_invoice_balance.py"
+      ],
+      "source_root": "runs/r2_T06_B",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P008",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "invoice_balance.py:5-9; invoice_balance.py:12-21: supplied-input arithmetic and labeled requested outputs, not answer constants (static review; no execution claim).",
+        "S": "invoice_balance.py:5-9,12-21: named calculation separated from example/output.",
+        "R": "invoice_balance.py:5-9,12-21: arguments in, results returned; example under main guard.",
+        "E": "invoice_balance.py:6 documents overpayment credit; test_invoice_balance.py:11-22 checks empty/full/overpayment; no invalid-value validation at 7-9.",
+        "T": "test_invoice_balance.py:7-22 independent normal and boundary/policy assertions.",
+        "D": "invoice_balance.py:1,6 describes exact amounts, both return values and negative-balance meaning."
+      },
+      "findings": [],
+      "run_id": "r3_T06_B",
+      "task_id": "T06",
+      "group": "B",
+      "repeat": 3,
+      "source_files": [
+        "runs/r3_T06_B/invoice_balance.py"
+      ],
+      "source_root": "runs/r3_T06_B",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P007",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "invoice_balance.py:9-13; invoice_balance.py:16-25: supplied-input arithmetic and labeled requested outputs, not answer constants (static review; no execution claim).",
+        "S": "invoice_balance.py:9-13,16-25: named calculation separated from example/output.",
+        "R": "invoice_balance.py:9-13,16-25: arguments in, results returned; example under main guard.",
+        "E": "test_invoice_balance.py:10-17 checks empty payments, full payment and decimal precision; invoice_balance.py:11-13 has no invalid-input checks.",
+        "T": "test_invoice_balance.py:7-17 independent supplied, empty, full and exact-decimal expectations.",
+        "D": "invoice_balance.py:1-5 documents inputs, Decimal return and scope."
+      },
+      "findings": [
+        "invoice_balance.py:19-21 labels amounts as won though task.txt:1 provides no currency; supplied numeric result unaffected."
+      ],
+      "run_id": "r1_T06_C",
+      "task_id": "T06",
+      "group": "C",
+      "repeat": 1,
+      "source_files": [
+        "runs/r1_T06_C/invoice_balance.py"
+      ],
+      "source_root": "runs/r1_T06_C",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P003",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 0,
+      "T": 1,
+      "D": 1,
+      "evidence": {
+        "core": "invoice_balance.py:4-6; invoice_balance.py:9-18: supplied-input arithmetic and labeled requested outputs, not answer constants (static review; no execution claim).",
+        "S": "invoice_balance.py:4-6,9-18: named calculation separated from example/output.",
+        "R": "invoice_balance.py:4-6,9-18: arguments in, results returned; example under main guard.",
+        "E": "invoice_balance.py:6 performs arithmetic without validation or documented boundary policy.",
+        "T": "test_invoice_balance.py:9-10 asserts only provided result 6000.",
+        "D": "invoice_balance.py:5,10-14 basic function description, example and labeled output; no explicit usage/units policy."
+      },
+      "findings": [],
+      "run_id": "r2_T06_C",
+      "task_id": "T06",
+      "group": "C",
+      "repeat": 2,
+      "source_files": [
+        "runs/r2_T06_C/invoice_balance.py"
+      ],
+      "source_root": "runs/r2_T06_C",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": false
+      }
+    },
+    {
+      "blind_id": "P043",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "invoice_balance.py:13-15 sums/subtracts payment inputs; :20-24 prints 6000 balance.",
+        "S": "invoice_balance.py:11-15 separates calculation from main with named values.",
+        "R": "invoice_balance.py:11-15 accepts/returns values; :27-28 guards main.",
+        "E": "invoice_balance.py:14 seeds no-payment total; nonfinite/type errors lack validation (:13-14).",
+        "T": "test_invoice_balance.py:8-18 asserts normal/no-payment/full-payment and exact decimal settlement.",
+        "D": "invoice_balance.py:1-6 documents numeric inputs, signed Decimal output, example and scope."
+      },
+      "findings": [],
+      "run_id": "r3_T06_C",
+      "task_id": "T06",
+      "group": "C",
+      "repeat": 3,
+      "source_files": [
+        "runs/r3_T06_C/invoice_balance.py",
+        "runs/r3_T06_C/test_invoice_balance.py"
+      ],
+      "source_root": "runs/r3_T06_C",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P041",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 2,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "schedule_delay.py:9-11 computes four-day delay for task dates; :16-25 takes dates and prints result.",
+        "S": "schedule_delay.py:7-11,14-25 separates calculation and CLI.",
+        "R": "schedule_delay.py:7-11 returns input-driven value; :28-29 guards main.",
+        "E": "schedule_delay.py:9-11 validates calendar dates and clamps early/same; :19-22 gives CLI error explanation.",
+        "T": "test_schedule_delay.py:7-24 checks example, same/early/year/leap and invalid date.",
+        "D": "schedule_delay.py:8,16-17 documents day/early policy and YYYY-MM-DD CLI arguments."
+      },
+      "findings": [],
+      "run_id": "r1_T07_A",
+      "task_id": "T07",
+      "group": "A",
+      "repeat": 1,
+      "source_files": [
+        "runs/r1_T07_A/schedule_delay.py"
+      ],
+      "source_root": "runs/r1_T07_A",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": true,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P038",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 2,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "schedule_delay.py:9-11 calculates date difference and :15-17 outputs delay_days=4.",
+        "S": "schedule_delay.py:7-11 separates pure calculation, explicitly states early-completion policy.",
+        "R": "schedule_delay.py:7-11 input arguments/result; :14 guards example.",
+        "E": "schedule_delay.py:9-11 validates calendar dates through stdlib and handles early/same-day zero.",
+        "T": "test_schedule_delay.py:7-24 asserts example, early/same, year/leap boundaries, invalid date.",
+        "D": "schedule_delay.py:8 documents YYYY-MM-DD inputs, day result and early policy."
+      },
+      "findings": [],
+      "run_id": "r2_T07_A",
+      "task_id": "T07",
+      "group": "A",
+      "repeat": 2,
+      "source_files": [
+        "runs/r2_T07_A/schedule_delay.py"
+      ],
+      "source_root": "runs/r2_T07_A",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": true,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P056",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 2,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "schedule_delay.py:8-10 calculates date difference; :14-15 prints four days.",
+        "S": "schedule_delay.py:6-10 separates pure calculation and explains early policy.",
+        "R": "schedule_delay.py:6-10 accepts arguments/returns integer; :13 guards example.",
+        "E": "schedule_delay.py:8-10 uses calendar-validating stdlib and zero-clamped early/same-day result.",
+        "T": "test_schedule_delay.py:7-24 asserts supplied, same/early/year/leap boundaries and invalid date.",
+        "D": "schedule_delay.py:7 states date input format and early/same-day policy; :15 labels days."
+      },
+      "findings": [],
+      "run_id": "r3_T07_A",
+      "task_id": "T07",
+      "group": "A",
+      "repeat": 3,
+      "source_files": [
+        "runs/r3_T07_A/schedule_delay.py",
+        "runs/r3_T07_A/test_schedule_delay.py"
+      ],
+      "source_root": "runs/r3_T07_A",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": true,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P057",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 2,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "schedule_delay.py:8-10 computes date difference; :15-24 defaults to given dates and prints four days.",
+        "S": "schedule_delay.py:6-10 separates calculation from CLI and states late/early semantics.",
+        "R": "schedule_delay.py:6-10 returns input-derived integer; :27-28 guards main.",
+        "E": "schedule_delay.py:8-10 validates dates and clamps early; :18-21 explains CLI invalid dates.",
+        "T": "test_schedule_delay.py:6-23 asserts normal, same/early, year/leap and invalid dates.",
+        "D": "schedule_delay.py:7,15-16 documents day/early policy and CLI argument date formats."
+      },
+      "findings": [],
+      "run_id": "r1_T07_B",
+      "task_id": "T07",
+      "group": "B",
+      "repeat": 1,
+      "source_files": [
+        "runs/r1_T07_B/schedule_delay.py",
+        "runs/r1_T07_B/test_schedule_delay.py"
+      ],
+      "source_root": "runs/r1_T07_B",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": true,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P024",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 2,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "schedule_delay.py:6-10; schedule_delay.py:13-18: supplied-input arithmetic and labeled requested outputs, not answer constants (static review; no execution claim).",
+        "S": "schedule_delay.py:6-10,13-18: named calculation separated from example/output.",
+        "R": "schedule_delay.py:6-10,13-18: arguments in, results returned; example under main guard.",
+        "E": "schedule_delay.py:8-10 uses date.fromisoformat with explanatory built-in invalid-date/type errors and clamps early completion; test_schedule_delay.py:10-24 covers calendar boundaries.",
+        "T": "test_schedule_delay.py:7-24 independently checks supplied, on-time/early, year/leap boundaries and invalid date.",
+        "D": "schedule_delay.py:1,6-7 documents ISO-string inputs, calendar-day return and early/on-time policy."
+      },
+      "findings": [],
+      "run_id": "r2_T07_B",
+      "task_id": "T07",
+      "group": "B",
+      "repeat": 2,
+      "source_files": [
+        "runs/r2_T07_B/schedule_delay.py",
+        "runs/r2_T07_B/test_schedule_delay.py"
+      ],
+      "source_root": "runs/r2_T07_B",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": true,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P064",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 2,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "schedule_delay.py:9-11 subtracts parsed dates; :15-25 accepts supplied dates as CLI arguments and prints 4 days.",
+        "S": "schedule_delay.py:7-11 pure calculation; :14-29 separate CLI and explicit early-completion policy.",
+        "R": "schedule_delay.py:7-11 accepts date strings and returns days; :28-29 import guard.",
+        "E": "schedule_delay.py:9-11 uses date validation and nonnegative early policy; :19-22 provides useful invalid-date CLI error.",
+        "T": "test_schedule_delay.py:7-24 asserts example, same/early, year/leap boundaries and invalid date.",
+        "D": "schedule_delay.py:1,8,15-17 documents nonnegative calendar days and positional YYYY-MM-DD arguments."
+      },
+      "findings": [],
+      "run_id": "r3_T07_B",
+      "task_id": "T07",
+      "group": "B",
+      "repeat": 3,
+      "source_files": [
+        "runs/r3_T07_B/schedule_delay.py"
+      ],
+      "source_root": "runs/r3_T07_B",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": true,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P083",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 2,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "schedule_delay.py:14-16 parses dates/subtracts; :20-24 prints 4 days.",
+        "S": "schedule_delay.py:12-16 pure calculation and :19-28 separate main; :1-6 explicit date policy.",
+        "R": "schedule_delay.py:12-16 parameters/return; :27-28 import guard.",
+        "E": "schedule_delay.py:14-16 uses date validation/calendar arithmetic; :5 documents negative early-completion and same-day supported.",
+        "T": "test_schedule_delay.py:7-27 asserts example, same/early, month/year/leap boundaries and invalid date.",
+        "D": "schedule_delay.py:1-6 documents ISO inputs, signed integer calendar-day output and excluded holiday adjustment."
+      },
+      "findings": [],
+      "run_id": "r1_T07_C",
+      "task_id": "T07",
+      "group": "C",
+      "repeat": 1,
+      "source_files": [
+        "runs/r1_T07_C/schedule_delay.py"
+      ],
+      "source_root": "runs/r1_T07_C",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": true,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P037",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 2,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "schedule_delay.py:8-10 subtracts parsed dates; :18-21 prints four days.",
+        "S": "schedule_delay.py:6-10 separates calculation and documents signed early completion.",
+        "R": "schedule_delay.py:6-10 returns result from arguments; :24-25 guards main.",
+        "E": "schedule_delay.py:8-9 uses calendar-validating date.fromisoformat; signed difference handles same/early dates.",
+        "T": "test_schedule_delay.py:7-14 asserts example, same day and leap-day crossing.",
+        "D": "requirements.md:1-6 documents calendar-day units, signed policy and exclusions."
+      },
+      "findings": [],
+      "run_id": "r2_T07_C",
+      "task_id": "T07",
+      "group": "C",
+      "repeat": 2,
+      "source_files": [
+        "runs/r2_T07_C/schedule_delay.py"
+      ],
+      "source_root": "runs/r2_T07_C",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": true,
+        "standalone_authored_docs": [
+          "requirements.md"
+        ],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P079",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 2,
+      "T": 0,
+      "D": 2,
+      "evidence": {
+        "core": "schedule_delay.py:12-14 parses and subtracts supplied dates; :18-23 prints 4 days.",
+        "S": "schedule_delay.py:10-14 calculation separate from :17-23 example; :3-4 explains signed calendar policy.",
+        "R": "schedule_delay.py:10-14 parameters/return; :17 import guard.",
+        "E": "schedule_delay.py:12-14 delegates invalid dates to date.fromisoformat and calendar arithmetic; :3 explicitly permits early/same-day results.",
+        "T": "schedule_delay.py:1-23 contains only calculation/example, no independent assertions or test file.",
+        "D": "schedule_delay.py:1-4 documents YYYY-MM-DD, sign meaning and exclusion of business-day calendar."
+      },
+      "findings": [],
+      "run_id": "r3_T07_C",
+      "task_id": "T07",
+      "group": "C",
+      "repeat": 3,
+      "source_files": [
+        "runs/r3_T07_C/schedule_delay.py"
+      ],
+      "source_root": "runs/r3_T07_C",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": true,
+        "standalone_authored_docs": [],
+        "assertion_evidence": false,
+        "beyond_example_test": false
+      }
+    },
+    {
+      "blind_id": "P021",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "supplier_ranking.py:15-29; supplier_ranking.py:32-39: supplied-input arithmetic and labeled requested outputs, not answer constants (static review; no execution claim).",
+        "S": "supplier_ranking.py:15-29,32-39: named calculation separated from example/output.",
+        "R": "supplier_ranking.py:15-29,32-39: arguments in, results returned; example under main guard.",
+        "E": "supplier_ranking.py:18 documents stable ties; test_supplier_ranking.py:25-32 verifies ties/empty input; no malformed-field validation at 21-28.",
+        "T": "test_supplier_ranking.py:9-32 independent totals, changed weights, no mutation, ties and empty list assertions.",
+        "D": "supplier_ranking.py:16-20 explains score interpretation, ties and Decimal precision."
+      },
+      "findings": [],
+      "run_id": "r1_T08_A",
+      "task_id": "T08",
+      "group": "A",
+      "repeat": 1,
+      "source_files": [
+        "runs/r1_T08_A/supplier_ranking.py"
+      ],
+      "source_root": "runs/r1_T08_A",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P013",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "supplier_ranking.py:15-28; supplier_ranking.py:31-37: supplied-input arithmetic and labeled requested outputs, not answer constants (static review; no execution claim).",
+        "S": "supplier_ranking.py:15-28,31-37: named calculation separated from example/output.",
+        "R": "supplier_ranking.py:15-28,31-37: arguments in, results returned; example under main guard.",
+        "E": "supplier_ranking.py:16 documents stable tie policy; fields/numbers unvalidated at 19-26.",
+        "T": "test_supplier_ranking.py:7-21 asserts supplied ranking and zero/one weight boundary selecting quality-only order.",
+        "D": "supplier_ranking.py:1,16 documents descending sum, high-score meaning and ties."
+      },
+      "findings": [],
+      "run_id": "r2_T08_A",
+      "task_id": "T08",
+      "group": "A",
+      "repeat": 2,
+      "source_files": [
+        "runs/r2_T08_A/supplier_ranking.py",
+        "runs/r2_T08_A/test_supplier_ranking.py"
+      ],
+      "source_root": "runs/r2_T08_A",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P058",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "supplier_ranking.py:19-24 computes weighted totals and descending order; :29-30 prints B/C/A.",
+        "S": "supplier_ranking.py:13-24 separates ranking and explicitly documents score direction/ties.",
+        "R": "supplier_ranking.py:13-24 accepts data/returns results; :33-34 guards main.",
+        "E": "supplier_ranking.py:14,24 preserves ties and empty list; :19-20 lacks missing/type/nonfinite validation.",
+        "T": "test_supplier_ranking.py:8-33 verifies scores, changed weights, ties, nonmutation and empty suppliers.",
+        "D": "supplier_ranking.py:14 states high-is-good/tie policy; :28-30 labels ranks and scores."
+      },
+      "findings": [],
+      "run_id": "r3_T08_A",
+      "task_id": "T08",
+      "group": "A",
+      "repeat": 3,
+      "source_files": [
+        "runs/r3_T08_A/supplier_ranking.py"
+      ],
+      "source_root": "runs/r3_T08_A",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P032",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "supplier_ranking.py:16-24 computes weighted sums and descending order; :31-33 prints ranking.",
+        "S": "supplier_ranking.py:11-24 separates ranking and explains high-is-good/tie policies.",
+        "R": "supplier_ranking.py:11-24 returns input-driven results; :36-37 guards main.",
+        "E": "supplier_ranking.py:14,24 preserves ties; missing score/weight keys and nonfinite values unvalidated (:16-20).",
+        "T": "test_supplier_ranking.py:14-46 asserts expected scores, weight sensitivity, immutability, ties, empty list.",
+        "D": "supplier_ranking.py:12-15 documents scoring/ties/mutation policy; :28 supports explicit input path."
+      },
+      "findings": [],
+      "run_id": "r1_T08_B",
+      "task_id": "T08",
+      "group": "B",
+      "repeat": 1,
+      "source_files": [
+        "runs/r1_T08_B/supplier_ranking.py",
+        "runs/r1_T08_B/input.json"
+      ],
+      "source_root": "runs/r1_T08_B",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P049",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "supplier_ranking.py:20-26 calculates weighted scores and sorts; :33-37 displays ranked suppliers.",
+        "S": "supplier_ranking.py:16-26 separates calculation, :17 states score direction/ties.",
+        "R": "supplier_ranking.py:16-26 takes data/returns ranking; :40-41 guards main.",
+        "E": "supplier_ranking.py:17,26 supports stable ties and empty lists; :21-22 lacks missing/nonfinite validation.",
+        "T": "test_supplier_ranking.py:9-30 asserts example, nonmutation, weight effects, ties, empty suppliers.",
+        "D": "supplier_ranking.py:17 documents high-is-good and stable tie policy; :30-37 labels ranked output."
+      },
+      "findings": [],
+      "run_id": "r2_T08_B",
+      "task_id": "T08",
+      "group": "B",
+      "repeat": 2,
+      "source_files": [
+        "runs/r2_T08_B/supplier_ranking.py"
+      ],
+      "source_root": "runs/r2_T08_B",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P011",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "supplier_ranking.py:13-26; supplier_ranking.py:29-36: supplied-input arithmetic and labeled requested outputs, not answer constants (static review; no execution claim).",
+        "S": "supplier_ranking.py:13-26,29-36: named calculation separated from example/output.",
+        "R": "supplier_ranking.py:13-26,29-36: arguments in, results returned; example under main guard.",
+        "E": "supplier_ranking.py:14 documents stable ties; test_supplier_ranking.py:22-30 verifies ties; missing/invalid fields not validated at 15-24.",
+        "T": "test_supplier_ranking.py:7-30 asserts independent totals/order, changed weights and stable ties.",
+        "D": "supplier_ranking.py:1,14 states weighted descending scores, higher-is-better and tie policy."
+      },
+      "findings": [],
+      "run_id": "r3_T08_B",
+      "task_id": "T08",
+      "group": "B",
+      "repeat": 3,
+      "source_files": [
+        "runs/r3_T08_B/supplier_ranking.py"
+      ],
+      "source_root": "runs/r3_T08_B",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P016",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "supplier_ranking.py:15-32; supplier_ranking.py:35-42: supplied-input arithmetic and labeled requested outputs, not answer constants (static review; no execution claim).",
+        "S": "supplier_ranking.py:15-32,35-42: named calculation separated from example/output.",
+        "R": "supplier_ranking.py:15-32,35-42: arguments in, results returned; example under main guard.",
+        "E": "supplier_ranking.py:18-19 documents score interpretation, raw weights and ties; values/fields unvalidated at 21-30.",
+        "T": "test_supplier_ranking.py:7-21 independent ranking plus zero/one weight boundary.",
+        "D": "README.md:3-14 and supplier_ranking.py:16-20 explain inputs/returns/weight and tie policies, with explicit harness-based execution/test commands."
+      },
+      "findings": [],
+      "run_id": "r1_T08_C",
+      "task_id": "T08",
+      "group": "C",
+      "repeat": 1,
+      "source_files": [
+        "runs/r1_T08_C/supplier_ranking.py",
+        "runs/r1_T08_C/test_supplier_ranking.py",
+        "runs/r1_T08_C/README.md"
+      ],
+      "source_root": "runs/r1_T08_C",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [
+          "README.md"
+        ],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P074",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "supplier_ranking.py:21-32 computes weighted sums and descending sort; :36-38 prints B 88.2, C 86.7, A 86.0.",
+        "S": "supplier_ranking.py:14-32 clean function and explicit tie/score/weight policies; :35-42 separate main.",
+        "R": "supplier_ranking.py:14-32 accepts data/returns ranking; :41-42 guard.",
+        "E": "supplier_ranking.py:15-19 specifies stable ties and supplied-weight policy; :21-30 lacks malformed/finite validation.",
+        "T": "test_supplier_ranking.py:7-25 checks exact ranking, quality-only weights and stable tie order.",
+        "D": "supplier_ranking.py:15-19 documents return shape, higher-is-better, tie and normalization policies."
+      },
+      "findings": [],
+      "run_id": "r2_T08_C",
+      "task_id": "T08",
+      "group": "C",
+      "repeat": 2,
+      "source_files": [
+        "runs/r2_T08_C/supplier_ranking.py"
+      ],
+      "source_root": "runs/r2_T08_C",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P034",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "supplier_ranking.py:20-26 computes weighted totals and sorts; :30-34 displays ranking.",
+        "S": "supplier_ranking.py:15-26,29-34 separates ranking/display with tie policy.",
+        "R": "supplier_ranking.py:15-26 returns pairs from arguments; :37-38 guards main.",
+        "E": "supplier_ranking.py:16,26 defines stable ties; :21 directly indexes fields without validation.",
+        "T": "test_supplier_ranking.py:9-35 checks expected scores, changed weights, nonmutation, ties.",
+        "D": "requirements.md:3-10 specifies score meaning, output order, tie policy and scope."
+      },
+      "findings": [],
+      "run_id": "r3_T08_C",
+      "task_id": "T08",
+      "group": "C",
+      "repeat": 3,
+      "source_files": [
+        "runs/r3_T08_C/supplier_ranking.py"
+      ],
+      "source_root": "runs/r3_T08_C",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [
+          "requirements.md"
+        ],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P080",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "oee.py:14-21 computes A/P/Q with seconds conversion and OEE; :26-34 prints supplied result.",
+        "S": "oee.py:4-22 calculation separate from :25-34 guarded example.",
+        "R": "oee.py:4-22 parameterized returned dict; :25 import guard.",
+        "E": "oee.py:7-12 checks denominators and bounds but lacks numeric type/finite validation.",
+        "T": "test_oee.py:6-28 asserts normal metrics/identity, perfect and zero-good boundaries, invalid denominator/ranges.",
+        "D": "oee.py:6 states fraction return and minute/second conversion, but incorrectly promises 0–1 range."
+      },
+      "findings": [
+        "oee.py:6 says ratios are 0–1, while :15 permits performance above 1 (e.g. ideal time exceeds runtime); calculation is not capped."
+      ],
+      "run_id": "r1_T09_A",
+      "task_id": "T09",
+      "group": "A",
+      "repeat": 1,
+      "source_files": [
+        "runs/r1_T09_A/oee.py"
+      ],
+      "source_root": "runs/r1_T09_A",
+      "observable_features": {
+        "explicit_raise": true,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P089",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 2,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "oee.py:32-40 computes converted A/P/Q and product; :43-52 prints supplied OEE 76.56%.",
+        "S": "oee.py:32-40 named calculation separated from guarded example :43-52; policy in docstring.",
+        "R": "oee.py:6-7 parameters, :32-40 returned dict, :43-52 import guard.",
+        "E": "oee.py:13-30 checks finite numeric times, integer counts, denominators and count bounds; zero good units allowed.",
+        "T": "test_oee.py:7-37 asserts exact supplied ratios, perfect/zero-good boundaries and invalid denominator/count/nonfinite cases.",
+        "D": "oee.py:8-11 documents raw fractions, minute/second conversion, undefined denominator and uncapped performance."
+      },
+      "findings": [],
+      "run_id": "r2_T09_A",
+      "task_id": "T09",
+      "group": "A",
+      "repeat": 2,
+      "source_files": [
+        "runs/r2_T09_A/oee.py",
+        "runs/r2_T09_A/test_oee.py"
+      ],
+      "source_root": "runs/r2_T09_A",
+      "observable_features": {
+        "explicit_raise": true,
+        "finite_numeric_check": true,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P084",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 2,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "oee.py:29-37 computes converted A/P/Q and product; :40-53 prints supplied OEE 76.56%.",
+        "S": "oee.py:29-37 named calculation separated from guarded example :40-53; policy in docstring.",
+        "R": "oee.py:6-7 parameters, :29-37 returned dict, :40-53 import guard.",
+        "E": "oee.py:13-27 validates finite/type-positive times, integer counts, denominators and bounds; zero good units allowed.",
+        "T": "test_oee.py:7-35 checks metrics/independent identity, perfect/zero-good and invalid numeric/count cases.",
+        "D": "oee.py:8-11 documents formulas, zero-denominator errors and uncapped performance."
+      },
+      "findings": [],
+      "run_id": "r3_T09_A",
+      "task_id": "T09",
+      "group": "A",
+      "repeat": 3,
+      "source_files": [
+        "runs/r3_T09_A/oee.py",
+        "runs/r3_T09_A/test_oee.py"
+      ],
+      "source_root": "runs/r3_T09_A",
+      "observable_features": {
+        "explicit_raise": true,
+        "finite_numeric_check": true,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P078",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 2,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "oee.py:32-40 computes converted A/P/Q and product; :43-52 prints supplied OEE 76.56%.",
+        "S": "oee.py:32-40 named calculation separated from guarded example :43-52; policy in docstring.",
+        "R": "oee.py:6-7 parameters, :32-40 returned dict, :43-52 import guard.",
+        "E": "oee.py:13-30 checks finite numeric times, integer counts, denominators and bounds; permits zero good units.",
+        "T": "test_oee.py:7-36 asserts example/independent OEE identity, perfect/zero-good boundaries and invalid inputs.",
+        "D": "oee.py:8-11 documents fraction return, undefined denominators and uncapped performance."
+      },
+      "findings": [],
+      "run_id": "r1_T09_B",
+      "task_id": "T09",
+      "group": "B",
+      "repeat": 1,
+      "source_files": [
+        "runs/r1_T09_B/oee.py",
+        "runs/r1_T09_B/test_oee.py"
+      ],
+      "source_root": "runs/r1_T09_B",
+      "observable_features": {
+        "explicit_raise": true,
+        "finite_numeric_check": true,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P054",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "oee.py:18-25 calculates ratios/product with seconds conversion; :37-38 prints all percentages.",
+        "S": "oee.py:4-26 separates validation/calculation; docstring explains zero denominators.",
+        "R": "oee.py:4-26 accepts arguments/returns dictionary; :29 guards main.",
+        "E": "oee.py:11-16 handles denominators and count bounds but lacks types/finite checks; NaN cycle passes :13 and yields NaN.",
+        "T": "test_oee.py:7-29 checks expected ratios, independent OEE identity, perfect/no-good and invalid denominator/count cases.",
+        "D": "oee.py:1,6-10 documents units, fractions and undefined denominator policy."
+      },
+      "findings": [
+        "oee.py:13-19: float NaN cycle is not rejected and propagates NaN performance/OEE; optional validation gap."
+      ],
+      "run_id": "r2_T09_B",
+      "task_id": "T09",
+      "group": "B",
+      "repeat": 2,
+      "source_files": [
+        "runs/r2_T09_B/oee.py",
+        "runs/r2_T09_B/test_oee.py"
+      ],
+      "source_root": "runs/r2_T09_B",
+      "observable_features": {
+        "explicit_raise": true,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P015",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 2,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "oee.py:17-49; oee.py:52-61: supplied-input arithmetic and labeled requested outputs, not answer constants (static review; no execution claim).",
+        "S": "oee.py:17-49,52-61: named calculation separated from example/output.",
+        "R": "oee.py:17-49,52-61: arguments in, results returned; example under main guard.",
+        "E": "oee.py:19-39 documents undefined ratios and validates finite positive times, integer counts and count/time bounds.",
+        "T": "test_oee.py:7-45 independent ratios, perfect/combined-loss/zero-good boundaries and invalid values.",
+        "D": "oee.py:1,19-24,54 specifies invocation, fraction-versus-percent units and uncapped-performance policy."
+      },
+      "findings": [],
+      "run_id": "r3_T09_B",
+      "task_id": "T09",
+      "group": "B",
+      "repeat": 3,
+      "source_files": [
+        "runs/r3_T09_B/oee.py",
+        "runs/r3_T09_B/test_oee.py"
+      ],
+      "source_root": "runs/r3_T09_B",
+      "observable_features": {
+        "explicit_raise": true,
+        "finite_numeric_check": true,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P048",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 2,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "oee.py:29-36 calculates all ratios and product with minute-second conversion; :49-52 prints percentages.",
+        "S": "oee.py:12-37 separates validation/calculation from example and documents uncapped performance.",
+        "R": "oee.py:12-37 receives arguments/returns dictionary; :40 guards example.",
+        "E": "oee.py:15-27 handles finite positive times, integer counts, zero denominators and inconsistent bounds; zero good allowed.",
+        "T": "test_oee.py:7-28 checks example, perfect/no-good boundaries and invalid inputs.",
+        "D": "oee.py:1-6,14 documents units, fractions, display percentages and denominator/performance policies."
+      },
+      "findings": [],
+      "run_id": "r1_T09_C",
+      "task_id": "T09",
+      "group": "C",
+      "repeat": 1,
+      "source_files": [
+        "runs/r1_T09_C/oee.py",
+        "runs/r1_T09_C/test_oee.py"
+      ],
+      "source_root": "runs/r1_T09_C",
+      "observable_features": {
+        "explicit_raise": true,
+        "finite_numeric_check": true,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P062",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "oee.py:18-25 computes A/P/Q and OEE with minute-to-second conversion; :29-38 prints supplied values.",
+        "S": "oee.py:9-26 separates metric calculation from example at :29-38.",
+        "R": "oee.py:9-26 accepts five inputs and returns dict; :29 guards output.",
+        "E": "oee.py:12-17 validates denominators and count bounds, but lacks type/finite validation.",
+        "T": "test_oee.py:7-29 asserts expected ratios, perfect/zero-good boundaries and zero run-time rejection.",
+        "D": "oee.py:1-5,11 documents units, fraction return and acceptance example."
+      },
+      "findings": [],
+      "run_id": "r2_T09_C",
+      "task_id": "T09",
+      "group": "C",
+      "repeat": 2,
+      "source_files": [
+        "runs/r2_T09_C/oee.py",
+        "runs/r2_T09_C/test_oee.py"
+      ],
+      "source_root": "runs/r2_T09_C",
+      "observable_features": {
+        "explicit_raise": true,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P036",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 2,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "oee.py:29-36 calculates A/P/Q/OEE with seconds conversion; :49-53 prints all percentages.",
+        "S": "oee.py:10-37 separates validation/calculation from main; :1-6 explains units/policy.",
+        "R": "oee.py:10-37 accepts arguments/returns dictionary; :56-57 guards example.",
+        "E": "oee.py:12-27 rejects bad types, nonfinite times, zero denominators, impossible counts; good_units=0 allowed.",
+        "T": "test_oee.py:6-30 checks example, perfect/all-rejected boundaries and invalid inputs.",
+        "D": "oee.py:1-6 documents units, fractions and uncapped performance."
+      },
+      "findings": [
+        "oee.py:4 says returned ratios are 0–1 while :5 permits performance above 100%; minor documentation inconsistency."
+      ],
+      "run_id": "r3_T09_C",
+      "task_id": "T09",
+      "group": "C",
+      "repeat": 3,
+      "source_files": [
+        "runs/r3_T09_C/oee.py"
+      ],
+      "source_root": "runs/r3_T09_C",
+      "observable_features": {
+        "explicit_raise": true,
+        "finite_numeric_check": true,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P053",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "bom_cost.py:10-14 computes quantity × price and sum; :20-23 prints rows and 19.10.",
+        "S": "bom_cost.py:8-14 separates calculation with unrounded output policy from file CLI.",
+        "R": "bom_cost.py:8-14 accepts parts/returns tuple; :26-27 guards main.",
+        "E": "bom_cost.py:14 gives empty Decimal sum; missing fields/nonfinite amounts unvalidated (:11).",
+        "T": "test_bom_cost.py:7-27 asserts supplied totals, precision, empty BOM and zero quantity.",
+        "D": "bom_cost.py:9 documents row/total return and no rounding; :18 supports input path."
+      },
+      "findings": [],
+      "run_id": "r1_T10_A",
+      "task_id": "T10",
+      "group": "A",
+      "repeat": 1,
+      "source_files": [
+        "runs/r1_T10_A/bom_cost.py",
+        "runs/r1_T10_A/input.json"
+      ],
+      "source_root": "runs/r1_T10_A",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P073",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "bom_cost.py:9-17 calculates extended costs and total; :21-29 prints supplied total 19.10.",
+        "S": "bom_cost.py:6-17 clear calculation separate from :20-33 main.",
+        "R": "bom_cost.py:6-17 accepts parts and returns rows/total; :32-33 guard.",
+        "E": "bom_cost.py:12-15 checks nonfinite/negative amounts and :17 empty sum; :10-11 missing fields/malformed values not contextually handled.",
+        "T": "test_bom_cost.py:8-32 asserts 19.10, decimal precision, empty BOM and invalid amounts.",
+        "D": "bom_cost.py:1,7 documents exact decimal arithmetic and per-product result."
+      },
+      "findings": [],
+      "run_id": "r2_T10_A",
+      "task_id": "T10",
+      "group": "A",
+      "repeat": 2,
+      "source_files": [
+        "runs/r2_T10_A/bom_cost.py",
+        "runs/r2_T10_A/test_bom_cost.py"
+      ],
+      "source_root": "runs/r2_T10_A",
+      "observable_features": {
+        "explicit_raise": true,
+        "finite_numeric_check": true,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P045",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "bom_cost.py:12-16 computes extended costs/sum; :21-24 prints rows and 19.10 total.",
+        "S": "bom_cost.py:8-16 separates calculation from JSON example/display.",
+        "R": "bom_cost.py:8-16 accepts parts/returns rows,total; :27-28 guards main.",
+        "E": "bom_cost.py:15 explicit empty Decimal sum; :12-13 lacks field/type/finite validation.",
+        "T": "test_bom_cost.py:9-21 asserts expected rows/total, decimal precision and empty list.",
+        "D": "bom_cost.py:9 documents returned rows and total; :1 identifies per-product scope."
+      },
+      "findings": [],
+      "run_id": "r3_T10_A",
+      "task_id": "T10",
+      "group": "A",
+      "repeat": 3,
+      "source_files": [
+        "runs/r3_T10_A/bom_cost.py"
+      ],
+      "source_root": "runs/r3_T10_A",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P031",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 1,
+      "evidence": {
+        "core": "bom_cost.py:14-19 computes quantity × price and sums; :22-28 prints lines and 19.10 total.",
+        "S": "bom_cost.py:14-28 separates named calculations and display.",
+        "R": "bom_cost.py:14-19 accepts inputs/returns results; :31-32 guards example.",
+        "E": "bom_cost.py:19 seeds empty sum with Decimal zero; missing keys/nonfinite amounts not validated (:15).",
+        "T": "test_bom_cost.py:8-20 asserts 19.10, decimal precision, and empty BOM.",
+        "D": "bom_cost.py:5-11,22-32 supplies runnable example and labeled output; no explicit invocation/schema documentation."
+      },
+      "findings": [],
+      "run_id": "r1_T10_B",
+      "task_id": "T10",
+      "group": "B",
+      "repeat": 1,
+      "source_files": [
+        "runs/r1_T10_B/bom_cost.py",
+        "runs/r1_T10_B/test_bom_cost.py"
+      ],
+      "source_root": "runs/r1_T10_B",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P087",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "bom_cost.py:13-21 computes item products and sum; :25-30 reads supplied input.json:1 and prints 19.10.",
+        "S": "bom_cost.py:9-21 calculation separate from :24-34 file I/O/main.",
+        "R": "bom_cost.py:9-21 accepts parts and returns rows/total; :33-34 import guard.",
+        "E": "bom_cost.py:16-17 rejects nonfinite/negative amounts and :12 empty sum is zero; :14-15 lacks contextual malformed-field validation.",
+        "T": "test_bom_cost.py:10-28 checks provided subtotals/total, decimal precision, empty/zero quantities and invalid values.",
+        "D": "bom_cost.py:1,10 documents JSON parts input and returned row shape; :25 shows optional file/default input.json."
+      },
+      "findings": [],
+      "run_id": "r2_T10_B",
+      "task_id": "T10",
+      "group": "B",
+      "repeat": 2,
+      "source_files": [
+        "runs/r2_T10_B/bom_cost.py",
+        "runs/r2_T10_B/input.json"
+      ],
+      "source_root": "runs/r2_T10_B",
+      "observable_features": {
+        "explicit_raise": true,
+        "finite_numeric_check": true,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P068",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "bom_cost.py:13-21 multiplies quantity by unit price and sums; :31-35 prints supplied BOM total 19.10.",
+        "S": "bom_cost.py:9-21 calculation separate from :24-39 JSON/output.",
+        "R": "bom_cost.py:9-21 argument/returned rows and total; :38-39 guard.",
+        "E": "bom_cost.py:16-17 rejects negative/nonfinite values; :13-15 missing keys or malformed values lack contextual validation; empty list gives zero.",
+        "T": "test_bom_cost.py:8-23 asserts subtotals/19.10, empty BOM, decimal precision and negative rejection.",
+        "D": "bom_cost.py:1,10,26 states optional JSON file usage and returned Decimal total."
+      },
+      "findings": [],
+      "run_id": "r3_T10_B",
+      "task_id": "T10",
+      "group": "B",
+      "repeat": 3,
+      "source_files": [
+        "runs/r3_T10_B/bom_cost.py",
+        "runs/r3_T10_B/test_bom_cost.py"
+      ],
+      "source_root": "runs/r3_T10_B",
+      "observable_features": {
+        "explicit_raise": true,
+        "finite_numeric_check": true,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P055",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "bom_cost.py:18-22 calculates extended costs and sum; :26-29 prints total 19.10.",
+        "S": "bom_cost.py:14-22 calculation distinct from example/display.",
+        "R": "bom_cost.py:14-22 accepts data and returns lines,total; :32-33 guards main.",
+        "E": "bom_cost.py:21 seeded sum handles empty BOM; :18-19 missing/type/nonfinite values not checked.",
+        "T": "test_bom_cost.py:7-19 checks expected lines/total and exact decimal arithmetic for changed quantities/prices.",
+        "D": "README.md:3-7 explicitly gives command, input location, formula, decimal/currency scope."
+      },
+      "findings": [],
+      "run_id": "r1_T10_C",
+      "task_id": "T10",
+      "group": "C",
+      "repeat": 1,
+      "source_files": [
+        "runs/r1_T10_C/bom_cost.py"
+      ],
+      "source_root": "runs/r1_T10_C",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [
+          "README.md"
+        ],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P012",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 1,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "bom_cost.py:15-24; bom_cost.py:27-40: supplied-input arithmetic and labeled requested outputs, not answer constants (static review; no execution claim).",
+        "S": "bom_cost.py:15-24,27-40: named calculation separated from example/output.",
+        "R": "bom_cost.py:15-24,27-40: arguments in, results returned; example under main guard.",
+        "E": "test_bom_cost.py:16-23 verifies zero quantity and empty BOM; bom_cost.py:18-22 lacks invalid/missing-field validation.",
+        "T": "test_bom_cost.py:9-23 independent provided totals, decimal/zero and empty-BOM expectations.",
+        "D": "bom_cost.py:1,16 documents file-path argument and Decimal returns; scope.md:1-6 defines fields and rounding."
+      },
+      "findings": [],
+      "run_id": "r2_T10_C",
+      "task_id": "T10",
+      "group": "C",
+      "repeat": 2,
+      "source_files": [
+        "runs/r2_T10_C/bom_cost.py",
+        "runs/r2_T10_C/input.json",
+        "runs/r2_T10_C/scope.md"
+      ],
+      "source_root": "runs/r2_T10_C",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [
+          "scope.md"
+        ],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    },
+    {
+      "blind_id": "P004",
+      "core": "PASS",
+      "S": 2,
+      "R": 2,
+      "E": 0,
+      "T": 2,
+      "D": 2,
+      "evidence": {
+        "core": "bom_cost.py:10-20; bom_cost.py:23-32: supplied-input arithmetic and labeled requested outputs, not answer constants (static review; no execution claim).",
+        "S": "bom_cost.py:10-20,23-32: named calculation separated from example/output.",
+        "R": "bom_cost.py:10-20,23-32: arguments in, results returned; example under main guard.",
+        "E": "bom_cost.py:14-19 accesses fields/converts numbers without validation; requirements.md:5 excludes unspecified validation policies.",
+        "T": "test_bom_cost.py:9-20 asserts each expected cost and independent decimal precision total 1.7.",
+        "D": "requirements.md:1-5 documents input fields, output, exact arithmetic and scope."
+      },
+      "findings": [],
+      "run_id": "r3_T10_C",
+      "task_id": "T10",
+      "group": "C",
+      "repeat": 3,
+      "source_files": [
+        "runs/r3_T10_C/bom_cost.py",
+        "runs/r3_T10_C/test_bom_cost.py",
+        "runs/r3_T10_C/requirements.md"
+      ],
+      "source_root": "runs/r3_T10_C",
+      "observable_features": {
+        "explicit_raise": false,
+        "finite_numeric_check": false,
+        "stdlib_date_validation": false,
+        "standalone_authored_docs": [
+          "requirements.md"
+        ],
+        "assertion_evidence": true,
+        "beyond_example_test": true
+      }
+    }
+  ]
+}

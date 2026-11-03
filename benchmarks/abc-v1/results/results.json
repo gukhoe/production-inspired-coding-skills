@@ -1,0 +1,198 @@
+{
+  "A": {
+    "passed": 13,
+    "total": 18,
+    "elapsed_ms": 0.103,
+    "source_lines": 6,
+    "source_bytes": 317,
+    "sha256": "3fa8917a10a3ecc8375b60977a2264532780ce3fddf5a5231be0f8e0f6f73176",
+    "tests": {
+      "correct_winner": {
+        "pass": false,
+        "error": "TypeError: unsupported operand type(s) for +: 'int' and 'str'"
+      },
+      "correct_total": {
+        "pass": false,
+        "error": "TypeError: unsupported operand type(s) for +: 'int' and 'str'"
+      },
+      "quantity_zero": {
+        "pass": true
+      },
+      "quantity_negative": {
+        "pass": true
+      },
+      "quantity_fractional": {
+        "pass": true
+      },
+      "empty_quotes": {
+        "pass": true
+      },
+      "negative_unit": {
+        "pass": true
+      },
+      "negative_freight": {
+        "pass": true
+      },
+      "duty_over_one": {
+        "pass": true
+      },
+      "nan_unit": {
+        "pass": true
+      },
+      "boolean_quantity": {
+        "pass": true
+      },
+      "duplicate_supplier": {
+        "pass": true
+      },
+      "empty_supplier": {
+        "pass": true
+      },
+      "tie_deterministic": {
+        "pass": false
+      },
+      "no_input_mutation": {
+        "pass": false,
+        "error": "TypeError: unsupported operand type(s) for +: 'int' and 'str'"
+      },
+      "rounding_half_up": {
+        "pass": false,
+        "error": "TypeError: can only concatenate str (not \"int\") to str"
+      },
+      "nonfinite_infinity": {
+        "pass": true
+      },
+      "negative_tooling": {
+        "pass": true
+      }
+    }
+  },
+  "B": {
+    "passed": 17,
+    "total": 18,
+    "elapsed_ms": 0.261,
+    "source_lines": 23,
+    "source_bytes": 1285,
+    "sha256": "25d33cf803f11b0d6fbbeabde1f7e59e23b477b8d4b8cad504419f2fd9786410",
+    "tests": {
+      "correct_winner": {
+        "pass": true
+      },
+      "correct_total": {
+        "pass": true
+      },
+      "quantity_zero": {
+        "pass": true
+      },
+      "quantity_negative": {
+        "pass": true
+      },
+      "quantity_fractional": {
+        "pass": true
+      },
+      "empty_quotes": {
+        "pass": true
+      },
+      "negative_unit": {
+        "pass": true
+      },
+      "negative_freight": {
+        "pass": true
+      },
+      "duty_over_one": {
+        "pass": true
+      },
+      "nan_unit": {
+        "pass": true
+      },
+      "boolean_quantity": {
+        "pass": true
+      },
+      "duplicate_supplier": {
+        "pass": false
+      },
+      "empty_supplier": {
+        "pass": true
+      },
+      "tie_deterministic": {
+        "pass": true
+      },
+      "no_input_mutation": {
+        "pass": true
+      },
+      "rounding_half_up": {
+        "pass": true
+      },
+      "nonfinite_infinity": {
+        "pass": true
+      },
+      "negative_tooling": {
+        "pass": true
+      }
+    }
+  },
+  "C": {
+    "passed": 18,
+    "total": 18,
+    "elapsed_ms": 0.123,
+    "source_lines": 33,
+    "source_bytes": 2054,
+    "sha256": "e689ca3f15bd38a085345ba441f7c3e84ad41dea713ff10ee32432f02a761400",
+    "tests": {
+      "correct_winner": {
+        "pass": true
+      },
+      "correct_total": {
+        "pass": true
+      },
+      "quantity_zero": {
+        "pass": true
+      },
+      "quantity_negative": {
+        "pass": true
+      },
+      "quantity_fractional": {
+        "pass": true
+      },
+      "empty_quotes": {
+        "pass": true
+      },
+      "negative_unit": {
+        "pass": true
+      },
+      "negative_freight": {
+        "pass": true
+      },
+      "duty_over_one": {
+        "pass": true
+      },
+      "nan_unit": {
+        "pass": true
+      },
+      "boolean_quantity": {
+        "pass": true
+      },
+      "duplicate_supplier": {
+        "pass": true
+      },
+      "empty_supplier": {
+        "pass": true
+      },
+      "tie_deterministic": {
+        "pass": true
+      },
+      "no_input_mutation": {
+        "pass": true
+      },
+      "rounding_half_up": {
+        "pass": true
+      },
+      "nonfinite_infinity": {
+        "pass": true
+      },
+      "negative_tooling": {
+        "pass": true
+      }
+    }
+  }
+}

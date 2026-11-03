@@ -1,0 +1,11 @@
+{
+  "name": "verification-before-completion",
+  "repository": "https://github.com/obra/superpowers",
+  "source_url": "https://raw.githubusercontent.com/obra/superpowers/main/skills/verification-before-completion/SKILL.md",
+  "license": "MIT",
+  "snapshot_date": "2026-11-02",
+  "version": "sha256:3e8a4adf7bd1df7881c56bf85ec014c430ccd9699cc0c0d212389d8922f5d074",
+  "upstream_commit": null,
+  "provenance": "Complete 111-line web-tool text snapshot, line prefixes removed; bytes of raw upstream HTTP body not verified. Pinned local snapshot is the treatment. No remote executable installed.",
+  "selection_reason": "Existing general software engineering verification Skill, directly relevant to small Python tasks; not a full engineering methodology. Only this named B Skill is tested."
+}
