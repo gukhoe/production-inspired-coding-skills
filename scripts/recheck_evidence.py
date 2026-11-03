@@ -10,6 +10,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+from historical_sources import original_bytes
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "reports" / "verification"
@@ -38,7 +39,7 @@ def observe(function, *args):
 errors = []
 manifest = read_json(ROOT / "sources/manifest.json")
 for item in manifest["archives"] + manifest["files"] + manifest.get("supplemental_files", []):
-    actual = hashlib.sha256((ROOT / item["path"]).read_bytes()).hexdigest()
+    actual = hashlib.sha256(original_bytes(ROOT, item["path"])).hexdigest()
     if actual != item["sha256"]:
         errors.append("Source hash mismatch: " + item["path"])
 
@@ -51,7 +52,7 @@ if len(rows) != 90 or len({row["run_id"] for row in rows}) != 90:
     errors.append("Expected 90 unique review rows")
 if {(r["task_id"], r["repeat"], r["group"]) for r in rows} != expected:
     errors.append("Unbalanced review rows")
-if hashlib.sha256((review_dir / review["rubric"]).read_bytes()).hexdigest() != review["rubric_sha256"]:
+if hashlib.sha256(original_bytes(ROOT, (review_dir / review["rubric"]).relative_to(ROOT))).hexdigest() != review["rubric_sha256"]:
     errors.append("Rubric hash mismatch")
 summary = {}
 features = ("assertion_evidence", "beyond_example_test", "explicit_raise",

@@ -1,6 +1,6 @@
 # Actual A/B/C Rocket Coding Comparison
 
-Each independent agent received the same request. Its English translation is: **“Write code that draws a rocket, run it, and save the resulting image.”** The original Korean request and common administrative instructions remain unchanged in each group's `TASK.md` and `ADMIN.md`; see the [English input translations](INPUTS_EN.md).
+Each independent agent received the same request. Its English translation is: **“Write code that draws a rocket, run it, and save the resulting image.”** Each group's `TASK.md` and `ADMIN.md` now contains an English reading edition. The actual Korean inputs are preserved byte-for-byte in [the historical archive](../../sources/historical-originals.zip); see [input provenance](INPUTS_EN.md).
 
 No group-specific style, complexity, quality level, or visual components were prescribed. Each agent wrote and executed drawing code. These images were not produced by an image-generation model.
 
@@ -70,4 +70,4 @@ The script executes each renderer and any supplied standalone verifier, decodes 
 - A still received platform instructions and the common recordkeeping requirements. It is a condition without an additional task skill, not a model without instructions.
 - Recorded start times exclude earlier instruction reads and launcher failures. Shared resources also affect concurrent execution, so no development-time ranking is reported.
 - Exact internal model revision, token usage, and cost were unavailable. This is one descriptive pilot per group, not a controlled study with a preregistered numerical score.
-- English agent reports are translations of preserved [original Korean reports](../../evidence/rocket-code-original-reports/). Frozen prompts and raw logs were not translated in place.
+- English agent reports are translations of preserved [original Korean reports](../../evidence/rocket-code-original-reports/). The original prompts and localized raw logs are archived; English reading editions are not frozen evidence.

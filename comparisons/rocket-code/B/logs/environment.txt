@@ -1,12 +1,3 @@
-Tool-output transcript; initial commands were not redirected to disk.
-Default environment command: Get-Date -AsUTC -Format o; Get-ChildItem -Recurse -Force -LiteralPath '.skills'; python --version
-Exit code: 1
-MXC launcher: enumerate MXC volume F:\: I/O 장치 오류로 인해 요청이 수행될 수 없습니다. (os error 1117): I/O 장치 오류로 인해 요청이 수행될 수 없습니다. (os error 1117)
-Host PowerShell retry exit code: 0
-2026-11-03T00:27:40.9768002Z
-.skills/verification-before-completion/SKILL.md
-Python 3.11.15
-Pillow inspection exit code: 0
-Pillow 11.3.0
-Render exit code: 0
-Verification exit code: 0
+English archival note
+
+The original localized raw execution output is preserved byte-for-byte in sources/historical-originals.zip under this same repository-relative path. This note is not the raw execution log.

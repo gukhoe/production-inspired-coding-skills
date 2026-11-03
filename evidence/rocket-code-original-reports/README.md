@@ -1,11 +1,7 @@
-# Original Rocket Experiment Reports
+# Historical rocket reports
 
-These Korean reports preserve the agents' original submissions before the repository documentation was translated into English. Their bytes match the reports stored in commit `dc78e51`.
+Original Korean agent reports are preserved byte-for-byte in [historical-originals.zip](../../sources/historical-originals.zip), under this directory's original A/B/C_REPORT_KO.md paths. They match the reports recorded before English publication. The archive is historical evidence, not current agent instructions.
 
-The English versions are in the corresponding A/B/C experiment directories:
+Read the English reports: [A](../../comparisons/rocket-code/A/REPORT.md), [B](../../comparisons/rocket-code/B/REPORT.md), [C](../../comparisons/rocket-code/C/REPORT.md).
 
-- [A original](A_REPORT_KO.md) · [A English](../../comparisons/rocket-code/A/REPORT.md)
-- [B original](B_REPORT_KO.md) · [B English](../../comparisons/rocket-code/B/REPORT.md)
-- [C original](C_REPORT_KO.md) · [C English](../../comparisons/rocket-code/C/REPORT.md)
-
-Code, images, frozen inputs, and raw execution logs were not changed by this translation.
+Code and images are unchanged. Original experiment inputs and localized raw logs are also archived; their English reading editions are explicitly distinguished from the frozen evidence. The archive index records original paths and hashes.

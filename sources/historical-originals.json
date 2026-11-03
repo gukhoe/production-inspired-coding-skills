@@ -1,0 +1,75 @@
+{
+  "archive": "sources/historical-originals.zip",
+  "sha256": "3a7a8409bc2c6e7669d05b6245eb6eb86af92d174aea3c1ef1d2b1c5e4d9cee5",
+  "purpose": "Immutable historical evidence before English publication. Not current agent instructions. Reader-facing English editions are not frozen experiment inputs.",
+  "files": [
+    {
+      "path": "comparisons/rocket-code/A/ADMIN.md",
+      "sha256": "b81b8387fa43f2e26ba3c971e76f16425e30713c5957296458b49f4fddb4cacc"
+    },
+    {
+      "path": "comparisons/rocket-code/A/TASK.md",
+      "sha256": "e38e298951102d285b05eb719425dce925903a87a153ba7031d64d01f1b31a23"
+    },
+    {
+      "path": "comparisons/rocket-code/A/logs/01-sandbox-failure.txt",
+      "sha256": "a611c13582b7242e1ccf2ef0823ccdb7de995030e5be9d4d1270bce86f5d19f3"
+    },
+    {
+      "path": "comparisons/rocket-code/B/ADMIN.md",
+      "sha256": "b81b8387fa43f2e26ba3c971e76f16425e30713c5957296458b49f4fddb4cacc"
+    },
+    {
+      "path": "comparisons/rocket-code/B/TASK.md",
+      "sha256": "e38e298951102d285b05eb719425dce925903a87a153ba7031d64d01f1b31a23"
+    },
+    {
+      "path": "comparisons/rocket-code/B/logs/environment.txt",
+      "sha256": "fe060cf5c1b16fa9da0ba90a7a7c56dddba179b16707c9e0fca7a9f69bed3cd8"
+    },
+    {
+      "path": "comparisons/rocket-code/C/ADMIN.md",
+      "sha256": "b81b8387fa43f2e26ba3c971e76f16425e30713c5957296458b49f4fddb4cacc"
+    },
+    {
+      "path": "comparisons/rocket-code/C/TASK.md",
+      "sha256": "e38e298951102d285b05eb719425dce925903a87a153ba7031d64d01f1b31a23"
+    },
+    {
+      "path": "evidence/completeness-review/CODE_COMPLETENESS_REVIEW_KO.md",
+      "sha256": "e426b584fa4912bb8c993dd558a716c6cf213e79e4242c4d3e59b97ff26d7529"
+    },
+    {
+      "path": "evidence/completeness-review/RUBRIC_FROZEN_KO.md",
+      "sha256": "3a270b9c20922350aefc57d2beed0ba520451f7e5d7e9e26a2447a72ffa49bd4"
+    },
+    {
+      "path": "evidence/rocket-code-original-reports/A_REPORT_KO.md",
+      "sha256": "e0e0169e3733d6fd572bec54e73235ac217184b4b6697f9197b158698cf5c274"
+    },
+    {
+      "path": "evidence/rocket-code-original-reports/B_REPORT_KO.md",
+      "sha256": "e2250560540eb3a306fb25cac10c83a6ccc1fef440b5d389e26b4c3c9ee4d85f"
+    },
+    {
+      "path": "evidence/rocket-code-original-reports/C_REPORT_KO.md",
+      "sha256": "a93e5933e4e0317525fe3211746c666ea9a19546626fd9646fb11499838135f4"
+    },
+    {
+      "path": "evidence/study-reference/PROTOCOL_FROZEN_KO.md",
+      "sha256": "966f2a47dde17ce31bc33e90574d42637383e13fc7d0dbdebb0a64b1dc2b1b2a"
+    },
+    {
+      "path": "evidence/study-reference/README.md",
+      "sha256": "1028464b29e63c6441bdafec729658ea3ac2f8d2b27b8e96312e2d1710f09d0b"
+    },
+    {
+      "path": "evidence/study-reference/RUN_DETAILS_KO.md",
+      "sha256": "d779fa37ff91f19864f40dcff81d82679c72311288f41bfd830d0de6f3867b2f"
+    },
+    {
+      "path": "evidence/study-reference/SUMMARY_KO.md",
+      "sha256": "778d38ef886fcb4fb06e7663307365ab1e042b3d8ec99e2f27b10b97f4ab2260"
+    }
+  ]
+}

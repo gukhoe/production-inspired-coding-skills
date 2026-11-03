@@ -5,3 +5,8 @@ __pycache__/
 .env.*
 !.env.example
 .verification-tmp/
+.serena/
+.process-audit/
+build/
+dist/
+*.egg-info/

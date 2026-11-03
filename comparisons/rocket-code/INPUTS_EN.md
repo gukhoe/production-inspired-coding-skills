@@ -1,6 +1,6 @@
 # English Translation of the Frozen Experiment Inputs
 
-These translations are provided for readers. The agents actually received the original Korean `TASK.md` and `ADMIN.md` files in their respective directories. Those files and the recorded protocol remain unchanged so their hashes and experimental provenance remain valid.
+These translations are provided for readers. The agents actually received the original Korean `TASK.md` and `ADMIN.md` files in their respective directories. Their exact original bytes are now preserved in `sources/historical-originals.zip`. The per-group files are English reading editions. Recheck scripts hash the archived originals; the recorded protocol remains unchanged.
 
 ## Common task
 

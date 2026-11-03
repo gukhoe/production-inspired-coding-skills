@@ -1,13 +1,19 @@
-# Production-Inspired Coding Skills
+# Production-Inspired Coding Skills & Software Assurance Auditor
 
-Applying manufacturing production standards and quality-control methods to AI-assisted software development.
+AI coding skills and an independent software audit toolkit for quality, risk prevention, stage transitions, failure diagnosis and continuous improvement.
 
-These skills adapt production planning, standard work, mistake-proofing, and verification processes to how code is specified, written, checked, and changed across software domains.
+This is an initial translation of manufacturing production and quality-audit practices into software development and assurance. The focus is how software is built, reviewed, verified and improved across domains.
 
-Current stage: **original baseline preserved, evidence reviewed, improvements prepared**. All 16 `SKILL.md` files retain the exact bytes supplied by the user. The proposed behavioral improvements have not yet been applied.
+Use the two products separately: select any of the **16 original coding skills**, or connect **Software Assurance Auditor** through its own MCP server/CLI. The auditor contains 24 criteria, 72 checkpoints, evidence scoring, five stage gates, investigation workflows and a fixed report template. It requires no skill installation, existing risk report or Graphify. Optional integrations enrich the evidence.
+
+Current stage: **Software Assurance Auditor 0.2.0, initial public release**. All 16 original `SKILL.md` files retain the exact bytes supplied by the user. Their proposed behavioral improvements have not yet been applied. The separate auditor is available as a CLI, MCP server and optional audit skill, with English reports and a fixed questionnaire.
 
 ## Start here
 
+- [Software Assurance Auditor](docs/software-process-audit.md): standalone architecture and usage.
+- [Download and MCP setup](docs/MCP_SETUP.md): independent coding-skills and auditor installation.
+- [Complete questionnaire](docs/AUDIT_QUESTIONNAIRE.md) and [standard result form](examples/software-audit/blank-report.md).
+- [Populated English example](examples/software-audit/sample-report.md) and [release validation](docs/RELEASE_VALIDATION.md).
 - [Evidence review](reports/REVIEW.md): supported findings, evaluator defects, and interpretation limits.
 - [Skill update plan](reports/UPDATE_PLAN.md): focused changes and acceptance criteria for all 16 skills.
 - [Skill catalog and routing](skills/README.md).
@@ -18,14 +24,16 @@ Current stage: **original baseline preserved, evidence reviewed, improvements pr
 
 | Path | Contents |
 |---|---|
-| `skills/<name>/SKILL.md` | 16 original manufacturing process coding skills |
+| `skills/<name>/SKILL.md` | 16 original production-inspired coding skills plus the separate audit skill |
+| `skills/software-process-audit/` | Independent auditor, optional skill, MCP server and Graphify export adapter |
+| `tests/test_process_audit.py` | Audit regression and false-pass prevention tests |
 | `skills/benchmark/` | Original demonstration of repeated test invocation counts |
 | `comparators/` | Group B verification skill snapshot, provenance, and MIT license |
 | `benchmarks/abc-v1/` | Original illustrative A/B/C implementations and 18 tests |
 | `evidence/completeness-review/` | Original post-hoc review of 90 code artifacts |
 | `evidence/study-reference/` | Selected reports and source evidence from the referenced 90-run study |
-| `evidence/rocket-code-original-reports/` | Original Korean agent reports, preserved alongside English versions |
-| `sources/` | Three user-supplied ZIP archives and SHA-256 provenance |
+| `evidence/rocket-code-original-reports/` | Links to English agent reports and archived original submissions |
+| `sources/` | Original attachments, archived historical inputs and SHA-256 provenance |
 | `reports/verification/` | Raw output and results from the evidence recheck |
 | `comparisons/rocket-code/` | New independent A/B/C rocket coding comparison |
 
@@ -51,4 +59,4 @@ The direct skill source is `Manufacturing_AI_Process_Control_Skills_v1.zip`. Its
 
 The B skill's MIT license is preserved in `comparators/LICENSE`; it is not applied to the manufacturing skills as a whole. The original `GITHUB_RESEARCH.md` is a historical reference list, not a new verification of the linked repositories' originality or current state.
 
-Repository-facing documentation is in English. Original attachments, frozen experiment prompts, source code, and raw logs retain their original language and bytes for reproducibility. The rocket comparison includes an [English translation of its frozen inputs](comparisons/rocket-code/INPUTS_EN.md).
+Repository documentation and report templates are in English. The auditor instructs AI reviewers to write assessment narrative in English; its renderer preserves supplied text and does not translate it. Historical Korean documents, experiment inputs and localized logs are preserved as immutable research data in [the historical archive](sources/historical-originals.zip), with [original paths and hashes](sources/historical-originals.json). Public reading editions are distinguished from frozen evidence. Original attachments and structured raw study data retain their original bytes. Recheck scripts use archived originals for provenance checks. See [the language and provenance policy](docs/LANGUAGE_AND_PROVENANCE.md).

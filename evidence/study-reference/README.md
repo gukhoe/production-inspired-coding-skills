@@ -1,8 +1,10 @@
 # Manufacturing AI Coding Skill study — 90 attempted runs
 
-Start with SUMMARY_KO.md (Korean) and RUN_DETAILS_KO.md. This is a limited-control native-session experiment, not a fully isolated causal benchmark. There are 90 final artifacts, but only 87 completion records within the instructed 300-second budget. Exact model usage is unavailable.
+Start with [the English summary](SUMMARY_EN.md), [run details](RUN_DETAILS_EN.md) and [protocol](PROTOCOL_FROZEN_EN.md). This is a limited-control native-session experiment, not a fully isolated causal benchmark. There are 90 final artifacts, but only 87 completion records within the instructed 300-second budget. Exact model usage is unavailable.
 
-## Data layout
+This README describes the original full study package. This checkout contains selected reports, source code and provenance records only; paths to omitted evaluators/logs are historical references. The original README and Korean reports are preserved in `sources/historical-originals.zip`.
+
+## Original package data layout
 
 - results.csv: exact original RESULT_SCHEMA.csv columns, one row per attempted run. Blank token/call fields mean unavailable, never zero. tests_passed/tests_total describe recovered final artifact correctness; status separately identifies late recovery.
 - results.json / group_summary.json: raw events, semantic observations, independent scores, timing and budget compliance, diagnostic results, comparison summaries and limitations.

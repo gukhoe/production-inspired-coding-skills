@@ -1,5 +1,13 @@
-이것은 동일 과제를 서로 다른 스킬 조건으로 수행하는 비교입니다.
-작업 폴더 밖의 프로젝트 코드, 다른 그룹 결과, 평가자료, 기존 로켓 이미지는 읽지 마세요. 네트워크 자료와 이미지 생성 도구 없이 코드로 직접 그리세요. 설치된 런타임을 이용하고 시스템 설정이나 전역 패키지를 변경하지 마세요.
-과제별 그림의 화풍, 구성요소, 복잡도는 지정하지 않습니다. 관련 있는 경우 이 폴더에 제공된 스킬만 선택적으로 사용하세요. 제공된 스킬이 없으면 추가 스킬 없이 진행하세요. 다른 에이전트를 생성하지 마세요.
-실제로 사용한 스킬, 시작·완료 UTC 시각, 실행한 명령, 종료코드, 검사·실패·수정 사항과 산출물 경로를 REPORT.md에 간결하게 기록하세요. 가능한 원시 실행 출력은 logs/에 보존하세요. 실행하지 않은 검사를 통과했다고 기록하지 마세요. 최대 작업 시간은 8분입니다.
-현재 환경의 기본 명령 실행이 F: 드라이브 I/O 오류로 시작되지 않으면 동일 명령을 호스트 PowerShell(require_escalated)로 실행할 수 있습니다.
+# English edition of the historical experiment input
+
+This comparison performs the same task under different skill conditions.
+
+Do not read project code outside your working directory, other groups' results, evaluation material, or existing rocket images. Draw directly with code without network reference material or image-generation tools. Use installed runtimes; do not change system settings or global packages.
+
+No visual style, components, or complexity level is specified. When relevant, selectively use only the skills provided in this directory. If no skills are provided, proceed without additional skills. Do not create other agents.
+
+In `REPORT.md`, briefly record the skills actually used, start and completion UTC timestamps, commands executed, exit codes, checks, failures, revisions, and artifact paths. Preserve raw execution output in `logs/` where possible. Do not record unexecuted checks as passing. The maximum working time is eight minutes.
+
+If the default command launcher fails to start because of an F: drive I/O error, the same command may be run in host PowerShell using `require_escalated`.
+
+The actual experiment used the Korean original preserved in sources/historical-originals.zip. This translation is not the frozen input.

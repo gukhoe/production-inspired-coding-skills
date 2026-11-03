@@ -1,1 +1,5 @@
-로켓을 그리는 코드를 만들고 실행하여 결과 그림을 저장하세요.
+# English edition of the historical experiment input
+
+Write code that draws a rocket, run it, and save the resulting image.
+
+The actual experiment used the Korean original preserved in sources/historical-originals.zip. This translation is not the frozen input.

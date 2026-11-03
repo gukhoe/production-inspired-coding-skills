@@ -1,0 +1,1101 @@
+{
+  "schema_version": 2,
+  "standard_version": "0.2.0",
+  "revision": "UNASSESSED-SNAPSHOT",
+  "scope": "Blank standard form; no project has been audited",
+  "scope_review": {
+    "status": "unverified",
+    "score": null,
+    "reviewer": "",
+    "rationale": "",
+    "finding": "",
+    "improvement": "",
+    "owner": "",
+    "due": "",
+    "evidence": []
+  },
+  "graph_sha256": null,
+  "processes": [],
+  "boundaries": [],
+  "evidence": [],
+  "risks": [],
+  "assessments": [
+    {
+      "id": "REQ-01",
+      "checks": [
+        {
+          "id": "REQ-01.1",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        },
+        {
+          "id": "REQ-01.2",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        },
+        {
+          "id": "REQ-01.3",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "REQ-02",
+      "checks": [
+        {
+          "id": "REQ-02.1",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        },
+        {
+          "id": "REQ-02.2",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        },
+        {
+          "id": "REQ-02.3",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "DES-01",
+      "checks": [
+        {
+          "id": "DES-01.1",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        },
+        {
+          "id": "DES-01.2",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        },
+        {
+          "id": "DES-01.3",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "DES-02",
+      "checks": [
+        {
+          "id": "DES-02.1",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        },
+        {
+          "id": "DES-02.2",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        },
+        {
+          "id": "DES-02.3",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "SUP-01",
+      "checks": [
+        {
+          "id": "SUP-01.1",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        },
+        {
+          "id": "SUP-01.2",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        },
+        {
+          "id": "SUP-01.3",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "IMP-01",
+      "checks": [
+        {
+          "id": "IMP-01.1",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        },
+        {
+          "id": "IMP-01.2",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        },
+        {
+          "id": "IMP-01.3",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "IMP-02",
+      "checks": [
+        {
+          "id": "IMP-02.1",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        },
+        {
+          "id": "IMP-02.2",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        },
+        {
+          "id": "IMP-02.3",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "VER-01",
+      "checks": [
+        {
+          "id": "VER-01.1",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        },
+        {
+          "id": "VER-01.2",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        },
+        {
+          "id": "VER-01.3",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "VER-02",
+      "checks": [
+        {
+          "id": "VER-02.1",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        },
+        {
+          "id": "VER-02.2",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        },
+        {
+          "id": "VER-02.3",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "VER-03",
+      "checks": [
+        {
+          "id": "VER-03.1",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        },
+        {
+          "id": "VER-03.2",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        },
+        {
+          "id": "VER-03.3",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "REL-01",
+      "checks": [
+        {
+          "id": "REL-01.1",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        },
+        {
+          "id": "REL-01.2",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        },
+        {
+          "id": "REL-01.3",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "REL-02",
+      "checks": [
+        {
+          "id": "REL-02.1",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        },
+        {
+          "id": "REL-02.2",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        },
+        {
+          "id": "REL-02.3",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "OPS-01",
+      "checks": [
+        {
+          "id": "OPS-01.1",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        },
+        {
+          "id": "OPS-01.2",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        },
+        {
+          "id": "OPS-01.3",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "OPS-02",
+      "checks": [
+        {
+          "id": "OPS-02.1",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        },
+        {
+          "id": "OPS-02.2",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        },
+        {
+          "id": "OPS-02.3",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "CHG-01",
+      "checks": [
+        {
+          "id": "CHG-01.1",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        },
+        {
+          "id": "CHG-01.2",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        },
+        {
+          "id": "CHG-01.3",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "RSK-01",
+      "checks": [
+        {
+          "id": "RSK-01.1",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        },
+        {
+          "id": "RSK-01.2",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        },
+        {
+          "id": "RSK-01.3",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "CAP-01",
+      "checks": [
+        {
+          "id": "CAP-01.1",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        },
+        {
+          "id": "CAP-01.2",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        },
+        {
+          "id": "CAP-01.3",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "MAP-01",
+      "checks": [
+        {
+          "id": "MAP-01.1",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        },
+        {
+          "id": "MAP-01.2",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        },
+        {
+          "id": "MAP-01.3",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "PRE-01",
+      "checks": [
+        {
+          "id": "PRE-01.1",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        },
+        {
+          "id": "PRE-01.2",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        },
+        {
+          "id": "PRE-01.3",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "PRE-02",
+      "checks": [
+        {
+          "id": "PRE-02.1",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        },
+        {
+          "id": "PRE-02.2",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        },
+        {
+          "id": "PRE-02.3",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "GAT-01",
+      "checks": [
+        {
+          "id": "GAT-01.1",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        },
+        {
+          "id": "GAT-01.2",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        },
+        {
+          "id": "GAT-01.3",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "DIA-01",
+      "checks": [
+        {
+          "id": "DIA-01.1",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        },
+        {
+          "id": "DIA-01.2",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        },
+        {
+          "id": "DIA-01.3",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "DIA-02",
+      "checks": [
+        {
+          "id": "DIA-02.1",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        },
+        {
+          "id": "DIA-02.2",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        },
+        {
+          "id": "DIA-02.3",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "CAP-02",
+      "checks": [
+        {
+          "id": "CAP-02.1",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        },
+        {
+          "id": "CAP-02.2",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        },
+        {
+          "id": "CAP-02.3",
+          "status": "unverified",
+          "score": null,
+          "reviewer": "",
+          "rationale": "",
+          "finding": "",
+          "improvement": "",
+          "owner": "",
+          "due": "",
+          "evidence": []
+        }
+      ]
+    }
+  ],
+  "gates": [
+    {
+      "id": "G1",
+      "producer": "",
+      "receiver": "",
+      "input_evidence": [],
+      "output_evidence": [],
+      "review": {
+        "status": "unverified",
+        "score": null,
+        "reviewer": "",
+        "rationale": "",
+        "finding": "",
+        "improvement": "",
+        "owner": "",
+        "due": "",
+        "evidence": []
+      }
+    },
+    {
+      "id": "G2",
+      "producer": "",
+      "receiver": "",
+      "input_evidence": [],
+      "output_evidence": [],
+      "review": {
+        "status": "unverified",
+        "score": null,
+        "reviewer": "",
+        "rationale": "",
+        "finding": "",
+        "improvement": "",
+        "owner": "",
+        "due": "",
+        "evidence": []
+      }
+    },
+    {
+      "id": "G3",
+      "producer": "",
+      "receiver": "",
+      "input_evidence": [],
+      "output_evidence": [],
+      "review": {
+        "status": "unverified",
+        "score": null,
+        "reviewer": "",
+        "rationale": "",
+        "finding": "",
+        "improvement": "",
+        "owner": "",
+        "due": "",
+        "evidence": []
+      }
+    },
+    {
+      "id": "G4",
+      "producer": "",
+      "receiver": "",
+      "input_evidence": [],
+      "output_evidence": [],
+      "review": {
+        "status": "unverified",
+        "score": null,
+        "reviewer": "",
+        "rationale": "",
+        "finding": "",
+        "improvement": "",
+        "owner": "",
+        "due": "",
+        "evidence": []
+      }
+    },
+    {
+      "id": "G5",
+      "producer": "",
+      "receiver": "",
+      "input_evidence": [],
+      "output_evidence": [],
+      "review": {
+        "status": "unverified",
+        "score": null,
+        "reviewer": "",
+        "rationale": "",
+        "finding": "",
+        "improvement": "",
+        "owner": "",
+        "due": "",
+        "evidence": []
+      }
+    }
+  ],
+  "investigations": []
+}

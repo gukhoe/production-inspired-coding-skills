@@ -9,6 +9,7 @@ import subprocess
 import sys
 import tempfile
 from PIL import Image, __version__ as pillow_version
+from historical_sources import original_bytes
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = ROOT / "comparisons/rocket-code"
@@ -62,7 +63,7 @@ for group in "ABC":
         }
 common_inputs = {}
 for name in ("TASK.md", "ADMIN.md"):
-    hashes = {g: hashlib.sha256((BASE / g / name).read_bytes()).hexdigest() for g in "ABC"}
+    hashes = {g: hashlib.sha256(original_bytes(ROOT, (BASE / g / name).relative_to(ROOT))).hexdigest() for g in "ABC"}
     common_inputs[name] = hashes
     if len(set(hashes.values())) != 1:
         errors.append("Unequal common input: " + name)

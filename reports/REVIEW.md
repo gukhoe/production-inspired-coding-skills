@@ -27,7 +27,7 @@ In the 90-run study, A had no additional skill, B had `verification-before-compl
 - The 16 skills in the newly supplied source ZIP match the study snapshots. All 16 pass the local `skill-creator` format validator. Format validity does not guarantee good behavior.
 - The original report appropriately separates documentation, input defense, calculation correctness, and completion within the time budget. Its decision not to sum S/R/E/T/D into a leaderboard should be retained.
 
-Evidence: [audit results](verification/audit.json), [study integrity checks](verification/study-integrity.json), [skill format validation](verification/skill-format-validation.json), and the [original Korean review](../evidence/completeness-review/CODE_COMPLETENESS_REVIEW_KO.md).
+Evidence: [audit results](verification/audit.json), [study integrity checks](verification/study-integrity.json), [skill format validation](verification/skill-format-validation.json), and the [English edition of the historical review](../evidence/completeness-review/CODE_COMPLETENESS_REVIEW_EN.md).
 
 ## Evaluation defects to fix first
 
