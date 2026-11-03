@@ -1,0 +1,3 @@
+A 13 / 18 cases; 6 lines; 0.08 ms
+B 17 / 18 cases; 23 lines; 0.319 ms
+C 18 / 18 cases; 33 lines; 0.128 ms

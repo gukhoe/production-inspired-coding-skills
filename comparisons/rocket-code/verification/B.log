@@ -1,0 +1,18 @@
+command: python -B draw_rocket.py
+exit_code: 0
+STDOUT:
+SAVED <temporary-copy>\rocket.png
+IMAGE size=(1400, 1800) mode=RGB bytes=762753
+
+STDERR:
+
+command: python -B verify_output.py
+exit_code: 0
+STDOUT:
+PASS: Python source parses successfully
+PASS: PNG integrity verification
+PASS: image dimensions=(1400, 1800), mode=RGB, extrema=((0, 255), (0, 255), (24, 233))
+SHA256: 9305fad232c954c2a38772e2ae6cec10691d66bf82f9a3bc905cc0350d2268e4
+FAILURES: 0
+
+STDERR:

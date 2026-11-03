@@ -1,0 +1,13 @@
+{
+  "output": "D:\\manufacturingstylecoding\\comparisons\\rocket-code\\C\\rocket.png",
+  "size": [
+    1200,
+    1600
+  ],
+  "format": "PNG",
+  "mode": "RGB",
+  "sha256": "9c221d8c40089fa7edde9b102e3ae10d830c6c1eb9974b46cc93dd1ad31f5881",
+  "bytes": 213648,
+  "checks": "PASS: reopen, size, mode, format, channel range",
+  "utc_complete": "2026-11-03T00:29:43.637152+00:00"
+}

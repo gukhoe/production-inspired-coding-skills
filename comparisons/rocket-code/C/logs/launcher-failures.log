@@ -1,0 +1,5 @@
+MXC launcher failure from initial exec_command:
+MXC launcher: enumerate MXC volume F:\: I/O 장치 오류로 인해 요청이 수행될 수 없습니다. (os error 1117)
+exit_code=1
+The node_repl fallback also exited with kernel_status=exited(code=1) and the same MXC launcher error.
+No task code ran in either failed attempt. ADMIN.md explicitly allowed host PowerShell require_escalated fallback; the identical instruction-read command then succeeded with exit_code=0.

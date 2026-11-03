@@ -1,0 +1,38 @@
+command: python -B draw_rocket.py
+exit_code: 0
+STDOUT:
+SAVED: <temporary-copy>\rocket.png
+CANVAS: 1400 x 1800; supersampling: 2x; seed: 41
+
+STDERR:
+
+command: python -B verify_output.py
+exit_code: 0
+STDOUT:
+{
+  "syntax": "PASS",
+  "png_decode": "PASS",
+  "dimensions": [
+    1400,
+    1800
+  ],
+  "mode": "RGB",
+  "channel_extrema": [
+    [
+      0,
+      255
+    ],
+    [
+      14,
+      255
+    ],
+    [
+      38,
+      234
+    ]
+  ],
+  "bytes": 265518,
+  "sha256": "33d4ec99be1132b0d3bdde3bdecbb715817bcda7daf3aea78b65e898c999ed3d"
+}
+
+STDERR:

@@ -1,0 +1,97 @@
+{
+  "description": "Post-hoc diagnostic probes, not a replacement benchmark or new skill-effect experiment.",
+  "always_raise_passed": 13,
+  "always_raise_total": 18,
+  "always_raise_tests": {
+    "correct_winner": {
+      "pass": false,
+      "error": "ValueError: deliberately broken implementation"
+    },
+    "correct_total": {
+      "pass": false,
+      "error": "ValueError: deliberately broken implementation"
+    },
+    "quantity_zero": {
+      "pass": true
+    },
+    "quantity_negative": {
+      "pass": true
+    },
+    "quantity_fractional": {
+      "pass": true
+    },
+    "empty_quotes": {
+      "pass": true
+    },
+    "negative_unit": {
+      "pass": true
+    },
+    "negative_freight": {
+      "pass": true
+    },
+    "duty_over_one": {
+      "pass": true
+    },
+    "nan_unit": {
+      "pass": true
+    },
+    "boolean_quantity": {
+      "pass": true
+    },
+    "duplicate_supplier": {
+      "pass": true
+    },
+    "empty_supplier": {
+      "pass": true
+    },
+    "tie_deterministic": {
+      "pass": false,
+      "error": "ValueError: deliberately broken implementation"
+    },
+    "no_input_mutation": {
+      "pass": false,
+      "error": "ValueError: deliberately broken implementation"
+    },
+    "rounding_half_up": {
+      "pass": false,
+      "error": "ValueError: deliberately broken implementation"
+    },
+    "nonfinite_infinity": {
+      "pass": true
+    },
+    "negative_tooling": {
+      "pass": true
+    }
+  },
+  "a_numeric_valid": {
+    "returned": {
+      "supplier": "Alpha",
+      "total": 2210.0
+    }
+  },
+  "a_numeric_zero_quantity": {
+    "returned": {
+      "supplier": "Alpha",
+      "total": 1110.0
+    }
+  },
+  "a_numeric_fractional_quantity": {
+    "returned": {
+      "supplier": "Alpha",
+      "total": 1126.5
+    }
+  },
+  "a_numeric_duplicate_supplier": {
+    "returned": {
+      "supplier": "Alpha",
+      "total": 2210.0
+    }
+  },
+  "recorded_a_actual_failed_tests": [
+    "correct_winner",
+    "correct_total",
+    "tie_deterministic",
+    "no_input_mutation",
+    "rounding_half_up"
+  ]
+}

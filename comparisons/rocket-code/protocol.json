@@ -1,0 +1,19 @@
+{
+  "status": "frozen_before_dispatch",
+  "user_request": "로켓을 그리는 코드를 만들고 실행하여 결과 그림을 저장하세요.",
+  "common_admin_sha256": "01585f9bbeecde9ebe1b0442ef10f23452fd007e809f5dc85bc91e8a9f3fde70",
+  "common_task_sha256": "16be077ae32bbadea63b939326053611b955db9bba08eff5052bcdafd76e6d5c",
+  "groups": {
+    "A": "No additional skill",
+    "B": "verification-before-completion snapshot from original study",
+    "C": "16 manufacturing process coding skills; selective reading from index"
+  },
+  "replicates": 1,
+  "fork_turns": "none",
+  "model_override": false,
+  "filesystem_isolation": "Separate directories only; read separation instructed, not OS-enforced",
+  "image_generation_tools": "not used",
+  "exact_model_revision": null,
+  "token_usage": null,
+  "limits": "Descriptive pilot; cannot establish a causal effect or general superiority; no visual style predetermined."
+}

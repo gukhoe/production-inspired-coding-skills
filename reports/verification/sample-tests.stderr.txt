@@ -1,0 +1,8 @@
+test_empty (test_sample.TestTotal.test_empty) ... ok
+test_invalid (test_sample.TestTotal.test_invalid) ... ok
+test_normal (test_sample.TestTotal.test_normal) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+OK

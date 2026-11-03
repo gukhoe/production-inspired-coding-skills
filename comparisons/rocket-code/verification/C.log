@@ -1,0 +1,19 @@
+command: python -B draw_rocket.py
+exit_code: 0
+STDOUT:
+UTC start: 2026-11-03T00:32:22.201593+00:00
+{
+  "output": "C:\\Users\\heogu\\AppData\\Local\\Temp\\rocket-C-knoronvw\\rocket.png",
+  "size": [
+    1200,
+    1600
+  ],
+  "format": "PNG",
+  "mode": "RGB",
+  "sha256": "9c221d8c40089fa7edde9b102e3ae10d830c6c1eb9974b46cc93dd1ad31f5881",
+  "bytes": 213648,
+  "checks": "PASS: reopen, size, mode, format, channel range",
+  "utc_complete": "2026-11-03T00:32:22.569108+00:00"
+}
+
+STDERR:

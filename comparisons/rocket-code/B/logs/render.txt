@@ -1,0 +1,2 @@
+SAVED D:\manufacturingstylecoding\comparisons\rocket-code\B\rocket.png
+IMAGE size=(1400, 1800) mode=RGB bytes=762753

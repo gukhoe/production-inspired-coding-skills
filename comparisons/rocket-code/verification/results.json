@@ -1,0 +1,76 @@
+{
+  "status": "PASS",
+  "python": "3.11.15",
+  "pillow": "11.3.0",
+  "groups": {
+    "A": {
+      "render_exit_code": 0,
+      "separate_verifier_exit_code": 0,
+      "render_source_lines": 146,
+      "render_source_bytes": 6583,
+      "separate_verifier_lines": 18,
+      "function_definitions_including_nested": 8,
+      "dimensions": [
+        1400,
+        1800
+      ],
+      "mode": "RGB",
+      "format": "PNG",
+      "image_bytes": 265518,
+      "image_sha256": "33d4ec99be1132b0d3bdde3bdecbb715817bcda7daf3aea78b65e898c999ed3d",
+      "fresh_process_reproduces_original_image": true,
+      "code_sha256": "4b505eeafd1a105604a88e67965bf614d15fd04c50a3c5bb81ec618541a2f670"
+    },
+    "B": {
+      "render_exit_code": 0,
+      "separate_verifier_exit_code": 0,
+      "render_source_lines": 153,
+      "render_source_bytes": 6848,
+      "separate_verifier_lines": 22,
+      "function_definitions_including_nested": 7,
+      "dimensions": [
+        1400,
+        1800
+      ],
+      "mode": "RGB",
+      "format": "PNG",
+      "image_bytes": 762753,
+      "image_sha256": "9305fad232c954c2a38772e2ae6cec10691d66bf82f9a3bc905cc0350d2268e4",
+      "fresh_process_reproduces_original_image": true,
+      "code_sha256": "282d3d7632f4fbb20fd4fb35b89d1970cd7f72caa729286ad7d72245ee1f2a0a"
+    },
+    "C": {
+      "render_exit_code": 0,
+      "separate_verifier_exit_code": null,
+      "render_source_lines": 150,
+      "render_source_bytes": 7239,
+      "separate_verifier_lines": 0,
+      "function_definitions_including_nested": 9,
+      "dimensions": [
+        1200,
+        1600
+      ],
+      "mode": "RGB",
+      "format": "PNG",
+      "image_bytes": 213648,
+      "image_sha256": "9c221d8c40089fa7edde9b102e3ae10d830c6c1eb9974b46cc93dd1ad31f5881",
+      "fresh_process_reproduces_original_image": true,
+      "code_sha256": "d02580418f29b4b2139c76aeaf53241a9c2b6c49f547eaded2668ad63c7de108"
+    }
+  },
+  "common_input_hashes": {
+    "TASK.md": {
+      "A": "e38e298951102d285b05eb719425dce925903a87a153ba7031d64d01f1b31a23",
+      "B": "e38e298951102d285b05eb719425dce925903a87a153ba7031d64d01f1b31a23",
+      "C": "e38e298951102d285b05eb719425dce925903a87a153ba7031d64d01f1b31a23"
+    },
+    "ADMIN.md": {
+      "A": "b81b8387fa43f2e26ba3c971e76f16425e30713c5957296458b49f4fddb4cacc",
+      "B": "b81b8387fa43f2e26ba3c971e76f16425e30713c5957296458b49f4fddb4cacc",
+      "C": "b81b8387fa43f2e26ba3c971e76f16425e30713c5957296458b49f4fddb4cacc"
+    }
+  },
+  "visual_check": "Coordinator opened all three original PNGs; recognizable rocket, window, fins and flame observed. No automated aesthetic score.",
+  "scope": "One fresh-process reproduction of each submission; no new generation, no cross-platform check, no causal claim.",
+  "errors": []
+}

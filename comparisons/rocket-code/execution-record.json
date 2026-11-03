@@ -1,0 +1,20 @@
+{
+  "agent_tasks": [
+    "/root/rocket_a",
+    "/root/rocket_b",
+    "/root/rocket_c"
+  ],
+  "fork_turns": "none",
+  "model_overrides": false,
+  "skills_used_reported": {
+    "A": [],
+    "B": [
+      "verification-before-completion"
+    ],
+    "C": [
+      "standard-work"
+    ]
+  },
+  "source": "Actual spawn task names plus agent-written REPORT.md; not backend session IDs or a full transcript export",
+  "coordinator_rerun": "verification/results.json"
+}

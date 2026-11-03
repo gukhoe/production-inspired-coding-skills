@@ -1,0 +1,26 @@
+{
+  "syntax": "PASS",
+  "png_decode": "PASS",
+  "dimensions": [
+    1400,
+    1800
+  ],
+  "mode": "RGB",
+  "channel_extrema": [
+    [
+      0,
+      255
+    ],
+    [
+      14,
+      255
+    ],
+    [
+      38,
+      234
+    ]
+  ],
+  "bytes": 265518,
+  "sha256": "33d4ec99be1132b0d3bdde3bdecbb715817bcda7daf3aea78b65e898c999ed3d"
+}
+Exit code: 0
