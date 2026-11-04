@@ -6,7 +6,11 @@ This is an initial translation of manufacturing production and quality-audit pra
 
 Use the two products separately: select any of the **16 original coding skills**, or connect **Software Assurance Auditor** through its own MCP server/CLI. The auditor contains 24 criteria, 72 checkpoints, evidence scoring, five stage gates, investigation workflows and a fixed report template. It requires no skill installation, existing risk report or Graphify. Optional integrations enrich the evidence.
 
-Current stage: **Software Assurance Auditor 0.2.0, initial public release**. All 16 original `SKILL.md` files retain the exact bytes supplied by the user. Their proposed behavioral improvements have not yet been applied. The separate auditor is available as a CLI, MCP server and optional audit skill, with English reports and a fixed questionnaire.
+Current stage: **Software Assurance Auditor 0.3.0a1, public preview**. All 16 original `SKILL.md` files retain the exact bytes supplied by the user. Their proposed behavioral improvements have not yet been applied. The separate auditor is available as a CLI, MCP server and optional audit skill, with English reports and a fixed questionnaire.
+
+The **connection-review preview** adds built-in Python source mapping, connection-risk probes, an offline one-page summary, interactive risk links and an improvement queue. Complete supplied networks are laid out in bounded worker partitions and merged with every cross-partition connection. Graphify and REA are optional imports. [Run the standalone demonstration](examples/connection-audit/README.md) or read [the capabilities and limits](docs/CONNECTION_RISK_REVIEW.md). Native C# analysis, full inter-file symbol/data-flow resolution and runtime tracing remain future work; displaying every supplied edge does not establish complete extraction coverage.
+
+This update distributes the tool, process definitions, installation guidance and synthetic example source. Project audit reports, audited source snapshots, raw execution logs and private graph exports are not included. See [the preview release notes](docs/RELEASE_0_3_0_PREVIEW.md).
 
 ## Start here
 

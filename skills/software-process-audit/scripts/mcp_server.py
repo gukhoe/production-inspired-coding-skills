@@ -9,7 +9,9 @@ from functools import wraps
 from .audit import (CONTROLS, AuditError, Graph, blank_review, catalog, evaluate,
                     evidence_record, file_hash, investigation_template, markdown,
                     new_manifest, next_actions, safe_file)
-from .audit_standard import STANDARD_VERSION
+from . import __version__
+from .connection_audit import scan_python, import_connections, related_paths, connection_catalog
+from .visual_report import build_view, render_html
 
 INSTRUCTIONS = """Software Assurance Auditor is an independent software audit tool.
 Start with audit_criteria: it provides all questions, checkpoints and scoring rules.
@@ -30,6 +32,12 @@ English, even when project evidence is in another language. Preserve exact evide
 paths, identifiers, hashes and quotations; explain non-English quotations in English.
 The renderer preserves supplied text and does not translate it. Prepare English
 manifest narrative before audit_evaluate; never rewrite evidence to change its language.
+Use audit_scan_connections for selected Python source or audit_import_connections for
+Graphify/complete REA JavaScript evidence. These generate static candidates, not confirmed
+vulnerabilities or runtime proof. Review both endpoints using the connection questions;
+trace impact with audit_connection_path. Record confirmed findings in the audit manifest
+with evidence and explicit boundary targets. audit_visualize returns the one-page summary,
+interactive risk map and improvement tasks without writing or executing project files.
 """
 
 
@@ -43,7 +51,7 @@ def build_server(root):
     root = Path(root).resolve()
     if not root.is_dir():
         raise AuditError("--repo-root must name an existing project directory")
-    server = MCPServer("Software Assurance Auditor", version=STANDARD_VERSION, instructions=INSTRUCTIONS)
+    server = MCPServer("Software Assurance Auditor", version=__version__, instructions=INSTRUCTIONS)
     annotations = ToolAnnotations(read_only_hint=True, destructive_hint=False, idempotent_hint=True, open_world_hint=False)
 
     def expected_errors(function):
@@ -148,6 +156,40 @@ def build_server(root):
         """Optional Graphify export traversal. Not needed for standalone audits; relationships are candidates, not proof of runtime causality."""
         graph = Graph(safe_file(root, graph_path))
         return {"graph": graph.summary(), "candidates": graph.candidates(seed, depth, limit)}
+
+    @server.tool(annotations=annotations, structured_output=True)
+    @expected_errors
+    def audit_scan_connections(paths: list[str]) -> dict[str, Any]:
+        """Inspect selected Python files without execution. Return connection evidence, three initial risk-candidate rules and eight verification probes. No finding is not a safety verdict."""
+        return {"connections": scan_python(root, paths), "probes": connection_catalog()}
+
+    @server.tool(annotations=annotations, structured_output=True)
+    @expected_errors
+    def audit_import_connections(path: str, format: str) -> dict[str, Any]:
+        """Read repository-relative native/graphify/rea JSON. REA requires complete analyze_javascript_application Evidence, not a summary. Preserve provenance and unknown coverage."""
+        return {"connections": import_connections(safe_file(root, path), format), "probes": connection_catalog()}
+
+    @server.tool(annotations=annotations, structured_output=True)
+    @expected_errors
+    def audit_connection_path(path: str, seed: str, depth: int = 2, limit: int = 100, direction: str = "outgoing") -> dict[str, Any]:
+        """Trace bounded relationships in normalized connection evidence; direction is outgoing/incoming/both. This is not proof of failure propagation."""
+        return related_paths(import_connections(safe_file(root, path), "native"), seed, depth, limit, direction)
+
+    @server.tool(annotations=annotations, structured_output=True)
+    @expected_errors
+    def audit_visualize(manifest: dict[str, Any], revision: str, connections_path: str | None = None, graph_path: str | None = None) -> dict[str, Any]:
+        """Re-evaluate the manifest and return an offline English visual report plus improvement tasks. Red shows reviewed high risks/gaps; static candidates remain amber. No files written."""
+        if len(json.dumps(manifest).encode("utf-8")) > 8 * 1024 * 1024:
+            raise AuditError("Manifest limit: 8 MiB")
+        graph = Graph(safe_file(root, graph_path)) if graph_path else None
+        result = evaluate(manifest, root, revision, graph)
+        connections = import_connections(safe_file(root, connections_path), "native") if connections_path else None
+        view = build_view(result, connections)
+        # The complete graph is embedded in the offline HTML. Avoid returning a
+        # second, potentially enormous copy through the MCP text transport.
+        summary = {key: value for key, value in view.items() if key not in {'source_nodes', 'source_edges'}}
+        summary['graph_delivery'] = 'Complete source graph embedded in report_html; view contains summary metadata.'
+        return {"view": summary, "report_html": render_html(view), "improvement_tasks": view["tasks"]}
 
     return server
 

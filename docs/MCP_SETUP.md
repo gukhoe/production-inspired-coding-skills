@@ -1,6 +1,6 @@
 # Download, install and connect
 
-The coding skills and independent auditor can each be used alone. Install this initial release from the GitHub source checkout. No PyPI release is assumed.
+The coding skills and independent auditor can each be used alone. Install the public preview from the GitHub source checkout. No PyPI release is assumed.
 
 ## A. Coding skills only
 
@@ -15,6 +15,7 @@ Windows PowerShell:
 ```powershell
 git clone https://github.com/gukhoe/production-inspired-coding-skills.git
 cd production-inspired-coding-skills
+git checkout auditor-v0.3.0a1
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install ".[mcp]"
 .\.venv\Scripts\software-audit.exe criteria
@@ -53,6 +54,14 @@ The configured root bounds file access; restart/reconfigure for another project.
 | audit_investigation | Preventive/corrective investigation steps |
 | audit_evaluate | Scored JSON, fixed Markdown report and next actions |
 | audit_graph_candidates | Optional Graphify export relationships |
+| audit_scan_connections | Built-in selected Python source mapping and unconfirmed risk candidates; no external analyzer |
+| audit_import_connections | Optional native, Graphify or complete REA JavaScript evidence import |
+| audit_connection_path | Bounded relationship paths with explicit direction and limits |
+| audit_visualize | Evaluated report, offline HTML, connection view and improvement tasks; returns data without writing files |
+
+The last four tools are in the `0.3.0a1` preview. Built-in mapping and reporting work without Graphify or REA. Run `audit_scan_connections(paths=[...])`, save its connection object using the host's file tool if needed, then pass its repository-relative path as `connections_path` to `audit_visualize`. Follow [the connection review workflow](CONNECTION_RISK_REVIEW.md) to assess boundaries and verify corrections.
+
+`audit_visualize` embeds the complete source network in `report_html`; its `view` field contains summary metadata without duplicating the source node/edge arrays. Large HTML payloads are compressed internally and open locally in a modern browser. The report prepares module layouts in bounded browser workers and merges every cross-module connection.
 
 Ask the AI to use the server's criteria, inspect the actual project, preserve unknowns and return the generated standard report. Read scores and coverage together. Authorized tests run through the host's execution tools, with their logs supplied as evidence.
 
@@ -64,4 +73,4 @@ Install . instead of .[mcp], then run software-audit. Or run python skills/softw
 
 ## Reproducibility
 
-Package/standard 0.2.0; manifest schema 2; report template 1.0; MCP SDK 2.3.0. The [official MCP Python SDK](https://github.com/modelcontextprotocol/python-sdk) implements the protocol. Validation uses an installed package and real stdio handshake. Installation does not change global AI-client configuration.
+Package preview 0.3.0a1; scoring standard 0.2.0; manifest schema 2; report template 1.0; MCP SDK 2.3.0. The [official MCP Python SDK](https://github.com/modelcontextprotocol/python-sdk) implements the protocol. Validation uses an installed package and real stdio handshake. Installation does not change global AI-client configuration.

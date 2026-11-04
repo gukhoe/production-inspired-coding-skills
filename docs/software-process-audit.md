@@ -57,6 +57,8 @@ Graphify contributes optional relationship candidates, preserving direction and 
 
 ## Limits and validation
 
+The `0.3.0a1` public preview adds built-in Python connection mapping, eight connection probes, an offline score summary, interactive risk links and improvement tasks. `report` now writes fixed JSON/Markdown plus `report.html` and `improvement-plan.json`. Graphify and REA are optional imports; neither is required for an audit. See [usage and boundaries](CONNECTION_RISK_REVIEW.md) and [the independently runnable failure/correction example](../examples/connection-audit/README.md).
+
 Initial release; no certification or defect-probability claim. The engine cannot authenticate logs, infer complete coverage or prove live behavior. Weights are an initial policy; semantic judgment and source identity remain reviewer responsibilities.
 
 Tests cover scores/coverage, unknowns, omitted rows, stale evidence, gates, high-risk overrides, investigation completion, graph bounds, deterministic reports and real stdio MCP calls against an installed package. Run `python -m unittest discover -s tests -v`; install `.[mcp]` to include integration testing. Environment-dependent skipped tests stay disclosed.

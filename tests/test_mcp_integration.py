@@ -21,7 +21,7 @@ class MCPIntegrationTests(unittest.TestCase):
                 listed = await client.list_tools()
                 tools = listed if isinstance(listed, list) else listed.tools
                 names = {tool.name for tool in tools}
-                self.assertEqual(names, {"audit_criteria", "audit_initialize", "audit_inventory", "audit_read_file", "audit_evidence", "audit_investigation", "audit_evaluate", "audit_graph_candidates"})
+                self.assertEqual(names, {"audit_criteria", "audit_initialize", "audit_inventory", "audit_read_file", "audit_evidence", "audit_investigation", "audit_evaluate", "audit_graph_candidates", "audit_scan_connections", "audit_import_connections", "audit_connection_path", "audit_visualize"})
 
                 async def call(name, args):
                     result = await client.call_tool(name, args)
@@ -51,6 +51,20 @@ class MCPIntegrationTests(unittest.TestCase):
                 self.assertIn("| CAP-02.3 |", evaluated["report_markdown"])
                 self.assertIn("# Software Assurance Audit", evaluated["report_markdown"])
                 self.assertTrue(evaluated["next_actions"]["tasks"])
+                scanned = await call("audit_scan_connections", {"paths": ["source.py"]})
+                self.assertEqual(scanned["connections"]["provider"], "Python AST")
+                self.assertEqual(len(scanned["probes"]), 8)
+                # The host saves tool data; the MCP service itself performs no writes.
+                (root / "connections.json").write_text(json.dumps(scanned["connections"]))
+                imported = await call("audit_import_connections", {"path": "connections.json", "format": "native"})
+                node = imported["connections"]["nodes"][0]["id"]
+                traced = await call("audit_connection_path", {"path": "connections.json", "seed": node})
+                self.assertIn(node, traced["paths"])
+                visual = await call("audit_visualize", {"manifest": manifest, "revision": "fixture", "connections_path": "connections.json"})
+                self.assertEqual(visual["view"]["outcome"], "incomplete")
+                self.assertIn("Connection risk review", visual["report_html"])
+                self.assertEqual(visual["view"]["scorecard"], evaluated["report"]["scorecard"])
+                (root / "connections.json").unlink()
                 escaped = await client.call_tool("audit_read_file", {"path": "../outside.txt"})
                 self.assertTrue(escaped.is_error)
                 malformed = await client.call_tool("audit_evaluate", {"manifest": {"schema_version": 999}, "revision": "fixture"})

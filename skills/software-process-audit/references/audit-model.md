@@ -44,7 +44,7 @@ Paths are repository-relative; absolute paths, parent traversal and symlink esca
 
 ## Boundaries and stage transitions
 
-Processes have id, kind (delivery/runtime), owner, input, output, optional graph_nodes. Boundaries have id, source, target, failure_mode and reviews for contract, failure_handling, recovery, verification, observability. Reviews use the same score/evidence fields. Manual HTTP/file/native links are valid without a graph.
+Processes have id, kind (delivery/runtime), owner, input, output, optional graph_nodes and optional code_nodes for the normalized connection view. Boundaries have id, source, target, failure_mode and reviews for contract, failure_handling, recovery, verification, observability. Reviews use the same score/evidence fields. Manual HTTP/file/native links are valid without a graph.
 
 Five fixed gates cover requirements -> design -> implementation -> verification -> release -> operations. Each requires producer, receiver, input/output evidence and a reviewed handoff. Relevant criteria and high-impact risks produce blockers. Omitted gates stay blocked. Justified not-applicable gates stay visibly excluded. `evidence_ready` describes the record; it never performs a transition or authorizes release.
 

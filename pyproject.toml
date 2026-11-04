@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "software-assurance-auditor"
-version = "0.2.0"
+version = "0.3.0a1"
 description = "AI software audit tools with built-in checkpoints, evidence scoring, stage gates and corrective-action reviews"
 readme = "docs/software-process-audit.md"
 requires-python = ">=3.11"
@@ -18,8 +18,12 @@ software-audit = "software_assurance_auditor.audit:main"
 software-audit-mcp = "software_assurance_auditor.mcp_server:main"
 
 [tool.setuptools]
+include-package-data = false
 packages = ["software_assurance_auditor"]
 package-dir = { software_assurance_auditor = "skills/software-process-audit/scripts" }
+
+[tool.setuptools.package-data]
+software_assurance_auditor = ["assets/*.html", "assets/*.js"]
 
 [project.urls]
 Repository = "https://github.com/gukhoe/production-inspired-coding-skills"

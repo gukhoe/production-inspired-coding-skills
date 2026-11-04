@@ -233,6 +233,7 @@ def evaluate(manifest, root, revision, graph=None):
     for pid, process in processes.items():
         require(choice(process.get("kind"), {"delivery", "runtime"}), f"Unknown process kind: {pid}")
         node_ids = refs(process.get("graph_nodes", []), "process graph_nodes")
+        refs(process.get("code_nodes", []), "process code_nodes")
         graph_used = graph_used or bool(node_ids)
         if graph:
             require(all(nid in graph.nodes for nid in node_ids), f"Unknown graph node in process {pid}")
@@ -332,6 +333,7 @@ def evaluate(manifest, root, revision, graph=None):
             "scope": manifest["scope"], "revision": revision,
             "outcome": outcome, "status_counts": counts, "scope_issues": scope_issues,
             "scope_review": scope, "controls": controls, "boundaries": boundary_results,
+            "processes": list(processes.values()),
             "evidence_validation": evidence_results, "risks": risk_results, "review_queue": actions,
             "evidence_index": [{"id": eid, "path": e["path"], "locator": e.get("locator", ""),
                                 "sha256": e["sha256"], "kind": e["kind"], "revision": e.get("revision"),
@@ -400,9 +402,33 @@ def write_new(path, content):
 
 
 def main(argv=None):
+    if __package__:
+        from .connection_audit import scan_python, import_connections, related_paths
+        from .visual_report import build_view, render_html
+    else:
+        from connection_audit import scan_python, import_connections, related_paths
+        from visual_report import build_view, render_html
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest="command", required=True)
     sub.add_parser("criteria", help="Return the complete built-in questionnaire, checkpoints and scoring rubric as JSON")
+    scan = sub.add_parser("map-source", help="Inspect selected Python source and connection risk candidates without execution")
+    scan.add_argument("--repo", required=True)
+    scan.add_argument("--path", action="append", required=True)
+    scan.add_argument("--out", required=True)
+    imported = sub.add_parser("import-connections", help="Normalize Graphify or complete REA JavaScript evidence")
+    imported.add_argument("--input", required=True)
+    imported.add_argument("--format", choices=["graphify", "rea", "native"], required=True)
+    imported.add_argument("--out", required=True)
+    paths = sub.add_parser("connection-path", help="Trace bounded relationship candidates, not runtime causality")
+    paths.add_argument("--input", required=True)
+    paths.add_argument("--seed", required=True)
+    paths.add_argument("--direction", choices=["incoming", "outgoing", "both"], default="outgoing")
+    paths.add_argument("--depth", type=int, default=2)
+    paths.add_argument("--limit", type=int, default=100)
+    visual = sub.add_parser("visualize", help="Render a scored report as an offline summary and connection risk workspace")
+    visual.add_argument("--report", required=True)
+    visual.add_argument("--connections")
+    visual.add_argument("--out", required=True)
     agenda = sub.add_parser("next", help="Return evidence-based next audit actions for an AI")
     agenda.add_argument("--repo", required=True)
     agenda.add_argument("--manifest", required=True)
@@ -428,17 +454,28 @@ def main(argv=None):
     graph_cmd.add_argument("--seed")
     graph_cmd.add_argument("--depth", type=int, default=2)
     graph_cmd.add_argument("--limit", type=int, default=100)
-    report = sub.add_parser("report", help="Validate review evidence and generate JSON/Markdown")
+    report = sub.add_parser("report", help="Validate evidence and generate fixed JSON/Markdown, offline HTML and improvement tasks")
     report.add_argument("--repo", required=True)
     report.add_argument("--manifest", required=True)
     report.add_argument("--revision", required=True)
     report.add_argument("--graph")
+    report.add_argument("--connections", help="Optional normalized connection evidence for the visual report")
     report.add_argument("--out", required=True)
     report.add_argument("--strict", action="store_true")
     args = parser.parse_args(argv)
     try:
         graph = Graph(args.graph) if getattr(args, "graph", None) else None
-        if args.command == "criteria":
+        if args.command == "map-source":
+            write_new(args.out, json.dumps(scan_python(args.repo, args.path), indent=2) + "\n")
+        elif args.command == "import-connections":
+            write_new(args.out, json.dumps(import_connections(args.input, args.format), indent=2) + "\n")
+        elif args.command == "connection-path":
+            print(json.dumps(related_paths(import_connections(args.input, "native"), args.seed, args.depth, args.limit, args.direction), indent=2))
+        elif args.command == "visualize":
+            result, _ = read_json(args.report, max_bytes=16 * 1024 * 1024)
+            connections = import_connections(args.connections, "native") if args.connections else None
+            write_new(args.out, render_html(build_view(result, connections)))
+        elif args.command == "criteria":
             print(json.dumps(catalog(CONTROLS), indent=2))
         elif args.command == "investigation":
             print(json.dumps(investigation_template(args.mode, args.id, args.target), indent=2))
@@ -463,9 +500,14 @@ def main(argv=None):
                 return 0
             out = Path(args.out)
             # Refuse overwrites before creating either report.
-            require(not (out / "report.json").exists() and not (out / "report.md").exists(), "Report output already exists; choose a new directory")
+            require(all(not (out / name).exists() for name in ("report.json", "report.md", "report.html", "improvement-plan.json")), "Report output already exists; choose a new directory")
+            connections = import_connections(args.connections, "native") if args.connections else None
+            view = build_view(result, connections)
+            html = render_html(view)
             write_new(out / "report.json", json.dumps(result, indent=2, ensure_ascii=True) + "\n")
             write_new(out / "report.md", markdown(result))
+            write_new(out / "report.html", html)
+            write_new(out / "improvement-plan.json", json.dumps({"schema": "software-assurance-actions/1", "revision": result["revision"], "report_digest": view["report_digest"], "tasks": view["tasks"]}, indent=2) + "\n")
             print(json.dumps({"outcome": result["outcome"], "status_counts": result["status_counts"]}))
             return 1 if args.strict and result["outcome"] != "reviewed_scope_supported" else 0
         return 0
