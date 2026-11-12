@@ -1,6 +1,6 @@
 # Software Assurance Audit Report
 
-Template: 1.0 | Standard: 0.3.0
+Template: 1.1 | Standard: 0.3.0
 
 Outcome: **incomplete**
 
@@ -34,7 +34,35 @@ Self-reported unless a local witness receipt is separately verified; no CI ident
 Names, relationships and locator rationales are reviewer assertions, not authenticated identity or semantic proof. The engine cannot establish that a log is truthful or adequate.
 
 
-## Evidence maturity scores
+## Separate assurance indicators
+
+Three independent indicators; never average them into a safety score. Documentation/design review uses inspection checkpoints only. Execution uses behavioral checkpoints and boundary aspects; positive credit requires linked successful current execution plus the assessed score. Unknowns earn no points, but are not failures. Closure counts only registered risks with effective closure and supported successful verification. No registered risks means N/A, never 100%. Area closure memberships may overlap; the overall register counts each risk once. Scores reflect reviewer-scoped evidence, not reliability probabilities, native/live acceptance or authenticated test adequacy.
+
+| Area | Documentation / design review % | Execution verification % | Execution evidence coverage % | Verified risk closure % | Closed / registered risks |
+|---|---|---|---|---|---|
+| overall | 0.0 | 0.0 | 0.0 | N/A | 0 / 0 |
+| requirements | 0.0 | N/A | N/A | N/A | 0 / 0 |
+| design | 0.0 | N/A | N/A | N/A | 0 / 0 |
+| dependencies | 0.0 | N/A | N/A | N/A | 0 / 0 |
+| implementation | 0.0 | 0.0 | 0.0 | N/A | 0 / 0 |
+| verification | 0.0 | 0.0 | 0.0 | N/A | 0 / 0 |
+| release | 0.0 | 0.0 | 0.0 | N/A | 0 / 0 |
+| operations | N/A | 0.0 | 0.0 | N/A | 0 / 0 |
+| change | 0.0 | 0.0 | 0.0 | N/A | 0 / 0 |
+| risk | 0.0 | N/A | N/A | N/A | 0 / 0 |
+| improvement | 0.0 | 0.0 | 0.0 | N/A | 0 / 0 |
+| scope | 0.0 | N/A | N/A | N/A | 0 / 0 |
+| prevention | 0.0 | 0.0 | 0.0 | N/A | 0 / 0 |
+| handoff | 0.0 | N/A | N/A | N/A | 0 / 0 |
+| diagnosis | 0.0 | 0.0 | 0.0 | N/A | 0 / 0 |
+| interfaces | N/A | N/A | N/A | N/A | 0 / 0 |
+
+Risk closure weights: critical 4, high 3, medium 2, low 1. This is verified closure of the registered set, not percentage reduction of real-world risk. N/A means no applicable questions or no registered risks, not safety.
+
+
+## Legacy mixed evidence maturity (comparison only)
+
+This composite mixes inspection and behavior; it is not the documentation-only score or a safety score.
 
 Documented score is the achievement lower bound over applicable scope; unknowns contribute no earned points but are not classified as defects. Observed score describes scored evidence only. Compare coverage, exclusions and area budgets. Scores do not certify safety or authorize release.
 

@@ -1,6 +1,8 @@
 # Audit model, scoring and fixed report contract
 
-Default standard 0.3.0 (declared 0.2.0 retains original scoring and questions); manifest schema 2; report template 1.0. Original software assurance criteria translating manufacturing audit and quality practices into software review. External risk reports and graph tools are optional.
+Default standard 0.3.0 (declared 0.2.0 retains original scoring and questions); manifest schema 2; report template 1.1. Original software assurance criteria translating manufacturing audit and quality practices into software review. External risk reports and graph tools are optional.
+
+Template 1.1 shows three separate indicators: documentation/design review, execution verification and verified registered-risk closure. Inspection credit cannot raise execution or closure. Execution requires linked successful current runs for positive credit; open or implemented-but-unverified risks earn no closure credit. No registered risks means N/A. The legacy mixed aggregate remains comparison-only. Read [the complete indicator policy](../../../docs/ASSURANCE_DIMENSIONS.md); never average these indicators into a safety score.
 
 ## Questionnaire
 

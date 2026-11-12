@@ -61,7 +61,7 @@ def _source_network(connections, process_nodes, handoffs, tasks, report):
 
 
 def build_view(report, connections=None):
-    if report.get("schema_version") != 2 or report.get("report_template_version") != "1.0":
+    if report.get("schema_version") != 2 or report.get("report_template_version") not in {"1.0", "1.1"}:
         raise AuditError("Visual report requires evaluated report template 1.0")
     if connections is not None:
         validate_connections(connections)
@@ -131,7 +131,7 @@ def build_view(report, connections=None):
             'unmapped_risks': [r['id'] for r in risks if r['id'] not in mapped_risks],
             'tasks': tasks, 'probes': connection_catalog(), 'notices': notices,
             'scope_issues': report.get('scope_issues', []),
-            'interpretation': 'Documented score shows evidence earned across applicable scope, not reliability. Unknowns remain unverified. Observed score covers scored items only. Area labels show base policy budgets when available; excluded areas are disclosed in the detailed scorecard. Red marks reviewed risk; amber marks incomplete review or a candidate.'+assurance_note}
+            'interpretation': ((scorecard or {}).get('dimensions', {}).get('interpretation') or 'Legacy mixed evidence score is not reliability. Unknowns remain unverified.') + ' Red marks reviewed risk; amber marks incomplete review or a candidate.'+assurance_note}
 
 
 def render_html(view):

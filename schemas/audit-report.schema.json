@@ -1,13 +1,13 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "urn:software-assurance-auditor:report:1.0",
-  "title": "Software Assurance Audit Report template 1.0",
+  "$id": "urn:software-assurance-auditor:report:1.1",
+  "title": "Software Assurance Audit Report templates 1.0 and 1.1",
   "type": "object",
   "required": ["schema_version", "report_template_version", "standard_version", "input_schema_version", "scope", "revision", "outcome", "scorecard", "controls", "boundaries", "gates", "investigations", "risks", "evidence_index", "scope_issues", "limitations"],
   "properties": {
     "schema_version": {"const": 2},
-    "report_template_version": {"const": "1.0"},
-    "standard_version": {"const": "0.2.0"},
+    "report_template_version": {"enum": ["1.0", "1.1"]},
+    "standard_version": {"enum": ["0.2.0", "0.3.0"]},
     "input_schema_version": {"enum": [1, 2]},
     "scope": {"type": "string", "minLength": 1},
     "revision": {"type": "string", "minLength": 1},
@@ -19,7 +19,8 @@
         {"type": "null"},
         {"type": "object", "required": ["overall", "by_stage", "rubric", "weight_policy", "interpretation"], "properties": {
           "overall": {"$ref": "#/$defs/scores"},
-          "by_stage": {"type": "object", "additionalProperties": {"$ref": "#/$defs/scores"}}
+          "by_stage": {"type": "object", "additionalProperties": {"$ref": "#/$defs/scores"}},
+          "dimensions": {"type": "object", "required": ["policy_id", "documentation", "execution", "risk_resolution", "interpretation"], "properties": {"policy_id": {"const": "assurance-dimensions/1.0"}, "documentation": {"$ref": "#/$defs/dimension"}, "execution": {"$ref": "#/$defs/dimension"}, "risk_resolution": {"$ref": "#/$defs/closure"}}}
         }}
       ]
     },
@@ -44,8 +45,10 @@
   },
   "allOf": [{"if": {"properties": {"input_schema_version": {"const": 2}}}, "then": {
     "properties": {"controls": {"minItems": 24, "maxItems": 24, "items": {"required": ["checks"]}}, "gates": {"minItems": 5, "maxItems": 5}, "scorecard": {"type": "object"}}
-  }}],
+  }}, {"if": {"properties": {"report_template_version": {"const": "1.1"}, "input_schema_version": {"const": 2}}}, "then": {"properties": {"scorecard": {"type": "object", "required": ["dimensions"]}}}}],
   "$defs": {
+    "dimension": {"type": "object", "required": ["overall", "by_stage", "items"], "properties": {"overall": {"$ref": "#/$defs/scores"}, "by_stage": {"type": "object", "additionalProperties": {"$ref": "#/$defs/scores"}}, "items": {"type": "array"}}},
+    "closure": {"type": "object", "required": ["score_percent", "registered_risks", "verified_closed_risks", "unresolved_risks", "applicability", "items"], "properties": {"score_percent": {"$ref": "#/$defs/percent"}, "registered_risks": {"type": "integer", "minimum": 0}, "verified_closed_risks": {"type": "integer", "minimum": 0}, "unresolved_risks": {"type": "integer", "minimum": 0}}},
     "score": {"type": ["integer", "null"], "minimum": 0, "maximum": 4},
     "status": {"enum": ["supported", "partial", "gap", "unverified", "not_applicable"]},
     "percent": {"type": ["number", "null"], "minimum": 0, "maximum": 100},

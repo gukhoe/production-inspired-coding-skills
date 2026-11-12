@@ -69,6 +69,12 @@ class MCPIntegrationTests(unittest.TestCase):
                 case = await call("audit_investigation", {"mode": "corrective", "investigation_id": "I1", "targets": ["DIA-01"]})
                 self.assertIn("root_cause", case["steps"])
                 evaluated = await call("audit_evaluate", {"manifest": manifest, "revision": "fixture"})
+                self.assertEqual(evaluated['report']['report_template_version'], '1.1')
+                dimensions = evaluated['report']['scorecard']['dimensions']
+                self.assertEqual(dimensions['policy_id'], 'assurance-dimensions/1.0')
+                self.assertEqual(dimensions['documentation']['overall']['score_percent'], 0)
+                self.assertEqual(dimensions['execution']['overall']['score_percent'], 0)
+                self.assertIsNone(dimensions['risk_resolution']['score_percent'])
                 (root/'manifest.json').write_text(json.dumps(manifest))
                 via_path = await call('audit_evaluate', {'manifest_path': 'manifest.json', 'revision': 'fixture'})
                 self.assertEqual(via_path['report'], evaluated['report'])

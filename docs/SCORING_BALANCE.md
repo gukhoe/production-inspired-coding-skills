@@ -1,5 +1,7 @@
 # Software scoring balance and evidence requirements
 
+Template 1.1 leads with [documentation/design review, execution verification and verified risk closure](ASSURANCE_DIMENSIONS.md). The mixed score described below is retained for historical comparison, not presented as software stability.
+
 Standard **0.3.0** uses scoring policy **balanced-area/1.0**. The 24 criteria and
 72 checkpoint IDs remain available; five criteria have clarified question wording.
 The 0–4 scale remains, with separate inspection and execution anchors. These are

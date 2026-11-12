@@ -80,4 +80,4 @@ Install . instead of .[mcp], then run software-audit. Or run python skills/softw
 
 ## Reproducibility
 
-Package preview 0.3.0a2; default scoring standard 0.3.0 (0.2.0 retained for declared older reviews); manifest schema 2; report template 1.0; MCP SDK 2.3.0. The [official MCP Python SDK](https://github.com/modelcontextprotocol/python-sdk) implements the protocol. Validation uses an installed package and real stdio handshake. Installation does not change global AI-client configuration.
+Package preview 0.3.0a3; default scoring standard 0.3.0 (0.2.0 retained for declared older reviews); manifest schema 2; report template 1.1; MCP SDK 2.3.0. [Separate assurance indicators](ASSURANCE_DIMENSIONS.md) are included in CLI and MCP evaluation results without manifest migration. The [official MCP Python SDK](https://github.com/modelcontextprotocol/python-sdk) implements the protocol. Validation uses an installed package and real stdio handshake. Installation does not change global AI-client configuration.

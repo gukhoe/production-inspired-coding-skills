@@ -8,11 +8,13 @@ from pathlib import Path, PureWindowsPath
 import sys
 
 if __package__:
+    from .score_dimensions import assurance_dimensions
     from .witness import verify_receipt
     from .assurance import accountability, reuse_index, reuse_issues
     from .graph_adapter import AuditError, Graph, read_json
     from .audit_standard import CHECKLISTS, LEGACY_CHECKLISTS, SUPPORTED_STANDARDS, EXTRA_CONTROLS, GATES, INVESTIGATION_STEPS, STANDARD_VERSION, catalog, checkpoint_policy, evaluate_lifecycle, next_actions, scorecard
 else:
+    from score_dimensions import assurance_dimensions
     from witness import verify_receipt
     from assurance import accountability, reuse_index, reuse_issues
     from graph_adapter import AuditError, Graph, read_json
@@ -155,14 +157,15 @@ def _validate_evidence(evidence, root, revision, resolve_file):
         if not nonempty(item.get("summary")) or not nonempty(item.get("locator")):
             reasons.append("evidence_description_missing")
         execution_valid = False
+        execution_recorded = False
         if item["kind"] == "execution":
             try:
                 timestamp = datetime.fromisoformat(item.get("recorded_at", "").replace("Z", "+00:00"))
                 time_valid = timestamp.tzinfo is not None and timestamp <= datetime.now(timezone.utc)
             except (ValueError, TypeError, AttributeError):
                 time_valid = False
-            execution_valid = (nonempty(item.get("command")) and type(item.get("exit_code")) is int
-                               and item["exit_code"] == 0 and time_valid)
+            execution_recorded = nonempty(item.get("command")) and type(item.get("exit_code")) is int and time_valid
+            execution_valid = execution_recorded and item['exit_code'] == 0
         provenance = "self_reported" if item["kind"] == "execution" else "file_identity"
         if item.get("witness_receipt"):
             try:
@@ -174,7 +177,8 @@ def _validate_evidence(evidence, root, revision, resolve_file):
             else:
                 provenance = "local_witness_consistent"
         evidence_results[eid] = {"valid": not reasons, "reasons": reasons, "provenance": provenance,
-                                 "successful_execution_record": execution_valid and not reasons}
+                                 "successful_execution_record": execution_valid and not reasons,
+                                 "recorded_execution_record": execution_recorded and not reasons}
 
     return evidence_results
 
@@ -397,7 +401,10 @@ def evaluate(manifest, root, revision, graph=None, path_policy=None):
                 actions.append({"target": "boundary:" + boundary["id"], "aspect": aspect,
                                 "status": review["status"], "next_step": "Inspect the handoff contract and exercise this failure scenario."})
     high_risks = [r["id"] for r in open_risks if r["severity"] in {"high", "critical"}]
-    return {"schema_version": 2, "report_template_version": "1.0", "standard_version": manifest['standard_version'] if current else STANDARD_VERSION, "input_schema_version": manifest["schema_version"],
+    scores = scorecard(controls, boundary_results, high_risks, manifest['standard_version']) if current else None
+    if scores is not None:
+        scores['dimensions'] = assurance_dimensions(controls, boundary_results, risk_results, evidence_results)
+    return {"schema_version": 2, "report_template_version": "1.1", "standard_version": manifest['standard_version'] if current else STANDARD_VERSION, "input_schema_version": manifest["schema_version"],
             "scope": manifest["scope"], "revision": revision,
             "outcome": outcome, "status_counts": counts, "scope_issues": scope_issues,
             "assurance": assurance,
@@ -409,14 +416,16 @@ def evaluate(manifest, root, revision, graph=None, path_policy=None):
                                 **evidence_results[eid]} for eid, e in evidence.items()],
             "open_high_or_critical_risks": high_risks,
             "gates": gates, "investigations": investigations,
-            "scorecard": scorecard(controls, boundary_results, high_risks, manifest['standard_version']) if current else None,
+            "scorecard": scores,
             "graph": graph.summary() if graph else None, "graph_connections": connections, "limitations": LIMITATION}
 
 
 def markdown(report):
     def cell(value):
         return str(value).replace("|", "\\|").replace("\r", " ").replace("\n", " ").replace("<", "&lt;").replace(">", "&gt;")
-    lines = ["# Software Assurance Audit Report", "", "Template: 1.0 | Standard: " + report["standard_version"], "", f"Outcome: **{report['outcome']}**", "",
+    def fmt(value):
+        return 'N/A' if value is None else str(value)
+    lines = ["# Software Assurance Audit Report", "", "Template: " + report['report_template_version'] + " | Standard: " + report["standard_version"], "", f"Outcome: **{report['outcome']}**", "",
              f"Scope: {cell(report['scope'])}", f"Revision: `{cell(report['revision'])}`", "", report["limitations"], "",
              "## Scope issues", ""]
     lines += ["- " + cell(issue) for issue in report["scope_issues"]] or ["No recorded scope issues."]
@@ -433,7 +442,18 @@ def markdown(report):
         lines += [f"| {name} | {cell(value)} |" for name, value in rows]
         lines += ["", assurance["execution_provenance"], "", assurance["limitation"], ""]
     if report.get("scorecard"):
-        lines += ["", "## Evidence maturity scores", "", report["scorecard"]["interpretation"], "",
+        dimensions = report['scorecard'].get('dimensions')
+        if dimensions:
+            lines += ['', '## Separate assurance indicators', '', dimensions['interpretation'], '',
+                      '| Area | Documentation / design review % | Execution verification % | Execution evidence coverage % | Verified risk closure % | Closed / registered risks |',
+                      '|---|---|---|---|---|---|']
+            for area in ['overall', *dimensions['documentation']['by_stage']]:
+                docs = dimensions['documentation']['overall'] if area == 'overall' else dimensions['documentation']['by_stage'][area]
+                runs = dimensions['execution']['overall'] if area == 'overall' else dimensions['execution']['by_stage'][area]
+                closure = dimensions['risk_resolution'] if area == 'overall' else dimensions['risk_resolution']['by_stage'][area]
+                lines.append(f"| {area} | {fmt(docs['score_percent'])} | {fmt(runs['score_percent'])} | {fmt(runs['weighted_coverage_percent'])} | {fmt(closure['score_percent'])} | {closure['verified_closed_risks']} / {closure['registered_risks']} |")
+            lines += ['', 'Risk closure weights: critical 4, high 3, medium 2, low 1. This is verified closure of the registered set, not percentage reduction of real-world risk. N/A means no applicable questions or no registered risks, not safety.', '']
+        lines += ["", "## Legacy mixed evidence maturity (comparison only)", "", "This composite mixes inspection and behavior; it is not the documentation-only score or a safety score.", "", report["scorecard"]["interpretation"], "",
                   "| Stage | Observed score % | Weighted coverage % | Achievement lower bound % | Scored / total |", "|---|---|---|---|---|"]
         for stage, stats in {"overall": report["scorecard"]["overall"], **report["scorecard"]["by_stage"]}.items():
             lines.append(f"| {stage} | {stats['observed_score_percent']} | {stats['weighted_coverage_percent']} | {stats['documented_achievement_lower_bound_percent']} | {stats['scored_items']} / {stats['total_items']} |")

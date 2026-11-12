@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "report_template_version": "1.0",
+  "report_template_version": "1.1",
   "standard_version": "0.3.0",
   "input_schema_version": 2,
   "scope": "Blank standard form; no project has been audited",
@@ -2426,7 +2426,1243 @@
       }
     },
     "open_high_or_critical_risks": [],
-    "interpretation": "Documented score is the achievement lower bound over applicable scope; unknowns contribute no earned points but are not classified as defects. Observed score describes scored evidence only. Compare coverage, exclusions and area budgets. Scores do not certify safety or authorize release."
+    "interpretation": "Documented score is the achievement lower bound over applicable scope; unknowns contribute no earned points but are not classified as defects. Observed score describes scored evidence only. Compare coverage, exclusions and area budgets. Scores do not certify safety or authorize release.",
+    "dimensions": {
+      "policy_id": "assurance-dimensions/1.0",
+      "documentation": {
+        "overall": {
+          "observed_score_percent": null,
+          "weighted_coverage_percent": 0.0,
+          "documented_achievement_lower_bound_percent": 0.0,
+          "total_items": 45,
+          "scored_items": 0,
+          "unverified_items": 45,
+          "not_applicable_items": 0,
+          "score_percent": 0.0
+        },
+        "by_stage": {
+          "requirements": {
+            "observed_score_percent": null,
+            "weighted_coverage_percent": 0.0,
+            "documented_achievement_lower_bound_percent": 0.0,
+            "total_items": 6,
+            "scored_items": 0,
+            "unverified_items": 6,
+            "not_applicable_items": 0,
+            "score_percent": 0.0,
+            "applicability": "active"
+          },
+          "design": {
+            "observed_score_percent": null,
+            "weighted_coverage_percent": 0.0,
+            "documented_achievement_lower_bound_percent": 0.0,
+            "total_items": 6,
+            "scored_items": 0,
+            "unverified_items": 6,
+            "not_applicable_items": 0,
+            "score_percent": 0.0,
+            "applicability": "active"
+          },
+          "dependencies": {
+            "observed_score_percent": null,
+            "weighted_coverage_percent": 0.0,
+            "documented_achievement_lower_bound_percent": 0.0,
+            "total_items": 3,
+            "scored_items": 0,
+            "unverified_items": 3,
+            "not_applicable_items": 0,
+            "score_percent": 0.0,
+            "applicability": "active"
+          },
+          "implementation": {
+            "observed_score_percent": null,
+            "weighted_coverage_percent": 0.0,
+            "documented_achievement_lower_bound_percent": 0.0,
+            "total_items": 3,
+            "scored_items": 0,
+            "unverified_items": 3,
+            "not_applicable_items": 0,
+            "score_percent": 0.0,
+            "applicability": "active"
+          },
+          "verification": {
+            "observed_score_percent": null,
+            "weighted_coverage_percent": 0.0,
+            "documented_achievement_lower_bound_percent": 0.0,
+            "total_items": 4,
+            "scored_items": 0,
+            "unverified_items": 4,
+            "not_applicable_items": 0,
+            "score_percent": 0.0,
+            "applicability": "active"
+          },
+          "release": {
+            "observed_score_percent": null,
+            "weighted_coverage_percent": 0.0,
+            "documented_achievement_lower_bound_percent": 0.0,
+            "total_items": 2,
+            "scored_items": 0,
+            "unverified_items": 2,
+            "not_applicable_items": 0,
+            "score_percent": 0.0,
+            "applicability": "active"
+          },
+          "operations": {
+            "observed_score_percent": null,
+            "weighted_coverage_percent": null,
+            "documented_achievement_lower_bound_percent": null,
+            "total_items": 0,
+            "scored_items": 0,
+            "unverified_items": 0,
+            "not_applicable_items": 0,
+            "score_percent": null,
+            "applicability": "not_represented"
+          },
+          "change": {
+            "observed_score_percent": null,
+            "weighted_coverage_percent": 0.0,
+            "documented_achievement_lower_bound_percent": 0.0,
+            "total_items": 2,
+            "scored_items": 0,
+            "unverified_items": 2,
+            "not_applicable_items": 0,
+            "score_percent": 0.0,
+            "applicability": "active"
+          },
+          "risk": {
+            "observed_score_percent": null,
+            "weighted_coverage_percent": 0.0,
+            "documented_achievement_lower_bound_percent": 0.0,
+            "total_items": 3,
+            "scored_items": 0,
+            "unverified_items": 3,
+            "not_applicable_items": 0,
+            "score_percent": 0.0,
+            "applicability": "active"
+          },
+          "improvement": {
+            "observed_score_percent": null,
+            "weighted_coverage_percent": 0.0,
+            "documented_achievement_lower_bound_percent": 0.0,
+            "total_items": 4,
+            "scored_items": 0,
+            "unverified_items": 4,
+            "not_applicable_items": 0,
+            "score_percent": 0.0,
+            "applicability": "active"
+          },
+          "scope": {
+            "observed_score_percent": null,
+            "weighted_coverage_percent": 0.0,
+            "documented_achievement_lower_bound_percent": 0.0,
+            "total_items": 3,
+            "scored_items": 0,
+            "unverified_items": 3,
+            "not_applicable_items": 0,
+            "score_percent": 0.0,
+            "applicability": "active"
+          },
+          "prevention": {
+            "observed_score_percent": null,
+            "weighted_coverage_percent": 0.0,
+            "documented_achievement_lower_bound_percent": 0.0,
+            "total_items": 3,
+            "scored_items": 0,
+            "unverified_items": 3,
+            "not_applicable_items": 0,
+            "score_percent": 0.0,
+            "applicability": "active"
+          },
+          "handoff": {
+            "observed_score_percent": null,
+            "weighted_coverage_percent": 0.0,
+            "documented_achievement_lower_bound_percent": 0.0,
+            "total_items": 3,
+            "scored_items": 0,
+            "unverified_items": 3,
+            "not_applicable_items": 0,
+            "score_percent": 0.0,
+            "applicability": "active"
+          },
+          "diagnosis": {
+            "observed_score_percent": null,
+            "weighted_coverage_percent": 0.0,
+            "documented_achievement_lower_bound_percent": 0.0,
+            "total_items": 3,
+            "scored_items": 0,
+            "unverified_items": 3,
+            "not_applicable_items": 0,
+            "score_percent": 0.0,
+            "applicability": "active"
+          },
+          "interfaces": {
+            "observed_score_percent": null,
+            "weighted_coverage_percent": null,
+            "documented_achievement_lower_bound_percent": null,
+            "total_items": 0,
+            "scored_items": 0,
+            "unverified_items": 0,
+            "not_applicable_items": 0,
+            "score_percent": null,
+            "applicability": "not_represented"
+          }
+        },
+        "items": [
+          {
+            "id": "REQ-01.1",
+            "stage": "requirements",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": []
+          },
+          {
+            "id": "REQ-01.2",
+            "stage": "requirements",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": []
+          },
+          {
+            "id": "REQ-01.3",
+            "stage": "requirements",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": []
+          },
+          {
+            "id": "REQ-02.1",
+            "stage": "requirements",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": []
+          },
+          {
+            "id": "REQ-02.2",
+            "stage": "requirements",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": []
+          },
+          {
+            "id": "REQ-02.3",
+            "stage": "requirements",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": []
+          },
+          {
+            "id": "DES-01.1",
+            "stage": "design",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": []
+          },
+          {
+            "id": "DES-01.2",
+            "stage": "design",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": []
+          },
+          {
+            "id": "DES-01.3",
+            "stage": "design",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": []
+          },
+          {
+            "id": "DES-02.1",
+            "stage": "design",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": []
+          },
+          {
+            "id": "DES-02.2",
+            "stage": "design",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": []
+          },
+          {
+            "id": "DES-02.3",
+            "stage": "design",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": []
+          },
+          {
+            "id": "SUP-01.1",
+            "stage": "dependencies",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": []
+          },
+          {
+            "id": "SUP-01.2",
+            "stage": "dependencies",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": []
+          },
+          {
+            "id": "SUP-01.3",
+            "stage": "dependencies",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": []
+          },
+          {
+            "id": "IMP-01.1",
+            "stage": "implementation",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": []
+          },
+          {
+            "id": "IMP-01.2",
+            "stage": "implementation",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": []
+          },
+          {
+            "id": "IMP-01.3",
+            "stage": "implementation",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": []
+          },
+          {
+            "id": "VER-01.1",
+            "stage": "verification",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": []
+          },
+          {
+            "id": "VER-01.3",
+            "stage": "verification",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": []
+          },
+          {
+            "id": "VER-03.1",
+            "stage": "verification",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": []
+          },
+          {
+            "id": "VER-03.2",
+            "stage": "verification",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": []
+          },
+          {
+            "id": "REL-01.2",
+            "stage": "release",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": []
+          },
+          {
+            "id": "REL-01.3",
+            "stage": "release",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": []
+          },
+          {
+            "id": "CHG-01.1",
+            "stage": "change",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": []
+          },
+          {
+            "id": "CHG-01.2",
+            "stage": "change",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": []
+          },
+          {
+            "id": "RSK-01.1",
+            "stage": "risk",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": []
+          },
+          {
+            "id": "RSK-01.2",
+            "stage": "risk",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": []
+          },
+          {
+            "id": "RSK-01.3",
+            "stage": "risk",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": []
+          },
+          {
+            "id": "CAP-01.1",
+            "stage": "improvement",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": []
+          },
+          {
+            "id": "CAP-01.2",
+            "stage": "improvement",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": []
+          },
+          {
+            "id": "CAP-01.3",
+            "stage": "improvement",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": []
+          },
+          {
+            "id": "MAP-01.1",
+            "stage": "scope",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": []
+          },
+          {
+            "id": "MAP-01.2",
+            "stage": "scope",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": []
+          },
+          {
+            "id": "MAP-01.3",
+            "stage": "scope",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": []
+          },
+          {
+            "id": "PRE-01.1",
+            "stage": "prevention",
+            "weight": 1.0,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": []
+          },
+          {
+            "id": "PRE-01.2",
+            "stage": "prevention",
+            "weight": 1.0,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": []
+          },
+          {
+            "id": "PRE-02.1",
+            "stage": "prevention",
+            "weight": 1.0,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": []
+          },
+          {
+            "id": "GAT-01.1",
+            "stage": "handoff",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": []
+          },
+          {
+            "id": "GAT-01.2",
+            "stage": "handoff",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": []
+          },
+          {
+            "id": "GAT-01.3",
+            "stage": "handoff",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": []
+          },
+          {
+            "id": "DIA-01.1",
+            "stage": "diagnosis",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": []
+          },
+          {
+            "id": "DIA-01.3",
+            "stage": "diagnosis",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": []
+          },
+          {
+            "id": "DIA-02.1",
+            "stage": "diagnosis",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": []
+          },
+          {
+            "id": "CAP-02.3",
+            "stage": "improvement",
+            "weight": 1.0,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": []
+          }
+        ]
+      },
+      "execution": {
+        "overall": {
+          "observed_score_percent": null,
+          "weighted_coverage_percent": 0.0,
+          "documented_achievement_lower_bound_percent": 0.0,
+          "total_items": 27,
+          "scored_items": 0,
+          "unverified_items": 27,
+          "not_applicable_items": 0,
+          "score_percent": 0.0
+        },
+        "by_stage": {
+          "requirements": {
+            "observed_score_percent": null,
+            "weighted_coverage_percent": null,
+            "documented_achievement_lower_bound_percent": null,
+            "total_items": 0,
+            "scored_items": 0,
+            "unverified_items": 0,
+            "not_applicable_items": 0,
+            "score_percent": null,
+            "applicability": "not_represented"
+          },
+          "design": {
+            "observed_score_percent": null,
+            "weighted_coverage_percent": null,
+            "documented_achievement_lower_bound_percent": null,
+            "total_items": 0,
+            "scored_items": 0,
+            "unverified_items": 0,
+            "not_applicable_items": 0,
+            "score_percent": null,
+            "applicability": "not_represented"
+          },
+          "dependencies": {
+            "observed_score_percent": null,
+            "weighted_coverage_percent": null,
+            "documented_achievement_lower_bound_percent": null,
+            "total_items": 0,
+            "scored_items": 0,
+            "unverified_items": 0,
+            "not_applicable_items": 0,
+            "score_percent": null,
+            "applicability": "not_represented"
+          },
+          "implementation": {
+            "observed_score_percent": null,
+            "weighted_coverage_percent": 0.0,
+            "documented_achievement_lower_bound_percent": 0.0,
+            "total_items": 3,
+            "scored_items": 0,
+            "unverified_items": 3,
+            "not_applicable_items": 0,
+            "score_percent": 0.0,
+            "applicability": "active"
+          },
+          "verification": {
+            "observed_score_percent": null,
+            "weighted_coverage_percent": 0.0,
+            "documented_achievement_lower_bound_percent": 0.0,
+            "total_items": 5,
+            "scored_items": 0,
+            "unverified_items": 5,
+            "not_applicable_items": 0,
+            "score_percent": 0.0,
+            "applicability": "active"
+          },
+          "release": {
+            "observed_score_percent": null,
+            "weighted_coverage_percent": 0.0,
+            "documented_achievement_lower_bound_percent": 0.0,
+            "total_items": 4,
+            "scored_items": 0,
+            "unverified_items": 4,
+            "not_applicable_items": 0,
+            "score_percent": 0.0,
+            "applicability": "active"
+          },
+          "operations": {
+            "observed_score_percent": null,
+            "weighted_coverage_percent": 0.0,
+            "documented_achievement_lower_bound_percent": 0.0,
+            "total_items": 6,
+            "scored_items": 0,
+            "unverified_items": 6,
+            "not_applicable_items": 0,
+            "score_percent": 0.0,
+            "applicability": "active"
+          },
+          "change": {
+            "observed_score_percent": null,
+            "weighted_coverage_percent": 0.0,
+            "documented_achievement_lower_bound_percent": 0.0,
+            "total_items": 1,
+            "scored_items": 0,
+            "unverified_items": 1,
+            "not_applicable_items": 0,
+            "score_percent": 0.0,
+            "applicability": "active"
+          },
+          "risk": {
+            "observed_score_percent": null,
+            "weighted_coverage_percent": null,
+            "documented_achievement_lower_bound_percent": null,
+            "total_items": 0,
+            "scored_items": 0,
+            "unverified_items": 0,
+            "not_applicable_items": 0,
+            "score_percent": null,
+            "applicability": "not_represented"
+          },
+          "improvement": {
+            "observed_score_percent": null,
+            "weighted_coverage_percent": 0.0,
+            "documented_achievement_lower_bound_percent": 0.0,
+            "total_items": 2,
+            "scored_items": 0,
+            "unverified_items": 2,
+            "not_applicable_items": 0,
+            "score_percent": 0.0,
+            "applicability": "active"
+          },
+          "scope": {
+            "observed_score_percent": null,
+            "weighted_coverage_percent": null,
+            "documented_achievement_lower_bound_percent": null,
+            "total_items": 0,
+            "scored_items": 0,
+            "unverified_items": 0,
+            "not_applicable_items": 0,
+            "score_percent": null,
+            "applicability": "not_represented"
+          },
+          "prevention": {
+            "observed_score_percent": null,
+            "weighted_coverage_percent": 0.0,
+            "documented_achievement_lower_bound_percent": 0.0,
+            "total_items": 3,
+            "scored_items": 0,
+            "unverified_items": 3,
+            "not_applicable_items": 0,
+            "score_percent": 0.0,
+            "applicability": "active"
+          },
+          "handoff": {
+            "observed_score_percent": null,
+            "weighted_coverage_percent": null,
+            "documented_achievement_lower_bound_percent": null,
+            "total_items": 0,
+            "scored_items": 0,
+            "unverified_items": 0,
+            "not_applicable_items": 0,
+            "score_percent": null,
+            "applicability": "not_represented"
+          },
+          "diagnosis": {
+            "observed_score_percent": null,
+            "weighted_coverage_percent": 0.0,
+            "documented_achievement_lower_bound_percent": 0.0,
+            "total_items": 3,
+            "scored_items": 0,
+            "unverified_items": 3,
+            "not_applicable_items": 0,
+            "score_percent": 0.0,
+            "applicability": "active"
+          },
+          "interfaces": {
+            "observed_score_percent": null,
+            "weighted_coverage_percent": null,
+            "documented_achievement_lower_bound_percent": null,
+            "total_items": 0,
+            "scored_items": 0,
+            "unverified_items": 0,
+            "not_applicable_items": 0,
+            "score_percent": null,
+            "applicability": "not_represented"
+          }
+        },
+        "items": [
+          {
+            "id": "IMP-02.1",
+            "stage": "implementation",
+            "weight": 1.0,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": [],
+            "successful_execution": false,
+            "recorded_execution": false
+          },
+          {
+            "id": "IMP-02.2",
+            "stage": "implementation",
+            "weight": 1.0,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": [],
+            "successful_execution": false,
+            "recorded_execution": false
+          },
+          {
+            "id": "IMP-02.3",
+            "stage": "implementation",
+            "weight": 1.0,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": [],
+            "successful_execution": false,
+            "recorded_execution": false
+          },
+          {
+            "id": "VER-01.2",
+            "stage": "verification",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": [],
+            "successful_execution": false,
+            "recorded_execution": false
+          },
+          {
+            "id": "VER-02.1",
+            "stage": "verification",
+            "weight": 1.0,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": [],
+            "successful_execution": false,
+            "recorded_execution": false
+          },
+          {
+            "id": "VER-02.2",
+            "stage": "verification",
+            "weight": 1.0,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": [],
+            "successful_execution": false,
+            "recorded_execution": false
+          },
+          {
+            "id": "VER-02.3",
+            "stage": "verification",
+            "weight": 1.0,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": [],
+            "successful_execution": false,
+            "recorded_execution": false
+          },
+          {
+            "id": "VER-03.3",
+            "stage": "verification",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": [],
+            "successful_execution": false,
+            "recorded_execution": false
+          },
+          {
+            "id": "REL-01.1",
+            "stage": "release",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": [],
+            "successful_execution": false,
+            "recorded_execution": false
+          },
+          {
+            "id": "REL-02.1",
+            "stage": "release",
+            "weight": 1.0,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": [],
+            "successful_execution": false,
+            "recorded_execution": false
+          },
+          {
+            "id": "REL-02.2",
+            "stage": "release",
+            "weight": 1.0,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": [],
+            "successful_execution": false,
+            "recorded_execution": false
+          },
+          {
+            "id": "REL-02.3",
+            "stage": "release",
+            "weight": 1.0,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": [],
+            "successful_execution": false,
+            "recorded_execution": false
+          },
+          {
+            "id": "OPS-01.1",
+            "stage": "operations",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": [],
+            "successful_execution": false,
+            "recorded_execution": false
+          },
+          {
+            "id": "OPS-01.2",
+            "stage": "operations",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": [],
+            "successful_execution": false,
+            "recorded_execution": false
+          },
+          {
+            "id": "OPS-01.3",
+            "stage": "operations",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": [],
+            "successful_execution": false,
+            "recorded_execution": false
+          },
+          {
+            "id": "OPS-02.1",
+            "stage": "operations",
+            "weight": 1.0,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": [],
+            "successful_execution": false,
+            "recorded_execution": false
+          },
+          {
+            "id": "OPS-02.2",
+            "stage": "operations",
+            "weight": 1.0,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": [],
+            "successful_execution": false,
+            "recorded_execution": false
+          },
+          {
+            "id": "OPS-02.3",
+            "stage": "operations",
+            "weight": 1.0,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": [],
+            "successful_execution": false,
+            "recorded_execution": false
+          },
+          {
+            "id": "CHG-01.3",
+            "stage": "change",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": [],
+            "successful_execution": false,
+            "recorded_execution": false
+          },
+          {
+            "id": "PRE-01.3",
+            "stage": "prevention",
+            "weight": 1.0,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": [],
+            "successful_execution": false,
+            "recorded_execution": false
+          },
+          {
+            "id": "PRE-02.2",
+            "stage": "prevention",
+            "weight": 1.0,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": [],
+            "successful_execution": false,
+            "recorded_execution": false
+          },
+          {
+            "id": "PRE-02.3",
+            "stage": "prevention",
+            "weight": 1.0,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": [],
+            "successful_execution": false,
+            "recorded_execution": false
+          },
+          {
+            "id": "DIA-01.2",
+            "stage": "diagnosis",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": [],
+            "successful_execution": false,
+            "recorded_execution": false
+          },
+          {
+            "id": "DIA-02.2",
+            "stage": "diagnosis",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": [],
+            "successful_execution": false,
+            "recorded_execution": false
+          },
+          {
+            "id": "DIA-02.3",
+            "stage": "diagnosis",
+            "weight": 0.6666666666666666,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": [],
+            "successful_execution": false,
+            "recorded_execution": false
+          },
+          {
+            "id": "CAP-02.1",
+            "stage": "improvement",
+            "weight": 1.0,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": [],
+            "successful_execution": false,
+            "recorded_execution": false
+          },
+          {
+            "id": "CAP-02.2",
+            "stage": "improvement",
+            "weight": 1.0,
+            "score": null,
+            "status": "unverified",
+            "reviewed_score": null,
+            "evidence": [],
+            "successful_execution": false,
+            "recorded_execution": false
+          }
+        ]
+      },
+      "risk_resolution": {
+        "score_percent": null,
+        "registered_risks": 0,
+        "verified_closed_risks": 0,
+        "unresolved_risks": 0,
+        "total_severity_weight": 0,
+        "closed_severity_weight": 0,
+        "applicability": "no_registered_risks",
+        "items": [],
+        "by_stage": {
+          "requirements": {
+            "score_percent": null,
+            "registered_risks": 0,
+            "verified_closed_risks": 0,
+            "unresolved_risks": 0,
+            "total_severity_weight": 0,
+            "closed_severity_weight": 0,
+            "applicability": "no_registered_risks",
+            "items": []
+          },
+          "design": {
+            "score_percent": null,
+            "registered_risks": 0,
+            "verified_closed_risks": 0,
+            "unresolved_risks": 0,
+            "total_severity_weight": 0,
+            "closed_severity_weight": 0,
+            "applicability": "no_registered_risks",
+            "items": []
+          },
+          "dependencies": {
+            "score_percent": null,
+            "registered_risks": 0,
+            "verified_closed_risks": 0,
+            "unresolved_risks": 0,
+            "total_severity_weight": 0,
+            "closed_severity_weight": 0,
+            "applicability": "no_registered_risks",
+            "items": []
+          },
+          "implementation": {
+            "score_percent": null,
+            "registered_risks": 0,
+            "verified_closed_risks": 0,
+            "unresolved_risks": 0,
+            "total_severity_weight": 0,
+            "closed_severity_weight": 0,
+            "applicability": "no_registered_risks",
+            "items": []
+          },
+          "verification": {
+            "score_percent": null,
+            "registered_risks": 0,
+            "verified_closed_risks": 0,
+            "unresolved_risks": 0,
+            "total_severity_weight": 0,
+            "closed_severity_weight": 0,
+            "applicability": "no_registered_risks",
+            "items": []
+          },
+          "release": {
+            "score_percent": null,
+            "registered_risks": 0,
+            "verified_closed_risks": 0,
+            "unresolved_risks": 0,
+            "total_severity_weight": 0,
+            "closed_severity_weight": 0,
+            "applicability": "no_registered_risks",
+            "items": []
+          },
+          "operations": {
+            "score_percent": null,
+            "registered_risks": 0,
+            "verified_closed_risks": 0,
+            "unresolved_risks": 0,
+            "total_severity_weight": 0,
+            "closed_severity_weight": 0,
+            "applicability": "no_registered_risks",
+            "items": []
+          },
+          "change": {
+            "score_percent": null,
+            "registered_risks": 0,
+            "verified_closed_risks": 0,
+            "unresolved_risks": 0,
+            "total_severity_weight": 0,
+            "closed_severity_weight": 0,
+            "applicability": "no_registered_risks",
+            "items": []
+          },
+          "risk": {
+            "score_percent": null,
+            "registered_risks": 0,
+            "verified_closed_risks": 0,
+            "unresolved_risks": 0,
+            "total_severity_weight": 0,
+            "closed_severity_weight": 0,
+            "applicability": "no_registered_risks",
+            "items": []
+          },
+          "improvement": {
+            "score_percent": null,
+            "registered_risks": 0,
+            "verified_closed_risks": 0,
+            "unresolved_risks": 0,
+            "total_severity_weight": 0,
+            "closed_severity_weight": 0,
+            "applicability": "no_registered_risks",
+            "items": []
+          },
+          "scope": {
+            "score_percent": null,
+            "registered_risks": 0,
+            "verified_closed_risks": 0,
+            "unresolved_risks": 0,
+            "total_severity_weight": 0,
+            "closed_severity_weight": 0,
+            "applicability": "no_registered_risks",
+            "items": []
+          },
+          "prevention": {
+            "score_percent": null,
+            "registered_risks": 0,
+            "verified_closed_risks": 0,
+            "unresolved_risks": 0,
+            "total_severity_weight": 0,
+            "closed_severity_weight": 0,
+            "applicability": "no_registered_risks",
+            "items": []
+          },
+          "handoff": {
+            "score_percent": null,
+            "registered_risks": 0,
+            "verified_closed_risks": 0,
+            "unresolved_risks": 0,
+            "total_severity_weight": 0,
+            "closed_severity_weight": 0,
+            "applicability": "no_registered_risks",
+            "items": []
+          },
+          "diagnosis": {
+            "score_percent": null,
+            "registered_risks": 0,
+            "verified_closed_risks": 0,
+            "unresolved_risks": 0,
+            "total_severity_weight": 0,
+            "closed_severity_weight": 0,
+            "applicability": "no_registered_risks",
+            "items": []
+          },
+          "interfaces": {
+            "score_percent": null,
+            "registered_risks": 0,
+            "verified_closed_risks": 0,
+            "unresolved_risks": 0,
+            "total_severity_weight": 0,
+            "closed_severity_weight": 0,
+            "applicability": "no_registered_risks",
+            "items": []
+          }
+        },
+        "severity_weights": {
+          "critical": 4,
+          "high": 3,
+          "medium": 2,
+          "low": 1
+        }
+      },
+      "interpretation": "Three independent indicators; never average them into a safety score. Documentation/design review uses inspection checkpoints only. Execution uses behavioral checkpoints and boundary aspects; positive credit requires linked successful current execution plus the assessed score. Unknowns earn no points, but are not failures. Closure counts only registered risks with effective closure and supported successful verification. No registered risks means N/A, never 100%. Area closure memberships may overlap; the overall register counts each risk once. Scores reflect reviewer-scoped evidence, not reliability probabilities, native/live acceptance or authenticated test adequacy."
+    }
   },
   "graph": null,
   "graph_connections": null,

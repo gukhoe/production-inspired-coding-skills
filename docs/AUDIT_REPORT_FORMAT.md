@@ -1,4 +1,4 @@
-# Standard result form: template 1.0
+# Standard result form: template 1.1
 
 The fixed output is an engine artifact, not a new document improvised by an AI on each run. [Blank form](../examples/software-audit/blank-report.md), [blank JSON](../examples/software-audit/blank-report.json), and [JSON Schema](../schemas/audit-report.schema.json) describe the same contract.
 
@@ -6,7 +6,8 @@ The fixed output is an engine artifact, not a new document improvised by an AI o
 |---|---|
 | Identity | Template, criterion standard and schema versions; scope; source revision |
 | Summary | Effective outcome and scope limitations |
-| Scores | Overall and per-stage observed score, weighted coverage, documented achievement lower bound, scored/unknown/excluded counts |
+| Separate indicators | Documentation/design review, execution verification with coverage, and verified risk closure; overall and per-area values; N/A and risk counts |
+| Legacy scores | Comparison-only mixed observed score, coverage and achievement lower bound; preserved for compatibility |
 | Criterion summary | Fixed criterion ID, stage, title, status and weakest-checkpoint score |
 | 72 checkpoint rows | ID, question, effective status/score, evidence IDs, reviewer/rationale, finding, improvement, owner, due, evidence issues |
 | Stage transition | Gate ID, source/receiving stage, producer/receiver, input/output evidence, review and blockers |
@@ -14,6 +15,8 @@ The fixed output is an engine artifact, not a new document improvised by an AI o
 | Interface review | Boundary/aspect, failure scenario, evidence, status/score, finding, improvement and ownership |
 | Risk/action | Severity, impact, targets, owner/due, corrective action and effective verification/closure |
 | Evidence register | Evidence ID, relative file, locator, kind, source identity and SHA-256 validity |
+
+Read [the separate-indicator policy and migration rules](ASSURANCE_DIMENSIONS.md). Documentation points cannot increase execution verification or risk closure. A perfect risk-documentation review can coexist with zero verified closure and blocked gates.
 
 Rules:
 
