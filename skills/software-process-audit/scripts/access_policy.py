@@ -1,5 +1,5 @@
 """One file-access policy for every MCP read route; not a content DLP scanner."""
-from pathlib import PurePosixPath
+from pathlib import Path, PurePosixPath
 
 SENSITIVE_DIRECTORIES = {'.git', '.ssh', '.aws', '.azure', '.gnupg', '.kube'}
 SENSITIVE_NAMES = {'.npmrc', '.pypirc', '.netrc', 'credentials', 'credentials.json', 'id_rsa', 'id_ed25519'}
@@ -18,6 +18,7 @@ def project_file(root, relative):
         from .audit import safe_file, AuditError
     else:
         from audit import safe_file, AuditError
+    root = Path(root).resolve()
     path = safe_file(root, relative)
     if sensitive_path(relative) or sensitive_path(path.relative_to(root).as_posix()):
         raise AuditError('Access denied by sensitive-file policy')

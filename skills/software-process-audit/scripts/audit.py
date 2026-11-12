@@ -85,6 +85,8 @@ def refs(value, name):
 
 
 def safe_file(root, relative):
+    # Normalize both sides: Windows runner temp roots can use 8.3 aliases.
+    root = Path(root).resolve()
     require(nonempty(relative), "Evidence path is required")
     relative_path = Path(relative)
     windows_path = PureWindowsPath(relative)

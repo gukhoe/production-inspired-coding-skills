@@ -47,6 +47,20 @@ class AuditTests(unittest.TestCase):
         self.assertEqual(result["outcome"], "incomplete")
         self.assertEqual(result["status_counts"]["unverified"], len(audit.CONTROLS))
 
+    def test_root_is_canonicalized_without_relaxing_path_protection(self):
+        from access_policy import project_file
+        with tempfile.TemporaryDirectory(dir=Path.cwd(), prefix='.path-test-') as directory:
+            root = Path(directory).relative_to(Path.cwd())
+            (root/'public.txt').write_text('Fixture')
+            (root/'.env').write_text('SYNTHETIC=fixture')
+            expected = (root/'public.txt').resolve()
+            self.assertEqual(audit.safe_file(root,'public.txt'),expected)
+            self.assertEqual(project_file(root,'public.txt'),expected)
+            with self.assertRaises(AuditError):
+                project_file(root,'.env')
+            with self.assertRaises(AuditError):
+                audit.safe_file(root,'../outside.txt')
+
     def test_missing_control_is_unverified(self):
         self.manifest["assessments"].pop()
         self.assertEqual(self.run_audit()["controls"][-1]["status"], "unverified")
