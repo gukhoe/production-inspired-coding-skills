@@ -1,6 +1,4 @@
-import contextlib
 import copy
-import io
 import json
 from pathlib import Path
 import subprocess
@@ -38,6 +36,12 @@ class AuditTests(unittest.TestCase):
     def test_legacy_review_cannot_claim_current_standard(self):
         self.assertEqual(self.run_audit()["outcome"], "incomplete")
 
+    def test_legacy_review_can_still_render_without_current_assurance(self):
+        from visual_report import build_view, render_html
+        view = build_view(self.run_audit())
+        self.assertIn('Connection risk review', render_html(view))
+        self.assertNotIn('Review independence: declared', view['interpretation'])
+
     def test_init_cannot_pass(self):
         result = audit.evaluate(audit.new_manifest("rev1", "empty"), self.root, "rev1")
         self.assertEqual(result["outcome"], "incomplete")
@@ -58,15 +62,20 @@ class AuditTests(unittest.TestCase):
             self.run_audit()
 
     def test_hash_mismatch_cannot_pass(self):
+        self.assertTrue(self.run_audit()["evidence_validation"]["E1"]["valid"])
         (self.root / "evidence.txt").write_text("modified", encoding="utf-8")
-        self.assertEqual(self.run_audit()["outcome"], "incomplete")
+        result = self.run_audit()
+        self.assertIn("hash_mismatch", result["evidence_validation"]["E1"]["reasons"])
+        self.assertFalse(result["evidence_validation"]["E1"]["valid"])
 
     def test_missing_evidence_file_cannot_pass(self):
         (self.root / "evidence.txt").unlink()
         self.assertIn("file_missing", self.run_audit()["evidence_validation"]["E1"]["reasons"])
 
     def test_current_revision_required(self):
+        self.assertTrue(self.run_audit()["evidence_validation"]["E1"]["valid"])
         result = audit.evaluate(self.manifest, self.root, "rev2")
+        self.assertIn("revision_mismatch", result["evidence_validation"]["E1"]["reasons"])
         self.assertEqual(result["status_counts"]["unverified"], len(audit.LEGACY_CONTROLS))
 
     def test_execution_sensitive_controls_reject_source_only(self):

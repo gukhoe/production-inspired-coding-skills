@@ -1,0 +1,23 @@
+{
+  "schema": "software-skill-record/1",
+  "skill": "containment",
+  "skill_version": "2.0",
+  "revision": "",
+  "author": "",
+  "reviewer": "",
+  "status": "UNVERIFIED",
+  "criterion_targets": [
+    "PRE-02",
+    "OPS-02"
+  ],
+  "observations": {
+    "affected_versions": "",
+    "affected_users": "",
+    "development_isolation": "",
+    "operational_containment": "",
+    "observed_scope": "",
+    "recovery_condition": ""
+  },
+  "evidence": [],
+  "open_actions": []
+}

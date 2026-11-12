@@ -1,0 +1,26 @@
+{
+  "schema": "software-skill-record/1",
+  "skill": "ppap-release-evidence",
+  "skill_version": "2.0",
+  "revision": "",
+  "author": "",
+  "reviewer": "",
+  "status": "UNVERIFIED",
+  "criterion_targets": [
+    "REL-01",
+    "REL-02"
+  ],
+  "observations": {
+    "requirement": "",
+    "source_revision": "",
+    "build_inputs": "",
+    "candidate_checks": "",
+    "artifact_hashes": "",
+    "installed_identity": "",
+    "live_acceptance": "",
+    "rollback_or_repair": "",
+    "open_risks": ""
+  },
+  "evidence": [],
+  "open_actions": []
+}

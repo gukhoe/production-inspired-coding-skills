@@ -1,16 +1,18 @@
 # Connection risk review
 
-Public preview: package `0.3.0a1`, tag `auditor-v0.3.0a1`. The earlier `auditor-v0.2.0` tag does not include this extension. Scoring standard `0.2.0`, manifest schema `2` and fixed report template `1.0` remain unchanged.
+Current source preview: package `0.3.0a2` on main. Standard `0.3.0` adds balanced area scoring; declared standard `0.2.0` remains supported. Manifest schema `2` and fixed report template `1.0` retain their core fields. Earlier tags do not include these improvements.
 
 See [the preview release notes](RELEASE_0_3_0_PREVIEW.md). Project audit results and private validation artifacts are excluded from this update.
 
 ## Independent operation
 
-Software Assurance Auditor runs without Graphify, REA, a graph database or an analysis service. Its CLI uses Python's standard library. The optional MCP entry point requires the MCP SDK; the AI host supplies its own model and authorized execution tools. The original 16 coding skills remain independently usable.
+Software Assurance Auditor runs without Graphify, REA, a graph database or an analysis service. Its CLI uses Python's standard library. The optional MCP entry point requires the MCP SDK; the AI host supplies its own model and authorized execution tools. The 16 coding skills remain independently usable.
 
-The core owns the questionnaire, evidence checks, scores, stage gates, connection questions, investigations, improvement records and reports. Its built-in Python analyzer extracts selected source relationships and three initial risk patterns. AI reviewers can inspect other languages and declare interfaces in the same manifest; those languages do not receive automatic extraction or security validation from the Python analyzer.
+The core owns the questionnaire, evidence checks, scores, stage gates, connection questions, investigations, improvement records and reports. In source preview 0.3.0a2 its built-in Python analyzer extracts selected source relationships and four initial risk patterns, including silent bare exception handlers. AI reviewers can inspect other languages and declare interfaces in the same manifest; those languages do not receive automatic extraction or security validation from the Python analyzer.
 
 Graphify and REA exports are optional evidence inputs. Importing them neither changes the rubric nor completes an assessment. No upstream service is started or contacted.
+
+Source preview 0.3.0a2 also imports SARIF 2.1.0 diagnostics with `import-connections --format sarif`. Diagnostics, locations, rule metadata and suppressions stay reviewable; location edges are explicitly not program calls. Imported warnings remain candidates. See [review controls and limits](AUDIT_REVIEW_CONTROLS.md).
 
 ## Connection questions
 
@@ -80,7 +82,7 @@ This parallelism accelerates graph preparation, not independent AI assessment of
 
 The Python AST scanner reads selected UTF-8 files without importing or executing them. It records files, functions, import expressions, call expressions and unambiguous selected local-module candidates, with hashes and line numbers. Local import resolution remains inferred; call expressions are not a complete call graph.
 
-Initial candidate rules: recognized `requests` calls with no explicit timeout or `timeout=None`; `verify=False`; and recognized `subprocess` calls with `shell=True`. Wrappers, dynamic arguments, shadowing and runtime configuration can affect their meaning. No findings does not establish security.
+Initial candidate rules include silent bare `except: pass` handlers, recognized `requests` calls with no explicit timeout or `timeout=None`; `verify=False`; and recognized `subprocess` calls with `shell=True`. Wrappers, dynamic arguments, shadowing and runtime configuration can affect their meaning. No findings does not establish security.
 
 Limits: 500 selected files, 2 MiB/file, 16 MiB total, 10,000 nodes and 50,000 edges. Parse failures stay visible. Dynamic dispatch, full inter-file symbol resolution, binary analysis, non-Python parsing, taint analysis, live traffic capture and comprehensive vulnerability detection are not implemented in this preview.
 

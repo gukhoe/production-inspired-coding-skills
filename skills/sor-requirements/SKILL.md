@@ -1,14 +1,15 @@
 ---
 name: sor-requirements
-description: Use for new features or ambiguous requirements.
+description: Use when defining a new feature or resolving ambiguous inputs, units, state transitions or acceptance limits before coding.
+metadata:
+  version: "2.0"
 ---
-# SOR and SOW requirements control
+# Sor Requirements
 
-## Trigger
-Use for new features or ambiguous requirements.
+1. Specify input/output examples, units, precision, ranges, invariants and exclusions. Map each consequential requirement to an observable check.
+2. Resolve consequential policy or irreversible choices with the user. Document reasonable reversible assumptions and continue independent work.
+3. Track added scope separately. Complete when implementation and test expectations agree, without inventing a GUI, database or other unrequested feature.
 
-## Operating rule
-Define inputs, outputs, invariants, acceptance criteria and explicit exclusions. Require a testable acceptance example. Never infer unstated behavior. Freeze scope for the current task; new requests enter change control.
+## Output and evidence
 
-## Evidence and termination
-Use existing executable tooling first. Store full logs on disk; send only exit status, failing assertion, and at most 3 unique error signatures to the model. Report PASS only for executed checks, BLOCKED for failed mandatory checks, UNVERIFIED for unavailable checks. Stop at the defined gate; do not iterate without new evidence.
+Use [the blank output form](assets/output-template.md) for this workflow and [the portable record](assets/review-record.json) when transferring it to the auditor. Fill only observed facts; link raw evidence rather than copying logs into the conversation. A completed form is a document, not execution evidence or an automatic supported score.

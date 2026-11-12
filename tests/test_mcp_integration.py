@@ -1,5 +1,7 @@
 """Real stdio MCP tests against the installed package, without Graphify or skills."""
 import asyncio
+import copy
+import hashlib
 import importlib.util
 import json
 from pathlib import Path
@@ -40,11 +42,38 @@ class MCPIntegrationTests(unittest.TestCase):
                 self.assertIn("source.py", inventory["files"])
                 source = await call("audit_read_file", {"path": "source.py"})
                 self.assertIn("return 1", source["text"])
+                for name in ('.env', '.ENV.local', 'key.pem', '.git/config', '.aws/credentials', '.env.py'):
+                    secret_path = root / name
+                    secret_path.parent.mkdir(parents=True, exist_ok=True)
+                    secret_path.write_text('SECRET=synthetic-test-value')
+                    for tool, args in [('audit_read_file', {'path': name}),
+                                       ('audit_evidence', {'path': name, 'evidence_id': 'secret', 'kind': 'source', 'revision': 'fixture'}),
+                                       ('audit_import_connections', {'path': name, 'format': 'native'})]:
+                        denied = await client.call_tool(tool, args)
+                        self.assertTrue(denied.is_error, tool+' must deny '+name)
+                denied = await client.call_tool('audit_scan_connections', {'paths': ['.env.py']})
+                self.assertTrue(denied.is_error)
                 evidence = await call("audit_evidence", {"path": "source.py", "evidence_id": "E1", "kind": "source", "revision": "fixture"})
                 self.assertEqual(evidence["sha256"], source["sha256"])
+                blocked_manifest = copy.deepcopy(manifest)
+                blocked_record = {**evidence, 'path': '.env', 'sha256': hashlib.sha256((root/'.env').read_bytes()).hexdigest(),
+                                  'summary': 'Synthetic protected fixture', 'locator':'line 1'}
+                blocked_manifest['evidence'] = [blocked_record]
+                for tool in ('audit_evaluate', 'audit_visualize'):
+                    denied = await client.call_tool(tool, {'manifest': blocked_manifest, 'revision':'fixture'})
+                    self.assertTrue(denied.is_error, tool+' must protect nested evidence')
+                (root/'.env').write_text(json.dumps(manifest))
+                for tool in ('audit_evaluate', 'audit_visualize'):
+                    denied = await client.call_tool(tool, {'manifest_path':'.env', 'revision':'fixture'})
+                    self.assertTrue(denied.is_error, tool+' must protect manifest input')
                 case = await call("audit_investigation", {"mode": "corrective", "investigation_id": "I1", "targets": ["DIA-01"]})
                 self.assertIn("root_cause", case["steps"])
                 evaluated = await call("audit_evaluate", {"manifest": manifest, "revision": "fixture"})
+                (root/'manifest.json').write_text(json.dumps(manifest))
+                via_path = await call('audit_evaluate', {'manifest_path': 'manifest.json', 'revision': 'fixture'})
+                self.assertEqual(via_path['report'], evaluated['report'])
+                ambiguous = await client.call_tool('audit_evaluate', {'manifest': manifest, 'manifest_path': 'manifest.json', 'revision': 'fixture'})
+                self.assertTrue(ambiguous.is_error)
                 self.assertEqual(evaluated["report"]["outcome"], "incomplete")
                 self.assertEqual(evaluated["report"]["scorecard"]["overall"]["unverified_items"], 72)
                 self.assertIn("| REQ-01.1 |", evaluated["report_markdown"])
@@ -61,6 +90,8 @@ class MCPIntegrationTests(unittest.TestCase):
                 traced = await call("audit_connection_path", {"path": "connections.json", "seed": node})
                 self.assertIn(node, traced["paths"])
                 visual = await call("audit_visualize", {"manifest": manifest, "revision": "fixture", "connections_path": "connections.json"})
+                visual_path = await call('audit_visualize', {'manifest_path':'manifest.json', 'revision':'fixture', 'connections_path':'connections.json'})
+                self.assertEqual(visual['view'], visual_path['view'])
                 self.assertEqual(visual["view"]["outcome"], "incomplete")
                 self.assertIn("Connection risk review", visual["report_html"])
                 self.assertEqual(visual["view"]["scorecard"], evaluated["report"]["scorecard"])
@@ -71,6 +102,11 @@ class MCPIntegrationTests(unittest.TestCase):
                 self.assertTrue(malformed.is_error)
                 missing_graph = await client.call_tool("audit_graph_candidates", {"graph_path": "missing.json", "seed": "x"})
                 self.assertTrue(missing_graph.is_error)
+                (root/'manifest.json').unlink()
+                for name in ('.env', '.ENV.local', 'key.pem', '.git/config', '.aws/credentials', '.env.py'):
+                    (root/name).unlink()
+                (root/'.git').rmdir()
+                (root/'.aws').rmdir()
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             (root / "source.py").write_text("def f():\n    return 1\n", encoding="utf-8")

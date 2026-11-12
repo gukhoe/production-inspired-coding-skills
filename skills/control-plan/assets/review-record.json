@@ -1,0 +1,25 @@
+{
+  "schema": "software-skill-record/1",
+  "skill": "control-plan",
+  "skill_version": "2.0",
+  "revision": "",
+  "author": "",
+  "reviewer": "",
+  "status": "UNVERIFIED",
+  "criterion_targets": [
+    "VER-01",
+    "CHG-01"
+  ],
+  "observations": {
+    "risk": "",
+    "check_and_oracle": "",
+    "command": "",
+    "frequency": "",
+    "invalidation_keys": "",
+    "owner": "",
+    "failure_response": "",
+    "observed_result": ""
+  },
+  "evidence": [],
+  "open_actions": []
+}

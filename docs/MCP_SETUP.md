@@ -4,7 +4,7 @@ The coding skills and independent auditor can each be used alone. Install the pu
 
 ## A. Coding skills only
 
-Download the repository ZIP or clone it. Select any of the original 16 skill folders under skills/ and add the complete selected folder to your AI client's supported skill location. See [the catalog](../skills/README.md). No auditor or MCP server is required.
+Download the repository ZIP or clone it. Select any of the 16 coding-skill folders under skills/ and add the complete selected folder, including assets/, to your AI client's supported skill location. See [the catalog](../skills/README.md). No auditor or MCP server is required.
 
 ## B. Independent auditor through MCP
 
@@ -15,7 +15,7 @@ Windows PowerShell:
 ```powershell
 git clone https://github.com/gukhoe/production-inspired-coding-skills.git
 cd production-inspired-coding-skills
-git checkout auditor-v0.3.0a1
+git checkout main
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install ".[mcp]"
 .\.venv\Scripts\software-audit.exe criteria
@@ -24,6 +24,9 @@ python -m venv .venv
 macOS/Linux:
 
 ```sh
+git clone https://github.com/gukhoe/production-inspired-coding-skills.git
+cd production-inspired-coding-skills
+git checkout main
 python3 -m venv .venv
 .venv/bin/python -m pip install '.[mcp]'
 .venv/bin/software-audit criteria
@@ -42,6 +45,10 @@ On macOS/Linux use /absolute/path/.venv/bin/software-audit-mcp. The client start
 
 The configured root bounds file access; restart/reconfigure for another project. The service reads files and returns records. It does not modify projects, execute tests, install software or deploy. Outputs can contain source excerpts, so use a host appropriate for the project data.
 
+Source preview `0.3.0a2` adds a common sensitive-file policy to every MCP file path (including manifests and nested witness references), plus `manifest_path` on `audit_evaluate` and `audit_visualize`. Supply exactly one of the inline `manifest` or a repository-relative `manifest_path`, with `revision`. The 8 MiB limit applies before parsing file input. The earlier `auditor-v0.3.0a1` tag does not contain these changes. Record `git rev-parse HEAD` and pin that reviewed commit for repeatable installation; main can advance.
+
+The deny policy covers `.env*`, private key formats, credential files and metadata directories such as `.git`, `.ssh` and `.aws`, including case variants and symlink aliases. It is defense in depth, not content-based secret detection: an ordinary source file can still contain secrets. Build scripts remain explicitly readable. No model can override the deny policy through tool arguments.
+
 ## Tools
 
 | Tool | Result |
@@ -55,11 +62,11 @@ The configured root bounds file access; restart/reconfigure for another project.
 | audit_evaluate | Scored JSON, fixed Markdown report and next actions |
 | audit_graph_candidates | Optional Graphify export relationships |
 | audit_scan_connections | Built-in selected Python source mapping and unconfirmed risk candidates; no external analyzer |
-| audit_import_connections | Optional native, Graphify or complete REA JavaScript evidence import |
+| audit_import_connections | Optional native, Graphify, complete REA JavaScript or SARIF evidence import |
 | audit_connection_path | Bounded relationship paths with explicit direction and limits |
 | audit_visualize | Evaluated report, offline HTML, connection view and improvement tasks; returns data without writing files |
 
-The last four tools are in the `0.3.0a1` preview. Built-in mapping and reporting work without Graphify or REA. Run `audit_scan_connections(paths=[...])`, save its connection object using the host's file tool if needed, then pass its repository-relative path as `connections_path` to `audit_visualize`. Follow [the connection review workflow](CONNECTION_RISK_REVIEW.md) to assess boundaries and verify corrections.
+The last four tools began in the `0.3.0a1` preview. The development adapter also accepts `format="sarif"`. Built-in mapping and reporting work without Graphify or REA. Run `audit_scan_connections(paths=[...])`, save its connection object using the host's file tool if needed, then pass its repository-relative path as `connections_path` to `audit_visualize`. Follow [the connection review workflow](CONNECTION_RISK_REVIEW.md) to assess boundaries and verify corrections.
 
 `audit_visualize` embeds the complete source network in `report_html`; its `view` field contains summary metadata without duplicating the source node/edge arrays. Large HTML payloads are compressed internally and open locally in a modern browser. The report prepares module layouts in bounded browser workers and merges every cross-module connection.
 
@@ -73,4 +80,4 @@ Install . instead of .[mcp], then run software-audit. Or run python skills/softw
 
 ## Reproducibility
 
-Package preview 0.3.0a1; scoring standard 0.2.0; manifest schema 2; report template 1.0; MCP SDK 2.3.0. The [official MCP Python SDK](https://github.com/modelcontextprotocol/python-sdk) implements the protocol. Validation uses an installed package and real stdio handshake. Installation does not change global AI-client configuration.
+Package preview 0.3.0a2; default scoring standard 0.3.0 (0.2.0 retained for declared older reviews); manifest schema 2; report template 1.0; MCP SDK 2.3.0. The [official MCP Python SDK](https://github.com/modelcontextprotocol/python-sdk) implements the protocol. Validation uses an installed package and real stdio handshake. Installation does not change global AI-client configuration.

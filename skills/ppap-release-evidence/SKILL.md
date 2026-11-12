@@ -1,14 +1,15 @@
 ---
 name: ppap-release-evidence
-description: Use before high-risk deployment or release approval.
+description: Use when preparing a consequential release for review, especially when source tests, installed artifacts and live acceptance may differ.
+metadata:
+  version: "2.0"
 ---
-# PPAP-inspired release evidence
+# Ppap Release Evidence
 
-## Trigger
-Use before high-risk deployment or release approval.
+1. Link requirements to executed checks, source identity, build/configuration inputs, commands, exit status and artifact hashes.
+2. Separate candidate verification, installed-file matching and live workflow acceptance. A successful build or document bundle is not operational readiness.
+3. Record unresolved risks, migration/repair/rollback evidence and existing release authority. Complete with a reviewable package; unavailable mandatory proof remains UNVERIFIED.
 
-## Operating rule
-Collect concise requirement-to-test mapping, build id, exact commands, exit codes, artifact hashes, unresolved risks and rollback readiness. No fabricated evidence. Missing required proof means UNVERIFIED, not PASS.
+## Output and evidence
 
-## Evidence and termination
-Use existing executable tooling first. Store full logs on disk; send only exit status, failing assertion, and at most 3 unique error signatures to the model. Report PASS only for executed checks, BLOCKED for failed mandatory checks, UNVERIFIED for unavailable checks. Stop at the defined gate; do not iterate without new evidence.
+Use [the blank output form](assets/output-template.md) for this workflow and [the portable record](assets/review-record.json) when transferring it to the auditor. Fill only observed facts; link raw evidence rather than copying logs into the conversation. A completed form is a document, not execution evidence or an automatic supported score.

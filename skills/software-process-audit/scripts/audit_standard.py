@@ -4,7 +4,8 @@ if __package__:
 else:
     from graph_adapter import AuditError
 
-STANDARD_VERSION = "0.2.0"
+STANDARD_VERSION = "0.3.0"
+SUPPORTED_STANDARDS = {"0.2.0", STANDARD_VERSION}
 EXTRA_CONTROLS = [
     ("PRE-01", "prevention", "Invalid actions are prevented before harmful state changes", True),
     ("PRE-02", "prevention", "Detected failures stop or contain affected work safely", True),
@@ -83,8 +84,40 @@ RUBRIC = {
     "not_applicable": "Evidence-backed scope exclusion. Excluded from scoring denominators and counted separately.",
 }
 
+LEGACY_CHECKLISTS = {key: list(value) for key, value in CHECKLISTS.items()}
+LEGACY_RUBRIC = dict(RUBRIC)
+CHECKLISTS.update({
+    'REQ-01': ['Identify a measurable user-visible outcome and its source', 'Define acceptance limits and at least one rejecting condition before implementation', 'Trace each selected requirement to a verification scenario and oracle'],
+    'DES-01': ['Check input/output contracts against selected producers and consumers', 'Identify the accountable owner and receiving consumer', 'Define state and lifetime invariants, including invalid transitions'],
+    'PRE-01': ['Identify the harmful action, affected state and control location before it occurs', 'Inspect the admission guard at the actual boundary and its bypass paths', 'Execute invalid, stale or competing inputs and verify rejection before harmful mutation'],
+    'DIA-01': ['Compare expected and observed behavior using current records', 'Reproduce the failure or keep reproduction explicitly unverified', 'Separate observations from competing explanations and contradictory evidence'],
+    'CAP-02': ['Replay the original failure condition after correction', 'Exercise recurrence prevention and adjacent valid behavior', 'Inspect the durable control/test update and preserve residual risk'],
+})
+EXECUTION_CHECKPOINTS = {
+    'IMP-02.1', 'IMP-02.2', 'IMP-02.3', 'VER-01.2',
+    'VER-02.1', 'VER-02.2', 'VER-02.3', 'VER-03.3',
+    'REL-01.1', 'REL-02.1', 'REL-02.2', 'REL-02.3',
+    'OPS-01.1', 'OPS-01.2', 'OPS-01.3', 'OPS-02.1', 'OPS-02.2', 'OPS-02.3',
+    'CHG-01.3', 'PRE-01.3', 'PRE-02.2', 'PRE-02.3', 'DIA-01.2',
+    'DIA-02.2', 'DIA-02.3', 'CAP-02.1', 'CAP-02.2',
+}
+RUBRIC['3'] = 'This checkpoint has substantial current evidence, but an applicable cross-check or scenario remains incomplete; status partial. Behavioral checkpoints require successful execution.'
+RUBRIC['4'] = 'This checkpoint meets all its applicable acceptance conditions and cross-checks; status supported. Do not require sibling checkpoints to pass before scoring this one. Behavioral checkpoints require relevant successful execution.'
+
+
+def checkpoint_policy(cid, index, execution, standard_version=STANDARD_VERSION):
+    required = execution if standard_version == '0.2.0' else f'{cid}.{index}' in EXECUTION_CHECKPOINTS
+    return {'evidence_mode': 'execution' if required else 'inspection',
+            'successful_execution_required_for_support': required,
+            'score_3_anchor': 'A relevant normal execution passed; applicable adverse/recovery checks remain incomplete.' if required else 'The current artifact was inspected; a relevant source, consumer or contradiction cross-check remains incomplete.',
+            'score_4_anchor': 'Successful evidence covers this checkpoint\'s applicable normal and adverse/recovery conditions; record scope and oracle limits.' if required else 'Cross-check the current artifact against referenced source, contract or receiving-party evidence; resolve contradictions or keep them open. A document title alone is insufficient.'}
+
 
 def catalog(controls):
+    if __package__:
+        from .scoring import AREA_BUDGETS, POLICY_ID
+    else:
+        from scoring import AREA_BUDGETS, POLICY_ID
     return {"name": "Software Assurance Auditor", "standard_version": STANDARD_VERSION,
             "manifest_schema_version": 2,
             "report_language": "en",
@@ -92,10 +125,11 @@ def catalog(controls):
             "purpose": "An initial translation of manufacturing audit and quality practices into software assurance criteria for AI-assisted review.",
             "required_external_tools": [],
             "scoring_rubric": RUBRIC,
+            "scoring_policy": {"id": POLICY_ID, "area_budgets_percent": AREA_BUDGETS, "primary_metric": "documented_achievement_lower_bound_percent", "basis": "Explicit software-risk priorities; not empirically calibrated failure probabilities."},
             "controls": [{"id": cid, "stage": stage, "criterion": title,
                           "audit_question": "What current evidence establishes that " + title[0].lower() + title[1:] + "?",
-                          "checkpoints": [{"id": f"{cid}.{index}", "question": question} for index, question in enumerate(CHECKLISTS[cid], 1)], "weight": WEIGHTS.get(cid, 2),
-                          "challenge": PROBES[stage], "successful_execution_required_for_support": execution}
+                          "checkpoints": [{"id": f"{cid}.{index}", "question": question, **checkpoint_policy(cid, index, execution)} for index, question in enumerate(CHECKLISTS[cid], 1)], "weight": WEIGHTS.get(cid, 2),
+                          "challenge": PROBES[stage], "execution_policy": "per_checkpoint", "has_execution_checkpoints": any(checkpoint_policy(cid, i, execution)['successful_execution_required_for_support'] for i in range(1, 4))}
                          for cid, stage, title, execution in controls],
             "stage_gates": [{"id": gid, "from": source, "to": target, "required_controls": required}
                             for gid, source, target, required in GATES],
@@ -103,7 +137,7 @@ def catalog(controls):
             "agent_contract": "Inspect evidence content, record a reasoned assessment, run authorized discriminating checks, then use report/next to retain open work. Tool outcomes are not authorization to deploy."}
 
 
-def evaluate_lifecycle(manifest, controls, risks, assess, indexed, refs, nonempty, targets):
+def evaluate_lifecycle(manifest, controls, risks, assess, indexed, refs, nonempty, targets, evidence_results):
     """Assess handoffs and investigations using the same evidence validator as controls."""
     by_control = {row["id"]: row for row in controls}
     gates = indexed(manifest.get("gates", []), "gates")
@@ -130,8 +164,9 @@ def evaluate_lifecycle(manifest, controls, risks, assess, indexed, refs, nonempt
                     blockers.append(field + "_required")
                 else:
                     # Validate every handoff artifact, including its revision and locator.
-                    checked = assess({**row.get("review", default), "status": "supported", "score": 4, "evidence": evidence_ids})
-                    if checked["status"] != "supported":
+                    if any(eid not in evidence_results for eid in evidence_ids):
+                        raise AuditError("Handoff references unknown evidence")
+                    if any(not evidence_results[eid]["valid"] for eid in evidence_ids):
                         blockers.append(field + "_invalid")
             for cid in required:
                 if by_control[cid]["status"] not in {"supported", "not_applicable"}:
@@ -166,7 +201,7 @@ def evaluate_lifecycle(manifest, controls, risks, assess, indexed, refs, nonempt
     return gate_results, case_results
 
 
-def scorecard(controls, boundaries, open_high_risks):
+def _legacy_scorecard(controls, boundaries, open_high_risks):
     rows = [{"id": check["id"], "stage": c["stage"], "weight": WEIGHTS.get(c["id"], 2),
              "score": check.get("score"), "status": check["status"]}
             for c in controls for check in c.get("checks", [c])]
@@ -184,10 +219,22 @@ def scorecard(controls, boundaries, open_high_risks):
                 "documented_achievement_lower_bound_percent": round(100 * earned / denominator, 2) if denominator else None,
                 "total_items": len(items), "scored_items": len(scored),
                 "unverified_items": len(applicable) - len(scored), "not_applicable_items": len(items) - len(applicable)}
-    return {"rubric": RUBRIC, "weight_policy": "Initial fixed policy: listed high-impact controls weight 3; other controls and boundary aspects weight 2. Not calibrated defect probabilities.",
+    return {"rubric": LEGACY_RUBRIC, "policy_id": "checkpoint-weight/0.2.0", "weight_policy": "Initial fixed policy: listed high-impact controls weight 3; other controls and boundary aspects weight 2. Not calibrated defect probabilities.",
             "overall": summarize(rows), "by_stage": {stage: summarize([r for r in rows if r["stage"] == stage]) for stage in sorted({r["stage"] for r in rows})},
             "open_high_or_critical_risks": open_high_risks,
             "interpretation": "Scores describe reviewed evidence maturity, not failure probability or release authorization. Unknowns lower coverage; their zero contribution to the achievement lower bound is not a defect verdict."}
+
+
+def scorecard(controls, boundaries, open_high_risks, standard_version=STANDARD_VERSION):
+    if standard_version == '0.2.0':
+        return _legacy_scorecard(controls, boundaries, open_high_risks)
+    if standard_version != STANDARD_VERSION:
+        raise AuditError('Unsupported scoring standard')
+    if __package__:
+        from .scoring import balanced_scorecard
+    else:
+        from scoring import balanced_scorecard
+    return balanced_scorecard(controls, boundaries, open_high_risks, WEIGHTS, RUBRIC)
 
 
 def next_actions(report):
@@ -216,5 +263,5 @@ def next_actions(report):
             if review["status"] != "supported":
                 tasks.append({"type": "investigation", "target": case["id"], "step": step,
                               "action": "Investigate and substantiate this step; distinguish observations from hypotheses and retain unsuccessful attempts."})
-    return {"standard_version": STANDARD_VERSION, "outcome": report["outcome"],
+    return {"standard_version": report['standard_version'], "outcome": report["outcome"],
             "tasks": tasks, "execution_policy": "Suggested review work only. Execute tests and changes within existing user authorization."}

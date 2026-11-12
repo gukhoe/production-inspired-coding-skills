@@ -1,14 +1,15 @@
 ---
 name: standard-work
-description: Use to standardize recurring development tasks.
+description: Use for a coding task that needs a repeatable inspect-change-verify handoff; keep small edits proportionate.
+metadata:
+  version: "2.0"
 ---
-# Standard work for coding agents
+# Standard Work
 
-## Trigger
-Use to standardize recurring development tasks.
+1. Inspect the requested behavior, constraints and relevant source before editing. Select observable acceptance criteria proportional to the change.
+2. Make the smallest coherent change. Run affected checks and required repository gates; an unavailable check remains UNVERIFIED.
+3. Complete when the requested behavior and required checks are supported; summarize changed paths, executed evidence and residual risks.
 
-## Operating rule
-Read task and constraints, inspect only relevant files, change minimally, run targeted checks, report concise evidence. Avoid verbose self-review and duplicate agents. Stop once acceptance criteria pass.
+## Output and evidence
 
-## Evidence and termination
-Use existing executable tooling first. Store full logs on disk; send only exit status, failing assertion, and at most 3 unique error signatures to the model. Report PASS only for executed checks, BLOCKED for failed mandatory checks, UNVERIFIED for unavailable checks. Stop at the defined gate; do not iterate without new evidence.
+Use [the blank output form](assets/output-template.md) for this workflow and [the portable record](assets/review-record.json) when transferring it to the auditor. Fill only observed facts; link raw evidence rather than copying logs into the conversation. A completed form is a document, not execution evidence or an automatic supported score.

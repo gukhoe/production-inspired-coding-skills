@@ -1,5 +1,6 @@
 """Recheck imported evidence without overwriting source artifacts (stdlib only)."""
 import collections
+import argparse
 import csv
 import hashlib
 import importlib.util
@@ -13,7 +14,9 @@ import tempfile
 from historical_sources import original_bytes
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "reports" / "verification"
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--out', type=Path, default=ROOT / '.process-audit' / 'evidence-recheck')
+OUT = parser.parse_args().out
 OUT.mkdir(parents=True, exist_ok=True)
 sys.dont_write_bytecode = True
 

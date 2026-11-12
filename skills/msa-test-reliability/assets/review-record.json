@@ -1,0 +1,26 @@
+{
+  "schema": "software-skill-record/1",
+  "skill": "msa-test-reliability",
+  "skill_version": "2.0",
+  "revision": "",
+  "author": "",
+  "reviewer": "",
+  "status": "UNVERIFIED",
+  "criterion_targets": [
+    "VER-01",
+    "DIA-02"
+  ],
+  "observations": {
+    "labeled_case": "",
+    "expected": "",
+    "observed": "",
+    "model_and_environment": "",
+    "mutation": "",
+    "failure_reason": "",
+    "confusion_matrix": "",
+    "kappa_or_unavailable": "",
+    "remaining_bias": ""
+  },
+  "evidence": [],
+  "open_actions": []
+}

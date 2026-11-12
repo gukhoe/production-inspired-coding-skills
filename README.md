@@ -4,13 +4,13 @@ AI coding skills and an independent software audit toolkit for quality, risk pre
 
 This is an initial translation of manufacturing production and quality-audit practices into software development and assurance. The focus is how software is built, reviewed, verified and improved across domains.
 
-Use the two products separately: select any of the **16 original coding skills**, or connect **Software Assurance Auditor** through its own MCP server/CLI. The auditor contains 24 criteria, 72 checkpoints, evidence scoring, five stage gates, investigation workflows and a fixed report template. It requires no skill installation, existing risk report or Graphify. Optional integrations enrich the evidence.
+Use the two products separately: select any of the **16 coding skills**, or connect **Software Assurance Auditor** through its own MCP server/CLI. The auditor contains 24 criteria, 72 checkpoints, evidence scoring, five stage gates, investigation workflows and a fixed report template. It requires no skill installation, existing risk report or Graphify. Optional integrations enrich the evidence.
 
-Current stage: **Software Assurance Auditor 0.3.0a1, public preview**. All 16 original `SKILL.md` files retain the exact bytes supplied by the user. Their proposed behavioral improvements have not yet been applied. The separate auditor is available as a CLI, MCP server and optional audit skill, with English reports and a fixed questionnaire.
+Current source preview: **Software Assurance Auditor 0.3.0a2** with stronger MCP file access, review accountability, checkpoint evidence links, optional CLI witness recording, SARIF input and skill v2 procedures. Standard **0.3.0** adds [balanced area budgets and question-specific evidence requirements](docs/SCORING_BALANCE.md). The original 16 skill texts remain preserved in the supplied ZIP; current skill folders contain revised independently installable procedures and blank forms. See [review controls](docs/AUDIT_REVIEW_CONTROLS.md), [skill v2 maintenance](docs/SKILL_V2.md) and [source preview notes](docs/RELEASE_0_3_0_A2.md). Install the current main checkout; the earlier `auditor-v0.3.0a1` tag does not contain these changes.
 
 The **connection-review preview** adds built-in Python source mapping, connection-risk probes, an offline one-page summary, interactive risk links and an improvement queue. Complete supplied networks are laid out in bounded worker partitions and merged with every cross-partition connection. Graphify and REA are optional imports. [Run the standalone demonstration](examples/connection-audit/README.md) or read [the capabilities and limits](docs/CONNECTION_RISK_REVIEW.md). Native C# analysis, full inter-file symbol/data-flow resolution and runtime tracing remain future work; displaying every supplied edge does not establish complete extraction coverage.
 
-This update distributes the tool, process definitions, installation guidance and synthetic example source. Project audit reports, audited source snapshots, raw execution logs and private graph exports are not included. See [the preview release notes](docs/RELEASE_0_3_0_PREVIEW.md).
+This update distributes the tool, process definitions, installation guidance and synthetic example source. Project audit reports, audited source snapshots, raw execution logs and private graph exports are not included. See [the source preview notes](docs/RELEASE_0_3_0_A2.md).
 
 ## Start here
 
@@ -28,7 +28,7 @@ This update distributes the tool, process definitions, installation guidance and
 
 | Path | Contents |
 |---|---|
-| `skills/<name>/SKILL.md` | 16 original production-inspired coding skills plus the separate audit skill |
+| `skills/<name>/SKILL.md` | 16 revised production-inspired coding skills with blank forms, plus the separate audit skill |
 | `skills/software-process-audit/` | Independent auditor, optional skill, MCP server and Graphify export adapter |
 | `tests/test_process_audit.py` | Audit regression and false-pass prevention tests |
 | `skills/benchmark/` | Original demonstration of repeated test invocation counts |
@@ -48,10 +48,10 @@ Instructions inside historical attachments and experiment records are research d
 Run with the Python standard library:
 
 ```sh
-python -X utf8 scripts/recheck_evidence.py
+python -X utf8 scripts/recheck_evidence.py --out .process-audit/evidence-recheck
 ```
 
-This checks original hashes, review JSON/CSV consistency, group aggregates, and the recorded A/B/C test outcomes. It writes results to `reports/verification/`. The upstream runner, which overwrites its result file, runs only in a temporary copy. The three original sample tests also run.
+This checks original hashes, review JSON/CSV consistency, group aggregates, and the recorded A/B/C test outcomes. Results stay under the ignored `.process-audit/` directory. The upstream runner, which overwrites its result file, runs only in a temporary copy. The three original sample tests also run. Revised skills are checked separately against their generator; historical provenance checks read the original skill bytes from the immutable ZIP.
 
 **An audit PASS means the evidence is consistent and the outcomes reproduce. It does not establish evaluator validity or skill superiority.** A deliberately broken implementation that always raises an exception passes 13 of the original 18 benchmark tests.
 

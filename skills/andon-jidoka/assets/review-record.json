@@ -1,0 +1,24 @@
+{
+  "schema": "software-skill-record/1",
+  "skill": "andon-jidoka",
+  "skill_version": "2.0",
+  "revision": "",
+  "author": "",
+  "reviewer": "",
+  "status": "UNVERIFIED",
+  "criterion_targets": [
+    "PRE-02",
+    "OPS-02"
+  ],
+  "observations": {
+    "trigger": "",
+    "affected_operation": "",
+    "stopped_action": "",
+    "evidence": "",
+    "safe_investigation": "",
+    "resumption_condition": "",
+    "reviewer": ""
+  },
+  "evidence": [],
+  "open_actions": []
+}

@@ -1,0 +1,25 @@
+{
+  "schema": "software-skill-record/1",
+  "skill": "kanban-wip",
+  "skill_version": "2.0",
+  "revision": "",
+  "author": "",
+  "reviewer": "",
+  "status": "UNVERIFIED",
+  "criterion_targets": [
+    "DES-01",
+    "CHG-01"
+  ],
+  "observations": {
+    "work_item": "",
+    "authorized_contributors": "",
+    "file_owner": "",
+    "dependencies": "",
+    "wip_limit": "",
+    "queue_time": "",
+    "integrator": "",
+    "integration_checks": ""
+  },
+  "evidence": [],
+  "open_actions": []
+}

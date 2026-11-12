@@ -1,6 +1,6 @@
 # Software Assurance Audit Report
 
-Template: 1.0 | Standard: 0.2.0
+Template: 1.0 | Standard: 0.3.0
 
 Outcome: **incomplete**
 
@@ -11,30 +11,76 @@ Evidence hashes verify artifact identity, not truth or adequacy. Supported means
 
 ## Scope issues
 
+- audit_author_required
+- independent_review_not_established
 - scope_completeness_unverified
 - process_inventory_empty
 
+## Review accountability
+
+| Field | Recorded value |
+|---|---|
+| Assurance policy | 1.0 |
+| Change author |  |
+| Audit type | first_party |
+| Reviewer relationship | unverified |
+| Independence | unestablished |
+| Independence rationale |  |
+| Accountability issues | audit_author_required, independent_review_not_established |
+| Evidence provenance counts | {} |
+
+Self-reported unless a local witness receipt is separately verified; no CI identity attestation is verified.
+
+Names, relationships and locator rationales are reviewer assertions, not authenticated identity or semantic proof. The engine cannot establish that a log is truthful or adequate.
+
+
 ## Evidence maturity scores
 
-Scores describe reviewed evidence maturity, not failure probability or release authorization. Unknowns lower coverage; their zero contribution to the achievement lower bound is not a defect verdict.
+Documented score is the achievement lower bound over applicable scope; unknowns contribute no earned points but are not classified as defects. Observed score describes scored evidence only. Compare coverage, exclusions and area budgets. Scores do not certify safety or authorize release.
 
 | Stage | Observed score % | Weighted coverage % | Achievement lower bound % | Scored / total |
 |---|---|---|---|---|
 | overall | None | 0.0 | 0.0 | 0 / 72 |
-| change | None | 0.0 | 0.0 | 0 / 3 |
-| dependencies | None | 0.0 | 0.0 | 0 / 3 |
-| design | None | 0.0 | 0.0 | 0 / 6 |
-| diagnosis | None | 0.0 | 0.0 | 0 / 6 |
-| handoff | None | 0.0 | 0.0 | 0 / 3 |
-| implementation | None | 0.0 | 0.0 | 0 / 6 |
-| improvement | None | 0.0 | 0.0 | 0 / 6 |
-| operations | None | 0.0 | 0.0 | 0 / 6 |
-| prevention | None | 0.0 | 0.0 | 0 / 6 |
-| release | None | 0.0 | 0.0 | 0 / 6 |
 | requirements | None | 0.0 | 0.0 | 0 / 6 |
-| risk | None | 0.0 | 0.0 | 0 / 3 |
-| scope | None | 0.0 | 0.0 | 0 / 3 |
+| design | None | 0.0 | 0.0 | 0 / 6 |
+| dependencies | None | 0.0 | 0.0 | 0 / 3 |
+| implementation | None | 0.0 | 0.0 | 0 / 6 |
 | verification | None | 0.0 | 0.0 | 0 / 9 |
+| release | None | 0.0 | 0.0 | 0 / 6 |
+| operations | None | 0.0 | 0.0 | 0 / 6 |
+| change | None | 0.0 | 0.0 | 0 / 3 |
+| risk | None | 0.0 | 0.0 | 0 / 3 |
+| improvement | None | 0.0 | 0.0 | 0 / 6 |
+| scope | None | 0.0 | 0.0 | 0 / 3 |
+| prevention | None | 0.0 | 0.0 | 0 / 6 |
+| handoff | None | 0.0 | 0.0 | 0 / 3 |
+| diagnosis | None | 0.0 | 0.0 | 0 / 6 |
+| interfaces | None | None | None | 0 / 0 |
+
+### Area allocation
+
+Policy: balanced-area/1.0
+
+| Area | Base budget % | Effective budget % | Earned contribution % | Applicability |
+|---|---|---|---|---|
+| requirements | 5 | 5.3191 | 0.0 | active |
+| design | 7 | 7.4468 | 0.0 | active |
+| dependencies | 4 | 4.2553 | 0.0 | active |
+| implementation | 12 | 12.766 | 0.0 | active |
+| verification | 12 | 12.766 | 0.0 | active |
+| release | 7 | 7.4468 | 0.0 | active |
+| operations | 7 | 7.4468 | 0.0 | active |
+| change | 4 | 4.2553 | 0.0 | active |
+| risk | 6 | 6.383 | 0.0 | active |
+| improvement | 6 | 6.383 | 0.0 | active |
+| scope | 4 | 4.2553 | 0.0 | active |
+| prevention | 10 | 10.6383 | 0.0 | active |
+| handoff | 4 | 4.2553 | 0.0 | active |
+| diagnosis | 6 | 6.383 | 0.0 | active |
+| interfaces | 6 | 0 | None | not_represented |
+
+Fixed area budgets total 100. Criterion priority is distributed within its area; interface count cannot expand its area budget. Excluded or unrepresented areas are disclosed and remaining budgets are normalized. Policy priorities, not calibrated incident probabilities.
+
 
 ## Controls
 
@@ -69,15 +115,15 @@ Scores describe reviewed evidence maturity, not failure probability or release a
 
 | ID | Checkpoint | Status | Score / 4 | Evidence IDs | Reviewer / rationale | Finding | Improvement | Owner | Due | Evidence issues |
 |---|---|---|---|---|---|---|---|---|---|---|
-| REQ-01.1 | Identify the user-visible outcome | unverified | unscored |  | :  |  |  |  |  |  |
-| REQ-01.2 | Define observable acceptance limits before implementation | unverified | unscored |  | :  |  |  |  |  |  |
-| REQ-01.3 | Trace each selected requirement to a verification scenario | unverified | unscored |  | :  |  |  |  |  |  |
+| REQ-01.1 | Identify a measurable user-visible outcome and its source | unverified | unscored |  | :  |  |  |  |  |  |
+| REQ-01.2 | Define acceptance limits and at least one rejecting condition before implementation | unverified | unscored |  | :  |  |  |  |  |  |
+| REQ-01.3 | Trace each selected requirement to a verification scenario and oracle | unverified | unscored |  | :  |  |  |  |  |  |
 | REQ-02.1 | State critical use and misuse scenarios | unverified | unscored |  | :  |  |  |  |  |  |
 | REQ-02.2 | Record exclusions and affected users | unverified | unscored |  | :  |  |  |  |  |  |
 | REQ-02.3 | Define unacceptable data/state outcomes | unverified | unscored |  | :  |  |  |  |  |  |
-| DES-01.1 | Name inputs and outputs | unverified | unscored |  | :  |  |  |  |  |  |
-| DES-01.2 | Identify accountable owner and consumer | unverified | unscored |  | :  |  |  |  |  |  |
-| DES-01.3 | Define state and lifetime invariants | unverified | unscored |  | :  |  |  |  |  |  |
+| DES-01.1 | Check input/output contracts against selected producers and consumers | unverified | unscored |  | :  |  |  |  |  |  |
+| DES-01.2 | Identify the accountable owner and receiving consumer | unverified | unscored |  | :  |  |  |  |  |  |
+| DES-01.3 | Define state and lifetime invariants, including invalid transitions | unverified | unscored |  | :  |  |  |  |  |  |
 | DES-02.1 | Review both sides of each selected interface | unverified | unscored |  | :  |  |  |  |  |  |
 | DES-02.2 | Specify error, timeout and cancellation behavior | unverified | unscored |  | :  |  |  |  |  |  |
 | DES-02.3 | Trace shared-state and version compatibility assumptions | unverified | unscored |  | :  |  |  |  |  |  |
@@ -123,34 +169,34 @@ Scores describe reviewed evidence maturity, not failure probability or release a
 | MAP-01.1 | Map intended workflows and development stages | unverified | unscored |  | :  |  |  |  |  |  |
 | MAP-01.2 | Compare the map to actual source and interfaces | unverified | unscored |  | :  |  |  |  |  |  |
 | MAP-01.3 | Explain sampling, missing links and exclusions | unverified | unscored |  | :  |  |  |  |  |  |
-| PRE-01.1 | Identify a harmful action before it occurs | unverified | unscored |  | :  |  |  |  |  |  |
-| PRE-01.2 | Place a fail-safe admission guard at the actual boundary | unverified | unscored |  | :  |  |  |  |  |  |
-| PRE-01.3 | Challenge the guard with invalid, stale or competing inputs | unverified | unscored |  | :  |  |  |  |  |  |
+| PRE-01.1 | Identify the harmful action, affected state and control location before it occurs | unverified | unscored |  | :  |  |  |  |  |  |
+| PRE-01.2 | Inspect the admission guard at the actual boundary and its bypass paths | unverified | unscored |  | :  |  |  |  |  |  |
+| PRE-01.3 | Execute invalid, stale or competing inputs and verify rejection before harmful mutation | unverified | unscored |  | :  |  |  |  |  |  |
 | PRE-02.1 | Define a stop/containment trigger | unverified | unscored |  | :  |  |  |  |  |  |
 | PRE-02.2 | Preserve recoverable state and isolate affected work | unverified | unscored |  | :  |  |  |  |  |  |
 | PRE-02.3 | Exercise safe stop and controlled resumption | unverified | unscored |  | :  |  |  |  |  |  |
 | GAT-01.1 | Record stage entry/exit criteria | unverified | unscored |  | :  |  |  |  |  |  |
 | GAT-01.2 | Identify versioned handoff inputs and outputs | unverified | unscored |  | :  |  |  |  |  |  |
 | GAT-01.3 | Have the receiving owner review unresolved exceptions | unverified | unscored |  | :  |  |  |  |  |  |
-| DIA-01.1 | Define expected versus observed behavior | unverified | unscored |  | :  |  |  |  |  |  |
-| DIA-01.2 | Reproduce or explicitly retain reproduction as unknown | unverified | unscored |  | :  |  |  |  |  |  |
-| DIA-01.3 | Separate observations from competing explanations | unverified | unscored |  | :  |  |  |  |  |  |
+| DIA-01.1 | Compare expected and observed behavior using current records | unverified | unscored |  | :  |  |  |  |  |  |
+| DIA-01.2 | Reproduce the failure or keep reproduction explicitly unverified | unverified | unscored |  | :  |  |  |  |  |  |
+| DIA-01.3 | Separate observations from competing explanations and contradictory evidence | unverified | unscored |  | :  |  |  |  |  |  |
 | DIA-02.1 | Propose a cause and a falsifying experiment | unverified | unscored |  | :  |  |  |  |  |  |
 | DIA-02.2 | Compare affected and unaffected conditions | unverified | unscored |  | :  |  |  |  |  |  |
 | DIA-02.3 | Confirm the cause through the actual failing path | unverified | unscored |  | :  |  |  |  |  |  |
 | CAP-02.1 | Replay the original failure condition after correction | unverified | unscored |  | :  |  |  |  |  |  |
-| CAP-02.2 | Exercise recurrence prevention and adjacent regressions | unverified | unscored |  | :  |  |  |  |  |  |
-| CAP-02.3 | Update the durable control/test and preserve residual risk | unverified | unscored |  | :  |  |  |  |  |  |
+| CAP-02.2 | Exercise recurrence prevention and adjacent valid behavior | unverified | unscored |  | :  |  |  |  |  |  |
+| CAP-02.3 | Inspect the durable control/test update and preserve residual risk | unverified | unscored |  | :  |  |  |  |  |  |
 
 ## Stage transition review
 
 | Gate | Transition | State | Producer / receiver | Input / output evidence | Reviewer / rationale | Blockers |
 |---|---|---|---|---|---|---|
-| G1 | requirements → design | blocked |  /  |  /  | :  | handoff_review_not_supported, producer_and_receiver_required, input_evidence_required, output_evidence_required, control:REQ-01, control:REQ-02, control:RSK-01, no_applicable_supported_control |
-| G2 | design → implementation | blocked |  /  |  /  | :  | handoff_review_not_supported, producer_and_receiver_required, input_evidence_required, output_evidence_required, control:DES-01, control:DES-02, control:SUP-01, control:GAT-01, no_applicable_supported_control |
-| G3 | implementation → verification | blocked |  /  |  /  | :  | handoff_review_not_supported, producer_and_receiver_required, input_evidence_required, output_evidence_required, control:IMP-01, control:IMP-02, control:PRE-01, control:CHG-01, no_applicable_supported_control |
-| G4 | verification → release | blocked |  /  |  /  | :  | handoff_review_not_supported, producer_and_receiver_required, input_evidence_required, output_evidence_required, control:VER-01, control:VER-02, control:VER-03, control:PRE-02, control:REL-01, control:REL-02, no_applicable_supported_control |
-| G5 | release → operations | blocked |  /  |  /  | :  | handoff_review_not_supported, producer_and_receiver_required, input_evidence_required, output_evidence_required, control:OPS-01, control:OPS-02, control:CAP-01, control:CAP-02, no_applicable_supported_control |
+| G1 | requirements → design | blocked |  /  |  /  | :  | handoff_review_not_supported, producer_and_receiver_required, input_evidence_required, output_evidence_required, control:REQ-01, control:REQ-02, control:RSK-01, no_applicable_supported_control, review_accountability_unestablished |
+| G2 | design → implementation | blocked |  /  |  /  | :  | handoff_review_not_supported, producer_and_receiver_required, input_evidence_required, output_evidence_required, control:DES-01, control:DES-02, control:SUP-01, control:GAT-01, no_applicable_supported_control, review_accountability_unestablished |
+| G3 | implementation → verification | blocked |  /  |  /  | :  | handoff_review_not_supported, producer_and_receiver_required, input_evidence_required, output_evidence_required, control:IMP-01, control:IMP-02, control:PRE-01, control:CHG-01, no_applicable_supported_control, review_accountability_unestablished |
+| G4 | verification → release | blocked |  /  |  /  | :  | handoff_review_not_supported, producer_and_receiver_required, input_evidence_required, output_evidence_required, control:VER-01, control:VER-02, control:VER-03, control:PRE-02, control:REL-01, control:REL-02, no_applicable_supported_control, review_accountability_unestablished |
+| G5 | release → operations | blocked |  /  |  /  | :  | handoff_review_not_supported, producer_and_receiver_required, input_evidence_required, output_evidence_required, control:OPS-01, control:OPS-02, control:CAP-01, control:CAP-02, no_applicable_supported_control, review_accountability_unestablished |
 
 ## Investigations
 

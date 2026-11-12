@@ -1,0 +1,25 @@
+{
+  "schema": "software-skill-record/1",
+  "skill": "apqp-stage-gates",
+  "skill_version": "2.0",
+  "revision": "",
+  "author": "",
+  "reviewer": "",
+  "status": "UNVERIFIED",
+  "criterion_targets": [
+    "GAT-01",
+    "DES-02"
+  ],
+  "observations": {
+    "gate": "",
+    "producer": "",
+    "receiver": "",
+    "input_artifacts": "",
+    "output_artifacts": "",
+    "entry_exit_criteria": "",
+    "exceptions": "",
+    "review_status": ""
+  },
+  "evidence": [],
+  "open_actions": []
+}

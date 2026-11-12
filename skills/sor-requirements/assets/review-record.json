@@ -1,0 +1,23 @@
+{
+  "schema": "software-skill-record/1",
+  "skill": "sor-requirements",
+  "skill_version": "2.0",
+  "revision": "",
+  "author": "",
+  "reviewer": "",
+  "status": "UNVERIFIED",
+  "criterion_targets": [
+    "REQ-01",
+    "REQ-02"
+  ],
+  "observations": {
+    "requirement_id": "",
+    "input": "",
+    "expected_output": "",
+    "invariant": "",
+    "assumption_or_decision": "",
+    "acceptance_check": ""
+  },
+  "evidence": [],
+  "open_actions": []
+}

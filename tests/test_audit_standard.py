@@ -1,5 +1,4 @@
 import copy
-import json
 from pathlib import Path
 import sys
 import tempfile
@@ -22,12 +21,15 @@ class StandardTests(unittest.TestCase):
         self.review = {**audit.blank_review(), "status": "supported", "score": 4,
                        "reviewer": "Fixture reviewer", "rationale": "Synthetic validation only", "evidence": ["E1"]}
         self.manifest = audit.new_manifest("snapshot", "Synthetic isolated tool tests")
+        self.manifest['author'] = 'Fixture implementer'
+        self.manifest['audit_context'] = {'type': 'first_party', 'relationship': 'independent', 'independence_rationale': 'Different fixture reviewer; synthetic attestation only.'}
         self.manifest["evidence"] = [evidence]
         self.manifest["scope_review"] = copy.deepcopy(self.review)
         self.manifest["processes"] = [{"id": "P1", "kind": "runtime", "owner": "Team", "input": "request", "output": "response"}]
         for item in self.manifest["assessments"]:
             for check in item["checks"]:
                 check.update(copy.deepcopy(self.review))
+                check['evidence_links'] = [{'evidence_id': 'E1', 'locator': 'Fixture scenario ' + check['id'], 'rationale': 'Synthetic positive control for ' + check['id'] + '; not a real audit.'}]
         for gate in self.manifest["gates"]:
             gate.update(producer="Producer", receiver="Receiver", input_evidence=["E1"], output_evidence=["E1"], review=copy.deepcopy(self.review))
 

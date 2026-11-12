@@ -1,14 +1,15 @@
 ---
 name: ecn-change-control
-description: Use when modifying existing APIs, schemas, workflows or contracts.
+description: Use for consequential interface, dependency, model, toolchain or behavior changes that require impact and compatibility review.
+metadata:
+  version: "2.0"
 ---
-# Engineering change control
+# Ecn Change Control
 
-## Trigger
-Use when modifying existing APIs, schemas, workflows or contracts.
+1. Record requested scope, existing authorization, affected producers/consumers and rollback or repair constraints. Separate consequential scope changes from routine reversible choices.
+2. Apply 4M change review as model/reviewer, tooling/runtime, dependencies/data and method/prompt. State which category changed and which prior evidence is invalidated.
+3. Trace downstream impact and authorized regression checks. Report out-of-scope findings without creating external issues or messages unless requested. Complete when affected contracts and residual risks are documented.
 
-## Operating rule
-Record request, approved scope, affected interfaces and rollback. Changes outside scope become separate issues. For destructive or compatibility-breaking change require owner approval. Verify downstream dependencies.
+## Output and evidence
 
-## Evidence and termination
-Use existing executable tooling first. Store full logs on disk; send only exit status, failing assertion, and at most 3 unique error signatures to the model. Report PASS only for executed checks, BLOCKED for failed mandatory checks, UNVERIFIED for unavailable checks. Stop at the defined gate; do not iterate without new evidence.
+Use [the blank output form](assets/output-template.md) for this workflow and [the portable record](assets/review-record.json) when transferring it to the auditor. Fill only observed facts; link raw evidence rather than copying logs into the conversation. A completed form is a document, not execution evidence or an automatic supported score.

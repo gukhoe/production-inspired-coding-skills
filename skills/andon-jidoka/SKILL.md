@@ -1,14 +1,15 @@
 ---
 name: andon-jidoka
-description: Use for failing safety gates, repeated errors or uncertain evidence.
+description: Use when a critical check, data integrity or security boundary fails and affected mutation or promotion must stop pending diagnosis.
+metadata:
+  version: "2.0"
 ---
-# Andon and Jidoka automatic stop
+# Andon Jidoka
 
-## Trigger
-Use for failing safety gates, repeated errors or uncertain evidence.
+1. Identify the stop trigger and affected operation; stop its mutation or promotion while preserving evidence.
+2. Continue read-only diagnosis and isolated reproduction where authorized. An unknown environment blocks environment-dependent claims, not all useful investigation.
+3. Define observable resumption conditions and the responsible reviewer. Resume only after those conditions are met; unavailable checks remain UNVERIFIED.
 
-## Operating rule
-Stop immediately on data loss, security regression, broken critical tests, unknown environment or repeat-failure budget exhaustion. Quarantine change, preserve logs and report BLOCKED or UNVERIFIED. Never silently continue.
+## Output and evidence
 
-## Evidence and termination
-Use existing executable tooling first. Store full logs on disk; send only exit status, failing assertion, and at most 3 unique error signatures to the model. Report PASS only for executed checks, BLOCKED for failed mandatory checks, UNVERIFIED for unavailable checks. Stop at the defined gate; do not iterate without new evidence.
+Use [the blank output form](assets/output-template.md) for this workflow and [the portable record](assets/review-record.json) when transferring it to the auditor. Fill only observed facts; link raw evidence rather than copying logs into the conversation. A completed form is a document, not execution evidence or an automatic supported score.

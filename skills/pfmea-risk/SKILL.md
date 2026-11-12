@@ -1,14 +1,15 @@
 ---
 name: pfmea-risk
-description: Use when business logic, state, security or persistence changes.
+description: Use when changing state, persistence, security boundaries or business rules to connect credible failure modes to preventive controls and tests.
+metadata:
+  version: "2.0"
 ---
-# PFMEA software risk analysis
+# Pfmea Risk
 
-## Trigger
-Use when business logic, state, security or persistence changes.
+1. Prioritize credible failure modes by effect and exposure; five is a starting shortlist, not a cap on severe risks. Separate causes from detection gaps.
+2. Record severity, occurrence and detection only against an explicit rubric with evidence; unknown stays unknown. Prefer action priority over multiplying ordinal scores. Use an authorized AP table if supplied; otherwise label high/medium/low as a project-specific software priority, never an official AP result.
+3. Trace each important mode to its actual prevention location, detection check, executed observation and owner. Severe effects remain visible regardless of aggregate score. Complete when each prioritized mode has a control or an explicitly open action.
 
-## Operating rule
-Identify up to five credible failure modes, effects, causes and controls. Rate severity, occurrence and detection 1-10 only if evidence allows; unknown stays unknown. High severity overrides low RPN. Convert highest risks to executable tests.
+## Output and evidence
 
-## Evidence and termination
-Use existing executable tooling first. Store full logs on disk; send only exit status, failing assertion, and at most 3 unique error signatures to the model. Report PASS only for executed checks, BLOCKED for failed mandatory checks, UNVERIFIED for unavailable checks. Stop at the defined gate; do not iterate without new evidence.
+Use [the blank output form](assets/output-template.md) for this workflow and [the portable record](assets/review-record.json) when transferring it to the auditor. Fill only observed facts; link raw evidence rather than copying logs into the conversation. A completed form is a document, not execution evidence or an automatic supported score.

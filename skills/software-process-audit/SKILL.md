@@ -5,7 +5,7 @@ description: Audit software against built-in prevention, stage-transition, failu
 
 # Software Assurance Auditor
 
-An initial translation of manufacturing audit and quality practices into software assurance. This skill is an optional workflow for the independent CLI/MCP tool. The original 16 coding skills and the audit tool can each be used without the other.
+An initial translation of manufacturing audit and quality practices into software assurance. This skill is an optional workflow for the independent CLI/MCP tool. The 16 coding skills and the audit tool can each be used without the other.
 
 ## Audit workflow
 
@@ -17,6 +17,10 @@ An initial translation of manufacturing audit and quality practices into softwar
 6. Call `audit_evaluate` or `report --strict`. Use the generated fixed report and next actions; retain its IDs, rows, values, unknowns and version markers. Add narrative outside the standard tables. Completion: scores AND coverage, checkpoint findings, improvements, handoff blockers, open risks, verification evidence and limitations reach the user.
 
 ## Evidence discipline
+
+Record the change author, audit type and reviewer relationship before claiming independent review. For evidence reused across more than three checkpoints, add `evidence_links` with a checkpoint-specific locator and rationale. Aliases with the same file hash count as the same evidence. Self-review is useful for finding issues but cannot establish independent scope support. These assertions are not authenticated identities.
+
+Use `manifest_path` instead of inline `manifest` for large MCP assessments. The CLI-only `witness` command can run an explicitly authorized command and bind its logs to selected source hashes; it is not a sandbox, signed attestation or proof that the test is adequate. MCP remains read-only. Imported SARIF results remain candidates until context and discriminating tests establish a finding.
 
 For interface weaknesses, retries, communication failures or security boundaries, read [connection review](references/connection-review.md). It covers the independent source mapper, connection probes and evidence-backed risk view. Use this branch when connections are material to the requested audit.
 

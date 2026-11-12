@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "report_template_version": "1.0",
-  "standard_version": "0.2.0",
+  "standard_version": "0.3.0",
   "input_schema_version": 2,
   "scope": "Blank standard form; no project has been audited",
   "revision": "UNASSESSED-SNAPSHOT",
@@ -10,9 +10,27 @@
     "unverified": 24
   },
   "scope_issues": [
+    "audit_author_required",
+    "independent_review_not_established",
     "scope_completeness_unverified",
     "process_inventory_empty"
   ],
+  "assurance": {
+    "policy_version": "1.0",
+    "author": "",
+    "audit_context": {
+      "type": "first_party",
+      "relationship": "unverified",
+      "independence_rationale": ""
+    },
+    "issues": [
+      "audit_author_required",
+      "independent_review_not_established"
+    ],
+    "independence": "unestablished",
+    "execution_provenance": "Self-reported unless a local witness receipt is separately verified; no CI identity attestation is verified.",
+    "limitation": "Names, relationships and locator rationales are reviewer assertions, not authenticated identity or semantic proof. The engine cannot establish that a log is truthful or adequate."
+  },
   "scope_review": {
     "claimed_status": "unverified",
     "status": "unverified",
@@ -25,6 +43,7 @@
     "owner": "",
     "due": "",
     "evidence": [],
+    "evidence_links": [],
     "issues": []
   },
   "controls": [
@@ -37,7 +56,11 @@
       "checks": [
         {
           "id": "REQ-01.1",
-          "question": "Identify the user-visible outcome",
+          "question": "Identify a measurable user-visible outcome and its source",
+          "evidence_mode": "inspection",
+          "successful_execution_required_for_support": false,
+          "score_3_anchor": "The current artifact was inspected; a relevant source, consumer or contradiction cross-check remains incomplete.",
+          "score_4_anchor": "Cross-check the current artifact against referenced source, contract or receiving-party evidence; resolve contradictions or keep them open. A document title alone is insufficient.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -49,11 +72,16 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         },
         {
           "id": "REQ-01.2",
-          "question": "Define observable acceptance limits before implementation",
+          "question": "Define acceptance limits and at least one rejecting condition before implementation",
+          "evidence_mode": "inspection",
+          "successful_execution_required_for_support": false,
+          "score_3_anchor": "The current artifact was inspected; a relevant source, consumer or contradiction cross-check remains incomplete.",
+          "score_4_anchor": "Cross-check the current artifact against referenced source, contract or receiving-party evidence; resolve contradictions or keep them open. A document title alone is insufficient.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -65,11 +93,16 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         },
         {
           "id": "REQ-01.3",
-          "question": "Trace each selected requirement to a verification scenario",
+          "question": "Trace each selected requirement to a verification scenario and oracle",
+          "evidence_mode": "inspection",
+          "successful_execution_required_for_support": false,
+          "score_3_anchor": "The current artifact was inspected; a relevant source, consumer or contradiction cross-check remains incomplete.",
+          "score_4_anchor": "Cross-check the current artifact against referenced source, contract or receiving-party evidence; resolve contradictions or keep them open. A document title alone is insufficient.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -81,6 +114,7 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         }
       ],
@@ -99,6 +133,10 @@
         {
           "id": "REQ-02.1",
           "question": "State critical use and misuse scenarios",
+          "evidence_mode": "inspection",
+          "successful_execution_required_for_support": false,
+          "score_3_anchor": "The current artifact was inspected; a relevant source, consumer or contradiction cross-check remains incomplete.",
+          "score_4_anchor": "Cross-check the current artifact against referenced source, contract or receiving-party evidence; resolve contradictions or keep them open. A document title alone is insufficient.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -110,11 +148,16 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         },
         {
           "id": "REQ-02.2",
           "question": "Record exclusions and affected users",
+          "evidence_mode": "inspection",
+          "successful_execution_required_for_support": false,
+          "score_3_anchor": "The current artifact was inspected; a relevant source, consumer or contradiction cross-check remains incomplete.",
+          "score_4_anchor": "Cross-check the current artifact against referenced source, contract or receiving-party evidence; resolve contradictions or keep them open. A document title alone is insufficient.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -126,11 +169,16 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         },
         {
           "id": "REQ-02.3",
           "question": "Define unacceptable data/state outcomes",
+          "evidence_mode": "inspection",
+          "successful_execution_required_for_support": false,
+          "score_3_anchor": "The current artifact was inspected; a relevant source, consumer or contradiction cross-check remains incomplete.",
+          "score_4_anchor": "Cross-check the current artifact against referenced source, contract or receiving-party evidence; resolve contradictions or keep them open. A document title alone is insufficient.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -142,6 +190,7 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         }
       ],
@@ -159,7 +208,11 @@
       "checks": [
         {
           "id": "DES-01.1",
-          "question": "Name inputs and outputs",
+          "question": "Check input/output contracts against selected producers and consumers",
+          "evidence_mode": "inspection",
+          "successful_execution_required_for_support": false,
+          "score_3_anchor": "The current artifact was inspected; a relevant source, consumer or contradiction cross-check remains incomplete.",
+          "score_4_anchor": "Cross-check the current artifact against referenced source, contract or receiving-party evidence; resolve contradictions or keep them open. A document title alone is insufficient.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -171,11 +224,16 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         },
         {
           "id": "DES-01.2",
-          "question": "Identify accountable owner and consumer",
+          "question": "Identify the accountable owner and receiving consumer",
+          "evidence_mode": "inspection",
+          "successful_execution_required_for_support": false,
+          "score_3_anchor": "The current artifact was inspected; a relevant source, consumer or contradiction cross-check remains incomplete.",
+          "score_4_anchor": "Cross-check the current artifact against referenced source, contract or receiving-party evidence; resolve contradictions or keep them open. A document title alone is insufficient.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -187,11 +245,16 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         },
         {
           "id": "DES-01.3",
-          "question": "Define state and lifetime invariants",
+          "question": "Define state and lifetime invariants, including invalid transitions",
+          "evidence_mode": "inspection",
+          "successful_execution_required_for_support": false,
+          "score_3_anchor": "The current artifact was inspected; a relevant source, consumer or contradiction cross-check remains incomplete.",
+          "score_4_anchor": "Cross-check the current artifact against referenced source, contract or receiving-party evidence; resolve contradictions or keep them open. A document title alone is insufficient.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -203,6 +266,7 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         }
       ],
@@ -221,6 +285,10 @@
         {
           "id": "DES-02.1",
           "question": "Review both sides of each selected interface",
+          "evidence_mode": "inspection",
+          "successful_execution_required_for_support": false,
+          "score_3_anchor": "The current artifact was inspected; a relevant source, consumer or contradiction cross-check remains incomplete.",
+          "score_4_anchor": "Cross-check the current artifact against referenced source, contract or receiving-party evidence; resolve contradictions or keep them open. A document title alone is insufficient.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -232,11 +300,16 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         },
         {
           "id": "DES-02.2",
           "question": "Specify error, timeout and cancellation behavior",
+          "evidence_mode": "inspection",
+          "successful_execution_required_for_support": false,
+          "score_3_anchor": "The current artifact was inspected; a relevant source, consumer or contradiction cross-check remains incomplete.",
+          "score_4_anchor": "Cross-check the current artifact against referenced source, contract or receiving-party evidence; resolve contradictions or keep them open. A document title alone is insufficient.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -248,11 +321,16 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         },
         {
           "id": "DES-02.3",
           "question": "Trace shared-state and version compatibility assumptions",
+          "evidence_mode": "inspection",
+          "successful_execution_required_for_support": false,
+          "score_3_anchor": "The current artifact was inspected; a relevant source, consumer or contradiction cross-check remains incomplete.",
+          "score_4_anchor": "Cross-check the current artifact against referenced source, contract or receiving-party evidence; resolve contradictions or keep them open. A document title alone is insufficient.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -264,6 +342,7 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         }
       ],
@@ -282,6 +361,10 @@
         {
           "id": "SUP-01.1",
           "question": "Identify external services and version/configuration dependencies",
+          "evidence_mode": "inspection",
+          "successful_execution_required_for_support": false,
+          "score_3_anchor": "The current artifact was inspected; a relevant source, consumer or contradiction cross-check remains incomplete.",
+          "score_4_anchor": "Cross-check the current artifact against referenced source, contract or receiving-party evidence; resolve contradictions or keep them open. A document title alone is insufficient.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -293,11 +376,16 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         },
         {
           "id": "SUP-01.2",
           "question": "Review change and outage handling",
+          "evidence_mode": "inspection",
+          "successful_execution_required_for_support": false,
+          "score_3_anchor": "The current artifact was inspected; a relevant source, consumer or contradiction cross-check remains incomplete.",
+          "score_4_anchor": "Cross-check the current artifact against referenced source, contract or receiving-party evidence; resolve contradictions or keep them open. A document title alone is insufficient.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -309,11 +397,16 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         },
         {
           "id": "SUP-01.3",
           "question": "Record provenance and replacement/recovery strategy",
+          "evidence_mode": "inspection",
+          "successful_execution_required_for_support": false,
+          "score_3_anchor": "The current artifact was inspected; a relevant source, consumer or contradiction cross-check remains incomplete.",
+          "score_4_anchor": "Cross-check the current artifact against referenced source, contract or receiving-party evidence; resolve contradictions or keep them open. A document title alone is insufficient.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -325,6 +418,7 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         }
       ],
@@ -343,6 +437,10 @@
         {
           "id": "IMP-01.1",
           "question": "Link source changes to acceptance requirements",
+          "evidence_mode": "inspection",
+          "successful_execution_required_for_support": false,
+          "score_3_anchor": "The current artifact was inspected; a relevant source, consumer or contradiction cross-check remains incomplete.",
+          "score_4_anchor": "Cross-check the current artifact against referenced source, contract or receiving-party evidence; resolve contradictions or keep them open. A document title alone is insufficient.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -354,11 +452,16 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         },
         {
           "id": "IMP-01.2",
           "question": "Review changed and shared paths",
+          "evidence_mode": "inspection",
+          "successful_execution_required_for_support": false,
+          "score_3_anchor": "The current artifact was inspected; a relevant source, consumer or contradiction cross-check remains incomplete.",
+          "score_4_anchor": "Cross-check the current artifact against referenced source, contract or receiving-party evidence; resolve contradictions or keep them open. A document title alone is insufficient.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -370,11 +473,16 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         },
         {
           "id": "IMP-01.3",
           "question": "Preserve source identity and review rationale",
+          "evidence_mode": "inspection",
+          "successful_execution_required_for_support": false,
+          "score_3_anchor": "The current artifact was inspected; a relevant source, consumer or contradiction cross-check remains incomplete.",
+          "score_4_anchor": "Cross-check the current artifact against referenced source, contract or receiving-party evidence; resolve contradictions or keep them open. A document title alone is insufficient.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -386,6 +494,7 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         }
       ],
@@ -404,6 +513,10 @@
         {
           "id": "IMP-02.1",
           "question": "Reject invalid or unauthorized actions before mutation",
+          "evidence_mode": "execution",
+          "successful_execution_required_for_support": true,
+          "score_3_anchor": "A relevant normal execution passed; applicable adverse/recovery checks remain incomplete.",
+          "score_4_anchor": "Successful evidence covers this checkpoint's applicable normal and adverse/recovery conditions; record scope and oracle limits.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -415,11 +528,16 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         },
         {
           "id": "IMP-02.2",
           "question": "Handle duplicate/stale observations",
+          "evidence_mode": "execution",
+          "successful_execution_required_for_support": true,
+          "score_3_anchor": "A relevant normal execution passed; applicable adverse/recovery checks remain incomplete.",
+          "score_4_anchor": "Successful evidence covers this checkpoint's applicable normal and adverse/recovery conditions; record scope and oracle limits.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -431,11 +549,16 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         },
         {
           "id": "IMP-02.3",
           "question": "Test protected data and other-user isolation",
+          "evidence_mode": "execution",
+          "successful_execution_required_for_support": true,
+          "score_3_anchor": "A relevant normal execution passed; applicable adverse/recovery checks remain incomplete.",
+          "score_4_anchor": "Successful evidence covers this checkpoint's applicable normal and adverse/recovery conditions; record scope and oracle limits.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -447,6 +570,7 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         }
       ],
@@ -465,6 +589,10 @@
         {
           "id": "VER-01.1",
           "question": "Use observable assertions tied to requirements",
+          "evidence_mode": "inspection",
+          "successful_execution_required_for_support": false,
+          "score_3_anchor": "The current artifact was inspected; a relevant source, consumer or contradiction cross-check remains incomplete.",
+          "score_4_anchor": "Cross-check the current artifact against referenced source, contract or receiving-party evidence; resolve contradictions or keep them open. A document title alone is insufficient.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -476,11 +604,16 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         },
         {
           "id": "VER-01.2",
           "question": "Show the oracle rejects an incorrect result",
+          "evidence_mode": "execution",
+          "successful_execution_required_for_support": true,
+          "score_3_anchor": "A relevant normal execution passed; applicable adverse/recovery checks remain incomplete.",
+          "score_4_anchor": "Successful evidence covers this checkpoint's applicable normal and adverse/recovery conditions; record scope and oracle limits.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -492,11 +625,16 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         },
         {
           "id": "VER-01.3",
           "question": "Explain fixture limitations and untested behaviors",
+          "evidence_mode": "inspection",
+          "successful_execution_required_for_support": false,
+          "score_3_anchor": "The current artifact was inspected; a relevant source, consumer or contradiction cross-check remains incomplete.",
+          "score_4_anchor": "Cross-check the current artifact against referenced source, contract or receiving-party evidence; resolve contradictions or keep them open. A document title alone is insufficient.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -508,6 +646,7 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         }
       ],
@@ -526,6 +665,10 @@
         {
           "id": "VER-02.1",
           "question": "Exercise malformed/failed inputs",
+          "evidence_mode": "execution",
+          "successful_execution_required_for_support": true,
+          "score_3_anchor": "A relevant normal execution passed; applicable adverse/recovery checks remain incomplete.",
+          "score_4_anchor": "Successful evidence covers this checkpoint's applicable normal and adverse/recovery conditions; record scope and oracle limits.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -537,11 +680,16 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         },
         {
           "id": "VER-02.2",
           "question": "Exercise delay, cancellation and partial completion",
+          "evidence_mode": "execution",
+          "successful_execution_required_for_support": true,
+          "score_3_anchor": "A relevant normal execution passed; applicable adverse/recovery checks remain incomplete.",
+          "score_4_anchor": "Successful evidence covers this checkpoint's applicable normal and adverse/recovery conditions; record scope and oracle limits.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -553,11 +701,16 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         },
         {
           "id": "VER-02.3",
           "question": "Verify the downstream state after failure and recovery",
+          "evidence_mode": "execution",
+          "successful_execution_required_for_support": true,
+          "score_3_anchor": "A relevant normal execution passed; applicable adverse/recovery checks remain incomplete.",
+          "score_4_anchor": "Successful evidence covers this checkpoint's applicable normal and adverse/recovery conditions; record scope and oracle limits.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -569,6 +722,7 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         }
       ],
@@ -587,6 +741,10 @@
         {
           "id": "VER-03.1",
           "question": "Bind results to source and environment",
+          "evidence_mode": "inspection",
+          "successful_execution_required_for_support": false,
+          "score_3_anchor": "The current artifact was inspected; a relevant source, consumer or contradiction cross-check remains incomplete.",
+          "score_4_anchor": "Cross-check the current artifact against referenced source, contract or receiving-party evidence; resolve contradictions or keep them open. A document title alone is insufficient.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -598,11 +756,16 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         },
         {
           "id": "VER-03.2",
           "question": "Retain exact commands and raw outputs",
+          "evidence_mode": "inspection",
+          "successful_execution_required_for_support": false,
+          "score_3_anchor": "The current artifact was inspected; a relevant source, consumer or contradiction cross-check remains incomplete.",
+          "score_4_anchor": "Cross-check the current artifact against referenced source, contract or receiving-party evidence; resolve contradictions or keep them open. A document title alone is insufficient.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -614,11 +777,16 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         },
         {
           "id": "VER-03.3",
           "question": "Distinguish fresh runs from historical claims",
+          "evidence_mode": "execution",
+          "successful_execution_required_for_support": true,
+          "score_3_anchor": "A relevant normal execution passed; applicable adverse/recovery checks remain incomplete.",
+          "score_4_anchor": "Successful evidence covers this checkpoint's applicable normal and adverse/recovery conditions; record scope and oracle limits.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -630,6 +798,7 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         }
       ],
@@ -648,6 +817,10 @@
         {
           "id": "REL-01.1",
           "question": "Identify reproducible build inputs and output artifacts",
+          "evidence_mode": "execution",
+          "successful_execution_required_for_support": true,
+          "score_3_anchor": "A relevant normal execution passed; applicable adverse/recovery checks remain incomplete.",
+          "score_4_anchor": "Successful evidence covers this checkpoint's applicable normal and adverse/recovery conditions; record scope and oracle limits.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -659,11 +832,16 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         },
         {
           "id": "REL-01.2",
           "question": "Verify configuration and dependency provenance",
+          "evidence_mode": "inspection",
+          "successful_execution_required_for_support": false,
+          "score_3_anchor": "The current artifact was inspected; a relevant source, consumer or contradiction cross-check remains incomplete.",
+          "score_4_anchor": "Cross-check the current artifact against referenced source, contract or receiving-party evidence; resolve contradictions or keep them open. A document title alone is insufficient.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -675,11 +853,16 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         },
         {
           "id": "REL-01.3",
           "question": "Distinguish candidate from installed and live evidence",
+          "evidence_mode": "inspection",
+          "successful_execution_required_for_support": false,
+          "score_3_anchor": "The current artifact was inspected; a relevant source, consumer or contradiction cross-check remains incomplete.",
+          "score_4_anchor": "Cross-check the current artifact against referenced source, contract or receiving-party evidence; resolve contradictions or keep them open. A document title alone is insufficient.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -691,6 +874,7 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         }
       ],
@@ -709,6 +893,10 @@
         {
           "id": "REL-02.1",
           "question": "Test backward/forward compatibility as applicable",
+          "evidence_mode": "execution",
+          "successful_execution_required_for_support": true,
+          "score_3_anchor": "A relevant normal execution passed; applicable adverse/recovery checks remain incomplete.",
+          "score_4_anchor": "Successful evidence covers this checkpoint's applicable normal and adverse/recovery conditions; record scope and oracle limits.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -720,11 +908,16 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         },
         {
           "id": "REL-02.2",
           "question": "Interrupt a migration or installation safely",
+          "evidence_mode": "execution",
+          "successful_execution_required_for_support": true,
+          "score_3_anchor": "A relevant normal execution passed; applicable adverse/recovery checks remain incomplete.",
+          "score_4_anchor": "Successful evidence covers this checkpoint's applicable normal and adverse/recovery conditions; record scope and oracle limits.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -736,11 +929,16 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         },
         {
           "id": "REL-02.3",
           "question": "Verify rollback restores a consistent usable state",
+          "evidence_mode": "execution",
+          "successful_execution_required_for_support": true,
+          "score_3_anchor": "A relevant normal execution passed; applicable adverse/recovery checks remain incomplete.",
+          "score_4_anchor": "Successful evidence covers this checkpoint's applicable normal and adverse/recovery conditions; record scope and oracle limits.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -752,6 +950,7 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         }
       ],
@@ -770,6 +969,10 @@
         {
           "id": "OPS-01.1",
           "question": "Detect failed and stalled work",
+          "evidence_mode": "execution",
+          "successful_execution_required_for_support": true,
+          "score_3_anchor": "A relevant normal execution passed; applicable adverse/recovery checks remain incomplete.",
+          "score_4_anchor": "Successful evidence covers this checkpoint's applicable normal and adverse/recovery conditions; record scope and oracle limits.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -781,11 +984,16 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         },
         {
           "id": "OPS-01.2",
           "question": "Provide actionable diagnostics without sensitive leakage",
+          "evidence_mode": "execution",
+          "successful_execution_required_for_support": true,
+          "score_3_anchor": "A relevant normal execution passed; applicable adverse/recovery checks remain incomplete.",
+          "score_4_anchor": "Successful evidence covers this checkpoint's applicable normal and adverse/recovery conditions; record scope and oracle limits.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -797,11 +1005,16 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         },
         {
           "id": "OPS-01.3",
           "question": "Distinguish healthy service response from useful workflow progress",
+          "evidence_mode": "execution",
+          "successful_execution_required_for_support": true,
+          "score_3_anchor": "A relevant normal execution passed; applicable adverse/recovery checks remain incomplete.",
+          "score_4_anchor": "Successful evidence covers this checkpoint's applicable normal and adverse/recovery conditions; record scope and oracle limits.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -813,6 +1026,7 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         }
       ],
@@ -831,6 +1045,10 @@
         {
           "id": "OPS-02.1",
           "question": "Bound recovery and retries",
+          "evidence_mode": "execution",
+          "successful_execution_required_for_support": true,
+          "score_3_anchor": "A relevant normal execution passed; applicable adverse/recovery checks remain incomplete.",
+          "score_4_anchor": "Successful evidence covers this checkpoint's applicable normal and adverse/recovery conditions; record scope and oracle limits.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -842,11 +1060,16 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         },
         {
           "id": "OPS-02.2",
           "question": "Test degraded mode and cancellation",
+          "evidence_mode": "execution",
+          "successful_execution_required_for_support": true,
+          "score_3_anchor": "A relevant normal execution passed; applicable adverse/recovery checks remain incomplete.",
+          "score_4_anchor": "Successful evidence covers this checkpoint's applicable normal and adverse/recovery conditions; record scope and oracle limits.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -858,11 +1081,16 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         },
         {
           "id": "OPS-02.3",
           "question": "Verify progress resumes without harming adjacent users",
+          "evidence_mode": "execution",
+          "successful_execution_required_for_support": true,
+          "score_3_anchor": "A relevant normal execution passed; applicable adverse/recovery checks remain incomplete.",
+          "score_4_anchor": "Successful evidence covers this checkpoint's applicable normal and adverse/recovery conditions; record scope and oracle limits.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -874,6 +1102,7 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         }
       ],
@@ -892,6 +1121,10 @@
         {
           "id": "CHG-01.1",
           "question": "Trace callers and downstream consumers",
+          "evidence_mode": "inspection",
+          "successful_execution_required_for_support": false,
+          "score_3_anchor": "The current artifact was inspected; a relevant source, consumer or contradiction cross-check remains incomplete.",
+          "score_4_anchor": "Cross-check the current artifact against referenced source, contract or receiving-party evidence; resolve contradictions or keep them open. A document title alone is insufficient.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -903,11 +1136,16 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         },
         {
           "id": "CHG-01.2",
           "question": "Check shared data/configuration/process boundaries",
+          "evidence_mode": "inspection",
+          "successful_execution_required_for_support": false,
+          "score_3_anchor": "The current artifact was inspected; a relevant source, consumer or contradiction cross-check remains incomplete.",
+          "score_4_anchor": "Cross-check the current artifact against referenced source, contract or receiving-party evidence; resolve contradictions or keep them open. A document title alone is insufficient.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -919,11 +1157,16 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         },
         {
           "id": "CHG-01.3",
           "question": "Exercise an affected neighboring workflow",
+          "evidence_mode": "execution",
+          "successful_execution_required_for_support": true,
+          "score_3_anchor": "A relevant normal execution passed; applicable adverse/recovery checks remain incomplete.",
+          "score_4_anchor": "Successful evidence covers this checkpoint's applicable normal and adverse/recovery conditions; record scope and oracle limits.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -935,6 +1178,7 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         }
       ],
@@ -953,6 +1197,10 @@
         {
           "id": "RSK-01.1",
           "question": "State failure and user impact",
+          "evidence_mode": "inspection",
+          "successful_execution_required_for_support": false,
+          "score_3_anchor": "The current artifact was inspected; a relevant source, consumer or contradiction cross-check remains incomplete.",
+          "score_4_anchor": "Cross-check the current artifact against referenced source, contract or receiving-party evidence; resolve contradictions or keep them open. A document title alone is insufficient.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -964,11 +1212,16 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         },
         {
           "id": "RSK-01.2",
           "question": "Identify prevention, detection and containment gaps",
+          "evidence_mode": "inspection",
+          "successful_execution_required_for_support": false,
+          "score_3_anchor": "The current artifact was inspected; a relevant source, consumer or contradiction cross-check remains incomplete.",
+          "score_4_anchor": "Cross-check the current artifact against referenced source, contract or receiving-party evidence; resolve contradictions or keep them open. A document title alone is insufficient.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -980,11 +1233,16 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         },
         {
           "id": "RSK-01.3",
           "question": "Preserve unknown likelihood and unresolved severe effects",
+          "evidence_mode": "inspection",
+          "successful_execution_required_for_support": false,
+          "score_3_anchor": "The current artifact was inspected; a relevant source, consumer or contradiction cross-check remains incomplete.",
+          "score_4_anchor": "Cross-check the current artifact against referenced source, contract or receiving-party evidence; resolve contradictions or keep them open. A document title alone is insufficient.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -996,6 +1254,7 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         }
       ],
@@ -1014,6 +1273,10 @@
         {
           "id": "CAP-01.1",
           "question": "Assign corrective action owner and due date",
+          "evidence_mode": "inspection",
+          "successful_execution_required_for_support": false,
+          "score_3_anchor": "The current artifact was inspected; a relevant source, consumer or contradiction cross-check remains incomplete.",
+          "score_4_anchor": "Cross-check the current artifact against referenced source, contract or receiving-party evidence; resolve contradictions or keep them open. A document title alone is insufficient.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -1025,11 +1288,16 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         },
         {
           "id": "CAP-01.2",
           "question": "Link action to a specific finding",
+          "evidence_mode": "inspection",
+          "successful_execution_required_for_support": false,
+          "score_3_anchor": "The current artifact was inspected; a relevant source, consumer or contradiction cross-check remains incomplete.",
+          "score_4_anchor": "Cross-check the current artifact against referenced source, contract or receiving-party evidence; resolve contradictions or keep them open. A document title alone is insufficient.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -1041,11 +1309,16 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         },
         {
           "id": "CAP-01.3",
           "question": "Require effectiveness evidence before closure",
+          "evidence_mode": "inspection",
+          "successful_execution_required_for_support": false,
+          "score_3_anchor": "The current artifact was inspected; a relevant source, consumer or contradiction cross-check remains incomplete.",
+          "score_4_anchor": "Cross-check the current artifact against referenced source, contract or receiving-party evidence; resolve contradictions or keep them open. A document title alone is insufficient.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -1057,6 +1330,7 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         }
       ],
@@ -1075,6 +1349,10 @@
         {
           "id": "MAP-01.1",
           "question": "Map intended workflows and development stages",
+          "evidence_mode": "inspection",
+          "successful_execution_required_for_support": false,
+          "score_3_anchor": "The current artifact was inspected; a relevant source, consumer or contradiction cross-check remains incomplete.",
+          "score_4_anchor": "Cross-check the current artifact against referenced source, contract or receiving-party evidence; resolve contradictions or keep them open. A document title alone is insufficient.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -1086,11 +1364,16 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         },
         {
           "id": "MAP-01.2",
           "question": "Compare the map to actual source and interfaces",
+          "evidence_mode": "inspection",
+          "successful_execution_required_for_support": false,
+          "score_3_anchor": "The current artifact was inspected; a relevant source, consumer or contradiction cross-check remains incomplete.",
+          "score_4_anchor": "Cross-check the current artifact against referenced source, contract or receiving-party evidence; resolve contradictions or keep them open. A document title alone is insufficient.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -1102,11 +1385,16 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         },
         {
           "id": "MAP-01.3",
           "question": "Explain sampling, missing links and exclusions",
+          "evidence_mode": "inspection",
+          "successful_execution_required_for_support": false,
+          "score_3_anchor": "The current artifact was inspected; a relevant source, consumer or contradiction cross-check remains incomplete.",
+          "score_4_anchor": "Cross-check the current artifact against referenced source, contract or receiving-party evidence; resolve contradictions or keep them open. A document title alone is insufficient.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -1118,6 +1406,7 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         }
       ],
@@ -1135,7 +1424,11 @@
       "checks": [
         {
           "id": "PRE-01.1",
-          "question": "Identify a harmful action before it occurs",
+          "question": "Identify the harmful action, affected state and control location before it occurs",
+          "evidence_mode": "inspection",
+          "successful_execution_required_for_support": false,
+          "score_3_anchor": "The current artifact was inspected; a relevant source, consumer or contradiction cross-check remains incomplete.",
+          "score_4_anchor": "Cross-check the current artifact against referenced source, contract or receiving-party evidence; resolve contradictions or keep them open. A document title alone is insufficient.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -1147,11 +1440,16 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         },
         {
           "id": "PRE-01.2",
-          "question": "Place a fail-safe admission guard at the actual boundary",
+          "question": "Inspect the admission guard at the actual boundary and its bypass paths",
+          "evidence_mode": "inspection",
+          "successful_execution_required_for_support": false,
+          "score_3_anchor": "The current artifact was inspected; a relevant source, consumer or contradiction cross-check remains incomplete.",
+          "score_4_anchor": "Cross-check the current artifact against referenced source, contract or receiving-party evidence; resolve contradictions or keep them open. A document title alone is insufficient.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -1163,11 +1461,16 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         },
         {
           "id": "PRE-01.3",
-          "question": "Challenge the guard with invalid, stale or competing inputs",
+          "question": "Execute invalid, stale or competing inputs and verify rejection before harmful mutation",
+          "evidence_mode": "execution",
+          "successful_execution_required_for_support": true,
+          "score_3_anchor": "A relevant normal execution passed; applicable adverse/recovery checks remain incomplete.",
+          "score_4_anchor": "Successful evidence covers this checkpoint's applicable normal and adverse/recovery conditions; record scope and oracle limits.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -1179,6 +1482,7 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         }
       ],
@@ -1197,6 +1501,10 @@
         {
           "id": "PRE-02.1",
           "question": "Define a stop/containment trigger",
+          "evidence_mode": "inspection",
+          "successful_execution_required_for_support": false,
+          "score_3_anchor": "The current artifact was inspected; a relevant source, consumer or contradiction cross-check remains incomplete.",
+          "score_4_anchor": "Cross-check the current artifact against referenced source, contract or receiving-party evidence; resolve contradictions or keep them open. A document title alone is insufficient.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -1208,11 +1516,16 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         },
         {
           "id": "PRE-02.2",
           "question": "Preserve recoverable state and isolate affected work",
+          "evidence_mode": "execution",
+          "successful_execution_required_for_support": true,
+          "score_3_anchor": "A relevant normal execution passed; applicable adverse/recovery checks remain incomplete.",
+          "score_4_anchor": "Successful evidence covers this checkpoint's applicable normal and adverse/recovery conditions; record scope and oracle limits.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -1224,11 +1537,16 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         },
         {
           "id": "PRE-02.3",
           "question": "Exercise safe stop and controlled resumption",
+          "evidence_mode": "execution",
+          "successful_execution_required_for_support": true,
+          "score_3_anchor": "A relevant normal execution passed; applicable adverse/recovery checks remain incomplete.",
+          "score_4_anchor": "Successful evidence covers this checkpoint's applicable normal and adverse/recovery conditions; record scope and oracle limits.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -1240,6 +1558,7 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         }
       ],
@@ -1258,6 +1577,10 @@
         {
           "id": "GAT-01.1",
           "question": "Record stage entry/exit criteria",
+          "evidence_mode": "inspection",
+          "successful_execution_required_for_support": false,
+          "score_3_anchor": "The current artifact was inspected; a relevant source, consumer or contradiction cross-check remains incomplete.",
+          "score_4_anchor": "Cross-check the current artifact against referenced source, contract or receiving-party evidence; resolve contradictions or keep them open. A document title alone is insufficient.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -1269,11 +1592,16 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         },
         {
           "id": "GAT-01.2",
           "question": "Identify versioned handoff inputs and outputs",
+          "evidence_mode": "inspection",
+          "successful_execution_required_for_support": false,
+          "score_3_anchor": "The current artifact was inspected; a relevant source, consumer or contradiction cross-check remains incomplete.",
+          "score_4_anchor": "Cross-check the current artifact against referenced source, contract or receiving-party evidence; resolve contradictions or keep them open. A document title alone is insufficient.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -1285,11 +1613,16 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         },
         {
           "id": "GAT-01.3",
           "question": "Have the receiving owner review unresolved exceptions",
+          "evidence_mode": "inspection",
+          "successful_execution_required_for_support": false,
+          "score_3_anchor": "The current artifact was inspected; a relevant source, consumer or contradiction cross-check remains incomplete.",
+          "score_4_anchor": "Cross-check the current artifact against referenced source, contract or receiving-party evidence; resolve contradictions or keep them open. A document title alone is insufficient.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -1301,6 +1634,7 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         }
       ],
@@ -1318,7 +1652,11 @@
       "checks": [
         {
           "id": "DIA-01.1",
-          "question": "Define expected versus observed behavior",
+          "question": "Compare expected and observed behavior using current records",
+          "evidence_mode": "inspection",
+          "successful_execution_required_for_support": false,
+          "score_3_anchor": "The current artifact was inspected; a relevant source, consumer or contradiction cross-check remains incomplete.",
+          "score_4_anchor": "Cross-check the current artifact against referenced source, contract or receiving-party evidence; resolve contradictions or keep them open. A document title alone is insufficient.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -1330,11 +1668,16 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         },
         {
           "id": "DIA-01.2",
-          "question": "Reproduce or explicitly retain reproduction as unknown",
+          "question": "Reproduce the failure or keep reproduction explicitly unverified",
+          "evidence_mode": "execution",
+          "successful_execution_required_for_support": true,
+          "score_3_anchor": "A relevant normal execution passed; applicable adverse/recovery checks remain incomplete.",
+          "score_4_anchor": "Successful evidence covers this checkpoint's applicable normal and adverse/recovery conditions; record scope and oracle limits.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -1346,11 +1689,16 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         },
         {
           "id": "DIA-01.3",
-          "question": "Separate observations from competing explanations",
+          "question": "Separate observations from competing explanations and contradictory evidence",
+          "evidence_mode": "inspection",
+          "successful_execution_required_for_support": false,
+          "score_3_anchor": "The current artifact was inspected; a relevant source, consumer or contradiction cross-check remains incomplete.",
+          "score_4_anchor": "Cross-check the current artifact against referenced source, contract or receiving-party evidence; resolve contradictions or keep them open. A document title alone is insufficient.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -1362,6 +1710,7 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         }
       ],
@@ -1380,6 +1729,10 @@
         {
           "id": "DIA-02.1",
           "question": "Propose a cause and a falsifying experiment",
+          "evidence_mode": "inspection",
+          "successful_execution_required_for_support": false,
+          "score_3_anchor": "The current artifact was inspected; a relevant source, consumer or contradiction cross-check remains incomplete.",
+          "score_4_anchor": "Cross-check the current artifact against referenced source, contract or receiving-party evidence; resolve contradictions or keep them open. A document title alone is insufficient.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -1391,11 +1744,16 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         },
         {
           "id": "DIA-02.2",
           "question": "Compare affected and unaffected conditions",
+          "evidence_mode": "execution",
+          "successful_execution_required_for_support": true,
+          "score_3_anchor": "A relevant normal execution passed; applicable adverse/recovery checks remain incomplete.",
+          "score_4_anchor": "Successful evidence covers this checkpoint's applicable normal and adverse/recovery conditions; record scope and oracle limits.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -1407,11 +1765,16 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         },
         {
           "id": "DIA-02.3",
           "question": "Confirm the cause through the actual failing path",
+          "evidence_mode": "execution",
+          "successful_execution_required_for_support": true,
+          "score_3_anchor": "A relevant normal execution passed; applicable adverse/recovery checks remain incomplete.",
+          "score_4_anchor": "Successful evidence covers this checkpoint's applicable normal and adverse/recovery conditions; record scope and oracle limits.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -1423,6 +1786,7 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         }
       ],
@@ -1441,6 +1805,10 @@
         {
           "id": "CAP-02.1",
           "question": "Replay the original failure condition after correction",
+          "evidence_mode": "execution",
+          "successful_execution_required_for_support": true,
+          "score_3_anchor": "A relevant normal execution passed; applicable adverse/recovery checks remain incomplete.",
+          "score_4_anchor": "Successful evidence covers this checkpoint's applicable normal and adverse/recovery conditions; record scope and oracle limits.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -1452,11 +1820,16 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         },
         {
           "id": "CAP-02.2",
-          "question": "Exercise recurrence prevention and adjacent regressions",
+          "question": "Exercise recurrence prevention and adjacent valid behavior",
+          "evidence_mode": "execution",
+          "successful_execution_required_for_support": true,
+          "score_3_anchor": "A relevant normal execution passed; applicable adverse/recovery checks remain incomplete.",
+          "score_4_anchor": "Successful evidence covers this checkpoint's applicable normal and adverse/recovery conditions; record scope and oracle limits.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -1468,11 +1841,16 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         },
         {
           "id": "CAP-02.3",
-          "question": "Update the durable control/test and preserve residual risk",
+          "question": "Inspect the durable control/test update and preserve residual risk",
+          "evidence_mode": "inspection",
+          "successful_execution_required_for_support": false,
+          "score_3_anchor": "The current artifact was inspected; a relevant source, consumer or contradiction cross-check remains incomplete.",
+          "score_4_anchor": "Cross-check the current artifact against referenced source, contract or receiving-party evidence; resolve contradictions or keep them open. A document title alone is insufficient.",
           "claimed_status": "unverified",
           "status": "unverified",
           "claimed_score": null,
@@ -1484,6 +1862,7 @@
           "owner": "",
           "due": "",
           "evidence": [],
+          "evidence_links": [],
           "issues": []
         }
       ],
@@ -1494,6 +1873,7 @@
     }
   ],
   "boundaries": [],
+  "processes": [],
   "evidence_validation": {},
   "risks": [],
   "review_queue": [
@@ -1638,7 +2018,8 @@
         "control:REQ-01",
         "control:REQ-02",
         "control:RSK-01",
-        "no_applicable_supported_control"
+        "no_applicable_supported_control",
+        "review_accountability_unestablished"
       ],
       "review": {
         "claimed_status": "unverified",
@@ -1652,6 +2033,7 @@
         "owner": "",
         "due": "",
         "evidence": [],
+        "evidence_links": [],
         "issues": []
       }
     },
@@ -1673,7 +2055,8 @@
         "control:DES-02",
         "control:SUP-01",
         "control:GAT-01",
-        "no_applicable_supported_control"
+        "no_applicable_supported_control",
+        "review_accountability_unestablished"
       ],
       "review": {
         "claimed_status": "unverified",
@@ -1687,6 +2070,7 @@
         "owner": "",
         "due": "",
         "evidence": [],
+        "evidence_links": [],
         "issues": []
       }
     },
@@ -1708,7 +2092,8 @@
         "control:IMP-02",
         "control:PRE-01",
         "control:CHG-01",
-        "no_applicable_supported_control"
+        "no_applicable_supported_control",
+        "review_accountability_unestablished"
       ],
       "review": {
         "claimed_status": "unverified",
@@ -1722,6 +2107,7 @@
         "owner": "",
         "due": "",
         "evidence": [],
+        "evidence_links": [],
         "issues": []
       }
     },
@@ -1745,7 +2131,8 @@
         "control:PRE-02",
         "control:REL-01",
         "control:REL-02",
-        "no_applicable_supported_control"
+        "no_applicable_supported_control",
+        "review_accountability_unestablished"
       ],
       "review": {
         "claimed_status": "unverified",
@@ -1759,6 +2146,7 @@
         "owner": "",
         "due": "",
         "evidence": [],
+        "evidence_links": [],
         "issues": []
       }
     },
@@ -1780,7 +2168,8 @@
         "control:OPS-02",
         "control:CAP-01",
         "control:CAP-02",
-        "no_applicable_supported_control"
+        "no_applicable_supported_control",
+        "review_accountability_unestablished"
       ],
       "review": {
         "claimed_status": "unverified",
@@ -1794,6 +2183,7 @@
         "owner": "",
         "due": "",
         "evidence": [],
+        "evidence_links": [],
         "issues": []
       }
     }
@@ -1804,12 +2194,31 @@
       "0": "A current, evidenced failure or missing required control; status gap.",
       "1": "Intent/design is documented, implementation or execution is not established; status partial.",
       "2": "Control is implemented with limited/static evidence; required scenarios remain incomplete; status partial.",
-      "3": "Relevant normal scenarios are verified, but adverse/recovery or adjacent checks remain incomplete; status partial. Execution-sensitive controls require a successful run.",
-      "4": "All checkpoints applicable to this criterion are reviewed and supported, including adverse/recurrence evidence where relevant; status supported.",
+      "3": "This checkpoint has substantial current evidence, but an applicable cross-check or scenario remains incomplete; status partial. Behavioral checkpoints require successful execution.",
+      "4": "This checkpoint meets all its applicable acceptance conditions and cross-checks; status supported. Do not require sibling checkpoints to pass before scoring this one. Behavioral checkpoints require relevant successful execution.",
       "unverified": "No defensible current score. Excluded from observed score, included in coverage denominator.",
       "not_applicable": "Evidence-backed scope exclusion. Excluded from scoring denominators and counted separately."
     },
-    "weight_policy": "Initial fixed policy: listed high-impact controls weight 3; other controls and boundary aspects weight 2. Not calibrated defect probabilities.",
+    "policy_id": "balanced-area/1.0",
+    "area_budgets_percent": {
+      "requirements": 5,
+      "design": 7,
+      "dependencies": 4,
+      "implementation": 12,
+      "verification": 12,
+      "release": 7,
+      "operations": 7,
+      "change": 4,
+      "risk": 6,
+      "improvement": 6,
+      "scope": 4,
+      "prevention": 10,
+      "handoff": 4,
+      "diagnosis": 6,
+      "interfaces": 6
+    },
+    "active_budget_percent": 94,
+    "weight_policy": "Fixed area budgets total 100. Criterion priority is distributed within its area; interface count cannot expand its area budget. Excluded or unrepresented areas are disclosed and remaining budgets are normalized. Policy priorities, not calibrated incident probabilities.",
     "overall": {
       "observed_score_percent": null,
       "weighted_coverage_percent": 0.0,
@@ -1820,23 +2229,18 @@
       "not_applicable_items": 0
     },
     "by_stage": {
-      "change": {
+      "requirements": {
         "observed_score_percent": null,
         "weighted_coverage_percent": 0.0,
         "documented_achievement_lower_bound_percent": 0.0,
-        "total_items": 3,
+        "total_items": 6,
         "scored_items": 0,
-        "unverified_items": 3,
-        "not_applicable_items": 0
-      },
-      "dependencies": {
-        "observed_score_percent": null,
-        "weighted_coverage_percent": 0.0,
-        "documented_achievement_lower_bound_percent": 0.0,
-        "total_items": 3,
-        "scored_items": 0,
-        "unverified_items": 3,
-        "not_applicable_items": 0
+        "unverified_items": 6,
+        "not_applicable_items": 0,
+        "budget_percent": 5,
+        "effective_budget_percent": 5.3191,
+        "earned_contribution_percent": 0.0,
+        "applicability": "active"
       },
       "design": {
         "observed_score_percent": null,
@@ -1845,25 +2249,24 @@
         "total_items": 6,
         "scored_items": 0,
         "unverified_items": 6,
-        "not_applicable_items": 0
+        "not_applicable_items": 0,
+        "budget_percent": 7,
+        "effective_budget_percent": 7.4468,
+        "earned_contribution_percent": 0.0,
+        "applicability": "active"
       },
-      "diagnosis": {
-        "observed_score_percent": null,
-        "weighted_coverage_percent": 0.0,
-        "documented_achievement_lower_bound_percent": 0.0,
-        "total_items": 6,
-        "scored_items": 0,
-        "unverified_items": 6,
-        "not_applicable_items": 0
-      },
-      "handoff": {
+      "dependencies": {
         "observed_score_percent": null,
         "weighted_coverage_percent": 0.0,
         "documented_achievement_lower_bound_percent": 0.0,
         "total_items": 3,
         "scored_items": 0,
         "unverified_items": 3,
-        "not_applicable_items": 0
+        "not_applicable_items": 0,
+        "budget_percent": 4,
+        "effective_budget_percent": 4.2553,
+        "earned_contribution_percent": 0.0,
+        "applicability": "active"
       },
       "implementation": {
         "observed_score_percent": null,
@@ -1872,70 +2275,11 @@
         "total_items": 6,
         "scored_items": 0,
         "unverified_items": 6,
-        "not_applicable_items": 0
-      },
-      "improvement": {
-        "observed_score_percent": null,
-        "weighted_coverage_percent": 0.0,
-        "documented_achievement_lower_bound_percent": 0.0,
-        "total_items": 6,
-        "scored_items": 0,
-        "unverified_items": 6,
-        "not_applicable_items": 0
-      },
-      "operations": {
-        "observed_score_percent": null,
-        "weighted_coverage_percent": 0.0,
-        "documented_achievement_lower_bound_percent": 0.0,
-        "total_items": 6,
-        "scored_items": 0,
-        "unverified_items": 6,
-        "not_applicable_items": 0
-      },
-      "prevention": {
-        "observed_score_percent": null,
-        "weighted_coverage_percent": 0.0,
-        "documented_achievement_lower_bound_percent": 0.0,
-        "total_items": 6,
-        "scored_items": 0,
-        "unverified_items": 6,
-        "not_applicable_items": 0
-      },
-      "release": {
-        "observed_score_percent": null,
-        "weighted_coverage_percent": 0.0,
-        "documented_achievement_lower_bound_percent": 0.0,
-        "total_items": 6,
-        "scored_items": 0,
-        "unverified_items": 6,
-        "not_applicable_items": 0
-      },
-      "requirements": {
-        "observed_score_percent": null,
-        "weighted_coverage_percent": 0.0,
-        "documented_achievement_lower_bound_percent": 0.0,
-        "total_items": 6,
-        "scored_items": 0,
-        "unverified_items": 6,
-        "not_applicable_items": 0
-      },
-      "risk": {
-        "observed_score_percent": null,
-        "weighted_coverage_percent": 0.0,
-        "documented_achievement_lower_bound_percent": 0.0,
-        "total_items": 3,
-        "scored_items": 0,
-        "unverified_items": 3,
-        "not_applicable_items": 0
-      },
-      "scope": {
-        "observed_score_percent": null,
-        "weighted_coverage_percent": 0.0,
-        "documented_achievement_lower_bound_percent": 0.0,
-        "total_items": 3,
-        "scored_items": 0,
-        "unverified_items": 3,
-        "not_applicable_items": 0
+        "not_applicable_items": 0,
+        "budget_percent": 12,
+        "effective_budget_percent": 12.766,
+        "earned_contribution_percent": 0.0,
+        "applicability": "active"
       },
       "verification": {
         "observed_score_percent": null,
@@ -1944,11 +2288,145 @@
         "total_items": 9,
         "scored_items": 0,
         "unverified_items": 9,
-        "not_applicable_items": 0
+        "not_applicable_items": 0,
+        "budget_percent": 12,
+        "effective_budget_percent": 12.766,
+        "earned_contribution_percent": 0.0,
+        "applicability": "active"
+      },
+      "release": {
+        "observed_score_percent": null,
+        "weighted_coverage_percent": 0.0,
+        "documented_achievement_lower_bound_percent": 0.0,
+        "total_items": 6,
+        "scored_items": 0,
+        "unverified_items": 6,
+        "not_applicable_items": 0,
+        "budget_percent": 7,
+        "effective_budget_percent": 7.4468,
+        "earned_contribution_percent": 0.0,
+        "applicability": "active"
+      },
+      "operations": {
+        "observed_score_percent": null,
+        "weighted_coverage_percent": 0.0,
+        "documented_achievement_lower_bound_percent": 0.0,
+        "total_items": 6,
+        "scored_items": 0,
+        "unverified_items": 6,
+        "not_applicable_items": 0,
+        "budget_percent": 7,
+        "effective_budget_percent": 7.4468,
+        "earned_contribution_percent": 0.0,
+        "applicability": "active"
+      },
+      "change": {
+        "observed_score_percent": null,
+        "weighted_coverage_percent": 0.0,
+        "documented_achievement_lower_bound_percent": 0.0,
+        "total_items": 3,
+        "scored_items": 0,
+        "unverified_items": 3,
+        "not_applicable_items": 0,
+        "budget_percent": 4,
+        "effective_budget_percent": 4.2553,
+        "earned_contribution_percent": 0.0,
+        "applicability": "active"
+      },
+      "risk": {
+        "observed_score_percent": null,
+        "weighted_coverage_percent": 0.0,
+        "documented_achievement_lower_bound_percent": 0.0,
+        "total_items": 3,
+        "scored_items": 0,
+        "unverified_items": 3,
+        "not_applicable_items": 0,
+        "budget_percent": 6,
+        "effective_budget_percent": 6.383,
+        "earned_contribution_percent": 0.0,
+        "applicability": "active"
+      },
+      "improvement": {
+        "observed_score_percent": null,
+        "weighted_coverage_percent": 0.0,
+        "documented_achievement_lower_bound_percent": 0.0,
+        "total_items": 6,
+        "scored_items": 0,
+        "unverified_items": 6,
+        "not_applicable_items": 0,
+        "budget_percent": 6,
+        "effective_budget_percent": 6.383,
+        "earned_contribution_percent": 0.0,
+        "applicability": "active"
+      },
+      "scope": {
+        "observed_score_percent": null,
+        "weighted_coverage_percent": 0.0,
+        "documented_achievement_lower_bound_percent": 0.0,
+        "total_items": 3,
+        "scored_items": 0,
+        "unverified_items": 3,
+        "not_applicable_items": 0,
+        "budget_percent": 4,
+        "effective_budget_percent": 4.2553,
+        "earned_contribution_percent": 0.0,
+        "applicability": "active"
+      },
+      "prevention": {
+        "observed_score_percent": null,
+        "weighted_coverage_percent": 0.0,
+        "documented_achievement_lower_bound_percent": 0.0,
+        "total_items": 6,
+        "scored_items": 0,
+        "unverified_items": 6,
+        "not_applicable_items": 0,
+        "budget_percent": 10,
+        "effective_budget_percent": 10.6383,
+        "earned_contribution_percent": 0.0,
+        "applicability": "active"
+      },
+      "handoff": {
+        "observed_score_percent": null,
+        "weighted_coverage_percent": 0.0,
+        "documented_achievement_lower_bound_percent": 0.0,
+        "total_items": 3,
+        "scored_items": 0,
+        "unverified_items": 3,
+        "not_applicable_items": 0,
+        "budget_percent": 4,
+        "effective_budget_percent": 4.2553,
+        "earned_contribution_percent": 0.0,
+        "applicability": "active"
+      },
+      "diagnosis": {
+        "observed_score_percent": null,
+        "weighted_coverage_percent": 0.0,
+        "documented_achievement_lower_bound_percent": 0.0,
+        "total_items": 6,
+        "scored_items": 0,
+        "unverified_items": 6,
+        "not_applicable_items": 0,
+        "budget_percent": 6,
+        "effective_budget_percent": 6.383,
+        "earned_contribution_percent": 0.0,
+        "applicability": "active"
+      },
+      "interfaces": {
+        "observed_score_percent": null,
+        "weighted_coverage_percent": null,
+        "documented_achievement_lower_bound_percent": null,
+        "total_items": 0,
+        "scored_items": 0,
+        "unverified_items": 0,
+        "not_applicable_items": 0,
+        "budget_percent": 6,
+        "effective_budget_percent": 0,
+        "earned_contribution_percent": null,
+        "applicability": "not_represented"
       }
     },
     "open_high_or_critical_risks": [],
-    "interpretation": "Scores describe reviewed evidence maturity, not failure probability or release authorization. Unknowns lower coverage; their zero contribution to the achievement lower bound is not a defect verdict."
+    "interpretation": "Documented score is the achievement lower bound over applicable scope; unknowns contribute no earned points but are not classified as defects. Observed score describes scored evidence only. Compare coverage, exclusions and area budgets. Scores do not certify safety or authorize release."
   },
   "graph": null,
   "graph_connections": null,

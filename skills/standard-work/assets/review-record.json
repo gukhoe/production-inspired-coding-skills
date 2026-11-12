@@ -1,0 +1,22 @@
+{
+  "schema": "software-skill-record/1",
+  "skill": "standard-work",
+  "skill_version": "2.0",
+  "revision": "",
+  "author": "",
+  "reviewer": "",
+  "status": "UNVERIFIED",
+  "criterion_targets": [
+    "IMP-01",
+    "VER-01"
+  ],
+  "observations": {
+    "request": "",
+    "acceptance": "",
+    "affected_paths": "",
+    "verification": "",
+    "remaining_unknowns": ""
+  },
+  "evidence": [],
+  "open_actions": []
+}

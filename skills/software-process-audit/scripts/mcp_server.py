@@ -6,9 +6,11 @@ from pathlib import Path
 from typing import Any
 from functools import wraps
 
-from .audit import (CONTROLS, AuditError, Graph, blank_review, catalog, evaluate,
-                    evidence_record, file_hash, investigation_template, markdown,
-                    new_manifest, next_actions, safe_file)
+from .audit import (CONTROLS, AuditError, Graph, catalog, evaluate,
+                    evidence_record, investigation_template, markdown,
+                    new_manifest, next_actions)
+from .access_policy import project_file as safe_file, sensitive_path
+from .graph_adapter import read_json
 from . import __version__
 from .connection_audit import scan_python, import_connections, related_paths, connection_catalog
 from .visual_report import build_view, render_html
@@ -33,11 +35,15 @@ paths, identifiers, hashes and quotations; explain non-English quotations in Eng
 The renderer preserves supplied text and does not translate it. Prepare English
 manifest narrative before audit_evaluate; never rewrite evidence to change its language.
 Use audit_scan_connections for selected Python source or audit_import_connections for
-Graphify/complete REA JavaScript evidence. These generate static candidates, not confirmed
+Graphify/complete REA JavaScript/SARIF 2.1.0 evidence. These generate static candidates, not confirmed
 vulnerabilities or runtime proof. Review both endpoints using the connection questions;
 trace impact with audit_connection_path. Record confirmed findings in the audit manifest
 with evidence and explicit boundary targets. audit_visualize returns the one-page summary,
 interactive risk map and improvement tasks without writing or executing project files.
+For large manifests, audit_evaluate and audit_visualize accept manifest_path instead of
+inline manifest. Record the change author and audit relationship; disclose self-review.
+Explain reused evidence separately at each checkpoint with evidence_links. Local witness
+receipts improve traceability but are not signed attestations or proof of adequacy.
 """
 
 
@@ -53,6 +59,19 @@ def build_server(root):
         raise AuditError("--repo-root must name an existing project directory")
     server = MCPServer("Software Assurance Auditor", version=__version__, instructions=INSTRUCTIONS)
     annotations = ToolAnnotations(read_only_hint=True, destructive_hint=False, idempotent_hint=True, open_world_hint=False)
+
+    def load_manifest(manifest, manifest_path):
+        if (manifest is None) == (manifest_path is None):
+            raise AuditError('Supply exactly one of manifest or manifest_path')
+        if manifest_path is not None:
+            manifest, _ = read_json(safe_file(root, manifest_path), max_bytes=8 * 1024 * 1024)
+        if not isinstance(manifest, dict) or len(json.dumps(manifest).encode('utf-8')) > 8 * 1024 * 1024:
+            raise AuditError('Manifest must be an object within 8 MiB')
+        for record in manifest.get('evidence', []):
+            if not isinstance(record, dict):
+                raise AuditError('Evidence records must be objects')
+            safe_file(root, record.get('path'))
+        return manifest
 
     def expected_errors(function):
         @wraps(function)
@@ -88,9 +107,9 @@ def build_server(root):
         excluded = {".git", ".venv", "venv", "node_modules", "bin", "obj", "__pycache__", ".process-audit", "artifacts", "dist", "build"}
         files, truncated = [], False
         for directory, folders, names in os.walk(root, followlinks=False):
-            folders[:] = sorted(folder for folder in folders if folder.lower() not in excluded and not (Path(directory) / folder).is_symlink())
+            folders[:] = sorted(folder for folder in folders if folder.lower() not in excluded and not sensitive_path(folder) and not (Path(directory) / folder).is_symlink())
             for name in sorted(names):
-                if name.startswith(".env"):
+                if sensitive_path(name):
                     continue
                 path = Path(directory) / name
                 if path.is_symlink() or not path.is_file():
@@ -102,7 +121,7 @@ def build_server(root):
             if truncated:
                 break
         return {"files": files, "truncated": truncated, "excluded_directories": sorted(excluded),
-                "excluded_files": [".env*", "symlinks"],
+                "excluded_files": ["sensitive-file policy (.env*, keys, credentials, private metadata)", "symlinks"],
                 "note": "Candidate inventory only. Build/release scripts excluded from this listing can still be inspected explicitly with audit_read_file."}
 
     @server.tool(annotations=annotations, structured_output=True)
@@ -132,6 +151,7 @@ def build_server(root):
         """Hash an evidence file and return a record skeleton. Fill locator/summary; execution evidence also needs the actual command, exit code and timestamp."""
         if not evidence_id.strip() or not revision.strip():
             raise AuditError("Evidence ID and revision required")
+        safe_file(root, path)
         return evidence_record(root, path, evidence_id, kind, revision)
 
     @server.tool(annotations=annotations, structured_output=True)
@@ -142,12 +162,11 @@ def build_server(root):
 
     @server.tool(annotations=annotations, structured_output=True)
     @expected_errors
-    def audit_evaluate(manifest: dict[str, Any], revision: str, graph_path: str | None = None) -> dict[str, Any]:
+    def audit_evaluate(manifest: dict[str, Any] | None = None, revision: str = "", graph_path: str | None = None, manifest_path: str | None = None) -> dict[str, Any]:
         """Evaluate every checkpoint, score evidence maturity/coverage, block unsupported handoffs and return fixed report template 1.0 plus next actions. Optional graph path is repository-relative."""
-        if len(json.dumps(manifest).encode("utf-8")) > 8 * 1024 * 1024:
-            raise AuditError("Manifest limit: 8 MiB")
+        manifest = load_manifest(manifest, manifest_path)
         graph = Graph(safe_file(root, graph_path)) if graph_path else None
-        result = evaluate(manifest, root, revision, graph)
+        result = evaluate(manifest, root, revision, graph, path_policy=safe_file)
         return {"report": result, "report_markdown": markdown(result), "next_actions": next_actions(result)}
 
     @server.tool(annotations=annotations, structured_output=True)
@@ -160,7 +179,9 @@ def build_server(root):
     @server.tool(annotations=annotations, structured_output=True)
     @expected_errors
     def audit_scan_connections(paths: list[str]) -> dict[str, Any]:
-        """Inspect selected Python files without execution. Return connection evidence, three initial risk-candidate rules and eight verification probes. No finding is not a safety verdict."""
+        """Inspect selected Python files without execution. Return connection evidence, four initial risk-candidate rules and eight verification probes. No finding is not a safety verdict."""
+        for path in paths:
+            safe_file(root, path)
         return {"connections": scan_python(root, paths), "probes": connection_catalog()}
 
     @server.tool(annotations=annotations, structured_output=True)
@@ -177,12 +198,11 @@ def build_server(root):
 
     @server.tool(annotations=annotations, structured_output=True)
     @expected_errors
-    def audit_visualize(manifest: dict[str, Any], revision: str, connections_path: str | None = None, graph_path: str | None = None) -> dict[str, Any]:
+    def audit_visualize(manifest: dict[str, Any] | None = None, revision: str = "", connections_path: str | None = None, graph_path: str | None = None, manifest_path: str | None = None) -> dict[str, Any]:
         """Re-evaluate the manifest and return an offline English visual report plus improvement tasks. Red shows reviewed high risks/gaps; static candidates remain amber. No files written."""
-        if len(json.dumps(manifest).encode("utf-8")) > 8 * 1024 * 1024:
-            raise AuditError("Manifest limit: 8 MiB")
+        manifest = load_manifest(manifest, manifest_path)
         graph = Graph(safe_file(root, graph_path)) if graph_path else None
-        result = evaluate(manifest, root, revision, graph)
+        result = evaluate(manifest, root, revision, graph, path_policy=safe_file)
         connections = import_connections(safe_file(root, connections_path), "native") if connections_path else None
         view = build_view(result, connections)
         # The complete graph is embedded in the offline HTML. Avoid returning a

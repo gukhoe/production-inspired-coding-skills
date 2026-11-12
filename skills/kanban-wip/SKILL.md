@@ -1,14 +1,15 @@
 ---
 name: kanban-wip
-description: Use when multiple agents edit or review a repository.
+description: Use when multiple authorized contributors or agents share a repository and concurrent edits need ownership and integration limits.
+metadata:
+  version: "2.0"
 ---
-# Kanban WIP limits for parallel agents
+# Kanban Wip
 
-## Trigger
-Use when multiple agents edit or review a repository.
+1. Use parallel agents only when authorized and useful. Assign one active edit owner per shared module; queue conflicting work.
+2. Name integration ownership and required cross-module checks. Measure blocked/queue time rather than adding workers reflexively.
+3. Complete when changes integrate and required regressions pass; individual worker success does not establish integrated correctness.
 
-## Operating rule
-Limit active edits per shared module to one owner. Parallelize independent files only. Reserve integration ownership and queue competing edits. Measure queue time rather than adding agents reflexively.
+## Output and evidence
 
-## Evidence and termination
-Use existing executable tooling first. Store full logs on disk; send only exit status, failing assertion, and at most 3 unique error signatures to the model. Report PASS only for executed checks, BLOCKED for failed mandatory checks, UNVERIFIED for unavailable checks. Stop at the defined gate; do not iterate without new evidence.
+Use [the blank output form](assets/output-template.md) for this workflow and [the portable record](assets/review-record.json) when transferring it to the auditor. Fill only observed facts; link raw evidence rather than copying logs into the conversation. A completed form is a document, not execution evidence or an automatic supported score.

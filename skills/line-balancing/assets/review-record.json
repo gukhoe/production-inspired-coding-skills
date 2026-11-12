@@ -1,0 +1,26 @@
+{
+  "schema": "software-skill-record/1",
+  "skill": "line-balancing",
+  "skill_version": "2.0",
+  "revision": "",
+  "author": "",
+  "reviewer": "",
+  "status": "UNVERIFIED",
+  "criterion_targets": [
+    "CHG-01",
+    "VER-03"
+  ],
+  "observations": {
+    "stage": "",
+    "conditions": "",
+    "wall_time": "",
+    "tool_time": "",
+    "tokens_or_unknown": "",
+    "retries": "",
+    "conflicts": "",
+    "quality_guard": "",
+    "comparison": ""
+  },
+  "evidence": [],
+  "open_actions": []
+}

@@ -1,4 +1,4 @@
-"""Software process audit CLI. Standard library only; never executes target code."""
+"""Standard-library software auditor. Only the explicit witness command executes code."""
 import argparse
 from collections import Counter
 from datetime import datetime, timezone
@@ -8,11 +8,15 @@ from pathlib import Path, PureWindowsPath
 import sys
 
 if __package__:
+    from .witness import verify_receipt
+    from .assurance import accountability, reuse_index, reuse_issues
     from .graph_adapter import AuditError, Graph, read_json
-    from .audit_standard import CHECKLISTS, EXTRA_CONTROLS, GATES, INVESTIGATION_STEPS, STANDARD_VERSION, catalog, evaluate_lifecycle, next_actions, scorecard
+    from .audit_standard import CHECKLISTS, LEGACY_CHECKLISTS, SUPPORTED_STANDARDS, EXTRA_CONTROLS, GATES, INVESTIGATION_STEPS, STANDARD_VERSION, catalog, checkpoint_policy, evaluate_lifecycle, next_actions, scorecard
 else:
+    from witness import verify_receipt
+    from assurance import accountability, reuse_index, reuse_issues
     from graph_adapter import AuditError, Graph, read_json
-    from audit_standard import CHECKLISTS, EXTRA_CONTROLS, GATES, INVESTIGATION_STEPS, STANDARD_VERSION, catalog, evaluate_lifecycle, next_actions, scorecard
+    from audit_standard import CHECKLISTS, LEGACY_CHECKLISTS, SUPPORTED_STANDARDS, EXTRA_CONTROLS, GATES, INVESTIGATION_STEPS, STANDARD_VERSION, catalog, checkpoint_policy, evaluate_lifecycle, next_actions, scorecard
 
 
 # Original software criteria adapted from manufacturing audit and quality practices.
@@ -115,6 +119,7 @@ def blank_review():
 
 def new_manifest(revision, scope, graph=None):
     return {"schema_version": 2, "standard_version": STANDARD_VERSION, "revision": revision, "scope": scope,
+            "author": "", "audit_context": {"type": "first_party", "relationship": "unverified", "independence_rationale": ""},
             "scope_review": blank_review(), "graph_sha256": graph.sha256 if graph else None,
             "processes": [], "boundaries": [], "evidence": [], "risks": [],
             "assessments": [{"id": row[0], "checks": [{"id": f"{row[0]}.{index}", **blank_review()} for index in range(1, 4)]} for row in CONTROLS],
@@ -131,21 +136,11 @@ def investigation_template(mode, iid, targets):
             "steps": {name: blank_review() for name in INVESTIGATION_STEPS[mode]}}
 
 
-def evaluate(manifest, root, revision, graph=None):
-    require(type(manifest.get("schema_version")) is int and manifest["schema_version"] in {1, 2}, "Supported audit schema_version: 1 or 2")
-    current = manifest["schema_version"] == 2
-    if current:
-        require(manifest.get("standard_version") == STANDARD_VERSION, "Unsupported standard_version; migrate explicitly")
-    applicable_controls = CONTROLS if current else LEGACY_CONTROLS
-    require(nonempty(manifest.get("scope")) and nonempty(manifest.get("revision")) and nonempty(revision), "Scope and revision are required")
-    root = Path(root).resolve()
-    require(root.is_dir(), "Audited repository must be a directory")
-    same_revision = manifest["revision"] == revision
-    evidence = indexed(manifest.get("evidence"), "evidence")
+def _validate_evidence(evidence, root, revision, resolve_file):
     evidence_results = {}
     for eid, item in evidence.items():
         require(choice(item.get("kind"), {"source", "document", "execution"}), f"Unknown evidence kind: {eid}")
-        path = safe_file(root, item.get("path"))
+        path = resolve_file(root, item.get("path"))
         expected = item.get("sha256")
         require(isinstance(expected, str) and len(expected) == 64 and all(c in "0123456789abcdef" for c in expected), f"Invalid SHA-256: {eid}")
         reasons = []
@@ -166,9 +161,23 @@ def evaluate(manifest, root, revision, graph=None):
                 time_valid = False
             execution_valid = (nonempty(item.get("command")) and type(item.get("exit_code")) is int
                                and item["exit_code"] == 0 and time_valid)
-        evidence_results[eid] = {"valid": not reasons, "reasons": reasons,
+        provenance = "self_reported" if item["kind"] == "execution" else "file_identity"
+        if item.get("witness_receipt"):
+            try:
+                witnessed = verify_receipt(root, item, resolve_file)
+            except (OSError, ValueError, TypeError, KeyError):
+                witnessed = False
+            if not witnessed:
+                reasons.append("witness_receipt_invalid")
+            else:
+                provenance = "local_witness_consistent"
+        evidence_results[eid] = {"valid": not reasons, "reasons": reasons, "provenance": provenance,
                                  "successful_execution_record": execution_valid and not reasons}
 
+    return evidence_results
+
+
+def _make_assessor(current, same_revision, evidence, evidence_results, reuse):
     def assess(item, execution=False):
         require(isinstance(item, dict), "Assessment must be an object")
         for field in ("reviewer", "rationale", "finding", "improvement", "owner", "due"):
@@ -195,13 +204,21 @@ def evaluate(manifest, root, revision, graph=None):
                 problems.append("current_evidence_required")
             if execution and (claimed == "supported" or (current and claimed_score == 3)) and not any(evidence_results[eid]["successful_execution_record"] for eid in ids):
                 problems.append("successful_execution_evidence_required")
+            if current:
+                problems.extend(reuse_issues(item, evidence, reuse))
         return {"claimed_status": claimed, "status": "unverified" if problems else claimed,
                 "claimed_score": claimed_score, "score": None if problems else claimed_score,
                 "reviewer": item.get("reviewer", ""), "rationale": item.get("rationale", ""),
                 "finding": item.get("finding", ""), "improvement": item.get("improvement", ""),
                 "owner": item.get("owner", ""), "due": item.get("due", ""),
-                "evidence": ids, "issues": problems}
+                "evidence": ids, "evidence_links": item.get("evidence_links", []), "issues": problems}
 
+    return assess
+
+
+def _evaluate_controls(manifest, applicable_controls, current, assess):
+    standard = manifest.get('standard_version', STANDARD_VERSION)
+    questions = LEGACY_CHECKLISTS if standard == '0.2.0' else CHECKLISTS
     assessments = indexed(manifest.get("assessments"), "assessments")
     known = {row[0] for row in applicable_controls}
     require(not set(assessments) - known, "Unknown control id")
@@ -215,8 +232,9 @@ def evaluate(manifest, root, revision, graph=None):
         expected = {f"{cid}.{index}" for index in range(1, 4)}
         require(not set(checks) - expected, "Unknown checkpoint id in " + cid)
         evaluated = [{"id": f"{cid}.{index}", "question": question,
-                      **assess(checks.get(f"{cid}.{index}", blank_review()), execution)}
-                     for index, question in enumerate(CHECKLISTS[cid], 1)]
+                      **checkpoint_policy(cid, index, execution, standard),
+                      **assess(checks.get(f"{cid}.{index}", blank_review()), checkpoint_policy(cid, index, execution, standard)['successful_execution_required_for_support'])}
+                     for index, question in enumerate(questions[cid], 1)]
         active = [check for check in evaluated if check["status"] != "not_applicable"]
         score = min(check["score"] for check in active) if active and all(check["score"] is not None for check in active) else None
         status = ("not_applicable" if not active else "gap" if any(c["status"] == "gap" for c in active)
@@ -228,6 +246,10 @@ def evaluate(manifest, root, revision, graph=None):
                          "finding": " ".join(c["finding"] for c in evaluated if c["finding"]),
                          "improvement": " ".join(c["improvement"] for c in evaluated if c["improvement"]),
                          "issues": [issue for c in evaluated for issue in c["issues"]]})
+    return controls, known
+
+
+def _evaluate_processes(manifest, graph):
     processes = indexed(manifest.get("processes"), "processes")
     graph_used = False
     for pid, process in processes.items():
@@ -237,6 +259,10 @@ def evaluate(manifest, root, revision, graph=None):
         graph_used = graph_used or bool(node_ids)
         if graph:
             require(all(nid in graph.nodes for nid in node_ids), f"Unknown graph node in process {pid}")
+    return processes, graph_used
+
+
+def _evaluate_boundaries(manifest, processes, assess):
     boundaries = indexed(manifest.get("boundaries"), "boundaries")
     boundary_results = []
     for bid, boundary in boundaries.items():
@@ -247,8 +273,11 @@ def evaluate(manifest, root, revision, graph=None):
         results = {key: assess(reviews.get(key, blank_review()), execution) for key, execution in ASPECTS.items()}
         boundary_results.append({"id": bid, "source": boundary["source"], "target": boundary["target"],
                                  "failure_mode": boundary["failure_mode"], "reviews": results})
-    scope = assess(manifest.get("scope_review", blank_review()))
-    scope_issues = []
+    return boundaries, boundary_results
+
+
+def _scope_connections(manifest, processes, boundaries, boundary_results, scope, graph_used, graph, same_revision, assurance):
+    scope_issues = list(assurance["issues"])
     if scope["status"] != "supported":
         scope_issues.append("scope_completeness_unverified")
     if not processes:
@@ -280,6 +309,10 @@ def evaluate(manifest, root, revision, graph=None):
             if not candidate["review_boundary_declared"]:
                 scope_issues.append(f"graph_connection_requires_review:{candidate['source']}:{candidate['target']}")
 
+    return scope_issues, connections
+
+
+def _evaluate_risks(manifest, known, boundaries, assess):
     risks = indexed(manifest.get("risks"), "risks")
     risk_results = []
     targets = known | {"boundary:" + bid for bid in boundaries}
@@ -294,8 +327,41 @@ def evaluate(manifest, root, revision, graph=None):
         closed = risk["status"] == "closed" and verification["status"] == "supported" and action_complete
         risk_results.append({**risk, "effective_status": "closed" if closed else "open",
                              "action_complete": action_complete, "verification": verification})
-    gates, investigations = (evaluate_lifecycle(manifest, controls, risk_results, assess, indexed, refs, nonempty, targets)
+    return risk_results, targets
+
+
+def evaluate(manifest, root, revision, graph=None, path_policy=None):
+    require(type(manifest.get("schema_version")) is int and manifest["schema_version"] in {1, 2}, "Supported audit schema_version: 1 or 2")
+    current = manifest["schema_version"] == 2
+    if current:
+        require(choice(manifest.get("standard_version"), SUPPORTED_STANDARDS), "Unsupported standard_version; migrate explicitly")
+    applicable_controls = CONTROLS if current else LEGACY_CONTROLS
+    require(nonempty(manifest.get("scope")) and nonempty(manifest.get("revision")) and nonempty(revision), "Scope and revision are required")
+    root = Path(root).resolve()
+    resolve_file = path_policy or safe_file
+    require(root.is_dir(), "Audited repository must be a directory")
+    same_revision = manifest["revision"] == revision
+    evidence = indexed(manifest.get("evidence"), "evidence")
+    evidence_results = _validate_evidence(evidence, root, revision, resolve_file)
+
+    reuse = reuse_index(manifest, evidence) if current else {}
+    assurance = accountability(manifest) if current else {"issues": []}
+
+    assess = _make_assessor(current, same_revision, evidence, evidence_results, reuse)
+
+    controls, known = _evaluate_controls(manifest, applicable_controls, current, assess)
+    processes, graph_used = _evaluate_processes(manifest, graph)
+    boundaries, boundary_results = _evaluate_boundaries(manifest, processes, assess)
+    scope = assess(manifest.get("scope_review", blank_review()))
+    scope_issues, connections = _scope_connections(manifest, processes, boundaries, boundary_results, scope, graph_used, graph, same_revision, assurance)
+    risk_results, targets = _evaluate_risks(manifest, known, boundaries, assess)
+    gates, investigations = (evaluate_lifecycle(manifest, controls, risk_results, assess, indexed, refs, nonempty, targets, evidence_results)
                              if current else ([], []))
+    if assurance['issues']:
+        for gate in gates:
+            if gate['state'] != 'not_applicable':
+                gate['state'] = 'blocked'
+                gate['blockers'].append('review_accountability_unestablished')
     if not current:
         scope_issues.append("legacy_schema_no_current_scoring_or_lifecycle_review")
     elif all(check["status"] == "not_applicable" for control in controls for check in control["checks"]):
@@ -329,9 +395,10 @@ def evaluate(manifest, root, revision, graph=None):
                 actions.append({"target": "boundary:" + boundary["id"], "aspect": aspect,
                                 "status": review["status"], "next_step": "Inspect the handoff contract and exercise this failure scenario."})
     high_risks = [r["id"] for r in open_risks if r["severity"] in {"high", "critical"}]
-    return {"schema_version": 2, "report_template_version": "1.0", "standard_version": STANDARD_VERSION, "input_schema_version": manifest["schema_version"],
+    return {"schema_version": 2, "report_template_version": "1.0", "standard_version": manifest['standard_version'] if current else STANDARD_VERSION, "input_schema_version": manifest["schema_version"],
             "scope": manifest["scope"], "revision": revision,
             "outcome": outcome, "status_counts": counts, "scope_issues": scope_issues,
+            "assurance": assurance,
             "scope_review": scope, "controls": controls, "boundaries": boundary_results,
             "processes": list(processes.values()),
             "evidence_validation": evidence_results, "risks": risk_results, "review_queue": actions,
@@ -340,7 +407,7 @@ def evaluate(manifest, root, revision, graph=None):
                                 **evidence_results[eid]} for eid, e in evidence.items()],
             "open_high_or_critical_risks": high_risks,
             "gates": gates, "investigations": investigations,
-            "scorecard": scorecard(controls, boundary_results, high_risks) if current else None,
+            "scorecard": scorecard(controls, boundary_results, high_risks, manifest['standard_version']) if current else None,
             "graph": graph.summary() if graph else None, "graph_connections": connections, "limitations": LIMITATION}
 
 
@@ -351,11 +418,29 @@ def markdown(report):
              f"Scope: {cell(report['scope'])}", f"Revision: `{cell(report['revision'])}`", "", report["limitations"], "",
              "## Scope issues", ""]
     lines += ["- " + cell(issue) for issue in report["scope_issues"]] or ["No recorded scope issues."]
+    assurance = report.get("assurance", {})
+    if assurance.get("policy_version"):
+        context = assurance["audit_context"]
+        origins = Counter(e["provenance"] for e in report["evidence_validation"].values())
+        lines += ["", "## Review accountability", "", "| Field | Recorded value |", "|---|---|"]
+        rows = [("Assurance policy", assurance["policy_version"]), ("Change author", assurance["author"]),
+                ("Audit type", context.get("type", "unverified")), ("Reviewer relationship", context.get("relationship", "unverified")),
+                ("Independence", assurance["independence"]), ("Independence rationale", context.get("independence_rationale", "")),
+                ("Accountability issues", ", ".join(assurance["issues"]) or "None recorded"),
+                ("Evidence provenance counts", json.dumps(dict(sorted(origins.items()))))]
+        lines += [f"| {name} | {cell(value)} |" for name, value in rows]
+        lines += ["", assurance["execution_provenance"], "", assurance["limitation"], ""]
     if report.get("scorecard"):
         lines += ["", "## Evidence maturity scores", "", report["scorecard"]["interpretation"], "",
                   "| Stage | Observed score % | Weighted coverage % | Achievement lower bound % | Scored / total |", "|---|---|---|---|---|"]
         for stage, stats in {"overall": report["scorecard"]["overall"], **report["scorecard"]["by_stage"]}.items():
             lines.append(f"| {stage} | {stats['observed_score_percent']} | {stats['weighted_coverage_percent']} | {stats['documented_achievement_lower_bound_percent']} | {stats['scored_items']} / {stats['total_items']} |")
+        if report['scorecard'].get('area_budgets_percent'):
+            lines += ['', '### Area allocation', '', 'Policy: '+report['scorecard']['policy_id'], '',
+                      '| Area | Base budget % | Effective budget % | Earned contribution % | Applicability |', '|---|---|---|---|---|']
+            for area, stats in report['scorecard']['by_stage'].items():
+                lines.append(f"| {area} | {stats['budget_percent']} | {stats['effective_budget_percent']} | {stats['earned_contribution_percent']} | {stats['applicability']} |")
+            lines += ['', report['scorecard']['weight_policy'], '']
     lines += ["", "## Controls", "", "| Control | Stage | Status / score | Review, finding and improvement |", "|---|---|---|---|"]
     lines += [f"| {c['id']} | {c['stage']} | {c['status']} / {c.get('score')} | {cell(c['title'])}: {cell(c['rationale'])}. Finding: {cell(c.get('finding', ''))}. Improvement: {cell(c.get('improvement', ''))}. {cell(', '.join(c['issues']))} |" for c in report["controls"]]
     lines += ["", "## Standard checkpoint results", "",
@@ -411,13 +496,23 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest="command", required=True)
     sub.add_parser("criteria", help="Return the complete built-in questionnaire, checkpoints and scoring rubric as JSON")
+    skill_record = sub.add_parser("skill-evidence", help="Register a populated portable skill record as document evidence without scoring it")
+    for flag in ('repo', 'path', 'id', 'revision'):
+        skill_record.add_argument('--'+flag, required=True)
+    witness_cmd = sub.add_parser("witness", help="Opt-in local command execution recorder; not a sandbox, signature or MCP tool")
+    witness_cmd.add_argument("--repo", required=True)
+    witness_cmd.add_argument("--out", required=True)
+    witness_cmd.add_argument("--revision", required=True)
+    witness_cmd.add_argument("--source", action="append", required=True)
+    witness_cmd.add_argument("--timeout", type=float, default=60)
+    witness_cmd.add_argument("argv", nargs=argparse.REMAINDER)
     scan = sub.add_parser("map-source", help="Inspect selected Python source and connection risk candidates without execution")
     scan.add_argument("--repo", required=True)
     scan.add_argument("--path", action="append", required=True)
     scan.add_argument("--out", required=True)
-    imported = sub.add_parser("import-connections", help="Normalize Graphify or complete REA JavaScript evidence")
+    imported = sub.add_parser("import-connections", help="Normalize Graphify, complete REA JavaScript or SARIF 2.1.0 evidence")
     imported.add_argument("--input", required=True)
-    imported.add_argument("--format", choices=["graphify", "rea", "native"], required=True)
+    imported.add_argument("--format", choices=["graphify", "rea", "native", "sarif"], required=True)
     imported.add_argument("--out", required=True)
     paths = sub.add_parser("connection-path", help="Trace bounded relationship candidates, not runtime causality")
     paths.add_argument("--input", required=True)
@@ -465,7 +560,22 @@ def main(argv=None):
     args = parser.parse_args(argv)
     try:
         graph = Graph(args.graph) if getattr(args, "graph", None) else None
-        if args.command == "map-source":
+        if args.command == "skill-evidence":
+            if __package__:
+                from .skill_records import register
+            else:
+                from skill_records import register
+            print(json.dumps(register(Path(args.repo).resolve(), args.path, args.id, args.revision), indent=2))
+        elif args.command == "witness":
+            if __package__:
+                from .witness import record as witness_record
+            else:
+                from witness import record as witness_record
+            command = args.argv[1:] if args.argv[:1] == ["--"] else args.argv
+            receipt = witness_record(args.repo, args.out, args.revision, command, args.source, args.timeout)
+            print(json.dumps(receipt, indent=2))
+            return 0 if receipt["exit_code"] == 0 and receipt["termination_reason"] is None and receipt["sources_before"] == receipt["sources_after"] else 1
+        elif args.command == "map-source":
             write_new(args.out, json.dumps(scan_python(args.repo, args.path), indent=2) + "\n")
         elif args.command == "import-connections":
             write_new(args.out, json.dumps(import_connections(args.input, args.format), indent=2) + "\n")

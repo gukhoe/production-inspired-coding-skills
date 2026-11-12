@@ -1,6 +1,6 @@
 # Audit model, scoring and fixed report contract
 
-Standard 0.2.0; manifest schema 2; report template 1.0. Original software assurance criteria translating manufacturing audit and quality practices into software review. External risk reports and graph tools are optional.
+Default standard 0.3.0 (declared 0.2.0 retains original scoring and questions); manifest schema 2; report template 1.0. Original software assurance criteria translating manufacturing audit and quality practices into software review. External risk reports and graph tools are optional.
 
 ## Questionnaire
 
@@ -22,13 +22,13 @@ Omitted criteria/checkpoints retain their report positions as unverified. Unknow
 | 1 | partial | Intent/design exists; implementation/execution is not established |
 | 2 | partial | Implemented with limited/static evidence; required scenarios incomplete |
 | 3 | partial | Relevant normal scenarios verified; adverse/recovery/adjacent checks incomplete |
-| 4 | supported | All applicable checkpoint requirements supported, including adverse/recurrence evidence where relevant |
+| 4 | supported | This checkpoint meets its own applicable acceptance conditions and cross-checks; sibling results do not determine its score |
 | null | unverified | No defensible current score |
 | null | not_applicable | Evidence-backed scope exclusion |
 
-Every scored/excluded checkpoint needs reviewer, rationale and valid current evidence. Execution-sensitive checkpoints require successful execution for scores 3/4. The AI judges semantic adequacy; the engine verifies consistency and file identity, not truth or authenticity.
+Every scored/excluded checkpoint needs reviewer, rationale and valid current evidence. The catalog specifies inspection or execution mode and scoring anchors per checkpoint. Behavioral checkpoints require successful execution for scores 3/4; inspection checkpoints require substantive source/contract/consumer cross-checks. The AI judges semantic adequacy; the engine verifies consistency and file identity, not truth or authenticity.
 
-Initial weights: 3 for IMP-02, PRE-01, PRE-02, VER-02, REL-02, OPS-02 and CAP-02; 2 for other criteria and boundary aspects. Each checkpoint inherits its criterion weight. These are explicit policy weights, not calibrated incident probabilities.
+Standard 0.3.0 allocates 100 base points across areas, then distributes each area budget using criterion priorities (3 for IMP-02, PRE-01, PRE-02, VER-02, REL-02, OPS-02 and CAP-02; 2 otherwise). A criterion divides its priority across its checkpoints. Interface count cannot expand the interface budget. Reports disclose effective budgets, exclusions and earned contributions. Standard 0.2.0 retains its original checkpoint-weight formula. See [scoring balance and migration](../../../docs/SCORING_BALANCE.md); these are policy priorities, not calibrated probabilities.
 
 - **Observed score** = 100 * weighted earned points / maximum points of scored applicable checkpoints.
 - **Weighted coverage** = 100 * maximum points of scored applicable checkpoints / maximum points of all applicable checkpoints.
@@ -38,7 +38,7 @@ Unknowns lower coverage and contribute no earned points to the lower bound; this
 
 ## Evidence and source identity
 
-`evidence` prints a file SHA-256 record skeleton. Add precise locator and summary. Kinds: source, document, execution. Execution also needs command, integer exit code and timezone-qualified non-future timestamp. Failed runs can support gaps; only successful records support execution-sensitive scores 3/4. The tool never executes these commands.
+`evidence` prints a file SHA-256 record skeleton. Add precise locator and summary. Kinds: source, document, execution. Execution also needs command, integer exit code and timezone-qualified non-future timestamp. Failed runs can support gaps; only successful records support execution-sensitive scores 3/4. Evaluation never executes these commands. The separate CLI-only witness recorder runs only explicitly authorized argv; MCP stays read-only.
 
 Paths are repository-relative; absolute paths, parent traversal and symlink escape are rejected. Missing/modified files or changed revision invalidate use. `revision` is reviewer-supplied: commit plus dirty-tree fingerprint, or a content-manifest digest. The tool compares it; it does not independently hash the entire repository. Reusing one log for unrelated checks requires substantive justification.
 

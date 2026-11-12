@@ -1,14 +1,15 @@
 ---
 name: poka-yoke
-description: Use when preventing common coding and release errors.
+description: Use when an invalid input, unsafe mutation or recurring operator error can be prevented at the actual code boundary.
+metadata:
+  version: "2.0"
 ---
-# Mistake-proofing software changes
+# Poka Yoke
 
-## Trigger
-Use when preventing common coding and release errors.
+1. Identify the harmful action and last safe admission point; prefer schema, type, authorization, state or idempotency guards over warnings.
+2. Challenge the real boundary with a known-bad sentinel (red rabbit) and an adjacent known-good input. Show the guard rejects the former while preserving the latter.
+3. Preserve existing authorization and scope. Complete when the original failure is prevented and the control cannot be bypassed through an equivalent route.
 
-## Operating rule
-Prefer enforced schema, type checks, allowlists, permissions and CI guards over prose warnings. Guard destructive operations and prevent test weakening. Require explicit authorization for risky irreversible changes.
+## Output and evidence
 
-## Evidence and termination
-Use existing executable tooling first. Store full logs on disk; send only exit status, failing assertion, and at most 3 unique error signatures to the model. Report PASS only for executed checks, BLOCKED for failed mandatory checks, UNVERIFIED for unavailable checks. Stop at the defined gate; do not iterate without new evidence.
+Use [the blank output form](assets/output-template.md) for this workflow and [the portable record](assets/review-record.json) when transferring it to the auditor. Fill only observed facts; link raw evidence rather than copying logs into the conversation. A completed form is a document, not execution evidence or an automatic supported score.

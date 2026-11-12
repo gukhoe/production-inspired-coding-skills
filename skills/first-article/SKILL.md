@@ -1,14 +1,15 @@
 ---
 name: first-article
-description: Use before mass-generating modules, migrations or similar changes.
+description: Use before propagating generated code, templates or repeated configurations to many instances.
+metadata:
+  version: "2.0"
 ---
-# First article inspection for code templates
+# First Article
 
-## Trigger
-Use before mass-generating modules, migrations or similar changes.
+1. Build a representative instance and identify important variants and boundary conditions before scaling.
+2. Verify both a good sample and a known-bad sentinel against meaningful oracles; one sample does not qualify every variant.
+3. Record the qualified reference hash and variant coverage. Complete before propagation only when required variants pass; stop distribution of an unqualified template.
 
-## Operating rule
-Build one representative instance, test edge cases and review outputs before scaling. If first article fails, do not propagate template. Record approved reference hash.
+## Output and evidence
 
-## Evidence and termination
-Use existing executable tooling first. Store full logs on disk; send only exit status, failing assertion, and at most 3 unique error signatures to the model. Report PASS only for executed checks, BLOCKED for failed mandatory checks, UNVERIFIED for unavailable checks. Stop at the defined gate; do not iterate without new evidence.
+Use [the blank output form](assets/output-template.md) for this workflow and [the portable record](assets/review-record.json) when transferring it to the auditor. Fill only observed facts; link raw evidence rather than copying logs into the conversation. A completed form is a document, not execution evidence or an automatic supported score.

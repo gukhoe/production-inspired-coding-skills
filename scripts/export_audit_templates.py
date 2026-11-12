@@ -15,11 +15,13 @@ def main():
              "", "24 criteria, 72 separately assessed checkpoints. Each checkpoint uses the 0–4 rubric; unknowns remain unscored. The challenge is a review method, not permission to run code.", "",
              "## Scoring rubric", "", "| Score | Interpretation |", "|---|---|"]
     lines += [f"| {key} | {value} |" for key, value in criteria["scoring_rubric"].items()]
+    lines += ['', '## Area budgets', '', 'Policy: '+criteria['scoring_policy']['id']+'. See [scoring balance and migration](SCORING_BALANCE.md).', '', '| Area | Base budget % |', '|---|---|']
+    lines += [f'| {area} | {budget} |' for area, budget in criteria['scoring_policy']['area_budgets_percent'].items()]
     for control in criteria["controls"]:
         lines += ["", f"## {control['id']} — {control['criterion']}", "",
-                  f"Stage: {control['stage']}. Weight per checkpoint: {control['weight']}. Successful execution required for scores 3/4: {control['successful_execution_required_for_support']}.", "",
-                  control["audit_question"], "", "| ID | Checkpoint |", "|---|---|"]
-        lines += [f"| {item['id']} | {item['question']} |" for item in control["checkpoints"]]
+                  f"Area: {control['stage']}. Relative criterion priority within its area: {control['weight']}. Evidence requirements apply per checkpoint.", "",
+                  control["audit_question"], "", "| ID | Checkpoint | Evidence mode | Score 3 anchor | Score 4 anchor |", "|---|---|---|---|---|"]
+        lines += [f"| {item['id']} | {item['question']} | {item['evidence_mode']} | {item['score_3_anchor']} | {item['score_4_anchor']} |" for item in control["checkpoints"]]
         lines += ["", "Verification approach: " + control["challenge"]]
     lines += ["", "## Stage handoffs", "", "| Gate | From | To | Required criteria |", "|---|---|---|---|"]
     lines += [f"| {g['id']} | {g['from']} | {g['to']} | {', '.join(g['required_controls'])} |" for g in criteria["stage_gates"]]

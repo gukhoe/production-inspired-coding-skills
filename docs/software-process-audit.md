@@ -2,6 +2,8 @@
 
 An independent AI software audit tool with built-in questions, evidence scoring, stage gates, failure investigation and corrective-action verification. This is an initial translation of manufacturing audit and quality practices into software assurance.
 
+Source preview 0.3.0a2 adds [review accountability, evidence-reuse controls, an opt-in local execution recorder, SARIF ingestion and consistent MCP file protection](AUDIT_REVIEW_CONTROLS.md). These changes are not present in published tag `auditor-v0.3.0a1`. Standard 0.3.0 introduces [balanced area budgets and question-specific evidence requirements](SCORING_BALANCE.md) for the 72 checkpoints; assurance policy 1.0 adds accountability and integrity validation. Declared standard 0.2.0 reviews retain their original scoring policy. [Skill v2 forms](SKILL_V2.md) can be registered as document evidence without automatically assigning an audit score.
+
 Ask: Are harmful actions prevented? Can a stage hand its outputs to the next stage with valid evidence? Can a failure be reproduced and its cause distinguished from a hypothesis? Does a correction prevent recurrence without breaking connected behavior?
 
 ## Two independent products

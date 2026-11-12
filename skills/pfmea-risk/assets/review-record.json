@@ -1,0 +1,28 @@
+{
+  "schema": "software-skill-record/1",
+  "skill": "pfmea-risk",
+  "skill_version": "2.0",
+  "revision": "",
+  "author": "",
+  "reviewer": "",
+  "status": "UNVERIFIED",
+  "criterion_targets": [
+    "RSK-01",
+    "PRE-01"
+  ],
+  "observations": {
+    "failure_mode": "",
+    "effect": "",
+    "cause": "",
+    "severity_basis": "",
+    "occurrence_basis": "",
+    "detection_basis": "",
+    "priority_and_rubric": "",
+    "control_location": "",
+    "challenge": "",
+    "observed_result": "",
+    "owner": ""
+  },
+  "evidence": [],
+  "open_actions": []
+}

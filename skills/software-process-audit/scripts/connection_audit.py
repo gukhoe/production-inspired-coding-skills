@@ -9,8 +9,10 @@ import json
 from pathlib import Path
 
 if __package__:
+    from .sarif_adapter import from_sarif
     from .graph_adapter import AuditError, Graph, read_json
 else:
+    from sarif_adapter import from_sarif
     from graph_adapter import AuditError, Graph, read_json
 
 SCHEMA = "software-assurance-connections/1"
@@ -35,19 +37,19 @@ def connection_catalog():
             for key, title, question, verification in PROBES]
 
 
-def validate_connections(data):
-    if not isinstance(data, dict) or data.get("schema") != SCHEMA:
-        raise AuditError("Unsupported connection evidence schema")
-    nodes, edges = data.get("nodes"), data.get("edges")
-    if not isinstance(nodes, list) or not isinstance(edges, list) or len(nodes) > 100000 or len(edges) > 300000:
-        raise AuditError("Connection graph requires arrays within 100000 nodes / 300000 edges")
-    ids, eids = set(), set()
+def _validate_nodes(nodes):
+    ids = set()
     for node in nodes:
         if not isinstance(node, dict) or not isinstance(node.get("id"), str) or not node["id"] or node["id"] in ids:
             raise AuditError("Connection nodes require unique string IDs")
         if not isinstance(node.get("label"), str):
             raise AuditError("Connection node label must be text")
         ids.add(node["id"])
+    return ids
+
+
+def _validate_edges(edges, ids):
+    eids = set()
     for edge in edges:
         if (not isinstance(edge, dict) or not isinstance(edge.get("id"), str) or not edge["id"] or edge["id"] in eids
                 or not isinstance(edge.get("source"), str) or not isinstance(edge.get("target"), str)
@@ -58,10 +60,10 @@ def validate_connections(data):
         if not isinstance(edge.get("relation"), str) or not isinstance(edge.get("provenance"), dict):
             raise AuditError("Connection relation and provenance required")
         eids.add(edge["id"])
-    if (not isinstance(data.get("coverage"), dict) or not isinstance(data.get("limitations"), list)
-            or any(not isinstance(item, str) for item in data["limitations"])):
-        raise AuditError("Connection coverage and limitations required")
-    findings = data.get("findings", [])
+    return eids
+
+
+def _validate_findings(findings, eids):
     if not isinstance(findings, list):
         raise AuditError("Connection findings must be an array")
     seen = set()
@@ -73,11 +75,27 @@ def validate_connections(data):
         if any(not isinstance(finding.get(key), str) for key in ('title', 'failure_scenario', 'improvement', 'verification')):
             raise AuditError("Connection finding narrative must be text")
         seen.add(finding["id"])
+
+
+def validate_connections(data):
+    if not isinstance(data, dict) or data.get("schema") != SCHEMA:
+        raise AuditError("Unsupported connection evidence schema")
+    nodes, edges = data.get("nodes"), data.get("edges")
+    if not isinstance(nodes, list) or not isinstance(edges, list) or len(nodes) > 100000 or len(edges) > 300000:
+        raise AuditError("Connection graph requires arrays within 100000 nodes / 300000 edges")
+    ids = _validate_nodes(nodes)
+    eids = _validate_edges(edges, ids)
+    if (not isinstance(data.get("coverage"), dict) or not isinstance(data.get("limitations"), list)
+            or any(not isinstance(item, str) for item in data["limitations"])):
+        raise AuditError("Connection coverage and limitations required")
+    _validate_findings(data.get("findings", []), eids)
     return data
 
 
 def import_connections(path, format):
-    data, sha = read_json(path)
+    data, sha = read_json(path, max_bytes=16*1024*1024) if format == "sarif" else read_json(path)
+    if format == "sarif":
+        return validate_connections(from_sarif(data, sha, AuditError))
     if format == "native":
         return validate_connections(data)
     nodes, edges, limitations = [], [], []
@@ -212,6 +230,17 @@ def scan_python(root, paths):
             return eid
         class Visitor(ast.NodeVisitor):
             current = file_id
+            def visit_ExceptHandler(self, item):
+                if item.type is None and item.body and all(isinstance(statement, ast.Pass) for statement in item.body):
+                    target = node(f'exception:{relative}:{item.lineno}', 'Bare exception silently swallowed', 'exception handler', path=relative, line=item.lineno)
+                    eid = add_edge(self.current, target, 'silently swallows exception', item.lineno)
+                    findings.append({'id': 'PY-SILENT-EXCEPT:'+eid, 'rule': 'PY-SILENT-EXCEPT', 'edge_id': eid,
+                                     'severity': 'medium', 'state': 'candidate', 'title': 'Bare except: pass hides failure', 'probe': 'CON-07',
+                                     'failure_scenario': 'A failed operation may appear successful because no failure is surfaced. Confirm intended containment semantics.',
+                                     'improvement': 'Catch expected exceptions narrowly and expose a failure or explicit recovery outcome.',
+                                     'verification': 'Inject the operation failure and assert an observable stop/recovery signal.',
+                                     'path': relative, 'line': item.lineno, 'sha256': sha})
+                self.generic_visit(item)
             def visit_FunctionDef(self, item):
                 parent = self.current
                 self.current = node(f"python:{relative}:{item.lineno}:{item.name}", item.name, "function", path=relative, line=item.lineno, sha256=sha)
@@ -262,7 +291,7 @@ def scan_python(root, paths):
         "nodes": list(nodes.values()), "edges": edges, "findings": findings,
         "coverage": {"status": "partial", "selected_files": examined, "parse_errors": errors, "scope": "Explicitly selected Python files only"},
         "limitations": ["No code was imported or executed. Calls identify syntax expressions, not fully resolved runtime callees.",
-                        "Only three initial connection rules are implemented. No finding does not establish security or completeness.",
+                        "Only four initial connection rules are implemented. Import external SARIF for broader analysis. No finding does not establish security or completeness.",
                         "Dynamic dispatch, wrappers, inter-file aliasing, generated code and non-Python files remain unassessed.",
                         "Import alias shadowing is conservatively suppressed across the file. Candidates require semantic review and authorized tests."]})
 

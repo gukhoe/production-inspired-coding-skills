@@ -1,0 +1,29 @@
+{
+  "schema": "software-skill-record/1",
+  "skill": "eight-d-root-cause",
+  "skill_version": "2.0",
+  "revision": "",
+  "author": "",
+  "reviewer": "",
+  "status": "UNVERIFIED",
+  "criterion_targets": [
+    "DIA-01",
+    "DIA-02",
+    "CAP-02"
+  ],
+  "observations": {
+    "owner": "",
+    "problem": "",
+    "temporary_containment": "",
+    "reproducer": "",
+    "occurrence_cause": "",
+    "escape_point": "",
+    "correction": "",
+    "effectiveness": "",
+    "system_prevention": "",
+    "analogous_sites": "",
+    "closure": ""
+  },
+  "evidence": [],
+  "open_actions": []
+}
